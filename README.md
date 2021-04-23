@@ -31,5 +31,5 @@ Accordingly to the customer's requirements, the software has the following featu
 ## Software usage
 <p align="center">
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/add.png">
-  <span class="img_caption" style="display: block; text-align: center;">Test caption</span>
+  <figcaption>Test caption></figcaption>
 </p>
