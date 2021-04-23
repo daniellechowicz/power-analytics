@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{ filename }}</title>
+    <style>
+        body {
+            font: 14px serif Georgia;
+        }
+        
+        #container {
+            width: 840px;
+            height: 1188px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgb(255, 255, 255);
+        }
+        
+        #logo {
+            float: right;
+        }
+
+        table.metadata {
+            border: 1px solid black;
+            width: 100%;
+            font-size: 10px;
+            table-layout: fixed
+        }
+        
+        table.metadata,
+        td,
+        th {
+            border: 1px solid rgba(0, 0, 0, 0.250);
+        }
+        
+        td {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            clear: both;
+        }
+        
+        .col1,
+        .col2 {
+            width: 200px;
+        }
+        
+        .col1 {
+            float: left;
+            text-align: left;
+        }
+        
+        .col2 {
+            text-align: left;
+            margin-left: 10px;
+        }
+        
+        #fig {
+            align-items: center;
+            width: 100%;
+        }
+        
+        #footer {
+            text-align: center;
+            height: 20px;
+            width: 840px;
+            position: fixed;
+            bottom: 0;
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <img id="logo" src="data:image/png;base64,{{ logo }}" width="100px">
+
+        <!-- AUTOR AND DATE -->
+        <div>
+            <h5>Durchgeführt von {{ metadata.author }} am {{ metadata.date }}</h5>
+        </div>
+
+        <!-- GO UNDER THE LOGO -->
+        <br>
+        <br>
+
+        <!-- Title -->
+        <h1 style="text-align: center;">Messprotokoll</h1>
+
+        <br>
+
+        <!-- Parameters used -->
+        <h3>Angewandte Parameter</h3>
+        <ul>
+            <li class="line-item">
+                <span class="col1">
+                    Werkstoff:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.material }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Schnittrichtung:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.cutting_direction }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Drehzahl [U/min]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.rotational_speed }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Vorschubgeschwindigkeit [m/min]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.feed_speed }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Zahnvorschub [mm]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.feed_per_tooth }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Schnittgeschwindigkeit [m/s]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.cutting_speed }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Schnittbreite [mm]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.cutting_width }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Schnitttiefe [mm]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.cutting_depth }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Eingriffswinkel [°]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.cutting_angle }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Mittlere Spandicke [mm]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.mean_chip_thickness }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Mittlere Spanlänge [mm]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.mean_chip_length }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    ID-Nummer:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.tool_id }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Klassifizierungsnummer:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.classification_no }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    SGE:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.strategic_business_unit }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Werkzeugdurchmesser [mm]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.tool_diameter }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Schneidenbreite [mm]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.tool_cutting_width }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Schneidenzahl:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.no_of_wings }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Gesamtschneidenanzahl:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.total_no_of_wings }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Schneidenwerkstoff:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.cutting_material }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    PCD Qualität:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.cutting_material_quality }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Grundkörpermaterial:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.body_material }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Maximale Drehzahl [U/min]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.n_max }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Optimale Drehzahl [U/min]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.n_opt }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Spanwinkel [°]:
+                </span>
+                <span class="col2">
+                    <b>{{ metadata.rake_angle }}</b>
+                </span>
+            </li>
+        </ul>
+
+        <!-- COMMENTS SECTION -->
+        <h3>Kommentare</h3>
+        <p style="font-size: 12px; font-style: italic; text-align: justify;">{{ metadata.comments }}</p>
+
+        <!-- SECTION LINE -->
+        <hr>
+
+        <!-- FIGURE -->
+        <h3>Darstellung</h3>
+        
+        {% for figure in figures %}
+        <img id="fig" src="data:image/png;base64,{{ figure }}">
+        <div style="text-align: center; align-items: center;">
+        {% if loop.index0 == 0 %}
+            <p><b>Abbildung 1:</b> Leistungsaufnahme des gesamten Messfiles über die Zeit</p>
+        {% elif loop.index0 == 1 %}
+            <p><b>Abbildung 2:</b> Leistungsaufnahme des Schnittprozesses über die Zeit</p>
+        {% endif %}
+        </div>
+        {% endfor %}
+
+        <!-- SECTION LINE -->
+        <hr>
+
+        <!-- STATISTICS -->
+        <h3>Statistik</h3>
+        <table class="metadata">
+            <tr>
+                <th rowspan="2"></th>
+                <th>Minimum</th>
+                <th>Maximum</th>
+                <th>Mittelwert</th>
+                <th>Median</th>
+                <th>Standardabweichung</th>
+            </tr>
+            <tr style="font-style: italic;">
+                <th colspan="5">kW</th>
+            </tr>
+            <tr>
+                <td>Leerlauf</td>
+                <td>{{ stats.idle.min }}</td>
+                <td>{{ stats.idle.max }}</td>
+                <td>{{ stats.idle.mean }}</td>
+                <td>{{ stats.idle.median }}</td>
+                <td>{{ stats.idle.std }}</td>
+            </tr>
+            <tr>
+                <td>Schneiden + Leerlauf</td>
+                <td>{{ stats.cutting_idle.min }}</td>
+                <td>{{ stats.cutting_idle.max }}</td>
+                <td>{{ stats.cutting_idle.mean }}</td>
+                <td>{{ stats.cutting_idle.median }}</td>
+                <td>{{ stats.cutting_idle.std }}</td>
+            </tr>
+            <tr style="color: rgb(0, 184, 0);">
+                <td>Schneiden</td>
+                <td>{{ stats.cutting.min }}</td>
+                <td>{{ stats.cutting.max }}</td>
+                <td>{{ stats.cutting.mean }}</td>
+                <td>{{ stats.cutting.median }}</td>
+                <td>{{ stats.cutting.std }}</td>
+            </tr>
+        </table>
+        
+        <!-- DESCRIPTION SECTION -->
+        <h3>Beschreibung</h3>
+        <p style="font-size: 12px; text-align: justify;">
+            Es wurde eine mittlere Leistungsaufnahme von <strong>{{ stats.cutting.mean }} ± {{ stats.cutting.std }} kW</strong> gemessen, wobei der Minimalwert <strong>{{ stats.cutting.min }} kW</strong> und der Maximalwert <strong>{{ stats.cutting.max }} kW </strong> betrug. Der Medianwert der Leistungsaufnahme betrug <strong>{{ stats.cutting.median }} kW</strong>.
+        </p>
+
+        <!-- SECTION LINE -->
+        <hr>
+
+        <!-- FOOTER 
+        <div id="footer">
+            LEITZ &COPY; All rights reserved
+        </div>
+        -->
+
+    </div>
+</body>
+
+</html>
