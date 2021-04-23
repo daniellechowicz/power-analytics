@@ -62,7 +62,9 @@ class ToolAddWindow(QMainWindow):
         # "scrollAreaWidgetContents" is the one I have to use
         for widget in self.ui.scrollAreaWidgetContents.children():
             if isinstance(widget, QLineEdit):
-                key = widget.objectName()[3:] # e.g. "le_tool_diameter"[3:] -> "tool_diameter"
+                key = widget.objectName()[
+                    3:
+                ]  # e.g. "le_tool_diameter"[3:] -> "tool_diameter"
                 value = widget.text()
                 data[key] = value
         ctypes.windll.user32.MessageBoxW(

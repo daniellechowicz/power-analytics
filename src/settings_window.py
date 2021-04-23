@@ -68,9 +68,11 @@ class SettingsWindow(QMainWindow):
         # "scrollAreaWidgetContents" is the one I have to use
         for widget in self.ui.scrollAreaWidgetContents.children():
             if isinstance(widget, QLineEdit):
-                key = widget.objectName()[3:] # [3:] in order to avoid "le_" in object's name
+                key = widget.objectName()[
+                    3:
+                ]  # [3:] in order to avoid "le_" in object's name
                 widget.setText(str(settings[key]))
-                    
+
     def get_permission_dialog(self, text, title, utype):
         user32 = ctypes.WinDLL("user32", use_last_error=True)
         msg_box = user32.MessageBoxW
@@ -95,7 +97,9 @@ class SettingsWindow(QMainWindow):
             # "scrollAreaWidgetContents" is the one I have to use
             for widget in self.ui.scrollAreaWidgetContents.children():
                 if isinstance(widget, QLineEdit):
-                    key = widget.objectName()[3:] # [3:] in order to avoid "le_" in object's name
+                    key = widget.objectName()[
+                        3:
+                    ]  # [3:] in order to avoid "le_" in object's name
                     value = widget.text()
                     # If target value is of string type, just pass since it is string by default
                     if key in [
@@ -110,7 +114,10 @@ class SettingsWindow(QMainWindow):
                         value = int(value)
                     edit_settings(key, value)
             ctypes.windll.user32.MessageBoxW(
-                0, "Die Einstellungen wurden erfolgreich geändert", "Power Analytics | Einstellungen", 0
+                0,
+                "Die Einstellungen wurden erfolgreich geändert",
+                "Power Analytics | Einstellungen",
+                0,
             )
         else:
             pass

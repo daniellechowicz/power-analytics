@@ -1,10 +1,29 @@
 # -*- coding: utf-8 -*-
 
-from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
-    QRect, QSize, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
-    QRadialGradient)
+from PySide2.QtCore import (
+    QCoreApplication,
+    QMetaObject,
+    QObject,
+    QPoint,
+    QRect,
+    QSize,
+    QUrl,
+    Qt,
+)
+from PySide2.QtGui import (
+    QBrush,
+    QColor,
+    QConicalGradient,
+    QCursor,
+    QFont,
+    QFontDatabase,
+    QIcon,
+    QLinearGradient,
+    QPalette,
+    QPainter,
+    QPixmap,
+    QRadialGradient,
+)
 from PySide2.QtWidgets import *
 
 from pyqtgraph import GraphicsLayoutWidget
@@ -15,9 +34,11 @@ class Ui_Visualization(object):
         if MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1300, 800)
-        MainWindow.setStyleSheet(u"QWidget {\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(81, 47, 154, 255));\n"
-"}")
+        MainWindow.setStyleSheet(
+            u"QWidget {\n"
+            "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(81, 47, 154, 255));\n"
+            "}"
+        )
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -33,12 +54,14 @@ class Ui_Visualization(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.frame_3 = QFrame(self.frame)
         self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setStyleSheet(u"QFrame {\n"
-"margin-top: 10px;\n"
-"margin-right: 10px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"border-radius: 10px;\n"
-"}")
+        self.frame_3.setStyleSheet(
+            u"QFrame {\n"
+            "margin-top: 10px;\n"
+            "margin-right: 10px;\n"
+            "background-color: rgb(255, 255, 255);\n"
+            "border-radius: 10px;\n"
+            "}"
+        )
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.verticalLayout_20 = QVBoxLayout(self.frame_3)
@@ -48,24 +71,25 @@ class Ui_Visualization(object):
 
         self.verticalLayout_20.addWidget(self.graphics_view)
 
-
         self.horizontalLayout.addWidget(self.frame_3)
 
         self.groupBox_4 = QGroupBox(self.frame)
         self.groupBox_4.setObjectName(u"groupBox_4")
-        self.groupBox_4.setStyleSheet(u"QGroupBox {\n"
-"background-color: rgb(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";\n"
-"}\n"
-"\n"
-"QLabel {\n"
-"background-color: rgb(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 9pt;\n"
-"font-family: \"Segoe UI Light\";\n"
-"}")
+        self.groupBox_4.setStyleSheet(
+            u"QGroupBox {\n"
+            "background-color: rgb(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "}\n"
+            "\n"
+            "QLabel {\n"
+            "background-color: rgb(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 9pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "}"
+        )
         self.horizontalLayout_3 = QHBoxLayout(self.groupBox_4)
         self.horizontalLayout_3.setSpacing(18)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -85,7 +109,7 @@ class Ui_Visualization(object):
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
         self.label_18 = QLabel(self.frame_21)
         self.label_18.setObjectName(u"label_18")
-        self.label_18.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_18.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_18.setWordWrap(True)
 
         self.verticalLayout_22.addWidget(self.label_18)
@@ -105,7 +129,7 @@ class Ui_Visualization(object):
 
         self.label_20 = QLabel(self.frame_21)
         self.label_20.setObjectName(u"label_20")
-        self.label_20.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_20.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_20.setWordWrap(True)
 
         self.verticalLayout_22.addWidget(self.label_20)
@@ -148,9 +172,7 @@ class Ui_Visualization(object):
 
         self.verticalLayout_22.addWidget(self.label_29)
 
-
         self.verticalLayout_18.addWidget(self.frame_21)
-
 
         self.horizontalLayout_3.addWidget(self.groupBox_18)
 
@@ -168,7 +190,7 @@ class Ui_Visualization(object):
         self.verticalLayout_17.setObjectName(u"verticalLayout_17")
         self.label_22 = QLabel(self.frame_19)
         self.label_22.setObjectName(u"label_22")
-        self.label_22.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_22.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_22.setWordWrap(True)
 
         self.verticalLayout_17.addWidget(self.label_22)
@@ -183,7 +205,7 @@ class Ui_Visualization(object):
 
         self.label_26 = QLabel(self.frame_19)
         self.label_26.setObjectName(u"label_26")
-        self.label_26.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_26.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_26.setWordWrap(True)
 
         self.verticalLayout_17.addWidget(self.label_26)
@@ -198,7 +220,7 @@ class Ui_Visualization(object):
 
         self.label_24 = QLabel(self.frame_19)
         self.label_24.setObjectName(u"label_24")
-        self.label_24.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_24.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_24.setWordWrap(True)
 
         self.verticalLayout_17.addWidget(self.label_24)
@@ -213,7 +235,7 @@ class Ui_Visualization(object):
 
         self.label_28 = QLabel(self.frame_19)
         self.label_28.setObjectName(u"label_28")
-        self.label_28.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_28.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_28.setWordWrap(True)
 
         self.verticalLayout_17.addWidget(self.label_28)
@@ -228,7 +250,7 @@ class Ui_Visualization(object):
 
         self.label_30 = QLabel(self.frame_19)
         self.label_30.setObjectName(u"label_30")
-        self.label_30.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_30.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_30.setWordWrap(True)
 
         self.verticalLayout_17.addWidget(self.label_30)
@@ -241,7 +263,6 @@ class Ui_Visualization(object):
 
         self.verticalLayout_17.addWidget(self.cutting_speed_l)
 
-
         self.horizontalLayout_4.addWidget(self.frame_19)
 
         self.frame_20 = QFrame(self.groupBox_21)
@@ -252,7 +273,7 @@ class Ui_Visualization(object):
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.label_32 = QLabel(self.frame_20)
         self.label_32.setObjectName(u"label_32")
-        self.label_32.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_32.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_32.setWordWrap(True)
 
         self.verticalLayout_16.addWidget(self.label_32)
@@ -267,7 +288,7 @@ class Ui_Visualization(object):
 
         self.label_36 = QLabel(self.frame_20)
         self.label_36.setObjectName(u"label_36")
-        self.label_36.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_36.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_36.setWordWrap(True)
 
         self.verticalLayout_16.addWidget(self.label_36)
@@ -282,7 +303,7 @@ class Ui_Visualization(object):
 
         self.label_34 = QLabel(self.frame_20)
         self.label_34.setObjectName(u"label_34")
-        self.label_34.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_34.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_34.setWordWrap(True)
 
         self.verticalLayout_16.addWidget(self.label_34)
@@ -297,7 +318,7 @@ class Ui_Visualization(object):
 
         self.label_38 = QLabel(self.frame_20)
         self.label_38.setObjectName(u"label_38")
-        self.label_38.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_38.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_38.setWordWrap(True)
 
         self.verticalLayout_16.addWidget(self.label_38)
@@ -312,7 +333,7 @@ class Ui_Visualization(object):
 
         self.label_40 = QLabel(self.frame_20)
         self.label_40.setObjectName(u"label_40")
-        self.label_40.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_40.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_40.setWordWrap(True)
 
         self.verticalLayout_16.addWidget(self.label_40)
@@ -325,9 +346,7 @@ class Ui_Visualization(object):
 
         self.verticalLayout_16.addWidget(self.mean_chip_length_l)
 
-
         self.horizontalLayout_4.addWidget(self.frame_20)
-
 
         self.horizontalLayout_3.addWidget(self.groupBox_21)
 
@@ -345,7 +364,7 @@ class Ui_Visualization(object):
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.label_42 = QLabel(self.frame_4)
         self.label_42.setObjectName(u"label_42")
-        self.label_42.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_42.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_42.setWordWrap(True)
 
         self.verticalLayout_15.addWidget(self.label_42)
@@ -360,7 +379,7 @@ class Ui_Visualization(object):
 
         self.label_45 = QLabel(self.frame_4)
         self.label_45.setObjectName(u"label_45")
-        self.label_45.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_45.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_45.setWordWrap(True)
 
         self.verticalLayout_15.addWidget(self.label_45)
@@ -375,7 +394,7 @@ class Ui_Visualization(object):
 
         self.label_46 = QLabel(self.frame_4)
         self.label_46.setObjectName(u"label_46")
-        self.label_46.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_46.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_46.setWordWrap(True)
 
         self.verticalLayout_15.addWidget(self.label_46)
@@ -390,7 +409,7 @@ class Ui_Visualization(object):
 
         self.label_48 = QLabel(self.frame_4)
         self.label_48.setObjectName(u"label_48")
-        self.label_48.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_48.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_48.setWordWrap(True)
 
         self.verticalLayout_15.addWidget(self.label_48)
@@ -405,7 +424,7 @@ class Ui_Visualization(object):
 
         self.label_49 = QLabel(self.frame_4)
         self.label_49.setObjectName(u"label_49")
-        self.label_49.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_49.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_49.setWordWrap(True)
 
         self.verticalLayout_15.addWidget(self.label_49)
@@ -418,7 +437,6 @@ class Ui_Visualization(object):
 
         self.verticalLayout_15.addWidget(self.tool_cutting_width_l)
 
-
         self.horizontalLayout_5.addWidget(self.frame_4)
 
         self.frame_18 = QFrame(self.groupBox_2)
@@ -429,7 +447,7 @@ class Ui_Visualization(object):
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.label_52 = QLabel(self.frame_18)
         self.label_52.setObjectName(u"label_52")
-        self.label_52.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_52.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_52.setWordWrap(True)
 
         self.verticalLayout_19.addWidget(self.label_52)
@@ -444,7 +462,7 @@ class Ui_Visualization(object):
 
         self.label_54 = QLabel(self.frame_18)
         self.label_54.setObjectName(u"label_54")
-        self.label_54.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_54.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_54.setWordWrap(True)
 
         self.verticalLayout_19.addWidget(self.label_54)
@@ -459,7 +477,7 @@ class Ui_Visualization(object):
 
         self.label_56 = QLabel(self.frame_18)
         self.label_56.setObjectName(u"label_56")
-        self.label_56.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_56.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_56.setWordWrap(True)
 
         self.verticalLayout_19.addWidget(self.label_56)
@@ -474,7 +492,7 @@ class Ui_Visualization(object):
 
         self.label_58 = QLabel(self.frame_18)
         self.label_58.setObjectName(u"label_58")
-        self.label_58.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_58.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_58.setWordWrap(True)
 
         self.verticalLayout_19.addWidget(self.label_58)
@@ -489,7 +507,7 @@ class Ui_Visualization(object):
 
         self.label_60 = QLabel(self.frame_18)
         self.label_60.setObjectName(u"label_60")
-        self.label_60.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_60.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_60.setWordWrap(True)
 
         self.verticalLayout_19.addWidget(self.label_60)
@@ -502,7 +520,6 @@ class Ui_Visualization(object):
 
         self.verticalLayout_19.addWidget(self.body_material_l)
 
-
         self.horizontalLayout_5.addWidget(self.frame_18)
 
         self.frame_2 = QFrame(self.groupBox_2)
@@ -513,7 +530,7 @@ class Ui_Visualization(object):
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.label_62 = QLabel(self.frame_2)
         self.label_62.setObjectName(u"label_62")
-        self.label_62.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_62.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_62.setWordWrap(True)
 
         self.verticalLayout_21.addWidget(self.label_62)
@@ -528,7 +545,7 @@ class Ui_Visualization(object):
 
         self.label_64 = QLabel(self.frame_2)
         self.label_64.setObjectName(u"label_64")
-        self.label_64.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_64.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_64.setWordWrap(True)
 
         self.verticalLayout_21.addWidget(self.label_64)
@@ -543,7 +560,7 @@ class Ui_Visualization(object):
 
         self.label_66 = QLabel(self.frame_2)
         self.label_66.setObjectName(u"label_66")
-        self.label_66.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_66.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.label_66.setWordWrap(True)
 
         self.verticalLayout_21.addWidget(self.label_66)
@@ -576,15 +593,11 @@ class Ui_Visualization(object):
 
         self.verticalLayout_21.addWidget(self.label_37)
 
-
         self.horizontalLayout_5.addWidget(self.frame_2)
-
 
         self.horizontalLayout_3.addWidget(self.groupBox_2)
 
-
         self.horizontalLayout.addWidget(self.groupBox_4)
-
 
         self.verticalLayout.addWidget(self.frame)
 
@@ -597,41 +610,43 @@ class Ui_Visualization(object):
         self.groupBox_22.setSizePolicy(sizePolicy)
         self.groupBox_22.setMinimumSize(QSize(0, 300))
         self.groupBox_22.setMaximumSize(QSize(16777215, 300))
-        self.groupBox_22.setStyleSheet(u"QGroupBox {\n"
-"background-color: rgb(255, 255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";\n"
-"}\n"
-"\n"
-"QFrame {\n"
-"background-color: rgb(255, 255, 255, 0);\n"
-"}\n"
-"\n"
-"QLabel {\n"
-"background-color: rgb(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 9pt;\n"
-"font-family: \"Segoe UI Light\";\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(81, 48, 154, 50));\n"
-"border-radius: 10px;\n"
-"border: 2px solid rgb(255, 255, 255);\n"
-"color: rgb(255, 255, 255, 0);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"background-color: rgb(0, 255, 213, 0.5);\n"
-"border: 2px solid rgb(0, 255, 213);\n"
-"}\n"
-"\n"
-"\n"
-"QPushButton:pressed {\n"
-"background-color: rgb(0, 255, 213);\n"
-"border: 2px solid rgb(0, 255, 213);\n"
-"}")
+        self.groupBox_22.setStyleSheet(
+            u"QGroupBox {\n"
+            "background-color: rgb(255, 255, 255, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "}\n"
+            "\n"
+            "QFrame {\n"
+            "background-color: rgb(255, 255, 255, 0);\n"
+            "}\n"
+            "\n"
+            "QLabel {\n"
+            "background-color: rgb(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 9pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "}\n"
+            "\n"
+            "QPushButton {\n"
+            "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(81, 48, 154, 50));\n"
+            "border-radius: 10px;\n"
+            "border: 2px solid rgb(255, 255, 255);\n"
+            "color: rgb(255, 255, 255, 0);\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "background-color: rgb(0, 255, 213, 0.5);\n"
+            "border: 2px solid rgb(0, 255, 213);\n"
+            "}\n"
+            "\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "background-color: rgb(0, 255, 213);\n"
+            "border: 2px solid rgb(0, 255, 213);\n"
+            "}"
+        )
         self.horizontalLayout_2 = QHBoxLayout(self.groupBox_22)
         self.horizontalLayout_2.setSpacing(5)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -678,7 +693,6 @@ class Ui_Visualization(object):
 
         self.verticalLayout_2.addWidget(self.body_material_l2, 0, Qt.AlignHCenter)
 
-
         self.horizontalLayout_2.addWidget(self.frame_5)
 
         self.frame_6 = QFrame(self.groupBox_22)
@@ -712,25 +726,30 @@ class Ui_Visualization(object):
 
         self.pushButton_2 = QPushButton(self.frame_6)
         self.pushButton_2.setObjectName(u"pushButton_2")
-        sizePolicy2.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_2.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_2.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_3.addWidget(self.pushButton_2)
 
         self.pushButton_3 = QPushButton(self.frame_6)
         self.pushButton_3.setObjectName(u"pushButton_3")
-        sizePolicy2.setHeightForWidth(self.pushButton_3.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_3.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_3.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_3.addWidget(self.pushButton_3)
 
         self.pushButton_4 = QPushButton(self.frame_6)
         self.pushButton_4.setObjectName(u"pushButton_4")
-        sizePolicy2.setHeightForWidth(self.pushButton_4.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_4.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_4.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_3.addWidget(self.pushButton_4)
-
 
         self.horizontalLayout_2.addWidget(self.frame_6)
 
@@ -751,32 +770,39 @@ class Ui_Visualization(object):
 
         self.pushButton_5 = QPushButton(self.frame_7)
         self.pushButton_5.setObjectName(u"pushButton_5")
-        sizePolicy2.setHeightForWidth(self.pushButton_5.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_5.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_5.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_4.addWidget(self.pushButton_5)
 
         self.pushButton_6 = QPushButton(self.frame_7)
         self.pushButton_6.setObjectName(u"pushButton_6")
-        sizePolicy2.setHeightForWidth(self.pushButton_6.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_6.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_6.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_4.addWidget(self.pushButton_6)
 
         self.pushButton_7 = QPushButton(self.frame_7)
         self.pushButton_7.setObjectName(u"pushButton_7")
-        sizePolicy2.setHeightForWidth(self.pushButton_7.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_7.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_7.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_4.addWidget(self.pushButton_7)
 
         self.pushButton_8 = QPushButton(self.frame_7)
         self.pushButton_8.setObjectName(u"pushButton_8")
-        sizePolicy2.setHeightForWidth(self.pushButton_8.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_8.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_8.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_4.addWidget(self.pushButton_8)
-
 
         self.horizontalLayout_2.addWidget(self.frame_7)
 
@@ -797,32 +823,39 @@ class Ui_Visualization(object):
 
         self.pushButton_9 = QPushButton(self.frame_8)
         self.pushButton_9.setObjectName(u"pushButton_9")
-        sizePolicy2.setHeightForWidth(self.pushButton_9.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_9.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_9.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_5.addWidget(self.pushButton_9)
 
         self.pushButton_10 = QPushButton(self.frame_8)
         self.pushButton_10.setObjectName(u"pushButton_10")
-        sizePolicy2.setHeightForWidth(self.pushButton_10.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_10.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_10.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_5.addWidget(self.pushButton_10)
 
         self.pushButton_11 = QPushButton(self.frame_8)
         self.pushButton_11.setObjectName(u"pushButton_11")
-        sizePolicy2.setHeightForWidth(self.pushButton_11.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_11.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_11.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_5.addWidget(self.pushButton_11)
 
         self.pushButton_12 = QPushButton(self.frame_8)
         self.pushButton_12.setObjectName(u"pushButton_12")
-        sizePolicy2.setHeightForWidth(self.pushButton_12.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_12.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_12.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_5.addWidget(self.pushButton_12)
-
 
         self.horizontalLayout_2.addWidget(self.frame_8)
 
@@ -843,32 +876,39 @@ class Ui_Visualization(object):
 
         self.pushButton_13 = QPushButton(self.frame_9)
         self.pushButton_13.setObjectName(u"pushButton_13")
-        sizePolicy2.setHeightForWidth(self.pushButton_13.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_13.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_13.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_6.addWidget(self.pushButton_13)
 
         self.pushButton_14 = QPushButton(self.frame_9)
         self.pushButton_14.setObjectName(u"pushButton_14")
-        sizePolicy2.setHeightForWidth(self.pushButton_14.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_14.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_14.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_6.addWidget(self.pushButton_14)
 
         self.pushButton_15 = QPushButton(self.frame_9)
         self.pushButton_15.setObjectName(u"pushButton_15")
-        sizePolicy2.setHeightForWidth(self.pushButton_15.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_15.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_15.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_6.addWidget(self.pushButton_15)
 
         self.pushButton_16 = QPushButton(self.frame_9)
         self.pushButton_16.setObjectName(u"pushButton_16")
-        sizePolicy2.setHeightForWidth(self.pushButton_16.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_16.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_16.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_6.addWidget(self.pushButton_16)
-
 
         self.horizontalLayout_2.addWidget(self.frame_9)
 
@@ -889,32 +929,39 @@ class Ui_Visualization(object):
 
         self.pushButton_17 = QPushButton(self.frame_10)
         self.pushButton_17.setObjectName(u"pushButton_17")
-        sizePolicy2.setHeightForWidth(self.pushButton_17.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_17.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_17.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_7.addWidget(self.pushButton_17)
 
         self.pushButton_18 = QPushButton(self.frame_10)
         self.pushButton_18.setObjectName(u"pushButton_18")
-        sizePolicy2.setHeightForWidth(self.pushButton_18.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_18.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_18.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_7.addWidget(self.pushButton_18)
 
         self.pushButton_19 = QPushButton(self.frame_10)
         self.pushButton_19.setObjectName(u"pushButton_19")
-        sizePolicy2.setHeightForWidth(self.pushButton_19.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_19.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_19.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_7.addWidget(self.pushButton_19)
 
         self.pushButton_20 = QPushButton(self.frame_10)
         self.pushButton_20.setObjectName(u"pushButton_20")
-        sizePolicy2.setHeightForWidth(self.pushButton_20.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_20.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_20.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_7.addWidget(self.pushButton_20)
-
 
         self.horizontalLayout_2.addWidget(self.frame_10)
 
@@ -935,32 +982,39 @@ class Ui_Visualization(object):
 
         self.pushButton_21 = QPushButton(self.frame_11)
         self.pushButton_21.setObjectName(u"pushButton_21")
-        sizePolicy2.setHeightForWidth(self.pushButton_21.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_21.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_21.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_8.addWidget(self.pushButton_21)
 
         self.pushButton_22 = QPushButton(self.frame_11)
         self.pushButton_22.setObjectName(u"pushButton_22")
-        sizePolicy2.setHeightForWidth(self.pushButton_22.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_22.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_22.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_8.addWidget(self.pushButton_22)
 
         self.pushButton_23 = QPushButton(self.frame_11)
         self.pushButton_23.setObjectName(u"pushButton_23")
-        sizePolicy2.setHeightForWidth(self.pushButton_23.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_23.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_23.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_8.addWidget(self.pushButton_23)
 
         self.pushButton_24 = QPushButton(self.frame_11)
         self.pushButton_24.setObjectName(u"pushButton_24")
-        sizePolicy2.setHeightForWidth(self.pushButton_24.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_24.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_24.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_8.addWidget(self.pushButton_24)
-
 
         self.horizontalLayout_2.addWidget(self.frame_11)
 
@@ -981,32 +1035,39 @@ class Ui_Visualization(object):
 
         self.pushButton_25 = QPushButton(self.frame_12)
         self.pushButton_25.setObjectName(u"pushButton_25")
-        sizePolicy2.setHeightForWidth(self.pushButton_25.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_25.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_25.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_9.addWidget(self.pushButton_25)
 
         self.pushButton_26 = QPushButton(self.frame_12)
         self.pushButton_26.setObjectName(u"pushButton_26")
-        sizePolicy2.setHeightForWidth(self.pushButton_26.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_26.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_26.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_9.addWidget(self.pushButton_26)
 
         self.pushButton_27 = QPushButton(self.frame_12)
         self.pushButton_27.setObjectName(u"pushButton_27")
-        sizePolicy2.setHeightForWidth(self.pushButton_27.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_27.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_27.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_9.addWidget(self.pushButton_27)
 
         self.pushButton_28 = QPushButton(self.frame_12)
         self.pushButton_28.setObjectName(u"pushButton_28")
-        sizePolicy2.setHeightForWidth(self.pushButton_28.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_28.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_28.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_9.addWidget(self.pushButton_28)
-
 
         self.horizontalLayout_2.addWidget(self.frame_12)
 
@@ -1027,32 +1088,39 @@ class Ui_Visualization(object):
 
         self.pushButton_29 = QPushButton(self.frame_13)
         self.pushButton_29.setObjectName(u"pushButton_29")
-        sizePolicy2.setHeightForWidth(self.pushButton_29.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_29.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_29.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_10.addWidget(self.pushButton_29)
 
         self.pushButton_30 = QPushButton(self.frame_13)
         self.pushButton_30.setObjectName(u"pushButton_30")
-        sizePolicy2.setHeightForWidth(self.pushButton_30.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_30.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_30.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_10.addWidget(self.pushButton_30)
 
         self.pushButton_31 = QPushButton(self.frame_13)
         self.pushButton_31.setObjectName(u"pushButton_31")
-        sizePolicy2.setHeightForWidth(self.pushButton_31.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_31.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_31.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_10.addWidget(self.pushButton_31)
 
         self.pushButton_32 = QPushButton(self.frame_13)
         self.pushButton_32.setObjectName(u"pushButton_32")
-        sizePolicy2.setHeightForWidth(self.pushButton_32.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_32.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_32.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_10.addWidget(self.pushButton_32)
-
 
         self.horizontalLayout_2.addWidget(self.frame_13)
 
@@ -1073,32 +1141,39 @@ class Ui_Visualization(object):
 
         self.pushButton_33 = QPushButton(self.frame_14)
         self.pushButton_33.setObjectName(u"pushButton_33")
-        sizePolicy2.setHeightForWidth(self.pushButton_33.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_33.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_33.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_11.addWidget(self.pushButton_33)
 
         self.pushButton_34 = QPushButton(self.frame_14)
         self.pushButton_34.setObjectName(u"pushButton_34")
-        sizePolicy2.setHeightForWidth(self.pushButton_34.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_34.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_34.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_11.addWidget(self.pushButton_34)
 
         self.pushButton_35 = QPushButton(self.frame_14)
         self.pushButton_35.setObjectName(u"pushButton_35")
-        sizePolicy2.setHeightForWidth(self.pushButton_35.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_35.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_35.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_11.addWidget(self.pushButton_35)
 
         self.pushButton_36 = QPushButton(self.frame_14)
         self.pushButton_36.setObjectName(u"pushButton_36")
-        sizePolicy2.setHeightForWidth(self.pushButton_36.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_36.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_36.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_11.addWidget(self.pushButton_36)
-
 
         self.horizontalLayout_2.addWidget(self.frame_14)
 
@@ -1119,32 +1194,39 @@ class Ui_Visualization(object):
 
         self.pushButton_37 = QPushButton(self.frame_15)
         self.pushButton_37.setObjectName(u"pushButton_37")
-        sizePolicy2.setHeightForWidth(self.pushButton_37.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_37.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_37.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_12.addWidget(self.pushButton_37)
 
         self.pushButton_38 = QPushButton(self.frame_15)
         self.pushButton_38.setObjectName(u"pushButton_38")
-        sizePolicy2.setHeightForWidth(self.pushButton_38.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_38.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_38.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_12.addWidget(self.pushButton_38)
 
         self.pushButton_39 = QPushButton(self.frame_15)
         self.pushButton_39.setObjectName(u"pushButton_39")
-        sizePolicy2.setHeightForWidth(self.pushButton_39.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_39.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_39.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_12.addWidget(self.pushButton_39)
 
         self.pushButton_40 = QPushButton(self.frame_15)
         self.pushButton_40.setObjectName(u"pushButton_40")
-        sizePolicy2.setHeightForWidth(self.pushButton_40.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_40.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_40.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_12.addWidget(self.pushButton_40)
-
 
         self.horizontalLayout_2.addWidget(self.frame_15)
 
@@ -1165,32 +1247,39 @@ class Ui_Visualization(object):
 
         self.pushButton_41 = QPushButton(self.frame_16)
         self.pushButton_41.setObjectName(u"pushButton_41")
-        sizePolicy2.setHeightForWidth(self.pushButton_41.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_41.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_41.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_13.addWidget(self.pushButton_41)
 
         self.pushButton_42 = QPushButton(self.frame_16)
         self.pushButton_42.setObjectName(u"pushButton_42")
-        sizePolicy2.setHeightForWidth(self.pushButton_42.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_42.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_42.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_13.addWidget(self.pushButton_42)
 
         self.pushButton_43 = QPushButton(self.frame_16)
         self.pushButton_43.setObjectName(u"pushButton_43")
-        sizePolicy2.setHeightForWidth(self.pushButton_43.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_43.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_43.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_13.addWidget(self.pushButton_43)
 
         self.pushButton_44 = QPushButton(self.frame_16)
         self.pushButton_44.setObjectName(u"pushButton_44")
-        sizePolicy2.setHeightForWidth(self.pushButton_44.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_44.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_44.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_13.addWidget(self.pushButton_44)
-
 
         self.horizontalLayout_2.addWidget(self.frame_16)
 
@@ -1211,58 +1300,66 @@ class Ui_Visualization(object):
 
         self.pushButton_45 = QPushButton(self.frame_17)
         self.pushButton_45.setObjectName(u"pushButton_45")
-        sizePolicy2.setHeightForWidth(self.pushButton_45.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_45.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_45.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_14.addWidget(self.pushButton_45)
 
         self.pushButton_46 = QPushButton(self.frame_17)
         self.pushButton_46.setObjectName(u"pushButton_46")
-        sizePolicy2.setHeightForWidth(self.pushButton_46.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_46.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_46.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_14.addWidget(self.pushButton_46)
 
         self.pushButton_47 = QPushButton(self.frame_17)
         self.pushButton_47.setObjectName(u"pushButton_47")
-        sizePolicy2.setHeightForWidth(self.pushButton_47.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_47.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_47.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_14.addWidget(self.pushButton_47)
 
         self.pushButton_48 = QPushButton(self.frame_17)
         self.pushButton_48.setObjectName(u"pushButton_48")
-        sizePolicy2.setHeightForWidth(self.pushButton_48.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.pushButton_48.sizePolicy().hasHeightForWidth()
+        )
         self.pushButton_48.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_14.addWidget(self.pushButton_48)
 
-
         self.horizontalLayout_2.addWidget(self.frame_17)
-
 
         self.verticalLayout.addWidget(self.groupBox_22)
 
         self.btn_close = QPushButton(self.centralwidget)
         self.btn_close.setObjectName(u"btn_close")
-        self.btn_close.setStyleSheet(u"QPushButton {\n"
-"color: #ffffff;\n"
-"background-color: rgb(255, 170, 0);\n"
-"height: 30px;\n"
-"padding-bottom: 5px;\n"
-"border-radius: 17px;\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"border: 2px solid rgb(255, 255, 255)\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"color: rgba(255, 255, 255, 0.5);\n"
-"background-color: rgba(255, 170, 0, 0.5);\n"
-"}")
+        self.btn_close.setStyleSheet(
+            u"QPushButton {\n"
+            "color: #ffffff;\n"
+            "background-color: rgb(255, 170, 0);\n"
+            "height: 30px;\n"
+            "padding-bottom: 5px;\n"
+            "border-radius: 17px;\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "border: 2px solid rgb(255, 255, 255)\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "color: rgba(255, 255, 255, 0.5);\n"
+            "background-color: rgba(255, 170, 0, 0.5);\n"
+            "}"
+        )
 
         self.verticalLayout.addWidget(self.btn_close)
 
@@ -1271,15 +1368,26 @@ class Ui_Visualization(object):
         self.retranslateUi(MainWindow)
 
         QMetaObject.connectSlotsByName(MainWindow)
+
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Angewandte Parameter", None))
-        self.groupBox_18.setTitle(QCoreApplication.translate("MainWindow", u"Werkstoff", None))
-        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Werkstoff", None))
+        MainWindow.setWindowTitle(
+            QCoreApplication.translate("MainWindow", u"MainWindow", None)
+        )
+        self.groupBox_4.setTitle(
+            QCoreApplication.translate("MainWindow", u"Angewandte Parameter", None)
+        )
+        self.groupBox_18.setTitle(
+            QCoreApplication.translate("MainWindow", u"Werkstoff", None)
+        )
+        self.label_18.setText(
+            QCoreApplication.translate("MainWindow", u"Werkstoff", None)
+        )
         self.material_l.setText("")
-        self.label_20.setText(QCoreApplication.translate("MainWindow", u"Feuchtigkeit [%]", None))
+        self.label_20.setText(
+            QCoreApplication.translate("MainWindow", u"Feuchtigkeit [%]", None)
+        )
         self.moisture_content_l.setText("")
         self.label_19.setText("")
         self.label_21.setText("")
@@ -1287,124 +1395,308 @@ class Ui_Visualization(object):
         self.label_23.setText("")
         self.label_25.setText("")
         self.label_29.setText("")
-        self.groupBox_21.setTitle(QCoreApplication.translate("MainWindow", u"Prozess", None))
-        self.label_22.setText(QCoreApplication.translate("MainWindow", u"Schnittrichtung", None))
+        self.groupBox_21.setTitle(
+            QCoreApplication.translate("MainWindow", u"Prozess", None)
+        )
+        self.label_22.setText(
+            QCoreApplication.translate("MainWindow", u"Schnittrichtung", None)
+        )
         self.cutting_direction_l.setText("")
-        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Drehzahl [U/min]", None))
+        self.label_26.setText(
+            QCoreApplication.translate("MainWindow", u"Drehzahl [U/min]", None)
+        )
         self.rotational_speed_l.setText("")
-        self.label_24.setText(QCoreApplication.translate("MainWindow", u"Vorschubgeschwindigkeit [m/min]", None))
+        self.label_24.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Vorschubgeschwindigkeit [m/min]", None
+            )
+        )
         self.feed_speed_l.setText("")
-        self.label_28.setText(QCoreApplication.translate("MainWindow", u"Zahnvorschub\u00a0[mm]", None))
+        self.label_28.setText(
+            QCoreApplication.translate("MainWindow", u"Zahnvorschub\u00a0[mm]", None)
+        )
         self.feed_per_tooth_l.setText("")
-        self.label_30.setText(QCoreApplication.translate("MainWindow", u"Schnittgeschwindigkeit [m/s]", None))
+        self.label_30.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Schnittgeschwindigkeit [m/s]", None
+            )
+        )
         self.cutting_speed_l.setText("")
-        self.label_32.setText(QCoreApplication.translate("MainWindow", u"Schnittbreite [mm]", None))
+        self.label_32.setText(
+            QCoreApplication.translate("MainWindow", u"Schnittbreite [mm]", None)
+        )
         self.cutting_width_l.setText("")
-        self.label_36.setText(QCoreApplication.translate("MainWindow", u"Schnitttiefe [mm]", None))
+        self.label_36.setText(
+            QCoreApplication.translate("MainWindow", u"Schnitttiefe [mm]", None)
+        )
         self.cutting_depth_l.setText("")
-        self.label_34.setText(QCoreApplication.translate("MainWindow", u"Eingriffswinkel [\u00b0]", None))
+        self.label_34.setText(
+            QCoreApplication.translate("MainWindow", u"Eingriffswinkel [\u00b0]", None)
+        )
         self.cutting_angle_l.setText("")
-        self.label_38.setText(QCoreApplication.translate("MainWindow", u"Mittlere Spandicke [mm]", None))
+        self.label_38.setText(
+            QCoreApplication.translate("MainWindow", u"Mittlere Spandicke [mm]", None)
+        )
         self.mean_chip_thickness_l.setText("")
-        self.label_40.setText(QCoreApplication.translate("MainWindow", u"Mittlere Spanl\u00e4nge [mm]", None))
+        self.label_40.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Mittlere Spanl\u00e4nge [mm]", None
+            )
+        )
         self.mean_chip_length_l.setText("")
-        self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"Werkzeug", None))
-        self.label_42.setText(QCoreApplication.translate("MainWindow", u"ID-Nummer", None))
+        self.groupBox_2.setTitle(
+            QCoreApplication.translate("MainWindow", u"Werkzeug", None)
+        )
+        self.label_42.setText(
+            QCoreApplication.translate("MainWindow", u"ID-Nummer", None)
+        )
         self.tool_id_l.setText("")
-        self.label_45.setText(QCoreApplication.translate("MainWindow", u"Klassifizierungsnummer", None))
+        self.label_45.setText(
+            QCoreApplication.translate("MainWindow", u"Klassifizierungsnummer", None)
+        )
         self.classification_n_l.setText("")
         self.label_46.setText(QCoreApplication.translate("MainWindow", u"SGE", None))
         self.strategic_business_unit_l.setText("")
-        self.label_48.setText(QCoreApplication.translate("MainWindow", u"Werkzeugdurchmesser [mm]", None))
+        self.label_48.setText(
+            QCoreApplication.translate("MainWindow", u"Werkzeugdurchmesser [mm]", None)
+        )
         self.tool_diameter_l.setText("")
-        self.label_49.setText(QCoreApplication.translate("MainWindow", u"Schneidenbreite [mm]", None))
+        self.label_49.setText(
+            QCoreApplication.translate("MainWindow", u"Schneidenbreite [mm]", None)
+        )
         self.tool_cutting_width_l.setText("")
-        self.label_52.setText(QCoreApplication.translate("MainWindow", u"Schneidenzahl", None))
+        self.label_52.setText(
+            QCoreApplication.translate("MainWindow", u"Schneidenzahl", None)
+        )
         self.no_of_wings_l.setText("")
-        self.label_54.setText(QCoreApplication.translate("MainWindow", u"Gesamtschneidenanzahl", None))
+        self.label_54.setText(
+            QCoreApplication.translate("MainWindow", u"Gesamtschneidenanzahl", None)
+        )
         self.total_no_of_wings_l.setText("")
-        self.label_56.setText(QCoreApplication.translate("MainWindow", u"Schneidenwerkstoff", None))
+        self.label_56.setText(
+            QCoreApplication.translate("MainWindow", u"Schneidenwerkstoff", None)
+        )
         self.cutting_material_l.setText("")
-        self.label_58.setText(QCoreApplication.translate("MainWindow", u"PCD Qualit\u00e4t", None))
+        self.label_58.setText(
+            QCoreApplication.translate("MainWindow", u"PCD Qualit\u00e4t", None)
+        )
         self.cutting_material_quality_l.setText("")
-        self.label_60.setText(QCoreApplication.translate("MainWindow", u"Grundk\u00f6rpermaterial", None))
+        self.label_60.setText(
+            QCoreApplication.translate("MainWindow", u"Grundk\u00f6rpermaterial", None)
+        )
         self.body_material_l.setText("")
-        self.label_62.setText(QCoreApplication.translate("MainWindow", u"Max. Drehzahl [U/min]", None))
+        self.label_62.setText(
+            QCoreApplication.translate("MainWindow", u"Max. Drehzahl [U/min]", None)
+        )
         self.n_max_l.setText("")
-        self.label_64.setText(QCoreApplication.translate("MainWindow", u"Optimale Drehzahl [U/min]", None))
+        self.label_64.setText(
+            QCoreApplication.translate("MainWindow", u"Optimale Drehzahl [U/min]", None)
+        )
         self.n_opt_l.setText("")
-        self.label_66.setText(QCoreApplication.translate("MainWindow", u"Spanwinkel [\u00b0]", None))
+        self.label_66.setText(
+            QCoreApplication.translate("MainWindow", u"Spanwinkel [\u00b0]", None)
+        )
         self.rake_angle_l.setText("")
         self.label_31.setText("")
         self.label_33.setText("")
         self.label_35.setText("")
         self.label_37.setText("")
-        self.groupBox_22.setTitle(QCoreApplication.translate("MainWindow", u"Parameterauswahl", None))
+        self.groupBox_22.setTitle(
+            QCoreApplication.translate("MainWindow", u"Parameterauswahl", None)
+        )
         self.label.setText("")
-        self.material_l2.setText(QCoreApplication.translate("MainWindow", u"Werkstoff", None))
-        self.cutting_direction_l2.setText(QCoreApplication.translate("MainWindow", u"Schnittrichtung", None))
-        self.cutting_material_l2.setText(QCoreApplication.translate("MainWindow", u"Schneidenwerkstoff", None))
-        self.body_material_l2.setText(QCoreApplication.translate("MainWindow", u"Grundk\u00f6rpermaterial", None))
-        self.rotational_speed_l2.setText(QCoreApplication.translate("MainWindow", u"Drehzahl", None))
+        self.material_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Werkstoff", None)
+        )
+        self.cutting_direction_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Schnittrichtung", None)
+        )
+        self.cutting_material_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Schneidenwerkstoff", None)
+        )
+        self.body_material_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Grundk\u00f6rpermaterial", None)
+        )
+        self.rotational_speed_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Drehzahl", None)
+        )
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"0_0", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"1_0", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"2_0", None))
-        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"3_0", None))
-        self.feed_speed_l2.setText(QCoreApplication.translate("MainWindow", u"Vorschub-geschwindigkeit", None))
-        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"0_1", None))
-        self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"1_1", None))
-        self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"2_1", None))
-        self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"3_1", None))
-        self.feed_per_tooth_l2.setText(QCoreApplication.translate("MainWindow", u"Zahnvorschub", None))
-        self.pushButton_9.setText(QCoreApplication.translate("MainWindow", u"0_2", None))
-        self.pushButton_10.setText(QCoreApplication.translate("MainWindow", u"1_2", None))
-        self.pushButton_11.setText(QCoreApplication.translate("MainWindow", u"2_2", None))
-        self.pushButton_12.setText(QCoreApplication.translate("MainWindow", u"3_2", None))
-        self.cutting_speed_l2.setText(QCoreApplication.translate("MainWindow", u"Schnitt-geschwindigkeit", None))
-        self.pushButton_13.setText(QCoreApplication.translate("MainWindow", u"0_3", None))
-        self.pushButton_14.setText(QCoreApplication.translate("MainWindow", u"1_3", None))
-        self.pushButton_15.setText(QCoreApplication.translate("MainWindow", u"2_3", None))
-        self.pushButton_16.setText(QCoreApplication.translate("MainWindow", u"3_3", None))
-        self.cutting_width_l2.setText(QCoreApplication.translate("MainWindow", u"Schnittbreite", None))
-        self.pushButton_17.setText(QCoreApplication.translate("MainWindow", u"0_4", None))
-        self.pushButton_18.setText(QCoreApplication.translate("MainWindow", u"1_4", None))
-        self.pushButton_19.setText(QCoreApplication.translate("MainWindow", u"2_4", None))
-        self.pushButton_20.setText(QCoreApplication.translate("MainWindow", u"3_4", None))
-        self.cutting_depth_l2.setText(QCoreApplication.translate("MainWindow", u"Schnitttiefe", None))
-        self.pushButton_21.setText(QCoreApplication.translate("MainWindow", u"0_5", None))
-        self.pushButton_22.setText(QCoreApplication.translate("MainWindow", u"1_5", None))
-        self.pushButton_23.setText(QCoreApplication.translate("MainWindow", u"2_5", None))
-        self.pushButton_24.setText(QCoreApplication.translate("MainWindow", u"3_5", None))
-        self.cutting_angle_l2.setText(QCoreApplication.translate("MainWindow", u"Eingriffswinkel", None))
-        self.pushButton_25.setText(QCoreApplication.translate("MainWindow", u"0_6", None))
-        self.pushButton_26.setText(QCoreApplication.translate("MainWindow", u"1_6", None))
-        self.pushButton_27.setText(QCoreApplication.translate("MainWindow", u"2_6", None))
-        self.pushButton_28.setText(QCoreApplication.translate("MainWindow", u"3_6", None))
-        self.tool_diameter_l2.setText(QCoreApplication.translate("MainWindow", u"Werkzeug-durchmesser", None))
-        self.pushButton_29.setText(QCoreApplication.translate("MainWindow", u"0_7", None))
-        self.pushButton_30.setText(QCoreApplication.translate("MainWindow", u"1_7", None))
-        self.pushButton_31.setText(QCoreApplication.translate("MainWindow", u"2_7", None))
-        self.pushButton_32.setText(QCoreApplication.translate("MainWindow", u"3_7", None))
-        self.tool_cutting_width_l2.setText(QCoreApplication.translate("MainWindow", u"Schneidenbreite", None))
-        self.pushButton_33.setText(QCoreApplication.translate("MainWindow", u"0_8", None))
-        self.pushButton_34.setText(QCoreApplication.translate("MainWindow", u"1_8", None))
-        self.pushButton_35.setText(QCoreApplication.translate("MainWindow", u"2_8", None))
-        self.pushButton_36.setText(QCoreApplication.translate("MainWindow", u"3_8", None))
-        self.no_of_wings_l2.setText(QCoreApplication.translate("MainWindow", u"Schneidenzahl", None))
-        self.pushButton_37.setText(QCoreApplication.translate("MainWindow", u"0_9", None))
-        self.pushButton_38.setText(QCoreApplication.translate("MainWindow", u"1_9", None))
-        self.pushButton_39.setText(QCoreApplication.translate("MainWindow", u"2_9", None))
-        self.pushButton_40.setText(QCoreApplication.translate("MainWindow", u"3_9", None))
-        self.total_no_of_wings_l2.setText(QCoreApplication.translate("MainWindow", u"Gesamt-schneidenanzahl", None))
-        self.pushButton_41.setText(QCoreApplication.translate("MainWindow", u"0_10", None))
-        self.pushButton_42.setText(QCoreApplication.translate("MainWindow", u"1_10", None))
-        self.pushButton_43.setText(QCoreApplication.translate("MainWindow", u"2_10", None))
-        self.pushButton_44.setText(QCoreApplication.translate("MainWindow", u"3_10", None))
-        self.rake_angle_l2.setText(QCoreApplication.translate("MainWindow", u"Spanwinkel", None))
-        self.pushButton_45.setText(QCoreApplication.translate("MainWindow", u"0_11", None))
-        self.pushButton_46.setText(QCoreApplication.translate("MainWindow", u"1_11", None))
-        self.pushButton_47.setText(QCoreApplication.translate("MainWindow", u"2_11", None))
-        self.pushButton_48.setText(QCoreApplication.translate("MainWindow", u"3_11", None))
-        self.btn_close.setText(QCoreApplication.translate("MainWindow", u"Schlie\u00dfen", None))
-    # retranslateUi
+        self.pushButton_2.setText(
+            QCoreApplication.translate("MainWindow", u"1_0", None)
+        )
+        self.pushButton_3.setText(
+            QCoreApplication.translate("MainWindow", u"2_0", None)
+        )
+        self.pushButton_4.setText(
+            QCoreApplication.translate("MainWindow", u"3_0", None)
+        )
+        self.feed_speed_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Vorschub-geschwindigkeit", None)
+        )
+        self.pushButton_5.setText(
+            QCoreApplication.translate("MainWindow", u"0_1", None)
+        )
+        self.pushButton_6.setText(
+            QCoreApplication.translate("MainWindow", u"1_1", None)
+        )
+        self.pushButton_7.setText(
+            QCoreApplication.translate("MainWindow", u"2_1", None)
+        )
+        self.pushButton_8.setText(
+            QCoreApplication.translate("MainWindow", u"3_1", None)
+        )
+        self.feed_per_tooth_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Zahnvorschub", None)
+        )
+        self.pushButton_9.setText(
+            QCoreApplication.translate("MainWindow", u"0_2", None)
+        )
+        self.pushButton_10.setText(
+            QCoreApplication.translate("MainWindow", u"1_2", None)
+        )
+        self.pushButton_11.setText(
+            QCoreApplication.translate("MainWindow", u"2_2", None)
+        )
+        self.pushButton_12.setText(
+            QCoreApplication.translate("MainWindow", u"3_2", None)
+        )
+        self.cutting_speed_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Schnitt-geschwindigkeit", None)
+        )
+        self.pushButton_13.setText(
+            QCoreApplication.translate("MainWindow", u"0_3", None)
+        )
+        self.pushButton_14.setText(
+            QCoreApplication.translate("MainWindow", u"1_3", None)
+        )
+        self.pushButton_15.setText(
+            QCoreApplication.translate("MainWindow", u"2_3", None)
+        )
+        self.pushButton_16.setText(
+            QCoreApplication.translate("MainWindow", u"3_3", None)
+        )
+        self.cutting_width_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Schnittbreite", None)
+        )
+        self.pushButton_17.setText(
+            QCoreApplication.translate("MainWindow", u"0_4", None)
+        )
+        self.pushButton_18.setText(
+            QCoreApplication.translate("MainWindow", u"1_4", None)
+        )
+        self.pushButton_19.setText(
+            QCoreApplication.translate("MainWindow", u"2_4", None)
+        )
+        self.pushButton_20.setText(
+            QCoreApplication.translate("MainWindow", u"3_4", None)
+        )
+        self.cutting_depth_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Schnitttiefe", None)
+        )
+        self.pushButton_21.setText(
+            QCoreApplication.translate("MainWindow", u"0_5", None)
+        )
+        self.pushButton_22.setText(
+            QCoreApplication.translate("MainWindow", u"1_5", None)
+        )
+        self.pushButton_23.setText(
+            QCoreApplication.translate("MainWindow", u"2_5", None)
+        )
+        self.pushButton_24.setText(
+            QCoreApplication.translate("MainWindow", u"3_5", None)
+        )
+        self.cutting_angle_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Eingriffswinkel", None)
+        )
+        self.pushButton_25.setText(
+            QCoreApplication.translate("MainWindow", u"0_6", None)
+        )
+        self.pushButton_26.setText(
+            QCoreApplication.translate("MainWindow", u"1_6", None)
+        )
+        self.pushButton_27.setText(
+            QCoreApplication.translate("MainWindow", u"2_6", None)
+        )
+        self.pushButton_28.setText(
+            QCoreApplication.translate("MainWindow", u"3_6", None)
+        )
+        self.tool_diameter_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Werkzeug-durchmesser", None)
+        )
+        self.pushButton_29.setText(
+            QCoreApplication.translate("MainWindow", u"0_7", None)
+        )
+        self.pushButton_30.setText(
+            QCoreApplication.translate("MainWindow", u"1_7", None)
+        )
+        self.pushButton_31.setText(
+            QCoreApplication.translate("MainWindow", u"2_7", None)
+        )
+        self.pushButton_32.setText(
+            QCoreApplication.translate("MainWindow", u"3_7", None)
+        )
+        self.tool_cutting_width_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Schneidenbreite", None)
+        )
+        self.pushButton_33.setText(
+            QCoreApplication.translate("MainWindow", u"0_8", None)
+        )
+        self.pushButton_34.setText(
+            QCoreApplication.translate("MainWindow", u"1_8", None)
+        )
+        self.pushButton_35.setText(
+            QCoreApplication.translate("MainWindow", u"2_8", None)
+        )
+        self.pushButton_36.setText(
+            QCoreApplication.translate("MainWindow", u"3_8", None)
+        )
+        self.no_of_wings_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Schneidenzahl", None)
+        )
+        self.pushButton_37.setText(
+            QCoreApplication.translate("MainWindow", u"0_9", None)
+        )
+        self.pushButton_38.setText(
+            QCoreApplication.translate("MainWindow", u"1_9", None)
+        )
+        self.pushButton_39.setText(
+            QCoreApplication.translate("MainWindow", u"2_9", None)
+        )
+        self.pushButton_40.setText(
+            QCoreApplication.translate("MainWindow", u"3_9", None)
+        )
+        self.total_no_of_wings_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Gesamt-schneidenanzahl", None)
+        )
+        self.pushButton_41.setText(
+            QCoreApplication.translate("MainWindow", u"0_10", None)
+        )
+        self.pushButton_42.setText(
+            QCoreApplication.translate("MainWindow", u"1_10", None)
+        )
+        self.pushButton_43.setText(
+            QCoreApplication.translate("MainWindow", u"2_10", None)
+        )
+        self.pushButton_44.setText(
+            QCoreApplication.translate("MainWindow", u"3_10", None)
+        )
+        self.rake_angle_l2.setText(
+            QCoreApplication.translate("MainWindow", u"Spanwinkel", None)
+        )
+        self.pushButton_45.setText(
+            QCoreApplication.translate("MainWindow", u"0_11", None)
+        )
+        self.pushButton_46.setText(
+            QCoreApplication.translate("MainWindow", u"1_11", None)
+        )
+        self.pushButton_47.setText(
+            QCoreApplication.translate("MainWindow", u"2_11", None)
+        )
+        self.pushButton_48.setText(
+            QCoreApplication.translate("MainWindow", u"3_11", None)
+        )
+        self.btn_close.setText(
+            QCoreApplication.translate("MainWindow", u"Schlie\u00dfen", None)
+        )
 
+    # retranslateUi

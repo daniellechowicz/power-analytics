@@ -48,9 +48,7 @@ class Ui_SplashScreen(object):
         self.label.setObjectName(u"label")
         self.label.setMinimumSize(QSize(72, 72))
         self.label.setMaximumSize(QSize(72, 72))
-        self.label.setPixmap(
-            QPixmap(u"pkgs/src/ui/splash_screen/logo.png")
-        )
+        self.label.setPixmap(QPixmap(u"pkgs/src/ui/splash_screen/logo.png"))
         self.label.setScaledContents(True)
 
         self.verticalLayout.addWidget(self.label, 0, Qt.AlignRight)
@@ -162,9 +160,7 @@ class Ui_SplashScreen(object):
         self.label_4 = QLabel(self.centralwidget)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(9, 9, 780, 418))
-        self.label_4.setPixmap(
-            QPixmap(u"pkgs/src/ui/splash_screen/background.jpg")
-        )
+        self.label_4.setPixmap(QPixmap(u"pkgs/src/ui/splash_screen/background.jpg"))
         self.label_4.setScaledContents(True)
         SplashScreen.setCentralWidget(self.centralwidget)
         self.label_4.raise_()

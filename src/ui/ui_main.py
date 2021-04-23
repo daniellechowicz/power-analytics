@@ -1,10 +1,29 @@
 # -*- coding: utf-8 -*-
 
-from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
-    QRect, QSize, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
-    QRadialGradient)
+from PySide2.QtCore import (
+    QCoreApplication,
+    QMetaObject,
+    QObject,
+    QPoint,
+    QRect,
+    QSize,
+    QUrl,
+    Qt,
+)
+from PySide2.QtGui import (
+    QBrush,
+    QColor,
+    QConicalGradient,
+    QCursor,
+    QFont,
+    QFontDatabase,
+    QIcon,
+    QLinearGradient,
+    QPalette,
+    QPainter,
+    QPixmap,
+    QRadialGradient,
+)
 from PySide2.QtWidgets import *
 
 from pyqtgraph import GraphicsLayoutWidget
@@ -19,8 +38,10 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setStyleSheet(u"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(50, 61, 74, 255), stop:1 rgba(71, 74, 120, 255));\n"
-"border-radius: 10px;")
+        self.centralwidget.setStyleSheet(
+            u"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(50, 61, 74, 255), stop:1 rgba(71, 74, 120, 255));\n"
+            "border-radius: 10px;"
+        )
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -50,7 +71,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_5.addWidget(self.label_3)
 
-
         self.gridLayout.addWidget(self.frame_4, 3, 0, 1, 2)
 
         self.verticalLayout_4 = QVBoxLayout()
@@ -63,8 +83,9 @@ class Ui_MainWindow(object):
         font1.setFamily(u"Segoe UI Light")
         font1.setPointSize(16)
         self.labelTitle.setFont(font1)
-        self.labelTitle.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);")
+        self.labelTitle.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n" "color: rgb(255, 255, 255);"
+        )
 
         self.verticalLayout_4.addWidget(self.labelTitle)
 
@@ -74,11 +95,11 @@ class Ui_MainWindow(object):
         font2.setFamily(u"Segoe UI Light")
         font2.setPointSize(12)
         self.labelSubtitle.setFont(font2)
-        self.labelSubtitle.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(142, 132, 180);")
+        self.labelSubtitle.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n" "color: rgb(142, 132, 180);"
+        )
 
         self.verticalLayout_4.addWidget(self.labelSubtitle)
-
 
         self.gridLayout.addLayout(self.verticalLayout_4, 1, 1, 1, 1)
 
@@ -101,25 +122,29 @@ class Ui_MainWindow(object):
         self.buttonAdd.setObjectName(u"buttonAdd")
         self.buttonAdd.setMinimumSize(QSize(0, 75))
         self.buttonAdd.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonAdd.setStyleSheet(u"QPushButton {\n"
-"border-bottom-right-radius: 15px;\n"
-"border-top-right-radius: 15px;\n"
-"border-bottom-left-radius: 0px;\n"
-"border-top-left-radius: 0px;\n"
-"border-left: 5px solid rgba(0, 0, 0, 0);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"border-left: 5px solid rgb(142, 132, 180);\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border-left: 5px solid rgb(85, 170, 255);\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"}")
+        self.buttonAdd.setStyleSheet(
+            u"QPushButton {\n"
+            "border-bottom-right-radius: 15px;\n"
+            "border-top-right-radius: 15px;\n"
+            "border-bottom-left-radius: 0px;\n"
+            "border-top-left-radius: 0px;\n"
+            "border-left: 5px solid rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "border-left: 5px solid rgb(142, 132, 180);\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border-left: 5px solid rgb(85, 170, 255);\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "}"
+        )
         icon = QIcon()
-        icon.addFile(u"pkgs/src/ui/icons/add-button.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(
+            u"pkgs/src/ui/icons/add-button.svg", QSize(), QIcon.Normal, QIcon.Off
+        )
         self.buttonAdd.setIcon(icon)
         self.buttonAdd.setIconSize(QSize(48, 48))
 
@@ -129,23 +154,25 @@ class Ui_MainWindow(object):
         self.buttonAnalyse.setObjectName(u"buttonAnalyse")
         self.buttonAnalyse.setMinimumSize(QSize(0, 80))
         self.buttonAnalyse.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonAnalyse.setStyleSheet(u"QPushButton {\n"
-"border-bottom-right-radius: 15px;\n"
-"border-top-right-radius: 15px;\n"
-"border-bottom-left-radius: 0px;\n"
-"border-top-left-radius: 0px;\n"
-"border-left: 5px solid rgba(0, 0, 0, 0);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"border-left: 5px solid rgb(142, 132, 180);\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border-left: 5px solid rgb(85, 170, 255);\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"}")
+        self.buttonAnalyse.setStyleSheet(
+            u"QPushButton {\n"
+            "border-bottom-right-radius: 15px;\n"
+            "border-top-right-radius: 15px;\n"
+            "border-bottom-left-radius: 0px;\n"
+            "border-top-left-radius: 0px;\n"
+            "border-left: 5px solid rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "border-left: 5px solid rgb(142, 132, 180);\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border-left: 5px solid rgb(85, 170, 255);\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "}"
+        )
         icon1 = QIcon()
         icon1.addFile(u"pkgs/src/ui/icons/loupe.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonAnalyse.setIcon(icon1)
@@ -157,25 +184,29 @@ class Ui_MainWindow(object):
         self.buttonDatabase.setObjectName(u"buttonDatabase")
         self.buttonDatabase.setMinimumSize(QSize(0, 80))
         self.buttonDatabase.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonDatabase.setStyleSheet(u"QPushButton {\n"
-"border-bottom-right-radius: 15px;\n"
-"border-top-right-radius: 15px;\n"
-"border-bottom-left-radius: 0px;\n"
-"border-top-left-radius: 0px;\n"
-"border-left: 5px solid rgba(0, 0, 0, 0);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"border-left: 5px solid rgb(142, 132, 180);\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border-left: 5px solid rgb(85, 170, 255);\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"}")
+        self.buttonDatabase.setStyleSheet(
+            u"QPushButton {\n"
+            "border-bottom-right-radius: 15px;\n"
+            "border-top-right-radius: 15px;\n"
+            "border-bottom-left-radius: 0px;\n"
+            "border-top-left-radius: 0px;\n"
+            "border-left: 5px solid rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "border-left: 5px solid rgb(142, 132, 180);\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border-left: 5px solid rgb(85, 170, 255);\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "}"
+        )
         icon2 = QIcon()
-        icon2.addFile(u"pkgs/src/ui/icons/database.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(
+            u"pkgs/src/ui/icons/database.svg", QSize(), QIcon.Normal, QIcon.Off
+        )
         self.buttonDatabase.setIcon(icon2)
         self.buttonDatabase.setIconSize(QSize(48, 48))
 
@@ -185,23 +216,25 @@ class Ui_MainWindow(object):
         self.buttonReport.setObjectName(u"buttonReport")
         self.buttonReport.setMinimumSize(QSize(0, 80))
         self.buttonReport.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonReport.setStyleSheet(u"QPushButton {\n"
-"border-bottom-right-radius: 15px;\n"
-"border-top-right-radius: 15px;\n"
-"border-bottom-left-radius: 0px;\n"
-"border-top-left-radius: 0px;\n"
-"border-left: 5px solid rgba(0, 0, 0, 0);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"border-left: 5px solid rgb(142, 132, 180);\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border-left: 5px solid rgb(85, 170, 255);\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"}")
+        self.buttonReport.setStyleSheet(
+            u"QPushButton {\n"
+            "border-bottom-right-radius: 15px;\n"
+            "border-top-right-radius: 15px;\n"
+            "border-bottom-left-radius: 0px;\n"
+            "border-top-left-radius: 0px;\n"
+            "border-left: 5px solid rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "border-left: 5px solid rgb(142, 132, 180);\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border-left: 5px solid rgb(85, 170, 255);\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "}"
+        )
         icon3 = QIcon()
         icon3.addFile(u"pkgs/src/ui/icons/report.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonReport.setIcon(icon3)
@@ -214,30 +247,33 @@ class Ui_MainWindow(object):
         self.buttonSettings.setObjectName(u"buttonSettings")
         self.buttonSettings.setMinimumSize(QSize(0, 80))
         self.buttonSettings.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonSettings.setStyleSheet(u"QPushButton {\n"
-"border-bottom-right-radius: 15px;\n"
-"border-top-right-radius: 15px;\n"
-"border-bottom-left-radius: 0px;\n"
-"border-top-left-radius: 0px;\n"
-"border-left: 5px solid rgba(0, 0, 0, 0);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"border-left: 5px solid rgb(142, 132, 180);\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border-left: 5px solid rgb(85, 170, 255);\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"}")
+        self.buttonSettings.setStyleSheet(
+            u"QPushButton {\n"
+            "border-bottom-right-radius: 15px;\n"
+            "border-top-right-radius: 15px;\n"
+            "border-bottom-left-radius: 0px;\n"
+            "border-top-left-radius: 0px;\n"
+            "border-left: 5px solid rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "border-left: 5px solid rgb(142, 132, 180);\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border-left: 5px solid rgb(85, 170, 255);\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "}"
+        )
         icon4 = QIcon()
-        icon4.addFile(u"pkgs/src/ui/icons/setting-lines.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(
+            u"pkgs/src/ui/icons/setting-lines.svg", QSize(), QIcon.Normal, QIcon.Off
+        )
         self.buttonSettings.setIcon(icon4)
         self.buttonSettings.setIconSize(QSize(48, 48))
 
         self.verticalLayout.addWidget(self.buttonSettings)
-
 
         self.gridLayout.addWidget(self.frame_2, 2, 0, 1, 1)
 
@@ -261,37 +297,45 @@ class Ui_MainWindow(object):
         sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.buttonMinimize.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.buttonMinimize.sizePolicy().hasHeightForWidth()
+        )
         self.buttonMinimize.setSizePolicy(sizePolicy2)
         self.buttonMinimize.setMinimumSize(QSize(30, 30))
         self.buttonMinimize.setMaximumSize(QSize(30, 30))
         self.buttonMinimize.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonMinimize.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(255, 170, 0);\n"
-"border-radius: 15px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"background-color: rgba(255, 170, 0, 0.8);\n"
-"}")
+        self.buttonMinimize.setStyleSheet(
+            u"QPushButton {\n"
+            "background-color: rgb(255, 170, 0);\n"
+            "border-radius: 15px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "background-color: rgba(255, 170, 0, 0.8);\n"
+            "}"
+        )
 
         self.horizontalLayout_2.addWidget(self.buttonMinimize)
 
         self.buttonMaximize = QPushButton(self.frame)
         self.buttonMaximize.setObjectName(u"buttonMaximize")
-        sizePolicy2.setHeightForWidth(self.buttonMaximize.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.buttonMaximize.sizePolicy().hasHeightForWidth()
+        )
         self.buttonMaximize.setSizePolicy(sizePolicy2)
         self.buttonMaximize.setMinimumSize(QSize(30, 30))
         self.buttonMaximize.setMaximumSize(QSize(30, 30))
         self.buttonMaximize.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonMaximize.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(0, 221, 51);\n"
-"border-radius: 15px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"background-color: rgba(0, 221, 51, 0.8);\n"
-"}")
+        self.buttonMaximize.setStyleSheet(
+            u"QPushButton {\n"
+            "background-color: rgb(0, 221, 51);\n"
+            "border-radius: 15px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "background-color: rgba(0, 221, 51, 0.8);\n"
+            "}"
+        )
 
         self.horizontalLayout_2.addWidget(self.buttonMaximize)
 
@@ -302,17 +346,18 @@ class Ui_MainWindow(object):
         self.buttonClose.setMinimumSize(QSize(30, 30))
         self.buttonClose.setMaximumSize(QSize(30, 30))
         self.buttonClose.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonClose.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(255, 0, 0);\n"
-"border-radius: 15px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"background-color: rgba(255, 0, 0, 0.8);\n"
-"}")
+        self.buttonClose.setStyleSheet(
+            u"QPushButton {\n"
+            "background-color: rgb(255, 0, 0);\n"
+            "border-radius: 15px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "background-color: rgba(255, 0, 0, 0.8);\n"
+            "}"
+        )
 
         self.horizontalLayout_2.addWidget(self.buttonClose)
-
 
         self.gridLayout.addWidget(self.frame, 0, 0, 1, 2, Qt.AlignRight)
 
@@ -346,24 +391,30 @@ class Ui_MainWindow(object):
         self.frame_11.setFrameShadow(QFrame.Raised)
         self.verticalLayout_11 = QVBoxLayout(self.frame_11)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
-        self.verticalSpacer_5 = QSpacerItem(20, 203, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_5 = QSpacerItem(
+            20, 203, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_11.addItem(self.verticalSpacer_5)
 
         self.buttonPathImport = QPushButton(self.frame_11)
         self.buttonPathImport.setObjectName(u"buttonPathImport")
-        sizePolicy2.setHeightForWidth(self.buttonPathImport.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.buttonPathImport.sizePolicy().hasHeightForWidth()
+        )
         self.buttonPathImport.setSizePolicy(sizePolicy2)
         self.buttonPathImport.setMinimumSize(QSize(200, 200))
         self.buttonPathImport.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonPathImport.setStyleSheet(u"QPushButton:hover {\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border: 5px solid rgb(85, 170, 255);\n"
-"}")
+        self.buttonPathImport.setStyleSheet(
+            u"QPushButton:hover {\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "border-radius: 20px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border: 5px solid rgb(85, 170, 255);\n"
+            "}"
+        )
         icon5 = QIcon()
         icon5.addFile(u"pkgs/src/ui/icons/folder.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonPathImport.setIcon(icon5)
@@ -374,29 +425,34 @@ class Ui_MainWindow(object):
 
         self.label_12 = QLabel(self.frame_11)
         self.label_12.setObjectName(u"label_12")
-        self.label_12.setStyleSheet(u"margin-top: 10px;\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 16pt;\n"
-"font-weight: bold;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_12.setStyleSheet(
+            u"margin-top: 10px;\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 16pt;\n"
+            "font-weight: bold;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_11.addWidget(self.label_12, 0, Qt.AlignHCenter)
 
         self.label_16 = QLabel(self.frame_11)
         self.label_16.setObjectName(u"label_16")
-        self.label_16.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_16.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";'
+        )
         self.label_16.setWordWrap(False)
 
         self.verticalLayout_11.addWidget(self.label_16, 0, Qt.AlignHCenter)
 
-        self.verticalSpacer_8 = QSpacerItem(20, 202, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_8 = QSpacerItem(
+            20, 202, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_11.addItem(self.verticalSpacer_8)
-
 
         self.horizontalLayout_4.addWidget(self.frame_11)
 
@@ -406,26 +462,34 @@ class Ui_MainWindow(object):
         self.frame_12.setFrameShadow(QFrame.Raised)
         self.verticalLayout_14 = QVBoxLayout(self.frame_12)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
-        self.verticalSpacer_6 = QSpacerItem(20, 203, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_6 = QSpacerItem(
+            20, 203, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_14.addItem(self.verticalSpacer_6)
 
         self.buttonParams = QPushButton(self.frame_12)
         self.buttonParams.setObjectName(u"buttonParams")
-        sizePolicy2.setHeightForWidth(self.buttonParams.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.buttonParams.sizePolicy().hasHeightForWidth()
+        )
         self.buttonParams.setSizePolicy(sizePolicy2)
         self.buttonParams.setMinimumSize(QSize(200, 200))
         self.buttonParams.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonParams.setStyleSheet(u"QPushButton:hover {\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border: 5px solid rgb(85, 170, 255);\n"
-"}")
+        self.buttonParams.setStyleSheet(
+            u"QPushButton:hover {\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "border-radius: 20px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border: 5px solid rgb(85, 170, 255);\n"
+            "}"
+        )
         icon6 = QIcon()
-        icon6.addFile(u"pkgs/src/ui/icons/bullet-form.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon6.addFile(
+            u"pkgs/src/ui/icons/bullet-form.svg", QSize(), QIcon.Normal, QIcon.Off
+        )
         self.buttonParams.setIcon(icon6)
         self.buttonParams.setIconSize(QSize(128, 128))
 
@@ -433,28 +497,33 @@ class Ui_MainWindow(object):
 
         self.label_13 = QLabel(self.frame_12)
         self.label_13.setObjectName(u"label_13")
-        self.label_13.setStyleSheet(u"margin-top: 10px;\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 16pt;\n"
-"font-weight: bold;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_13.setStyleSheet(
+            u"margin-top: 10px;\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 16pt;\n"
+            "font-weight: bold;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_14.addWidget(self.label_13, 0, Qt.AlignHCenter)
 
         self.label_17 = QLabel(self.frame_12)
         self.label_17.setObjectName(u"label_17")
-        self.label_17.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_17.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_14.addWidget(self.label_17, 0, Qt.AlignHCenter)
 
-        self.verticalSpacer_9 = QSpacerItem(20, 202, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_9 = QSpacerItem(
+            20, 202, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_14.addItem(self.verticalSpacer_9)
-
 
         self.horizontalLayout_4.addWidget(self.frame_12)
 
@@ -464,7 +533,9 @@ class Ui_MainWindow(object):
         self.frame_13.setFrameShadow(QFrame.Raised)
         self.verticalLayout_15 = QVBoxLayout(self.frame_13)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
-        self.verticalSpacer_7 = QSpacerItem(20, 203, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_7 = QSpacerItem(
+            20, 203, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_15.addItem(self.verticalSpacer_7)
 
@@ -475,14 +546,16 @@ class Ui_MainWindow(object):
         self.buttonDone.setSizePolicy(sizePolicy2)
         self.buttonDone.setMinimumSize(QSize(200, 200))
         self.buttonDone.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonDone.setStyleSheet(u"QPushButton:hover {\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border: 5px solid rgb(85, 170, 255);\n"
-"}")
+        self.buttonDone.setStyleSheet(
+            u"QPushButton:hover {\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "border-radius: 20px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border: 5px solid rgb(85, 170, 255);\n"
+            "}"
+        )
         icon7 = QIcon()
         icon7.addFile(u"pkgs/src/ui/icons/accept.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonDone.setIcon(icon7)
@@ -494,31 +567,35 @@ class Ui_MainWindow(object):
 
         self.label_15 = QLabel(self.frame_13)
         self.label_15.setObjectName(u"label_15")
-        self.label_15.setStyleSheet(u"margin-top: 10px;\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 16pt;\n"
-"font-weight: bold;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_15.setStyleSheet(
+            u"margin-top: 10px;\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 16pt;\n"
+            "font-weight: bold;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_15.addWidget(self.label_15, 0, Qt.AlignHCenter)
 
         self.label_18 = QLabel(self.frame_13)
         self.label_18.setObjectName(u"label_18")
-        self.label_18.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_18.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_15.addWidget(self.label_18, 0, Qt.AlignHCenter)
 
-        self.verticalSpacer_10 = QSpacerItem(20, 202, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_10 = QSpacerItem(
+            20, 202, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_15.addItem(self.verticalSpacer_10)
 
-
         self.horizontalLayout_4.addWidget(self.frame_13)
-
 
         self.horizontalLayout_3.addWidget(self.frame_3)
 
@@ -533,27 +610,29 @@ class Ui_MainWindow(object):
         self.tabWidget.setObjectName(u"tabWidget")
         self.tabWidget.setFont(font)
         self.tabWidget.setFocusPolicy(Qt.NoFocus)
-        self.tabWidget.setStyleSheet(u"QTabBar::tab {\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"padding: 10px;\n"
-"color: rgba(255, 255, 255, 0.5);\n"
-"margin-left: 2px;\n"
-"}\n"
-"\n"
-"QTabBar::tab:first {\n"
-"margin-left: 0px;\n"
-"}\n"
-"\n"
-"QTabBar::tab:selected {\n"
-"color: rgb(255, 255, 255);\n"
-"background-color: rgb(85, 170, 255);\n"
-"}\n"
-"\n"
-"QTabWidget::pane {\n"
-"background: #ffffff;\n"
-"border-bottom-right-radius: 15px;\n"
-"border-top-right-radius: 15px;\n"
-"} ")
+        self.tabWidget.setStyleSheet(
+            u"QTabBar::tab {\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "padding: 10px;\n"
+            "color: rgba(255, 255, 255, 0.5);\n"
+            "margin-left: 2px;\n"
+            "}\n"
+            "\n"
+            "QTabBar::tab:first {\n"
+            "margin-left: 0px;\n"
+            "}\n"
+            "\n"
+            "QTabBar::tab:selected {\n"
+            "color: rgb(255, 255, 255);\n"
+            "background-color: rgb(85, 170, 255);\n"
+            "}\n"
+            "\n"
+            "QTabWidget::pane {\n"
+            "background: #ffffff;\n"
+            "border-bottom-right-radius: 15px;\n"
+            "border-top-right-radius: 15px;\n"
+            "} "
+        )
         self.tabWidget.setTabShape(QTabWidget.Rounded)
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
@@ -564,7 +643,9 @@ class Ui_MainWindow(object):
         sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.graphicsViewRangeSelection.sizePolicy().hasHeightForWidth())
+        sizePolicy3.setHeightForWidth(
+            self.graphicsViewRangeSelection.sizePolicy().hasHeightForWidth()
+        )
         self.graphicsViewRangeSelection.setSizePolicy(sizePolicy3)
         self.graphicsViewRangeSelection.setStyleSheet(u"")
 
@@ -586,56 +667,61 @@ class Ui_MainWindow(object):
         self.buttonUpdateGraphs = QPushButton(self.frame_18)
         self.buttonUpdateGraphs.setObjectName(u"buttonUpdateGraphs")
         self.buttonUpdateGraphs.setFont(font)
-        self.buttonUpdateGraphs.setStyleSheet(u"QPushButton {\n"
-"background-color: rgba(85, 170, 255, 1);\n"
-"border: 2px solid rgb(85, 170, 255);\n"
-"padding: 5px;\n"
-"border-radius: 5px;\n"
-"font-size: 12px;\n"
-"color: rgb(255, 255, 255);\n"
-"font-family: \"Segoe UI Light\";\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"background-color: rgba(85, 170, 255, 0.75);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"background-color: rgba(85, 170, 255, 0.5);\n"
-"}")
+        self.buttonUpdateGraphs.setStyleSheet(
+            u"QPushButton {\n"
+            "background-color: rgba(85, 170, 255, 1);\n"
+            "border: 2px solid rgb(85, 170, 255);\n"
+            "padding: 5px;\n"
+            "border-radius: 5px;\n"
+            "font-size: 12px;\n"
+            "color: rgb(255, 255, 255);\n"
+            'font-family: "Segoe UI Light";\n'
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "background-color: rgba(85, 170, 255, 0.75);\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "background-color: rgba(85, 170, 255, 0.5);\n"
+            "}"
+        )
 
         self.horizontalLayout_7.addWidget(self.buttonUpdateGraphs)
 
         self.save_to_database = QCheckBox(self.frame_18)
         self.save_to_database.setObjectName(u"save_to_database")
-        sizePolicy2.setHeightForWidth(self.save_to_database.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.save_to_database.sizePolicy().hasHeightForWidth()
+        )
         self.save_to_database.setSizePolicy(sizePolicy2)
-        self.save_to_database.setStyleSheet(u"QCheckBox::indicator {\n"
-"width: 20px;\n"
-"height: 20px;\n"
-"border: 2px solid rgb(85, 170, 255);\n"
-"background: none;\n"
-"}\n"
-"\n"
-"QCheckBox {\n"
-"color: rgb(0, 0, 0);\n"
-"font-size: 12px;\n"
-"font-family: \"Segoe UI Light\";\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:hover {\n"
-"border-radius: 10px;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"border-radius: 10px;\n"
-"border: 2px solid rgb(85, 170, 255);\n"
-"background-color: rgba(85, 170, 255, 0.5);\n"
-"}")
+        self.save_to_database.setStyleSheet(
+            u"QCheckBox::indicator {\n"
+            "width: 20px;\n"
+            "height: 20px;\n"
+            "border: 2px solid rgb(85, 170, 255);\n"
+            "background: none;\n"
+            "}\n"
+            "\n"
+            "QCheckBox {\n"
+            "color: rgb(0, 0, 0);\n"
+            "font-size: 12px;\n"
+            'font-family: "Segoe UI Light";\n'
+            "}\n"
+            "\n"
+            "QCheckBox::indicator:hover {\n"
+            "border-radius: 10px;\n"
+            "}\n"
+            "\n"
+            "QCheckBox::indicator:checked {\n"
+            "border-radius: 10px;\n"
+            "border: 2px solid rgb(85, 170, 255);\n"
+            "background-color: rgba(85, 170, 255, 0.5);\n"
+            "}"
+        )
         self.save_to_database.setChecked(True)
 
         self.horizontalLayout_7.addWidget(self.save_to_database)
-
 
         self.verticalLayout_13.addWidget(self.frame_18)
 
@@ -646,7 +732,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.graphicsViewRaw = GraphicsLayoutWidget(self.tab_raw)
         self.graphicsViewRaw.setObjectName(u"graphicsViewRaw")
-        sizePolicy3.setHeightForWidth(self.graphicsViewRaw.sizePolicy().hasHeightForWidth())
+        sizePolicy3.setHeightForWidth(
+            self.graphicsViewRaw.sizePolicy().hasHeightForWidth()
+        )
         self.graphicsViewRaw.setSizePolicy(sizePolicy3)
         self.graphicsViewRaw.setStyleSheet(u"")
 
@@ -657,8 +745,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
         self.frame_5.setSizePolicy(sizePolicy)
         self.frame_5.setMinimumSize(QSize(0, 125))
-        self.frame_5.setStyleSheet(u"color: #ffffff;\n"
-"background-color: rgb(85, 170, 255);")
+        self.frame_5.setStyleSheet(
+            u"color: #ffffff;\n" "background-color: rgb(85, 170, 255);"
+        )
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
         self.gridLayout_2 = QGridLayout(self.frame_5)
@@ -761,7 +850,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.label_2, 1, 1, 1, 1)
 
-
         self.verticalLayout_3.addWidget(self.frame_5)
 
         self.tabWidget.addTab(self.tab_raw, "")
@@ -771,7 +859,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.graphicsViewMM = GraphicsLayoutWidget(self.tab_mm)
         self.graphicsViewMM.setObjectName(u"graphicsViewMM")
-        sizePolicy3.setHeightForWidth(self.graphicsViewMM.sizePolicy().hasHeightForWidth())
+        sizePolicy3.setHeightForWidth(
+            self.graphicsViewMM.sizePolicy().hasHeightForWidth()
+        )
         self.graphicsViewMM.setSizePolicy(sizePolicy3)
         self.graphicsViewMM.setStyleSheet(u"")
 
@@ -782,8 +872,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.frame_8.sizePolicy().hasHeightForWidth())
         self.frame_8.setSizePolicy(sizePolicy)
         self.frame_8.setMinimumSize(QSize(0, 125))
-        self.frame_8.setStyleSheet(u"color: #ffffff;\n"
-"background-color: rgb(85, 170, 255);")
+        self.frame_8.setStyleSheet(
+            u"color: #ffffff;\n" "background-color: rgb(85, 170, 255);"
+        )
         self.frame_8.setFrameShape(QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QFrame.Raised)
         self.gridLayout_5 = QGridLayout(self.frame_8)
@@ -876,7 +967,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_5.addWidget(self.label_49, 1, 2, 1, 1)
 
-
         self.verticalLayout_7.addWidget(self.frame_8)
 
         self.tabWidget.addTab(self.tab_mm, "")
@@ -886,7 +976,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.graphicsViewPSD = GraphicsLayoutWidget(self.tab_psd)
         self.graphicsViewPSD.setObjectName(u"graphicsViewPSD")
-        sizePolicy3.setHeightForWidth(self.graphicsViewPSD.sizePolicy().hasHeightForWidth())
+        sizePolicy3.setHeightForWidth(
+            self.graphicsViewPSD.sizePolicy().hasHeightForWidth()
+        )
         self.graphicsViewPSD.setSizePolicy(sizePolicy3)
         self.graphicsViewPSD.setStyleSheet(u"")
 
@@ -907,26 +999,34 @@ class Ui_MainWindow(object):
         self.frame_14.setFrameShadow(QFrame.Raised)
         self.verticalLayout_17 = QVBoxLayout(self.frame_14)
         self.verticalLayout_17.setObjectName(u"verticalLayout_17")
-        self.verticalSpacer_11 = QSpacerItem(20, 194, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_11 = QSpacerItem(
+            20, 194, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_17.addItem(self.verticalSpacer_11)
 
         self.buttonDatabaseShow = QPushButton(self.frame_14)
         self.buttonDatabaseShow.setObjectName(u"buttonDatabaseShow")
-        sizePolicy2.setHeightForWidth(self.buttonDatabaseShow.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.buttonDatabaseShow.sizePolicy().hasHeightForWidth()
+        )
         self.buttonDatabaseShow.setSizePolicy(sizePolicy2)
         self.buttonDatabaseShow.setMinimumSize(QSize(200, 200))
         self.buttonDatabaseShow.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonDatabaseShow.setStyleSheet(u"QPushButton:hover {\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border: 5px solid rgb(85, 170, 255);\n"
-"}")
+        self.buttonDatabaseShow.setStyleSheet(
+            u"QPushButton:hover {\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "border-radius: 20px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border: 5px solid rgb(85, 170, 255);\n"
+            "}"
+        )
         icon8 = QIcon()
-        icon8.addFile(u"pkgs/src/ui/icons/spreadsheet-cell.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon8.addFile(
+            u"pkgs/src/ui/icons/spreadsheet-cell.svg", QSize(), QIcon.Normal, QIcon.Off
+        )
         self.buttonDatabaseShow.setIcon(icon8)
         self.buttonDatabaseShow.setIconSize(QSize(128, 128))
 
@@ -934,28 +1034,33 @@ class Ui_MainWindow(object):
 
         self.label_19 = QLabel(self.frame_14)
         self.label_19.setObjectName(u"label_19")
-        self.label_19.setStyleSheet(u"margin-top: 10px;\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 16pt;\n"
-"font-weight: bold;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_19.setStyleSheet(
+            u"margin-top: 10px;\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 16pt;\n"
+            "font-weight: bold;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_17.addWidget(self.label_19, 0, Qt.AlignHCenter)
 
         self.label_20 = QLabel(self.frame_14)
         self.label_20.setObjectName(u"label_20")
-        self.label_20.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_20.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_17.addWidget(self.label_20, 0, Qt.AlignHCenter)
 
-        self.verticalSpacer_14 = QSpacerItem(20, 193, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_14 = QSpacerItem(
+            20, 193, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_17.addItem(self.verticalSpacer_14)
-
 
         self.horizontalLayout.addWidget(self.frame_14)
 
@@ -965,24 +1070,30 @@ class Ui_MainWindow(object):
         self.frame_15.setFrameShadow(QFrame.Raised)
         self.verticalLayout_18 = QVBoxLayout(self.frame_15)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-        self.verticalSpacer_12 = QSpacerItem(20, 194, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_12 = QSpacerItem(
+            20, 194, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_18.addItem(self.verticalSpacer_12)
 
         self.buttonShowBoxplots = QPushButton(self.frame_15)
         self.buttonShowBoxplots.setObjectName(u"buttonShowBoxplots")
-        sizePolicy2.setHeightForWidth(self.buttonShowBoxplots.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.buttonShowBoxplots.sizePolicy().hasHeightForWidth()
+        )
         self.buttonShowBoxplots.setSizePolicy(sizePolicy2)
         self.buttonShowBoxplots.setMinimumSize(QSize(200, 200))
         self.buttonShowBoxplots.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonShowBoxplots.setStyleSheet(u"QPushButton:hover {\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border: 5px solid rgb(85, 170, 255);\n"
-"}")
+        self.buttonShowBoxplots.setStyleSheet(
+            u"QPushButton:hover {\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "border-radius: 20px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border: 5px solid rgb(85, 170, 255);\n"
+            "}"
+        )
         icon9 = QIcon()
         icon9.addFile(u"pkgs/src/ui/icons/plot.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonShowBoxplots.setIcon(icon9)
@@ -992,28 +1103,33 @@ class Ui_MainWindow(object):
 
         self.label_21 = QLabel(self.frame_15)
         self.label_21.setObjectName(u"label_21")
-        self.label_21.setStyleSheet(u"margin-top: 10px;\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 16pt;\n"
-"font-weight: bold;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_21.setStyleSheet(
+            u"margin-top: 10px;\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 16pt;\n"
+            "font-weight: bold;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_18.addWidget(self.label_21, 0, Qt.AlignHCenter)
 
         self.label_22 = QLabel(self.frame_15)
         self.label_22.setObjectName(u"label_22")
-        self.label_22.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_22.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_18.addWidget(self.label_22, 0, Qt.AlignHCenter)
 
-        self.verticalSpacer_15 = QSpacerItem(20, 193, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_15 = QSpacerItem(
+            20, 193, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_18.addItem(self.verticalSpacer_15)
-
 
         self.horizontalLayout.addWidget(self.frame_15)
 
@@ -1023,26 +1139,34 @@ class Ui_MainWindow(object):
         self.frame_16.setFrameShadow(QFrame.Raised)
         self.verticalLayout_16 = QVBoxLayout(self.frame_16)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
-        self.verticalSpacer_13 = QSpacerItem(20, 194, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_13 = QSpacerItem(
+            20, 194, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_16.addItem(self.verticalSpacer_13)
 
         self.buttonDatabaseExport = QPushButton(self.frame_16)
         self.buttonDatabaseExport.setObjectName(u"buttonDatabaseExport")
-        sizePolicy2.setHeightForWidth(self.buttonDatabaseExport.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.buttonDatabaseExport.sizePolicy().hasHeightForWidth()
+        )
         self.buttonDatabaseExport.setSizePolicy(sizePolicy2)
         self.buttonDatabaseExport.setMinimumSize(QSize(200, 200))
         self.buttonDatabaseExport.setCursor(QCursor(Qt.PointingHandCursor))
-        self.buttonDatabaseExport.setStyleSheet(u"QPushButton:hover {\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border: 5px solid rgb(85, 170, 255);\n"
-"}")
+        self.buttonDatabaseExport.setStyleSheet(
+            u"QPushButton:hover {\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "border-radius: 20px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border: 5px solid rgb(85, 170, 255);\n"
+            "}"
+        )
         icon10 = QIcon()
-        icon10.addFile(u"pkgs/src/ui/icons/excel-file.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon10.addFile(
+            u"pkgs/src/ui/icons/excel-file.svg", QSize(), QIcon.Normal, QIcon.Off
+        )
         self.buttonDatabaseExport.setIcon(icon10)
         self.buttonDatabaseExport.setIconSize(QSize(128, 128))
 
@@ -1050,28 +1174,33 @@ class Ui_MainWindow(object):
 
         self.label_23 = QLabel(self.frame_16)
         self.label_23.setObjectName(u"label_23")
-        self.label_23.setStyleSheet(u"margin-top: 10px;\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 16pt;\n"
-"font-weight: bold;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_23.setStyleSheet(
+            u"margin-top: 10px;\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 16pt;\n"
+            "font-weight: bold;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_16.addWidget(self.label_23, 0, Qt.AlignHCenter)
 
         self.label_24 = QLabel(self.frame_16)
         self.label_24.setObjectName(u"label_24")
-        self.label_24.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_24.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_16.addWidget(self.label_24, 0, Qt.AlignHCenter)
 
-        self.verticalSpacer_16 = QSpacerItem(20, 193, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_16 = QSpacerItem(
+            20, 193, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_16.addItem(self.verticalSpacer_16)
-
 
         self.horizontalLayout.addWidget(self.frame_16)
 
@@ -1086,26 +1215,34 @@ class Ui_MainWindow(object):
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.verticalLayout_5 = QVBoxLayout(self.frame_6)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(
+            20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_5.addItem(self.verticalSpacer)
 
         self.btn_settings = QPushButton(self.frame_6)
         self.btn_settings.setObjectName(u"btn_settings")
-        sizePolicy2.setHeightForWidth(self.btn_settings.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.btn_settings.sizePolicy().hasHeightForWidth()
+        )
         self.btn_settings.setSizePolicy(sizePolicy2)
         self.btn_settings.setMinimumSize(QSize(200, 200))
         self.btn_settings.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_settings.setStyleSheet(u"QPushButton:hover {\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border: 5px solid rgb(85, 170, 255);\n"
-"}")
+        self.btn_settings.setStyleSheet(
+            u"QPushButton:hover {\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "border-radius: 20px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border: 5px solid rgb(85, 170, 255);\n"
+            "}"
+        )
         icon11 = QIcon()
-        icon11.addFile(u"pkgs/src/ui/icons/computer.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon11.addFile(
+            u"pkgs/src/ui/icons/computer.svg", QSize(), QIcon.Normal, QIcon.Off
+        )
         self.btn_settings.setIcon(icon11)
         self.btn_settings.setIconSize(QSize(128, 128))
 
@@ -1113,30 +1250,35 @@ class Ui_MainWindow(object):
 
         self.label_8 = QLabel(self.frame_6)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setStyleSheet(u"margin-top: 10px;\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 16pt;\n"
-"font-weight: bold;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_8.setStyleSheet(
+            u"margin-top: 10px;\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 16pt;\n"
+            "font-weight: bold;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_5.addWidget(self.label_8, 0, Qt.AlignHCenter)
 
         self.label_10 = QLabel(self.frame_6)
         self.label_10.setObjectName(u"label_10")
-        self.label_10.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_10.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";'
+        )
         self.label_10.setAlignment(Qt.AlignCenter)
         self.label_10.setWordWrap(True)
 
         self.verticalLayout_5.addWidget(self.label_10, 0, Qt.AlignHCenter)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_2 = QSpacerItem(
+            20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_5.addItem(self.verticalSpacer_2)
-
 
         self.horizontalLayout_6.addWidget(self.frame_6)
 
@@ -1146,26 +1288,34 @@ class Ui_MainWindow(object):
         self.frame_10.setFrameShadow(QFrame.Raised)
         self.verticalLayout_9 = QVBoxLayout(self.frame_10)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_3 = QSpacerItem(
+            20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_9.addItem(self.verticalSpacer_3)
 
         self.btn_tools_edit = QPushButton(self.frame_10)
         self.btn_tools_edit.setObjectName(u"btn_tools_edit")
-        sizePolicy2.setHeightForWidth(self.btn_tools_edit.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.btn_tools_edit.sizePolicy().hasHeightForWidth()
+        )
         self.btn_tools_edit.setSizePolicy(sizePolicy2)
         self.btn_tools_edit.setMinimumSize(QSize(200, 200))
         self.btn_tools_edit.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_tools_edit.setStyleSheet(u"QPushButton:hover {\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border: 5px solid rgb(85, 170, 255);\n"
-"}")
+        self.btn_tools_edit.setStyleSheet(
+            u"QPushButton:hover {\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "border-radius: 20px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border: 5px solid rgb(85, 170, 255);\n"
+            "}"
+        )
         icon12 = QIcon()
-        icon12.addFile(u"pkgs/src/ui/icons/wheel-saw.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon12.addFile(
+            u"pkgs/src/ui/icons/wheel-saw.svg", QSize(), QIcon.Normal, QIcon.Off
+        )
         self.btn_tools_edit.setIcon(icon12)
         self.btn_tools_edit.setIconSize(QSize(128, 128))
 
@@ -1173,30 +1323,35 @@ class Ui_MainWindow(object):
 
         self.label_9 = QLabel(self.frame_10)
         self.label_9.setObjectName(u"label_9")
-        self.label_9.setStyleSheet(u"margin-top: 10px;\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 16pt;\n"
-"font-weight: bold;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_9.setStyleSheet(
+            u"margin-top: 10px;\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 16pt;\n"
+            "font-weight: bold;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_9.addWidget(self.label_9, 0, Qt.AlignHCenter)
 
         self.label_11 = QLabel(self.frame_10)
         self.label_11.setObjectName(u"label_11")
-        self.label_11.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_11.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";'
+        )
         self.label_11.setAlignment(Qt.AlignCenter)
         self.label_11.setWordWrap(True)
 
         self.verticalLayout_9.addWidget(self.label_11, 0, Qt.AlignHCenter)
 
-        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_4 = QSpacerItem(
+            20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_9.addItem(self.verticalSpacer_4)
-
 
         self.horizontalLayout_6.addWidget(self.frame_10)
 
@@ -1206,27 +1361,35 @@ class Ui_MainWindow(object):
         self.frame_17.setFrameShadow(QFrame.Raised)
         self.verticalLayout_19 = QVBoxLayout(self.frame_17)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
-        self.verticalSpacer_17 = QSpacerItem(20, 177, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_17 = QSpacerItem(
+            20, 177, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_19.addItem(self.verticalSpacer_17)
 
         self.btn_tools_replace = QPushButton(self.frame_17)
         self.btn_tools_replace.setObjectName(u"btn_tools_replace")
-        sizePolicy2.setHeightForWidth(self.btn_tools_replace.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.btn_tools_replace.sizePolicy().hasHeightForWidth()
+        )
         self.btn_tools_replace.setSizePolicy(sizePolicy2)
         self.btn_tools_replace.setMinimumSize(QSize(200, 200))
         self.btn_tools_replace.setMaximumSize(QSize(16777215, 16777215))
         self.btn_tools_replace.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_tools_replace.setStyleSheet(u"QPushButton:hover {\n"
-"background-color: rgba(142, 132, 180, 0.5);\n"
-"border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border: 5px solid rgb(85, 170, 255);\n"
-"}")
+        self.btn_tools_replace.setStyleSheet(
+            u"QPushButton:hover {\n"
+            "background-color: rgba(142, 132, 180, 0.5);\n"
+            "border-radius: 20px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "border: 5px solid rgb(85, 170, 255);\n"
+            "}"
+        )
         icon13 = QIcon()
-        icon13.addFile(u"pkgs/src/ui/icons/replace.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon13.addFile(
+            u"pkgs/src/ui/icons/replace.svg", QSize(), QIcon.Normal, QIcon.Off
+        )
         self.btn_tools_replace.setIcon(icon13)
         self.btn_tools_replace.setIconSize(QSize(128, 128))
 
@@ -1234,30 +1397,35 @@ class Ui_MainWindow(object):
 
         self.label_25 = QLabel(self.frame_17)
         self.label_25.setObjectName(u"label_25")
-        self.label_25.setStyleSheet(u"margin-top: 10px;\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 16pt;\n"
-"font-weight: bold;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_25.setStyleSheet(
+            u"margin-top: 10px;\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 16pt;\n"
+            "font-weight: bold;\n"
+            'font-family: "Segoe UI Light";'
+        )
 
         self.verticalLayout_19.addWidget(self.label_25, 0, Qt.AlignHCenter)
 
         self.label_26 = QLabel(self.frame_17)
         self.label_26.setObjectName(u"label_26")
-        self.label_26.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";")
+        self.label_26.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";'
+        )
         self.label_26.setAlignment(Qt.AlignCenter)
         self.label_26.setWordWrap(True)
 
         self.verticalLayout_19.addWidget(self.label_26, 0, Qt.AlignHCenter)
 
-        self.verticalSpacer_18 = QSpacerItem(20, 176, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_18 = QSpacerItem(
+            20, 176, QSizePolicy.Minimum, QSizePolicy.Expanding
+        )
 
         self.verticalLayout_19.addItem(self.verticalSpacer_18)
-
 
         self.horizontalLayout_6.addWidget(self.frame_17)
 
@@ -1272,15 +1440,29 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(0)
         self.tabWidget.setCurrentIndex(3)
 
-
         QMetaObject.connectSlotsByName(MainWindow)
+
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u00a9 2021 Leitz GmbH & Co. KG All Rights Reserved", None))
-        self.labelTitle.setText(QCoreApplication.translate("MainWindow", u"Power Analytics", None))
-        self.labelSubtitle.setText(QCoreApplication.translate("MainWindow", u"Toolkit zur Analyse der Schnittleistung", None))
+        MainWindow.setWindowTitle(
+            QCoreApplication.translate("MainWindow", u"MainWindow", None)
+        )
+        self.label_3.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"\u00a9 2021 Leitz GmbH & Co. KG All Rights Reserved",
+                None,
+            )
+        )
+        self.labelTitle.setText(
+            QCoreApplication.translate("MainWindow", u"Power Analytics", None)
+        )
+        self.labelSubtitle.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Toolkit zur Analyse der Schnittleistung", None
+            )
+        )
         self.buttonAdd.setText("")
         self.buttonAnalyse.setText("")
         self.buttonDatabase.setText("")
@@ -1290,58 +1472,154 @@ class Ui_MainWindow(object):
         self.buttonMaximize.setText("")
         self.buttonClose.setText("")
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"Pfad", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Angeben\u00a0des Orts der\u00a0Messdatei", None))
+        self.label_16.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Angeben\u00a0des Orts der\u00a0Messdatei", None
+            )
+        )
         self.buttonParams.setText("")
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Parameter", None))
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Eingabe der dazugeh\u00f6rigen Parameter", None))
+        self.label_13.setText(
+            QCoreApplication.translate("MainWindow", u"Parameter", None)
+        )
+        self.label_17.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Eingabe der dazugeh\u00f6rigen Parameter", None
+            )
+        )
         self.buttonDone.setText("")
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Best\u00e4tigen", None))
-        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Weiter zum n\u00e4chsten Schritt", None))
-        self.buttonUpdateGraphs.setText(QCoreApplication.translate("MainWindow", u"Update", None))
-        self.save_to_database.setText(QCoreApplication.translate("MainWindow", u"Hinzuf\u00fcgen zur Datenbank", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Bereiche asuw\u00e4hlen", None))
-        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Statistik\u00a0zur Leistungsmessung innerhalb des\u00a0gew\u00e4hlten Bereichs [Watt]", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Standardabweichung", None))
+        self.label_15.setText(
+            QCoreApplication.translate("MainWindow", u"Best\u00e4tigen", None)
+        )
+        self.label_18.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Weiter zum n\u00e4chsten Schritt", None
+            )
+        )
+        self.buttonUpdateGraphs.setText(
+            QCoreApplication.translate("MainWindow", u"Update", None)
+        )
+        self.save_to_database.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Hinzuf\u00fcgen zur Datenbank", None
+            )
+        )
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.tab),
+            QCoreApplication.translate("MainWindow", u"Bereiche asuw\u00e4hlen", None),
+        )
+        self.label_14.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Statistik\u00a0zur Leistungsmessung innerhalb des\u00a0gew\u00e4hlten Bereichs [Watt]",
+                None,
+            )
+        )
+        self.label_7.setText(
+            QCoreApplication.translate("MainWindow", u"Standardabweichung", None)
+        )
         self.labelMinRaw.setText("")
         self.labelMeanRaw.setText("")
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Mittelwert", None))
+        self.label_4.setText(
+            QCoreApplication.translate("MainWindow", u"Mittelwert", None)
+        )
         self.labelMaxRaw.setText("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"Minimum", None))
         self.labelSTDRaw.setText("")
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Median", None))
         self.labelMedianRaw.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Maximum", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_raw), QCoreApplication.translate("MainWindow", u"Rohdaten", None))
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.tab_raw),
+            QCoreApplication.translate("MainWindow", u"Rohdaten", None),
+        )
         self.labelMeanMM.setText("")
-        self.label_48.setText(QCoreApplication.translate("MainWindow", u"Standardabweichung", None))
-        self.label_53.setText(QCoreApplication.translate("MainWindow", u"Statistik\u00a0zur Leistungsmessung innerhalb des\u00a0gew\u00e4hlten Bereichs [Watt]", None))
+        self.label_48.setText(
+            QCoreApplication.translate("MainWindow", u"Standardabweichung", None)
+        )
+        self.label_53.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Statistik\u00a0zur Leistungsmessung innerhalb des\u00a0gew\u00e4hlten Bereichs [Watt]",
+                None,
+            )
+        )
         self.labelMinMM.setText("")
         self.labelMedianMM.setText("")
         self.label_47.setText(QCoreApplication.translate("MainWindow", u"Median", None))
-        self.label_42.setText(QCoreApplication.translate("MainWindow", u"Minimum", None))
+        self.label_42.setText(
+            QCoreApplication.translate("MainWindow", u"Minimum", None)
+        )
         self.labelMaxMM.setText("")
-        self.label_45.setText(QCoreApplication.translate("MainWindow", u"Maximum", None))
+        self.label_45.setText(
+            QCoreApplication.translate("MainWindow", u"Maximum", None)
+        )
         self.labelSTDMM.setText("")
-        self.label_49.setText(QCoreApplication.translate("MainWindow", u"Mittelwert", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_mm), QCoreApplication.translate("MainWindow", u"Gleitender Mittelwert", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_psd), QCoreApplication.translate("MainWindow", u"Spektrum", None))
+        self.label_49.setText(
+            QCoreApplication.translate("MainWindow", u"Mittelwert", None)
+        )
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.tab_mm),
+            QCoreApplication.translate("MainWindow", u"Gleitender Mittelwert", None),
+        )
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.tab_psd),
+            QCoreApplication.translate("MainWindow", u"Spektrum", None),
+        )
         self.buttonDatabaseShow.setText("")
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"Tabellenform", None))
-        self.label_20.setText(QCoreApplication.translate("MainWindow", u"Anzeigen der gesammelten Daten", None))
+        self.label_19.setText(
+            QCoreApplication.translate("MainWindow", u"Tabellenform", None)
+        )
+        self.label_20.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Anzeigen der gesammelten Daten", None
+            )
+        )
         self.buttonShowBoxplots.setText("")
-        self.label_21.setText(QCoreApplication.translate("MainWindow", u"Datenvisualisierung", None))
-        self.label_22.setText(QCoreApplication.translate("MainWindow", u"Visualisierung der gesammelten\u00a0Daten", None))
+        self.label_21.setText(
+            QCoreApplication.translate("MainWindow", u"Datenvisualisierung", None)
+        )
+        self.label_22.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Visualisierung der gesammelten\u00a0Daten", None
+            )
+        )
         self.buttonDatabaseExport.setText("")
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"Export", None))
-        self.label_24.setText(QCoreApplication.translate("MainWindow", u"Exportieren\u00a0als\u00a0CSV Datei", None))
+        self.label_24.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Exportieren\u00a0als\u00a0CSV Datei", None
+            )
+        )
         self.btn_settings.setText("")
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Einstellungen", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Standardprogrammeinstellungen bearbeiten", None))
+        self.label_8.setText(
+            QCoreApplication.translate("MainWindow", u"Einstellungen", None)
+        )
+        self.label_10.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Standardprogrammeinstellungen bearbeiten", None
+            )
+        )
         self.btn_tools_edit.setText("")
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Werkzeuge", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Hinzuf\u00fcgen, \u00e4ndern oder erg\u00e4nzen eines Werkzeuges", None))
+        self.label_9.setText(
+            QCoreApplication.translate("MainWindow", u"Werkzeuge", None)
+        )
+        self.label_11.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Hinzuf\u00fcgen, \u00e4ndern oder erg\u00e4nzen eines Werkzeuges",
+                None,
+            )
+        )
         self.btn_tools_replace.setText("")
-        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Ersetzen", None))
-        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Einspielen einer aktuelleren\u00a0 Werkzeugdatenbank", None))
-    # retranslateUi
+        self.label_25.setText(
+            QCoreApplication.translate("MainWindow", u"Ersetzen", None)
+        )
+        self.label_26.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Einspielen einer aktuelleren\u00a0 Werkzeugdatenbank",
+                None,
+            )
+        )
 
+    # retranslateUi

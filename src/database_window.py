@@ -57,7 +57,9 @@ class DatabaseWindow(QMainWindow):
 
     def setup_headers(self):
         # Get headers from the database 'metadata'
-        self.connection = sqlite3.connect("pkgs/src/database/{}.db".format(self.db_name))
+        self.connection = sqlite3.connect(
+            "pkgs/src/database/{}.db".format(self.db_name)
+        )
         cursor = self.connection.execute("SELECT * FROM metadata")
         headers_1 = [description[0] for description in cursor.description]
 

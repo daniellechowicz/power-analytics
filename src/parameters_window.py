@@ -116,7 +116,9 @@ class ParametersWindow(QMainWindow):
 
     # External CSV file containing tools' parameters
     def get_corresponding_parameters(self):
-        result = Tools(f"pkgs/src/database/{LEITZ_TOOLS}", self.metadata["tool_id"]).export()
+        result = Tools(
+            f"pkgs/src/database/{LEITZ_TOOLS}", self.metadata["tool_id"]
+        ).export()
         return result
 
     def append_parameters_to_metadata(self, parameters):

@@ -110,6 +110,7 @@ class SplashScreen(QMainWindow):
 
         counter += 1
 
+
 def main():
     app = QApplication(sys.argv)
     window = SplashScreen()

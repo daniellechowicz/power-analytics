@@ -87,7 +87,9 @@ class ToolsEditWindow(QMainWindow):
 
     def find_by_ID(self, file, tool_id):
         df = pd.read_csv(
-            os.path.join("pkgs/src/database", file), delimiter=";", keep_default_na=False
+            os.path.join("pkgs/src/database", file),
+            delimiter=";",
+            keep_default_na=False,
         )
         row = df.loc[df["Identnummer"] == tool_id]
         i = row.index[0]
@@ -123,7 +125,9 @@ class ToolsEditWindow(QMainWindow):
             i = row.index[0]
             df.at[i, column_name] = value
             df.to_csv(
-                os.path.join("pkgs/src/database", LEITZ_TOOLS_UPDATES), sep=";", index=False
+                os.path.join("pkgs/src/database", LEITZ_TOOLS_UPDATES),
+                sep=";",
+                index=False,
             )
         # If there is no record for the ID of interest, then append it to the file
         else:
@@ -134,7 +138,9 @@ class ToolsEditWindow(QMainWindow):
     def edit_by_ID(self, tool_id, column_name, value, track_changes=False):
         # Update "tools.csv" itself
         df = pd.read_csv(
-            os.path.join("pkgs/src/database", LEITZ_TOOLS), delimiter=";", keep_default_na=False
+            os.path.join("pkgs/src/database", LEITZ_TOOLS),
+            delimiter=";",
+            keep_default_na=False,
         )
         row = df.loc[df["Identnummer"] == tool_id]
         i = row.index[0]
@@ -156,7 +162,10 @@ class ToolsEditWindow(QMainWindow):
         tool_id, _, _ = self.get_data_to_update()
         if tool_id is "":
             ctypes.windll.user32.MessageBoxW(
-                0, f"Es wurde keine Werkzeug-ID eingegeben", "Power Analytics | Werkzeugparameter bearbeiten", 0
+                0,
+                f"Es wurde keine Werkzeug-ID eingegeben",
+                "Power Analytics | Werkzeugparameter bearbeiten",
+                0,
             )
         else:
             self.find_by_ID(LEITZ_TOOLS, tool_id)

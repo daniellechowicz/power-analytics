@@ -1,10 +1,29 @@
 # -*- coding: utf-8 -*-
 
-from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
-    QRect, QSize, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
-    QRadialGradient)
+from PySide2.QtCore import (
+    QCoreApplication,
+    QMetaObject,
+    QObject,
+    QPoint,
+    QRect,
+    QSize,
+    QUrl,
+    Qt,
+)
+from PySide2.QtGui import (
+    QBrush,
+    QColor,
+    QConicalGradient,
+    QCursor,
+    QFont,
+    QFontDatabase,
+    QIcon,
+    QLinearGradient,
+    QPalette,
+    QPainter,
+    QPixmap,
+    QRadialGradient,
+)
 from PySide2.QtWidgets import *
 
 
@@ -25,7 +44,9 @@ class Ui_Settings(object):
         sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        sizePolicy1.setHeightForWidth(
+            self.centralwidget.sizePolicy().hasHeightForWidth()
+        )
         self.centralwidget.setSizePolicy(sizePolicy1)
         self.centralwidget.setStyleSheet(u"")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -34,10 +55,12 @@ class Ui_Settings(object):
         self.verticalLayout.setContentsMargins(9, 9, 9, 9)
         self.shadow_frame = QFrame(self.centralwidget)
         self.shadow_frame.setObjectName(u"shadow_frame")
-        self.shadow_frame.setStyleSheet(u"QFrame {\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(81, 47, 154, 255));\n"
-"border-radius: 10px;\n"
-"}")
+        self.shadow_frame.setStyleSheet(
+            u"QFrame {\n"
+            "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(81, 47, 154, 255));\n"
+            "border-radius: 10px;\n"
+            "}"
+        )
         self.shadow_frame.setFrameShape(QFrame.StyledPanel)
         self.shadow_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.shadow_frame)
@@ -50,11 +73,13 @@ class Ui_Settings(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
         self.label.setSizePolicy(sizePolicy2)
-        self.label.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 16pt;\n"
-"font-family: \"Segoe UI Light\";\n"
-"font-weight: bold;")
+        self.label.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 16pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "font-weight: bold;"
+        )
         self.label.setIndent(0)
 
         self.verticalLayout_3.addWidget(self.label)
@@ -63,117 +88,123 @@ class Ui_Settings(object):
         self.label_2.setObjectName(u"label_2")
         sizePolicy2.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
         self.label_2.setSizePolicy(sizePolicy2)
-        self.label_2.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";\n"
-"margin-bottom: 10px;")
+        self.label_2.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "margin-bottom: 10px;"
+        )
         self.label_2.setIndent(0)
 
         self.verticalLayout_3.addWidget(self.label_2)
 
         self.scrollArea = QScrollArea(self.shadow_frame)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setStyleSheet(u"QScrollArea {\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"}\n"
-"\n"
-"QLineEdit {\n"
-"height: 20px;\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";\n"
-"padding-left: 10px;\n"
-"padding-bottom: 5px;\n"
-"border-bottom: 2px solid rgb(255, 255, 255);\n"
-"border-radius: 0px;\n"
-"background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"border-bottom: 2px solid rgb(0, 255, 213);\n"
-"border-radius: 0px;\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"border-bottom: 2px solid rgb(0, 255, 213);\n"
-"border-radius: 0px;\n"
-"}\n"
-"\n"
-"QLabel {\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font-size: 8pt;\n"
-"font-family: \"Segoe UI Light\";\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"width: 15px;\n"
-"margin: 15px 3px 15px 3px;\n"
-"border: 1px transparent #2A2929;\n"
-"border-radius: 4px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical {\n"
-"background-color: #fff;\n"
-"min-height: 5px;\n"
-"border-radius: 4px;\n"
-"}"
-                        "\n"
-"\n"
-"QScrollBar::handle:vertical:hover {\n"
-"background-color: rgba(0, 255, 213);\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical {\n"
-"margin: 3px 0px 3px 0px;\n"
-"border-image: url(:/);\n"
-"height: 10px;\n"
-"width: 10px;\n"
-"subcontrol-position: top;\n"
-"subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical {\n"
-"margin: 3px 0px 3px 0px;\n"
-"border-image: url(:/);\n"
-"height: 10px;\n"
-"width: 10px;\n"
-"subcontrol-position: bottom;\n"
-"subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on {\n"
-"border-image: url(:/);\n"
-"height: 10px;\n"
-"width: 10px;\n"
-"subcontrol-position: top;\n"
-"subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on {\n"
-"border-image: url(:/);\n"
-"height: 10px;\n"
-"width: 10px;\n"
-"subcontrol-position: bottom;\n"
-"subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"background: none;\n"
-"}\n"
-"\n"
-""
-                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"background: none;\n"
-"}")
+        self.scrollArea.setStyleSheet(
+            u"QScrollArea {\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QLineEdit {\n"
+            "height: 20px;\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "padding-left: 10px;\n"
+            "padding-bottom: 5px;\n"
+            "border-bottom: 2px solid rgb(255, 255, 255);\n"
+            "border-radius: 0px;\n"
+            "background-color: rgba(255, 255, 255, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "}\n"
+            "\n"
+            "QLineEdit:hover {\n"
+            "border-bottom: 2px solid rgb(0, 255, 213);\n"
+            "border-radius: 0px;\n"
+            "}\n"
+            "\n"
+            "QLineEdit:focus {\n"
+            "border-bottom: 2px solid rgb(0, 255, 213);\n"
+            "border-radius: 0px;\n"
+            "}\n"
+            "\n"
+            "QLabel {\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "font-size: 8pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "}\n"
+            "\n"
+            "QScrollBar:vertical {\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "width: 15px;\n"
+            "margin: 15px 3px 15px 3px;\n"
+            "border: 1px transparent #2A2929;\n"
+            "border-radius: 4px;\n"
+            "}\n"
+            "\n"
+            "QScrollBar::handle:vertical {\n"
+            "background-color: #fff;\n"
+            "min-height: 5px;\n"
+            "border-radius: 4px;\n"
+            "}"
+            "\n"
+            "\n"
+            "QScrollBar::handle:vertical:hover {\n"
+            "background-color: rgba(0, 255, 213);\n"
+            "}\n"
+            "\n"
+            "QScrollBar::sub-line:vertical {\n"
+            "margin: 3px 0px 3px 0px;\n"
+            "border-image: url(:/);\n"
+            "height: 10px;\n"
+            "width: 10px;\n"
+            "subcontrol-position: top;\n"
+            "subcontrol-origin: margin;\n"
+            "}\n"
+            "\n"
+            "QScrollBar::add-line:vertical {\n"
+            "margin: 3px 0px 3px 0px;\n"
+            "border-image: url(:/);\n"
+            "height: 10px;\n"
+            "width: 10px;\n"
+            "subcontrol-position: bottom;\n"
+            "subcontrol-origin: margin;\n"
+            "}\n"
+            "\n"
+            "QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on {\n"
+            "border-image: url(:/);\n"
+            "height: 10px;\n"
+            "width: 10px;\n"
+            "subcontrol-position: top;\n"
+            "subcontrol-origin: margin;\n"
+            "}\n"
+            "\n"
+            "QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on {\n"
+            "border-image: url(:/);\n"
+            "height: 10px;\n"
+            "width: 10px;\n"
+            "subcontrol-position: bottom;\n"
+            "subcontrol-origin: margin;\n"
+            "}\n"
+            "\n"
+            "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+            "background: none;\n"
+            "}\n"
+            "\n"
+            ""
+            "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+            "background: none;\n"
+            "}"
+        )
         self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
         self.scrollAreaWidgetContents.setGeometry(QRect(0, -488, 375, 938))
-        self.scrollAreaWidgetContents.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);")
+        self.scrollAreaWidgetContents.setStyleSheet(
+            u"background-color: rgba(0, 0, 0, 0);"
+        )
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label_3 = QLabel(self.scrollAreaWidgetContents)
@@ -386,24 +417,26 @@ class Ui_Settings(object):
         sizePolicy2.setHeightForWidth(self.btnClose.sizePolicy().hasHeightForWidth())
         self.btnClose.setSizePolicy(sizePolicy2)
         self.btnClose.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btnClose.setStyleSheet(u"QPushButton {\n"
-"color: #ffffff;\n"
-"background-color: rgb(255, 170, 0);\n"
-"height: 30px;\n"
-"padding-bottom: 5px;\n"
-"border-radius: 17px;\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"border: 2px solid rgb(255, 255, 255)\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"color: rgba(255, 255, 255, 0.5);\n"
-"background-color: rgba(255, 170, 0, 0.5);\n"
-"}")
+        self.btnClose.setStyleSheet(
+            u"QPushButton {\n"
+            "color: #ffffff;\n"
+            "background-color: rgb(255, 170, 0);\n"
+            "height: 30px;\n"
+            "padding-bottom: 5px;\n"
+            "border-radius: 17px;\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "border: 2px solid rgb(255, 255, 255)\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "color: rgba(255, 255, 255, 0.5);\n"
+            "background-color: rgba(255, 170, 0, 0.5);\n"
+            "}"
+        )
 
         self.horizontalLayout_2.addWidget(self.btnClose)
 
@@ -412,30 +445,30 @@ class Ui_Settings(object):
         sizePolicy2.setHeightForWidth(self.btnAccept.sizePolicy().hasHeightForWidth())
         self.btnAccept.setSizePolicy(sizePolicy2)
         self.btnAccept.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btnAccept.setStyleSheet(u"QPushButton {\n"
-"color: #ffffff;\n"
-"background-color:  rgb(0, 221, 51);\n"
-"height: 30px;\n"
-"padding-bottom: 5px;\n"
-"border-radius: 17px;\n"
-"font-size: 12pt;\n"
-"font-family: \"Segoe UI Light\";\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"border: 2px solid rgb(255, 255, 255)\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"color: rgba(255, 255, 255, 0.5);\n"
-"background-color: rgba(0, 221, 51, 0.5);\n"
-"}")
+        self.btnAccept.setStyleSheet(
+            u"QPushButton {\n"
+            "color: #ffffff;\n"
+            "background-color:  rgb(0, 221, 51);\n"
+            "height: 30px;\n"
+            "padding-bottom: 5px;\n"
+            "border-radius: 17px;\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "border: 2px solid rgb(255, 255, 255)\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "color: rgba(255, 255, 255, 0.5);\n"
+            "background-color: rgba(0, 221, 51, 0.5);\n"
+            "}"
+        )
 
         self.horizontalLayout_2.addWidget(self.btnAccept)
 
-
         self.verticalLayout_3.addWidget(self.frame_3)
-
 
         self.verticalLayout.addWidget(self.shadow_frame)
 
@@ -444,44 +477,155 @@ class Ui_Settings(object):
         self.retranslateUi(MainWindow)
 
         QMetaObject.connectSlotsByName(MainWindow)
+
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Einstellungen", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u00c4ndern der Standardprogrammeinstellungen", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Gruppenname", None))
-        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Voraussetzung ist das TDMS-Dateiformat. Um den Gruppennamen zu erhalten, \u00f6ffnen Sie die Datei mit dem Excel Importer.", None))
+        MainWindow.setWindowTitle(
+            QCoreApplication.translate("MainWindow", u"MainWindow", None)
+        )
+        self.label.setText(
+            QCoreApplication.translate("MainWindow", u"Einstellungen", None)
+        )
+        self.label_2.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"\u00c4ndern der Standardprogrammeinstellungen", None
+            )
+        )
+        self.label_3.setText(
+            QCoreApplication.translate("MainWindow", u"Gruppenname", None)
+        )
+        self.label_14.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Voraussetzung ist das TDMS-Dateiformat. Um den Gruppennamen zu erhalten, \u00f6ffnen Sie die Datei mit dem Excel Importer.",
+                None,
+            )
+        )
         self.le_group_name.setText("")
-        self.le_group_name.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Gruppenname", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Kanalname", None))
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Voraussetzung ist das TDMS-Dateiformat.Um den Kanalnamen zu erhalten, \u00f6ffnen Sie die Datei mit dem Excel Importer.", None))
-        self.le_channel_name.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Kanalname", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Abtastrate [Hz]", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Im Experiment verwendete Abtastrate [Hz].", None))
-        self.le_sampling_rate.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Abtastrate [Hz]", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Resampling Faktor", None))
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Aufgrund der Aufzeichnungsl\u00e4ngen ist die Berechnungszeit relativ aufw\u00e4ndig, daher ist ein Downsampling erforderlich.", None))
-        self.le_resample_factor.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Resampling Faktor", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Fenstergr\u00f6\u00dfe", None))
-        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Anzahl der Werte \u00fcber die gemittelt werden soll (siehe Median, arithmetischer und quadratischer Mittelwert).", None))
-        self.le_window_size.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Fenstergr\u00f6\u00dfe", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Leerlaufbeginn [S]", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Standardeinstellung f\u00fcr den ersten\u00a0Messwertdes Leerlaufs.", None))
-        self.le_idle_0.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Leerlaufbeginn [S]", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Leerlaufende [S]", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Standardeinstellung f\u00fcr den letzten Messwert des Leerlaufs.", None))
-        self.le_idle_1.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Leerlaufende [S]", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Schnittprozessbeginn [S]", None))
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Standardeinstellung f\u00fcr den ersten Messwert des Schnittprozesses.", None))
-        self.le_cutting_0.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Schnittprozessbeginn [S]", None))
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"Schnittprozessende [S]", None))
-        self.label_20.setText(QCoreApplication.translate("MainWindow", u"Standardeinstellung f\u00fcr den letzten\u00a0Messwert des Schnittprozesses.", None))
-        self.le_cutting_1.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Schnittprozessende [S]", None))
-        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Werkzeuge CSV-Dateiname", None))
-        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Name der externen CSV-Datei, die Parameter der Werkzeuge enth\u00e4lt.", None))
-        self.le_leitz_tools.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Werkzeuge CSV-Dateiname", None))
-        self.btnClose.setText(QCoreApplication.translate("MainWindow", u"Schlie\u00dfen", None))
-        self.btnAccept.setText(QCoreApplication.translate("MainWindow", u"Best\u00e4tigen", None))
-    # retranslateUi
+        self.le_group_name.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Gruppenname", None)
+        )
+        self.label_4.setText(
+            QCoreApplication.translate("MainWindow", u"Kanalname", None)
+        )
+        self.label_15.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Voraussetzung ist das TDMS-Dateiformat.Um den Kanalnamen zu erhalten, \u00f6ffnen Sie die Datei mit dem Excel Importer.",
+                None,
+            )
+        )
+        self.le_channel_name.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Kanalname", None)
+        )
+        self.label_5.setText(
+            QCoreApplication.translate("MainWindow", u"Abtastrate [Hz]", None)
+        )
+        self.label_16.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Im Experiment verwendete Abtastrate [Hz].", None
+            )
+        )
+        self.le_sampling_rate.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Abtastrate [Hz]", None)
+        )
+        self.label_6.setText(
+            QCoreApplication.translate("MainWindow", u"Resampling Faktor", None)
+        )
+        self.label_17.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Aufgrund der Aufzeichnungsl\u00e4ngen ist die Berechnungszeit relativ aufw\u00e4ndig, daher ist ein Downsampling erforderlich.",
+                None,
+            )
+        )
+        self.le_resample_factor.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Resampling Faktor", None)
+        )
+        self.label_13.setText(
+            QCoreApplication.translate("MainWindow", u"Fenstergr\u00f6\u00dfe", None)
+        )
+        self.label_18.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Anzahl der Werte \u00fcber die gemittelt werden soll (siehe Median, arithmetischer und quadratischer Mittelwert).",
+                None,
+            )
+        )
+        self.le_window_size.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Fenstergr\u00f6\u00dfe", None)
+        )
+        self.label_7.setText(
+            QCoreApplication.translate("MainWindow", u"Leerlaufbeginn [S]", None)
+        )
+        self.label_8.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Standardeinstellung f\u00fcr den ersten\u00a0Messwertdes Leerlaufs.",
+                None,
+            )
+        )
+        self.le_idle_0.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Leerlaufbeginn [S]", None)
+        )
+        self.label_9.setText(
+            QCoreApplication.translate("MainWindow", u"Leerlaufende [S]", None)
+        )
+        self.label_10.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Standardeinstellung f\u00fcr den letzten Messwert des Leerlaufs.",
+                None,
+            )
+        )
+        self.le_idle_1.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Leerlaufende [S]", None)
+        )
+        self.label_11.setText(
+            QCoreApplication.translate("MainWindow", u"Schnittprozessbeginn [S]", None)
+        )
+        self.label_12.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Standardeinstellung f\u00fcr den ersten Messwert des Schnittprozesses.",
+                None,
+            )
+        )
+        self.le_cutting_0.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Schnittprozessbeginn [S]", None)
+        )
+        self.label_19.setText(
+            QCoreApplication.translate("MainWindow", u"Schnittprozessende [S]", None)
+        )
+        self.label_20.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Standardeinstellung f\u00fcr den letzten\u00a0Messwert des Schnittprozesses.",
+                None,
+            )
+        )
+        self.le_cutting_1.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Schnittprozessende [S]", None)
+        )
+        self.label_25.setText(
+            QCoreApplication.translate("MainWindow", u"Werkzeuge CSV-Dateiname", None)
+        )
+        self.label_26.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                u"Name der externen CSV-Datei, die Parameter der Werkzeuge enth\u00e4lt.",
+                None,
+            )
+        )
+        self.le_leitz_tools.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Werkzeuge CSV-Dateiname", None)
+        )
+        self.btnClose.setText(
+            QCoreApplication.translate("MainWindow", u"Schlie\u00dfen", None)
+        )
+        self.btnAccept.setText(
+            QCoreApplication.translate("MainWindow", u"Best\u00e4tigen", None)
+        )
 
+    # retranslateUi

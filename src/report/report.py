@@ -58,8 +58,12 @@ class Report:
         }
 
         plot = Plot(idle, cutting, self.x, self.y, (12, 6))
-        plot.plot_raw(True, "pkgs/src/report/figures/{}".format(self.filename[:-4] + ".png"))
-        plot.plot_cutting(True, "pkgs/src/report/figures/{}".format(self.filename[:-4] + ".png"))
+        plot.plot_raw(
+            True, "pkgs/src/report/figures/{}".format(self.filename[:-4] + ".png")
+        )
+        plot.plot_cutting(
+            True, "pkgs/src/report/figures/{}".format(self.filename[:-4] + ".png")
+        )
 
     def image_to_base64_string(self, filepath: str):
         """
@@ -82,7 +86,9 @@ class Report:
                         "pkgs/src/report/figures/{}_full.png".format(self.filename[:-4])
                     ),
                     self.image_to_base64_string(
-                        "pkgs/src/report/figures/{}_cutting.png".format(self.filename[:-4])
+                        "pkgs/src/report/figures/{}_cutting.png".format(
+                            self.filename[:-4]
+                        )
                     ),
                 ],
                 "metadata": self.metadata,
@@ -91,10 +97,14 @@ class Report:
         )
 
         # Generate pdf
-        pdfkit.from_string(html_string, "pkgs/src/report/reports/{}".format(self.filename))
+        pdfkit.from_string(
+            html_string, "pkgs/src/report/reports/{}".format(self.filename)
+        )
 
         # Show pdf
-        os.chdir("pkgs/src/report/reports")  # os.startfile("reports/Report.pdf") did not work
+        os.chdir(
+            "pkgs/src/report/reports"
+        )  # os.startfile("reports/Report.pdf") did not work
         os.startfile(self.filename)
         os.chdir("../../../..")
 

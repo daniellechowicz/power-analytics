@@ -50,7 +50,9 @@ class MainWindow(QMainWindow):
     def setup_ui(self):
         self.setWindowIcon(QtGui.QIcon("pkgs/src/ui/icons/lighting.svg"))
         self.setWindowTitle(
-            QtCore.QCoreApplication.translate("MainWindow", "Power Analytics | Startseite", None)
+            QtCore.QCoreApplication.translate(
+                "MainWindow", "Power Analytics | Startseite", None
+            )
         )
 
     def setup_initial_view(self):
@@ -519,8 +521,12 @@ class MainWindow(QMainWindow):
             "cutting": {
                 "min": "%.2f" % np.min(y_cutting) if np.min(y_cutting) > 0 else "0.00",
                 "max": "%.2f" % np.max(y_cutting) if np.max(y_cutting) > 0 else "0.00",
-                "mean": "%.2f" % np.mean(y_cutting) if np.mean(y_cutting) > 0 else "0.00",
-                "median": "%.2f" % np.median(y_cutting) if np.median(y_cutting) > 0 else "0.00",
+                "mean": "%.2f" % np.mean(y_cutting)
+                if np.mean(y_cutting) > 0
+                else "0.00",
+                "median": "%.2f" % np.median(y_cutting)
+                if np.median(y_cutting) > 0
+                else "0.00",
                 "std": "%.3f" % np.std(y_cutting) if np.std(y_cutting) > 0 else "0.000",
             },
         }
