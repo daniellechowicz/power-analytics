@@ -30,6 +30,6 @@ Accordingly to the customer's requirements, the software has the following featu
 
 ## Software usage
 <p align="center">
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/add.png">
-  <figcaption>Test caption></figcaption>
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main.png">
 </p>
+On the left side of the window, there are buttons that will bring you to import, analysis, database, report and settings pages, respectively. Press the first button on the left.
