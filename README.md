@@ -33,3 +33,4 @@ On the left side of the window, there are buttons that will bring you to import,
 <p align="center">
   <img width="75%" height="75%" src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main.png">
 </p>
+Before importing a file, make sure the default settings are correct. TDMS file format requires group and channel names. In order to obtain them, open the file with Excel Importer, go to settings and replace the default values.
