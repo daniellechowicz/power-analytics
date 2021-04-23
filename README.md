@@ -13,7 +13,7 @@ pynsist install.cfg
 3) run the installer and follow the instructions
 
 ## Software functionalities
-Accordingly to the customer's requirements, the software has the following features
+Accordingly to the customer's requirements, the software has the following features:
 1) working with National Instruments TDMS format
 2) integration of applied parameters with existing database by tool ID number
 3) manual selection of idle mode and cutting regions
@@ -27,10 +27,3 @@ Accordingly to the customer's requirements, the software has the following featu
 11) possibility to edit parameters of available tools
 12) possibility to add new tools
 13) possibility to replace CSV file containing tools' parameters without losing the information collected over time
-
-## Software usage
-On the left side of the window, there are buttons that will bring you to import, analysis, database, report and settings pages, respectively. Press the first button on the left.
-<p align="center">
-  <img width="75%" height="75%" src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main.png">
-</p>
-Before importing a file, make sure the default settings are correct. TDMS file format requires group and channel names. In order to obtain them, open the file with Excel Importer, go to settings and replace the default values.
