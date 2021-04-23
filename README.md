@@ -29,7 +29,7 @@ Accordingly to the customer's requirements, the software has the following featu
 13) possibility to replace CSV file containing tools' parameters without losing the information collected over time
 
 ## Software usage
-<p align="center">
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main.png">
-</p>
 On the left side of the window, there are buttons that will bring you to import, analysis, database, report and settings pages, respectively. Press the first button on the left.
+<p align="center">
+  <img width="50%" height="50%" src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main.png">
+</p>
