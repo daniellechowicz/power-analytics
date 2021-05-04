@@ -29,7 +29,7 @@ Accordingly to the customer's requirements, the software has the following featu
 13) possibility to replace CSV file containing tools' parameters without losing the information collected over time
 
 ## Manual
-# Main view
+### Main view
 After launching the application, you will see the main view of the application from where you can navigate to the various functionalities of the application. On the left you can see tabs leading to data import, analysis, database, reporting and settings, respectively.
 <p align="center"> 
 <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main.png">
