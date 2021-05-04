@@ -62,3 +62,7 @@ Digital signal processing functionality has also been made available to the user
 <p align="center">
 <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/psd.png">
 </p>
+<figure>
+<img src="{{site.url}}/img/psd.png">
+<figcaption>This is my caption text.</figcaption>
+</figure>
