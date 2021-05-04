@@ -54,17 +54,19 @@ Once you confirm your selections, you are automatically taken to the data analys
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/range_selection.png">
 </p>
+
+### Filters view
 Digital signal processing functionality has also been made available to the user. A moving average filter can be used, as well as a frequency spectrum. The cards are visible at the top of the window. The visible ranges are automatically truncated for the cutting process only (green rectangle).
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/moving_average.png">
   <p align="center">
-    Analysis view | Moving average
+    Filters view | Moving average
   </p>
 </p>
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/psd.png">
   <p align="center">
-    Analysis view | Power Spectral Density (PSD)
+    Filters view | Power Spectral Density (PSD)
   </p>
 </p>
 
@@ -76,7 +78,12 @@ Moving to the third tab, database-related functionalities will appear. The funct
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/database.png">
   <p align="center">
-    Database view | Power Spectral Density (PSD)
+    Database view | Visualization of measurements taken with corresponding metadata and statistics
   </p>
 </p>
-
+<p align="center"> 
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/visualization.png">
+  <p align="center">
+    Database view | Multiparameter data visualization using a graphical interface
+  </p>
+</p>
