@@ -37,7 +37,7 @@ After launching the application, you will see the main view of the application f
 </p>
 
 ### Import view
-After pressing the first button, the data import view is visible. Select the measurement file in TDMS format and then specify the parameters that were used during the measurement by clicking the second icon.
+After pressing the first button, the data import view is visible. Select the measurement file in TDMS format and then specify the parameters that were used during the measurement by clicking the second icon. After indicating the path to the measurement file and filling in the used parameters, confirm your choices by pressing the third icon.
 <p align="center"> 
 <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/import.png">
 </p>
