@@ -11,6 +11,7 @@ pip install -m pynsist
 pynsist install.cfg
 ```
 3) run the installer and follow the instructions
+4) double-click the file _Power_Analytics.launch.pyw_
 
 ## Software functionalities
 Accordingly to the customer's requirements, the software has the following features:
