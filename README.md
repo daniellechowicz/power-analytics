@@ -48,4 +48,10 @@ Moving to the parameters view, complete all fields as instructed. The parameter 
 <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/parameters.png">
 </p>
 
+### Analysis view
+Once you confirm your selections, you are automatically taken to the data analysis tab. You will see three graphs - the first corresponds to the entire file, the second to the range corresponding to idling, and the third to the cutting process. Select the appropriate ranges by manually moving the green and red rectangles, and adjust their borders. Before validating your selections, indicate whether you want the data to be added to the database. If ready, press the blue button below the charts.
+<p align="center"> 
+<img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/range_selection.png">
+</p>
 
+### Filters view
