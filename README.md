@@ -56,13 +56,7 @@ Once you confirm your selections, you are automatically taken to the data analys
 
 ### Filters view
 Digital signal processing functionality has also been made available to the user. A moving average filter can be used, as well as a frequency spectrum. The cards are visible at the top of the window.
-<div style=".row {display: flex;} .column {flex: 33.33%; padding: 5px;}">
-  <div class="row">
-    <div class="column">
-      <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/range_selection.png">
-    </div>
-    <div class="column">
-      <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/range_selection.png">
-    </div>
-  </div>
-</div>
+<p float="left">
+<img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/moving_average.png" width="49%">
+<img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/psd.png" width="49%">
+</p>
