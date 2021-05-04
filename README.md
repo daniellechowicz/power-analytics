@@ -96,3 +96,10 @@ When you navigate to the last tab, you can change the software settings and add 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/edit.png" width="30%">
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/add.png" width="30%">
 </p>
+
+### Report
+The software has the functionality of generating reports. To generate a report with a summary of the parameters used in the measurement, as well as basic statistics, press the fourth button from the main menu. The report can only be generated if measurement data has been imported, parameters entered, and idle and cutting process ranges defined. A sample auto-generated report is shown below.
+<p align="center">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/report_1.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/report_2.png">
+</p>
