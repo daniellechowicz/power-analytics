@@ -27,3 +27,9 @@ Accordingly to the customer's requirements, the software has the following featu
 11) possibility to edit parameters of available tools
 12) possibility to add new tools
 13) possibility to replace CSV file containing tools' parameters without losing the information collected over time
+
+## Manual
+Go to the first page
+<p align="center"> 
+<img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main.png">
+</p>
