@@ -42,3 +42,10 @@ After pressing the first button, the data import view is visible. Select the mea
 <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/import.png">
 </p>
 
+### Parameters view
+Moving to the parameters view, complete all fields as instructed. The parameter view is shown in the following image.
+<p align="center"> 
+<img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/parameters.png">
+</p>
+
+
