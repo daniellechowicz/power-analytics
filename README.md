@@ -59,12 +59,18 @@ Digital signal processing functionality has also been made available to the user
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/moving_average.png">
   <p align="center">
-    <b>Figure</b> | Moving average
+    Filters view | Moving average
   </p>
 </p>
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/psd.png">
   <p align="center">
-    <b>Figure</b> | Power Spectral Density (PSD)
+    Filters view | Power Spectral Density (PSD)
   </p>
+</p>
+
+### Database view
+Moving to the third tab, database-related functionalities will appear. The functionalities are as follows: viewing the database and the measurements taken, multi-parameter data visualization using a graphical interface, and exporting the database in CSV format.
+<p align="center"> 
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main_database.png">
 </p>
