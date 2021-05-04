@@ -56,11 +56,9 @@ Once you confirm your selections, you are automatically taken to the data analys
 
 ### Filters view
 Digital signal processing functionality has also been made available to the user. A moving average filter can be used, as well as a frequency spectrum. The cards are visible at the top of the window. The visible ranges are automatically truncated for the cutting process only (green rectangle).
-<figure>
+<p align="center"> 
 <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/moving_average.png">
-<figcaption align="center">**Figure** Moving average</figcaption>
-</figure>
-<figure>
-<img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/psd.png">
-<figcaption>**Figure** Power Spectral Density (PSD)</figcaption>
-</figure>
+<p align="center">
+**Figure** Moving average
+</p>
+</p>
