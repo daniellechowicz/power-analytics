@@ -33,32 +33,38 @@ Accordingly to the customer's requirements, the software has the following featu
 ### Main view
 After launching the application, you will see the main view of the application from where you can navigate to the various functionalities of the application. On the left you can see tabs leading to data import, analysis, database, reporting and settings, respectively.
 <p align="center"> 
-<img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main.png">
 </p>
 
 ### Import view
 After pressing the first button, the data import view is visible. Select the measurement file in TDMS format and then specify the parameters that were used during the measurement by clicking the second icon. After indicating the path to the measurement file and filling in the used parameters, confirm your choices by pressing the third icon.
 <p align="center"> 
-<img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/import.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/import.png">
 </p>
 
 ### Parameters view
 Moving to the parameters view, complete all fields as instructed. The parameter view is shown in the following image.
 <p align="center"> 
-<img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/parameters.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/parameters.png">
 </p>
 
 ### Analysis view
 Once you confirm your selections, you are automatically taken to the data analysis tab. You will see three graphs - the first corresponds to the entire file, the second to the range corresponding to idling, and the third to the cutting process. Select the appropriate ranges by manually moving the green and red rectangles, and adjust their borders. Before validating your selections, indicate whether you want the data to be added to the database. If ready, press the blue button below the charts.
 <p align="center"> 
-<img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/range_selection.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/range_selection.png">
 </p>
 
 ### Filters view
 Digital signal processing functionality has also been made available to the user. A moving average filter can be used, as well as a frequency spectrum. The cards are visible at the top of the window. The visible ranges are automatically truncated for the cutting process only (green rectangle).
 <p align="center"> 
-<img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/moving_average.png">
-<p align="center">
-**Figure** Moving average
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/moving_average.png">
+  <p align="center">
+    <b>Figure</b> | Moving average
+  </p>
 </p>
+<p align="center"> 
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/psd.png">
+  <p align="center">
+    <b>Figure</b> | Power Spectral Density (PSD)
+  </p>
 </p>
