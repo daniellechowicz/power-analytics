@@ -75,6 +75,7 @@ Moving to the third tab, database-related functionalities will appear. The funct
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main_database.png">
 </p>
+
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/database.png">
   <p align="center">
@@ -86,4 +87,12 @@ Moving to the third tab, database-related functionalities will appear. The funct
   <p align="center">
     Database view | Multiparameter data visualization using a graphical interface
   </p>
+</p>
+
+### Settings view
+When you get to the last tab, you can change the software settings and add or edit tools and their parameters. It is also possible to replace a file in CSV format without losing the changes made.
+<p align="center"> 
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/visualization.png" width="30%">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/visualization.png" width="30%">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/visualization.png" width="30%">
 </p>
