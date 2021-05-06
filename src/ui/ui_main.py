@@ -142,9 +142,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon = QIcon()
-        icon.addFile(
-            u"pkgs/src/ui/icons/add-button.svg", QSize(), QIcon.Normal, QIcon.Off
-        )
+        icon.addFile(u"ui/icons/add-button.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonAdd.setIcon(icon)
         self.buttonAdd.setIconSize(QSize(48, 48))
 
@@ -174,7 +172,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon1 = QIcon()
-        icon1.addFile(u"pkgs/src/ui/icons/loupe.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"ui/icons/loupe.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonAnalyse.setIcon(icon1)
         self.buttonAnalyse.setIconSize(QSize(48, 48))
 
@@ -204,9 +202,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon2 = QIcon()
-        icon2.addFile(
-            u"pkgs/src/ui/icons/database.svg", QSize(), QIcon.Normal, QIcon.Off
-        )
+        icon2.addFile(u"ui/icons/database.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonDatabase.setIcon(icon2)
         self.buttonDatabase.setIconSize(QSize(48, 48))
 
@@ -236,7 +232,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon3 = QIcon()
-        icon3.addFile(u"pkgs/src/ui/icons/report.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u"ui/icons/report.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonReport.setIcon(icon3)
         self.buttonReport.setIconSize(QSize(48, 48))
         self.buttonReport.setFlat(False)
@@ -267,9 +263,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon4 = QIcon()
-        icon4.addFile(
-            u"pkgs/src/ui/icons/setting-lines.svg", QSize(), QIcon.Normal, QIcon.Off
-        )
+        icon4.addFile(u"ui/icons/setting-lines.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonSettings.setIcon(icon4)
         self.buttonSettings.setIconSize(QSize(48, 48))
 
@@ -416,7 +410,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon5 = QIcon()
-        icon5.addFile(u"pkgs/src/ui/icons/folder.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon5.addFile(u"ui/icons/folder.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonPathImport.setIcon(icon5)
         self.buttonPathImport.setIconSize(QSize(128, 128))
         self.buttonPathImport.setFlat(False)
@@ -487,9 +481,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon6 = QIcon()
-        icon6.addFile(
-            u"pkgs/src/ui/icons/bullet-form.svg", QSize(), QIcon.Normal, QIcon.Off
-        )
+        icon6.addFile(u"ui/icons/bullet-form.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonParams.setIcon(icon6)
         self.buttonParams.setIconSize(QSize(128, 128))
 
@@ -557,7 +549,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon7 = QIcon()
-        icon7.addFile(u"pkgs/src/ui/icons/accept.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon7.addFile(u"ui/icons/accept.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonDone.setIcon(icon7)
         self.buttonDone.setIconSize(QSize(128, 128))
         self.buttonDone.setCheckable(False)
@@ -1025,7 +1017,7 @@ class Ui_MainWindow(object):
         )
         icon8 = QIcon()
         icon8.addFile(
-            u"pkgs/src/ui/icons/spreadsheet-cell.svg", QSize(), QIcon.Normal, QIcon.Off
+            u"ui/icons/spreadsheet-cell.svg", QSize(), QIcon.Normal, QIcon.Off
         )
         self.buttonDatabaseShow.setIcon(icon8)
         self.buttonDatabaseShow.setIconSize(QSize(128, 128))
@@ -1095,7 +1087,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon9 = QIcon()
-        icon9.addFile(u"pkgs/src/ui/icons/plot.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon9.addFile(u"ui/icons/plot.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonShowBoxplots.setIcon(icon9)
         self.buttonShowBoxplots.setIconSize(QSize(128, 128))
 
@@ -1164,9 +1156,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon10 = QIcon()
-        icon10.addFile(
-            u"pkgs/src/ui/icons/excel-file.svg", QSize(), QIcon.Normal, QIcon.Off
-        )
+        icon10.addFile(u"ui/icons/excel-file.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.buttonDatabaseExport.setIcon(icon10)
         self.buttonDatabaseExport.setIconSize(QSize(128, 128))
 
@@ -1240,9 +1230,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon11 = QIcon()
-        icon11.addFile(
-            u"pkgs/src/ui/icons/computer.svg", QSize(), QIcon.Normal, QIcon.Off
-        )
+        icon11.addFile(u"ui/icons/computer.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_settings.setIcon(icon11)
         self.btn_settings.setIconSize(QSize(128, 128))
 
@@ -1313,9 +1301,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon12 = QIcon()
-        icon12.addFile(
-            u"pkgs/src/ui/icons/wheel-saw.svg", QSize(), QIcon.Normal, QIcon.Off
-        )
+        icon12.addFile(u"ui/icons/wheel-saw.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_tools_edit.setIcon(icon12)
         self.btn_tools_edit.setIconSize(QSize(128, 128))
 
@@ -1387,9 +1373,7 @@ class Ui_MainWindow(object):
             "}"
         )
         icon13 = QIcon()
-        icon13.addFile(
-            u"pkgs/src/ui/icons/replace.svg", QSize(), QIcon.Normal, QIcon.Off
-        )
+        icon13.addFile(u"ui/icons/replace.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_tools_replace.setIcon(icon13)
         self.btn_tools_replace.setIconSize(QSize(128, 128))
 

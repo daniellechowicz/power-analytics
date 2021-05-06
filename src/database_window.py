@@ -3,10 +3,10 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import QPoint
 from PySide2.QtWidgets import *
-from src.ui.ui_database import Ui_Database
+from ui.ui_database import Ui_Database
 
-from src.database.read import Read
-from src.settings import *
+from database.read import Read
+from settings import *
 import ctypes
 import os
 import pandas as pd
@@ -37,7 +37,7 @@ class DatabaseWindow(QMainWindow):
             self.show()
 
     def setup_ui(self):
-        self.setWindowIcon(QtGui.QIcon("pkgs/src/ui/icons/lighting.svg"))
+        self.setWindowIcon(QtGui.QIcon("ui/icons/lighting.svg"))
         self.setWindowTitle(
             QtCore.QCoreApplication.translate(
                 "MainWindow", "Power Analytics | Datenbank", None
@@ -57,9 +57,7 @@ class DatabaseWindow(QMainWindow):
 
     def setup_headers(self):
         # Get headers from the database 'metadata'
-        self.connection = sqlite3.connect(
-            "pkgs/src/database/{}.db".format(self.db_name)
-        )
+        self.connection = sqlite3.connect("database/{}.db".format(self.db_name))
         cursor = self.connection.execute("SELECT * FROM metadata")
         headers_1 = [description[0] for description in cursor.description]
 
@@ -85,7 +83,7 @@ class DatabaseWindow(QMainWindow):
             )
 
     def setup_rows(self):
-        read = Read("pkgs/src/database/{}".format(self.db_name))
+        read = Read("database/{}".format(self.db_name))
         rows = read.fetch_joint(self.headers)
         for row in rows:
             count = self.ui.tableWidget.rowCount()

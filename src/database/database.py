@@ -19,7 +19,7 @@ class Database:
             print("[INFO] table metadata already exists")
 
     def connect_to_database(self):
-        connection = sqlite3.connect("pkgs/src/database/{}.db".format(self.db_name))
+        connection = sqlite3.connect("database/{}.db".format(self.db_name))
         print(
             "[INFO] new connection {} has been opened successfully".format(connection)
         )

@@ -1,4 +1,4 @@
-from src.helpers.calculate_parameters import *
+from helpers.calculate_parameters import *
 import matplotlib.pyplot as plt
 import numpy as np
 import sqlite3

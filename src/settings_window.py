@@ -3,9 +3,9 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import QPoint
 from PySide2.QtWidgets import *
-from src.ui.ui_settings import Ui_Settings
+from ui.ui_settings import Ui_Settings
 
-from src.settings import edit_settings
+from settings import edit_settings
 import ctypes
 import json
 
@@ -31,7 +31,7 @@ class SettingsWindow(QMainWindow):
         self.show()
 
     def setup_ui(self):
-        self.setWindowIcon(QtGui.QIcon("pkgs/src/ui/icons/lighting.svg"))
+        self.setWindowIcon(QtGui.QIcon("ui/icons/lighting.svg"))
         self.setWindowTitle(
             QtCore.QCoreApplication.translate(
                 "MainWindow", "Power Analytics | Einstellungen", None
@@ -48,7 +48,7 @@ class SettingsWindow(QMainWindow):
         self.ui.btnAccept.clicked.connect(lambda: self.save())
 
     def set_from_json(self):
-        with open("pkgs/src/settings.json") as json_file:
+        with open("settings.json") as json_file:
             settings = json.load(json_file)
 
         self.corresponding_keys = {

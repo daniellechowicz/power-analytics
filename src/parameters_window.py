@@ -3,17 +3,17 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import QPoint
 from PySide2.QtWidgets import *
-from src.ui.ui_parameters import Ui_Parameters
+from ui.ui_parameters import Ui_Parameters
 
-from src.database.manage_tools import Tools
-from src.helpers.calculate_parameters import (
+from database.manage_tools import Tools
+from helpers.calculate_parameters import (
     get_cutting_speed,
     get_feed_per_tooth,
     get_mean_chip_thickness,
     get_mean_chip_length,
 )
-from src.helpers.helpers import translate
-from src.settings import *
+from helpers.helpers import translate
+from settings import *
 import datetime
 import json
 import os
@@ -41,7 +41,7 @@ class ParametersWindow(QMainWindow):
         self.show()
 
     def setup_ui(self):
-        self.setWindowIcon(QtGui.QIcon("pkgs/src/ui/icons/lighting.svg"))
+        self.setWindowIcon(QtGui.QIcon("ui/icons/lighting.svg"))
         self.setWindowTitle(
             QtCore.QCoreApplication.translate(
                 "MainWindow", "Power Analytics | Parameter", None
@@ -60,7 +60,7 @@ class ParametersWindow(QMainWindow):
 
     def set_last_used(self):
         try:
-            with open("pkgs/src/metadata.json") as json_file:
+            with open("metadata.json") as json_file:
                 metadata = json.load(json_file)
         except:
             metadata = None
@@ -76,7 +76,7 @@ class ParametersWindow(QMainWindow):
 
     def clear_metadata(self):
         try:
-            os.remove("pkgs/src/metadata.json")
+            os.remove("metadata.json")
         except:
             pass
 
@@ -116,9 +116,7 @@ class ParametersWindow(QMainWindow):
 
     # External CSV file containing tools' parameters
     def get_corresponding_parameters(self):
-        result = Tools(
-            f"pkgs/src/database/{LEITZ_TOOLS}", self.metadata["tool_id"]
-        ).export()
+        result = Tools(f"database/{LEITZ_TOOLS}", self.metadata["tool_id"]).export()
         return result
 
     def append_parameters_to_metadata(self, parameters):
@@ -151,7 +149,7 @@ class ParametersWindow(QMainWindow):
             if value == "":
                 self.metadata[key] = "NaN"
 
-        with open("pkgs/src/metadata.json", "w") as outfile:
+        with open("metadata.json", "w") as outfile:
             if self.metadata["tool_id"] != "NaN":
                 # Parameters from the file "tools.cs"
                 ext_params = self.get_corresponding_parameters()

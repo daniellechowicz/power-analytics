@@ -3,7 +3,7 @@ import json
 import os
 
 
-with open("pkgs/src/settings.json") as json_file:
+with open("settings.json") as json_file:
     settings = json.load(json_file)
 
 GROUP_NAME = "Leistungsmessung\nVerstärkungsfaktor Spindelleistung 20,426"
@@ -31,7 +31,7 @@ SYMBOL_SIZE = settings["symbol_size"]
 
 
 def edit_settings(key, value):
-    filename = "pkgs/src/settings.json"
+    filename = "settings.json"
     with open(filename, "r") as f:
         data = json.load(f)
         data[key] = value

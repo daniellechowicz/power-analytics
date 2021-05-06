@@ -1,6 +1,6 @@
 from jinja2 import Environment, FileSystemLoader
-from src.report.plot import Plot
-from src.settings import *
+from report.plot import Plot
+from settings import *
 import base64
 import datetime
 import matplotlib.pyplot as plt
@@ -32,7 +32,7 @@ class Report:
 
     def checkIfExists(self, filename):
         found = False
-        for filename_ in os.listdir("pkgs/src/report/reports"):
+        for filename_ in os.listdir("report/reports"):
             if filename_ == filename:
                 found = True
         return found
@@ -58,12 +58,8 @@ class Report:
         }
 
         plot = Plot(idle, cutting, self.x, self.y, (12, 6))
-        plot.plot_raw(
-            True, "pkgs/src/report/figures/{}".format(self.filename[:-4] + ".png")
-        )
-        plot.plot_cutting(
-            True, "pkgs/src/report/figures/{}".format(self.filename[:-4] + ".png")
-        )
+        plot.plot_raw(True, "report/figures/{}".format(self.filename[:-4] + ".png"))
+        plot.plot_cutting(True, "report/figures/{}".format(self.filename[:-4] + ".png"))
 
     def image_to_base64_string(self, filepath: str):
         """
@@ -75,20 +71,18 @@ class Report:
 
     def generate(self):
         env = Environment(loader=FileSystemLoader("."))
-        template = env.get_template("pkgs/src/report/template.html")
+        template = env.get_template("report/template.html")
         # Generate html with base64 encoded string containing image
         html_string = template.render(
             {
-                "logo": self.image_to_base64_string("pkgs/src/report/figures/logo.png"),
+                "logo": self.image_to_base64_string("report/figures/logo.png"),
                 "filename": self.filename,
                 "figures": [
                     self.image_to_base64_string(
-                        "pkgs/src/report/figures/{}_full.png".format(self.filename[:-4])
+                        "report/figures/{}_full.png".format(self.filename[:-4])
                     ),
                     self.image_to_base64_string(
-                        "pkgs/src/report/figures/{}_cutting.png".format(
-                            self.filename[:-4]
-                        )
+                        "report/figures/{}_cutting.png".format(self.filename[:-4])
                     ),
                 ],
                 "metadata": self.metadata,
@@ -97,14 +91,10 @@ class Report:
         )
 
         # Generate pdf
-        pdfkit.from_string(
-            html_string, "pkgs/src/report/reports/{}".format(self.filename)
-        )
+        pdfkit.from_string(html_string, "report/reports/{}".format(self.filename))
 
         # Show pdf
-        os.chdir(
-            "pkgs/src/report/reports"
-        )  # os.startfile("reports/Report.pdf") did not work
+        os.chdir("report/reports")  # os.startfile("reports/Report.pdf") did not work
         os.startfile(self.filename)
         os.chdir("../../../..")
 

@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import os
-from src.analysis import features
+from analysis import features
 from nptdms import TdmsFile
 from tqdm import tqdm
 

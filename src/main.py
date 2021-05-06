@@ -31,8 +31,8 @@ from PySide2.QtGui import (
 )
 from PySide2.QtWidgets import *
 
-from src.main_window import MainWindow
-from src.ui.splash_screen.ui_splash_screen import Ui_SplashScreen
+from main_window import MainWindow
+from ui.splash_screen.ui_splash_screen import Ui_SplashScreen
 
 import platform
 import sys
@@ -85,10 +85,10 @@ class SplashScreen(QMainWindow):
         self.show()
 
     def setup_ui(self):
-        self.setWindowIcon(QtGui.QIcon("pkgs/src/ui/icons/lighting.svg"))
+        self.setWindowIcon(QtGui.QIcon("ui/icons/lighting.svg"))
         self.setWindowTitle(
             QtCore.QCoreApplication.translate(
-                "MainWindow", "Power Analytics | Loading...", None
+                "MainWindow", "Analytics | Loading...", None
             )
         )
 
@@ -111,7 +111,7 @@ class SplashScreen(QMainWindow):
         counter += 1
 
 
-def main():
+if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = SplashScreen()
     sys.exit(app.exec_())

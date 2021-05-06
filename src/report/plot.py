@@ -1,5 +1,5 @@
-from src.analysis.features import Features
-from src.settings import *
+from analysis.features import Features
+from settings import *
 import matplotlib.pyplot as plt
 import numpy as np
 import os

@@ -14,22 +14,22 @@ import shutil
 import sys
 
 # Views
-from src.ui.ui_main import Ui_MainWindow
-from src.database_window import DatabaseWindow
-from src.parameters_window import ParametersWindow
-from src.multivariate_visualization_window import MultivariateVisualizationWindow
-from src.settings_window import SettingsWindow
-from src.tools_edit_window import ToolsEditWindow
+from ui.ui_main import Ui_MainWindow
+from database_window import DatabaseWindow
+from parameters_window import ParametersWindow
+from multivariate_visualization_window import MultivariateVisualizationWindow
+from settings_window import SettingsWindow
+from tools_edit_window import ToolsEditWindow
 
 # Backend modules
-from src.measurement import Measurement
-from src.database.database import Database
-from src.database.models import Metadata
-from src.helpers.replace import Replace
-from src.report.report import Report
+from measurement import Measurement
+from database.database import Database
+from database.models import Metadata
+from helpers.replace import Replace
+from report.report import Report
 
 # Settings and constants
-from src.settings import *
+from settings import *
 
 
 class MainWindow(QMainWindow):
@@ -48,7 +48,7 @@ class MainWindow(QMainWindow):
         self.show()
 
     def setup_ui(self):
-        self.setWindowIcon(QtGui.QIcon("pkgs/src/ui/icons/lighting.svg"))
+        self.setWindowIcon(QtGui.QIcon("ui/icons/lighting.svg"))
         self.setWindowTitle(
             QtCore.QCoreApplication.translate(
                 "MainWindow", "Power Analytics | Startseite", None
@@ -169,7 +169,7 @@ class MainWindow(QMainWindow):
 
     def get_metadata(self):
         try:
-            with open("pkgs/src/metadata.json") as json_file:
+            with open("metadata.json") as json_file:
                 metadata = json.load(json_file)
         except:
             metadata = None

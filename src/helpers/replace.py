@@ -1,4 +1,4 @@
-from src.settings import *
+from settings import *
 import os
 import pandas as pd
 

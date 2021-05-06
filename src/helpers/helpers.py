@@ -1,7 +1,7 @@
 from bisect import bisect_left, insort
 from collections import deque
 from itertools import islice
-from src.settings import *
+from settings import *
 import numpy as np
 
 

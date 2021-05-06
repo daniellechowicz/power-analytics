@@ -3,10 +3,10 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import QPoint
 from PySide2.QtWidgets import *
-from src.ui.ui_tools_edit import Ui_ToolsEdit
-from src.tool_add_window import ToolAddWindow
+from ui.ui_tools_edit import Ui_ToolsEdit
+from tool_add_window import ToolAddWindow
 
-from src.settings import *
+from settings import *
 import ctypes
 import numpy as np
 import os
@@ -34,7 +34,7 @@ class ToolsEditWindow(QMainWindow):
         self.show()
 
     def setup_ui(self):
-        self.setWindowIcon(QtGui.QIcon("pkgs/src/ui/icons/lighting.svg"))
+        self.setWindowIcon(QtGui.QIcon("ui/icons/lighting.svg"))
         self.setWindowTitle(
             QtCore.QCoreApplication.translate(
                 "MainWindow", "Power Analytics | Werkzeugparameter bearbeiten", None
@@ -87,7 +87,7 @@ class ToolsEditWindow(QMainWindow):
 
     def find_by_ID(self, file, tool_id):
         df = pd.read_csv(
-            os.path.join("pkgs/src/database", file),
+            os.path.join("database", file),
             delimiter=";",
             keep_default_na=False,
         )
@@ -115,7 +115,7 @@ class ToolsEditWindow(QMainWindow):
     def track_changes(self, tool_id, column_name, value, line):
         # Update "tools_updates.csv" now (to keep track of changes done over time)
         df = pd.read_csv(
-            os.path.join("pkgs/src/database", LEITZ_TOOLS_UPDATES),
+            os.path.join("database", LEITZ_TOOLS_UPDATES),
             delimiter=";",
             keep_default_na=False,
         )
@@ -125,27 +125,27 @@ class ToolsEditWindow(QMainWindow):
             i = row.index[0]
             df.at[i, column_name] = value
             df.to_csv(
-                os.path.join("pkgs/src/database", LEITZ_TOOLS_UPDATES),
+                os.path.join("database", LEITZ_TOOLS_UPDATES),
                 sep=";",
                 index=False,
             )
         # If there is no record for the ID of interest, then append it to the file
         else:
-            f = open(os.path.join("pkgs/src/database", LEITZ_TOOLS_UPDATES), "a")
+            f = open(os.path.join("database", LEITZ_TOOLS_UPDATES), "a")
             f.write(line)
             f.close()
 
     def edit_by_ID(self, tool_id, column_name, value, track_changes=False):
         # Update "tools.csv" itself
         df = pd.read_csv(
-            os.path.join("pkgs/src/database", LEITZ_TOOLS),
+            os.path.join("database", LEITZ_TOOLS),
             delimiter=";",
             keep_default_na=False,
         )
         row = df.loc[df["Identnummer"] == tool_id]
         i = row.index[0]
         df.at[i, column_name] = value
-        df.to_csv(os.path.join("pkgs/src/database", LEITZ_TOOLS), sep=";", index=False)
+        df.to_csv(os.path.join("database", LEITZ_TOOLS), sep=";", index=False)
 
         if track_changes:
             # Update a row (but for these lines, no new value would have been added)

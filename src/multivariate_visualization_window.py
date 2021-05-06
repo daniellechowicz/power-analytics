@@ -3,17 +3,17 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import QPoint
 from PySide2.QtWidgets import *
-from src.ui.ui_visualization import Ui_Visualization
+from ui.ui_visualization import Ui_Visualization
 
-from src.database.read import Read
-from src.helpers.calculate_parameters import (
+from database.read import Read
+from helpers.calculate_parameters import (
     get_cutting_speed,
     get_feed_per_tooth,
     get_mean_chip_thickness,
     get_mean_chip_length,
 )
-from src.settings import *
-from src.helpers.helpers import get_labels
+from settings import *
+from helpers.helpers import get_labels
 import ctypes
 import json
 import numpy as np
@@ -35,10 +35,10 @@ class MultivariateVisualizationWindow(QMainWindow):
         self.showMaximized()
 
         # Database init
-        self.db = Read(os.path.join("pkgs/src/database", DB_NAME))
+        self.db = Read(os.path.join("database", DB_NAME))
 
     def setup_ui(self):
-        self.setWindowIcon(QtGui.QIcon("pkgs/src/ui/icons/lighting.svg"))
+        self.setWindowIcon(QtGui.QIcon("ui/icons/lighting.svg"))
         self.setWindowTitle(
             QtCore.QCoreApplication.translate(
                 "MainWindow", "Power Analytics | Datenvisualisierung", None
@@ -102,7 +102,7 @@ class MultivariateVisualizationWindow(QMainWindow):
 
     def setup_labels_from_metadata(self):
         try:
-            with open("pkgs/src/metadata.json") as json_file:
+            with open("metadata.json") as json_file:
                 self.metadata = json.load(json_file)
         except:
             self.metadata = None

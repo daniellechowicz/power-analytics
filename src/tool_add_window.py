@@ -3,9 +3,9 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import QPoint
 from PySide2.QtWidgets import *
-from src.ui.ui_tool_add import Ui_ToolAdd
+from ui.ui_tool_add import Ui_ToolAdd
 
-from src.settings import *
+from settings import *
 import ctypes
 import os
 
@@ -30,7 +30,7 @@ class ToolAddWindow(QMainWindow):
         self.show()
 
     def setup_ui(self):
-        self.setWindowIcon(QtGui.QIcon("pkgs/src/ui/icons/lighting.svg"))
+        self.setWindowIcon(QtGui.QIcon("ui/icons/lighting.svg"))
         self.setWindowTitle(
             QtCore.QCoreApplication.translate(
                 "MainWindow", "Power Analytics | Neues Werkzeug", None
@@ -89,7 +89,7 @@ class ToolAddWindow(QMainWindow):
 
         if result == OK:
             data = self.get_data()
-            file = open(os.path.join("pkgs/src/database", LEITZ_TOOLS), "a")
+            file = open(os.path.join("database", LEITZ_TOOLS), "a")
 
             seq = [
                 "tool_id",
