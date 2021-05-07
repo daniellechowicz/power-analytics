@@ -1,10 +1,6 @@
 # coding=utf-8
 """ Input and output data based on "Berechnung Schnittparameter" sheet """
 
-import sys
-
-sys.path.append("../..")
-
 import numpy as np
 import unittest
 
