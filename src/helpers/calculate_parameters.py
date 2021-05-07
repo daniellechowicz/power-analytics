@@ -36,7 +36,7 @@ def get_feed_per_tooth(feed_speed, rotational_speed, teeth_number):
 
     """
     result = (feed_speed * 1000) / (rotational_speed * teeth_number)
-    return round(result, 1)
+    return round(result, 3)
 
 
 def get_feed_speed(feed_per_tooth, rotational_speed, teeth_number):
@@ -75,7 +75,8 @@ def get_engagement_angle(tool_diameter, cutting_depth):
     """
     tool_r = tool_diameter / 2
     cos_phi = (tool_r - cutting_depth) / tool_r
-    return np.arccos(cos_phi) * 180 * (1 / np.pi)
+    result = np.arccos(cos_phi) * 180 * (1 / np.pi)
+    return round(result, 1)
 
 
 def get_mean_chip_thickness(
