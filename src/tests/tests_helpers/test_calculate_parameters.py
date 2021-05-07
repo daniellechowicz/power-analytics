@@ -8,7 +8,7 @@ sys.path.append("../..")
 import numpy as np
 import unittest
 
-from src.helpers.calculate_parameters import *
+from helpers.calculate_parameters import *
 
 
 class Testing(unittest.TestCase):
