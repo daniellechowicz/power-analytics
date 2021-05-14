@@ -90,6 +90,7 @@ class ToolAddWindow(QMainWindow):
         if result == OK:
             data = self.get_data()
             file = open(os.path.join("database", LEITZ_TOOLS), "a")
+            file_updates = open(os.path.join("database", LEITZ_TOOLS_UPDATES), "a")
 
             seq = [
                 "tool_id",
@@ -111,10 +112,13 @@ class ToolAddWindow(QMainWindow):
             for i, key in enumerate(seq):
                 if i != len(seq) - 1:
                     file.write(data[key] + ";")
+                    file_updates.write(data[key] + ";")
                 else:
                     file.write(data[key] + "\n")
+                    file_updates.write(data[key] + "\n")
 
             file.close()
+            file_updates.close()
 
     def center(self):
         qr = self.frameGeometry()

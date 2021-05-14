@@ -60,6 +60,9 @@ Section "Power Analytics 1.0" SecDummy
 	File /r "bin"
 	File /r "env"
 	File /r "src"
+	File /r "autorun.bat"
+	File /r "test.bat"
+	File /r "requirements.txt"
 	File /r "README.md"
 
 	;Store installation folder

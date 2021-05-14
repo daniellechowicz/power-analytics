@@ -563,6 +563,7 @@ class MainWindow(QMainWindow):
             shutil.copy(path, "database/tools.csv")
             r = Replace()
             r.update_replaced_CSV()
+            r.copy_new_tools_to_main()
             ctypes.windll.user32.MessageBoxW(
                 0,
                 "Datei wurde erfolgreich ersetzt",
