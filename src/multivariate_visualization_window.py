@@ -223,7 +223,7 @@ class MultivariateVisualizationWindow(QMainWindow):
                     label = f"{c_var}"
                 else:
                     label = None
-
+   
                 win.plot(
                     x=[n_var] * len(y),
                     y=y,
@@ -233,3 +233,18 @@ class MultivariateVisualizationWindow(QMainWindow):
                     symbolSize=SYMBOL_SIZE,
                     name=label,
                 )
+
+                # Draw just once
+                # Get the last record and plot it differently if it is equal to "y"
+                last_record = self.db.cursor.execute("SELECT * FROM stats ORDER BY measurement_id DESC LIMIT 1;").fetchall()[0][0]
+                print(y, last_record)
+                if last_record in y:
+                    win.plot(
+                        x=[n_var],
+                        y=[last_record],
+                        symbolPen="c",
+                        symbolBrush="c",
+                        symbol=SYMBOLS[j],
+                        symbolSize=SYMBOL_SIZE,
+                        name="Aktuelle Messung",
+                    )
