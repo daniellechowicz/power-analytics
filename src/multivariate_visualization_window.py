@@ -77,8 +77,9 @@ class MultivariateVisualizationWindow(QMainWindow):
 
     def setup_callbacks(self):
         # QGroupBox -> QFrame -> QPushButton
-        # "groupBox_2" is the one I have to use
-        for widget_1 in self.ui.groupBox_2.children():
+        # "choice_groupbox" is the one I have to use
+        for widget_1 in self.ui.choice_groupbox.children():
+            print(widget_1.objectName())
             if isinstance(widget_1, QFrame):
                 for widget_2 in widget_1.children():
                     if isinstance(widget_2, QPushButton):

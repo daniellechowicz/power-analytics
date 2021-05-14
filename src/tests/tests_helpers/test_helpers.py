@@ -11,8 +11,13 @@ from helpers.helpers import translate
 class Testing(unittest.TestCase):
     def test_translate(self):
         # General tests
-        self.assertEqual(translate("No square brackets at the end []"), "no_square_brackets_at_the_end")
-        self.assertEqual(translate("[No square brackets and no content in square brackets]"), "")
+        self.assertEqual(
+            translate("No square brackets at the end []"),
+            "no_square_brackets_at_the_end",
+        )
+        self.assertEqual(
+            translate("[No square brackets and no content in square brackets]"), ""
+        )
 
         # Specific tests
         self.assertEqual(translate("Material"), "material")

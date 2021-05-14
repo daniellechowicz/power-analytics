@@ -87,9 +87,9 @@ class Replace:
 
     def get_all_ids_from_main(self):
         """
-        This function is responsible for getting all the IDs from the file "tools.csv" 
+        This function is responsible for getting all the IDs from the file "tools.csv"
         """
-        data = pd.read_csv(os.path.join("database", LEITZ_TOOLS), delimiter=';')
+        data = pd.read_csv(os.path.join("database", LEITZ_TOOLS), delimiter=";")
         ids = []
         for d in data["Identnummer"]:
             ids.append(d)
@@ -97,9 +97,9 @@ class Replace:
 
     def get_all_ids_from_updates(self):
         """
-        This function is responsible for getting all the IDs from the file "tools_updates.csv" 
+        This function is responsible for getting all the IDs from the file "tools_updates.csv"
         """
-        data = pd.read_csv(os.path.join("database", LEITZ_TOOLS_UPDATES), delimiter=';')
+        data = pd.read_csv(os.path.join("database", LEITZ_TOOLS_UPDATES), delimiter=";")
         ids = []
         for d in data["Identnummer"]:
             ids.append(d)
@@ -111,7 +111,7 @@ class Replace:
         1. Get all the IDs from "tools.csv"
         2. Get all the IDs from "tools_updates.csv"
         3. If ID from "tools_updates.csv" was not found in the main CSV file,
-        then write the corresponding line to "tools.csv" 
+        then write the corresponding line to "tools.csv"
         """
         ids_main = self.get_all_ids_from_main()
         ids_updates = self.get_all_ids_from_updates()
@@ -123,6 +123,6 @@ class Replace:
                     line = file_updates.readline()
                     if id in line:
                         found = True
-                        file = open(os.path.join("database", LEITZ_TOOLS), 'a')
+                        file = open(os.path.join("database", LEITZ_TOOLS), "a")
                         file.write(line)
                         file.close()

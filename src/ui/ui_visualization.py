@@ -601,16 +601,18 @@ class Ui_Visualization(object):
 
         self.verticalLayout.addWidget(self.frame)
 
-        self.groupBox_22 = QGroupBox(self.centralwidget)
-        self.groupBox_22.setObjectName(u"groupBox_22")
+        self.choice_groupbox = QGroupBox(self.centralwidget)
+        self.choice_groupbox.setObjectName(u"choice_groupbox")
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.groupBox_22.sizePolicy().hasHeightForWidth())
-        self.groupBox_22.setSizePolicy(sizePolicy)
-        self.groupBox_22.setMinimumSize(QSize(0, 300))
-        self.groupBox_22.setMaximumSize(QSize(16777215, 300))
-        self.groupBox_22.setStyleSheet(
+        sizePolicy.setHeightForWidth(
+            self.choice_groupbox.sizePolicy().hasHeightForWidth()
+        )
+        self.choice_groupbox.setSizePolicy(sizePolicy)
+        self.choice_groupbox.setMinimumSize(QSize(0, 300))
+        self.choice_groupbox.setMaximumSize(QSize(16777215, 300))
+        self.choice_groupbox.setStyleSheet(
             u"QGroupBox {\n"
             "background-color: rgb(255, 255, 255, 0);\n"
             "color: rgb(255, 255, 255);\n"
@@ -647,11 +649,11 @@ class Ui_Visualization(object):
             "border: 2px solid rgb(0, 255, 213);\n"
             "}"
         )
-        self.horizontalLayout_2 = QHBoxLayout(self.groupBox_22)
+        self.horizontalLayout_2 = QHBoxLayout(self.choice_groupbox)
         self.horizontalLayout_2.setSpacing(5)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.frame_5 = QFrame(self.groupBox_22)
+        self.frame_5 = QFrame(self.choice_groupbox)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
@@ -695,7 +697,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_5)
 
-        self.frame_6 = QFrame(self.groupBox_22)
+        self.frame_6 = QFrame(self.choice_groupbox)
         self.frame_6.setObjectName(u"frame_6")
         sizePolicy1 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
@@ -753,7 +755,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_6)
 
-        self.frame_7 = QFrame(self.groupBox_22)
+        self.frame_7 = QFrame(self.choice_groupbox)
         self.frame_7.setObjectName(u"frame_7")
         sizePolicy1.setHeightForWidth(self.frame_7.sizePolicy().hasHeightForWidth())
         self.frame_7.setSizePolicy(sizePolicy1)
@@ -806,7 +808,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_7)
 
-        self.frame_8 = QFrame(self.groupBox_22)
+        self.frame_8 = QFrame(self.choice_groupbox)
         self.frame_8.setObjectName(u"frame_8")
         sizePolicy1.setHeightForWidth(self.frame_8.sizePolicy().hasHeightForWidth())
         self.frame_8.setSizePolicy(sizePolicy1)
@@ -859,7 +861,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_8)
 
-        self.frame_9 = QFrame(self.groupBox_22)
+        self.frame_9 = QFrame(self.choice_groupbox)
         self.frame_9.setObjectName(u"frame_9")
         sizePolicy1.setHeightForWidth(self.frame_9.sizePolicy().hasHeightForWidth())
         self.frame_9.setSizePolicy(sizePolicy1)
@@ -912,7 +914,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_9)
 
-        self.frame_10 = QFrame(self.groupBox_22)
+        self.frame_10 = QFrame(self.choice_groupbox)
         self.frame_10.setObjectName(u"frame_10")
         sizePolicy1.setHeightForWidth(self.frame_10.sizePolicy().hasHeightForWidth())
         self.frame_10.setSizePolicy(sizePolicy1)
@@ -965,7 +967,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_10)
 
-        self.frame_11 = QFrame(self.groupBox_22)
+        self.frame_11 = QFrame(self.choice_groupbox)
         self.frame_11.setObjectName(u"frame_11")
         sizePolicy1.setHeightForWidth(self.frame_11.sizePolicy().hasHeightForWidth())
         self.frame_11.setSizePolicy(sizePolicy1)
@@ -1018,7 +1020,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_11)
 
-        self.frame_12 = QFrame(self.groupBox_22)
+        self.frame_12 = QFrame(self.choice_groupbox)
         self.frame_12.setObjectName(u"frame_12")
         sizePolicy1.setHeightForWidth(self.frame_12.sizePolicy().hasHeightForWidth())
         self.frame_12.setSizePolicy(sizePolicy1)
@@ -1071,7 +1073,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_12)
 
-        self.frame_13 = QFrame(self.groupBox_22)
+        self.frame_13 = QFrame(self.choice_groupbox)
         self.frame_13.setObjectName(u"frame_13")
         sizePolicy1.setHeightForWidth(self.frame_13.sizePolicy().hasHeightForWidth())
         self.frame_13.setSizePolicy(sizePolicy1)
@@ -1124,7 +1126,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_13)
 
-        self.frame_14 = QFrame(self.groupBox_22)
+        self.frame_14 = QFrame(self.choice_groupbox)
         self.frame_14.setObjectName(u"frame_14")
         sizePolicy1.setHeightForWidth(self.frame_14.sizePolicy().hasHeightForWidth())
         self.frame_14.setSizePolicy(sizePolicy1)
@@ -1177,7 +1179,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_14)
 
-        self.frame_15 = QFrame(self.groupBox_22)
+        self.frame_15 = QFrame(self.choice_groupbox)
         self.frame_15.setObjectName(u"frame_15")
         sizePolicy1.setHeightForWidth(self.frame_15.sizePolicy().hasHeightForWidth())
         self.frame_15.setSizePolicy(sizePolicy1)
@@ -1230,7 +1232,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_15)
 
-        self.frame_16 = QFrame(self.groupBox_22)
+        self.frame_16 = QFrame(self.choice_groupbox)
         self.frame_16.setObjectName(u"frame_16")
         sizePolicy1.setHeightForWidth(self.frame_16.sizePolicy().hasHeightForWidth())
         self.frame_16.setSizePolicy(sizePolicy1)
@@ -1283,7 +1285,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_16)
 
-        self.frame_17 = QFrame(self.groupBox_22)
+        self.frame_17 = QFrame(self.choice_groupbox)
         self.frame_17.setObjectName(u"frame_17")
         sizePolicy1.setHeightForWidth(self.frame_17.sizePolicy().hasHeightForWidth())
         self.frame_17.setSizePolicy(sizePolicy1)
@@ -1336,7 +1338,7 @@ class Ui_Visualization(object):
 
         self.horizontalLayout_2.addWidget(self.frame_17)
 
-        self.verticalLayout.addWidget(self.groupBox_22)
+        self.verticalLayout.addWidget(self.choice_groupbox)
 
         self.btn_close = QPushButton(self.centralwidget)
         self.btn_close.setObjectName(u"btn_close")
@@ -1501,7 +1503,7 @@ class Ui_Visualization(object):
         self.label_33.setText("")
         self.label_35.setText("")
         self.label_37.setText("")
-        self.groupBox_22.setTitle(
+        self.choice_groupbox.setTitle(
             QCoreApplication.translate("MainWindow", u"Parameterauswahl", None)
         )
         self.label.setText("")

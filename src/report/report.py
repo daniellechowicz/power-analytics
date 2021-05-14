@@ -96,7 +96,7 @@ class Report:
         # Show pdf
         os.chdir("report/reports")  # os.startfile("reports/Report.pdf") did not work
         os.startfile(self.filename)
-        os.chdir("../../../..")
+        os.chdir("../..")
 
 
 if __name__ == "__main__":
