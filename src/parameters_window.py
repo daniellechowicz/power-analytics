@@ -131,7 +131,7 @@ class ParametersWindow(QMainWindow):
     def accept(self):
         self.metadata = {
             "author": self.ui.le_author.text().upper(),
-            "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%m"),
+            "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M"),
             "material": self.ui.le_material.text().upper(),
             "moisture_content": self.ui.le_moisture_content.text(),
             "cutting_direction": self.ui.le_cutting_direction.text().upper(),

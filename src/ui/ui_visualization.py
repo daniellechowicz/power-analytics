@@ -384,13 +384,13 @@ class Ui_Visualization(object):
 
         self.verticalLayout_15.addWidget(self.label_45)
 
-        self.classification_n_l = QLabel(self.frame_4)
-        self.classification_n_l.setObjectName(u"classification_n_l")
-        self.classification_n_l.setFont(font)
-        self.classification_n_l.setAlignment(Qt.AlignCenter)
-        self.classification_n_l.setWordWrap(True)
+        self.classification_no_l = QLabel(self.frame_4)
+        self.classification_no_l.setObjectName(u"classification_no_l")
+        self.classification_no_l.setFont(font)
+        self.classification_no_l.setAlignment(Qt.AlignCenter)
+        self.classification_no_l.setWordWrap(True)
 
-        self.verticalLayout_15.addWidget(self.classification_n_l)
+        self.verticalLayout_15.addWidget(self.classification_no_l)
 
         self.label_46 = QLabel(self.frame_4)
         self.label_46.setObjectName(u"label_46")
@@ -1456,7 +1456,7 @@ class Ui_Visualization(object):
         self.label_45.setText(
             QCoreApplication.translate("MainWindow", u"Klassifizierungsnummer", None)
         )
-        self.classification_n_l.setText("")
+        self.classification_no_l.setText("")
         self.label_46.setText(QCoreApplication.translate("MainWindow", u"SGE", None))
         self.strategic_business_unit_l.setText("")
         self.label_48.setText(

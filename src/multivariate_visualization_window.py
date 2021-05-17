@@ -30,6 +30,7 @@ class MultivariateVisualizationWindow(QMainWindow):
         self.setup_initial_view()
         self.setup_headers()
         self.setup_indices()
+        self.setup_raw_metadata()
         self.setup_callbacks()
         self.setup_labels_from_metadata()
         self.showMaximized()
@@ -79,7 +80,6 @@ class MultivariateVisualizationWindow(QMainWindow):
         # QGroupBox -> QFrame -> QPushButton
         # "choice_groupbox" is the one I have to use
         for widget_1 in self.ui.choice_groupbox.children():
-            print(widget_1.objectName())
             if isinstance(widget_1, QFrame):
                 for widget_2 in widget_1.children():
                     if isinstance(widget_2, QPushButton):
@@ -101,13 +101,15 @@ class MultivariateVisualizationWindow(QMainWindow):
         # Close button
         self.ui.btn_close.clicked.connect(lambda: self.close())
 
-    def setup_labels_from_metadata(self):
+    def get_metadata(self):
         try:
             with open("metadata.json") as json_file:
                 self.metadata = json.load(json_file)
         except:
             self.metadata = None
 
+    def setup_labels_from_metadata(self):
+        self.get_metadata()
         try:
             for key, value in self.metadata.items():
                 # QGroupBox -> QFrame -> QLabel
@@ -132,6 +134,18 @@ class MultivariateVisualizationWindow(QMainWindow):
         for old_key, _ in self.metadata.items():
             if old_key == key:
                 self.metadata[key] = value
+
+    def setup_raw_metadata(self):
+        """
+        Used for plotting current measurement value.
+        The function above does the same, but within plotting function,
+        the metadata is being updated, which makes it quite difficult to work with.
+        """
+        try:
+            with open("metadata.json") as json_file:
+                self.metadata_raw = json.load(json_file)
+        except:
+            self.metadata_raw = None 
 
     def get_query(self):
         # Set parameters that need to be calculated separately
@@ -206,8 +220,12 @@ class MultivariateVisualizationWindow(QMainWindow):
             ),
         )
 
+        # For every click, reset the metadata
+        self.get_metadata()
+
         # Scatter labels (do not repeat if already set)
         labels = []
+        CURRENT_DRAWN = False
 
         for i, n_var in enumerate(self.db.get_unique_values(numerical_var)):
             self.update_metadata(numerical_var, n_var)
@@ -222,10 +240,10 @@ class MultivariateVisualizationWindow(QMainWindow):
                     labels.append(c_var)
                     label = f"{c_var}"
                 else:
-                    label = None
-   
+                    label = None 
+
                 win.plot(
-                    x=[n_var] * len(y),
+                    x=[self.metadata[numerical_var]] * len(y),
                     y=y,
                     symbolPen=COLOURS[j],
                     symbolBrush=COLOURS[j],
@@ -237,14 +255,31 @@ class MultivariateVisualizationWindow(QMainWindow):
                 # Draw just once
                 # Get the last record and plot it differently if it is equal to "y"
                 last_record = self.db.cursor.execute("SELECT * FROM stats ORDER BY measurement_id DESC LIMIT 1;").fetchall()[0][0]
-                print(y, last_record)
-                if last_record in y:
-                    win.plot(
-                        x=[n_var],
-                        y=[last_record],
-                        symbolPen="c",
-                        symbolBrush="c",
-                        symbol=SYMBOLS[j],
-                        symbolSize=SYMBOL_SIZE,
-                        name="Aktuelle Messung",
-                    )
+
+                # Because of all the updates that are made,
+                # the following is necessary
+                if float(n_var) == float(self.metadata_raw[numerical_var]):
+                    # Did it this way on purpose - otherwise,
+                    # the symbol would be moved to background,
+                    # what can cause lack of readability
+                    if CURRENT_DRAWN is False:
+                        win.plot(
+                            x=[self.metadata[numerical_var]],
+                            y=[last_record],
+                            symbolPen="c",
+                            symbolBrush="c",
+                            symbol="o",
+                            symbolSize=SYMBOL_SIZE,
+                            name="Aktuelle Messung",
+                        )
+                    else:
+                        win.plot(
+                            x=[self.metadata[numerical_var]],
+                            y=[last_record],
+                            symbolPen="c",
+                            symbolBrush="c",
+                            symbol="o",
+                            symbolSize=SYMBOL_SIZE,
+                            name=None,
+                        )
+                    CURRENT_DRAWN = True        
