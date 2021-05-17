@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QFrame" name="shadow_frame">
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(81, 47, 154, 255));
+border-radius: 10px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin">
+        <number>18</number>
+       </property>
+       <property name="topMargin">
+        <number>18</number>
+       </property>
+       <property name="rightMargin">
+        <number>18</number>
+       </property>
+       <property name="bottomMargin">
+        <number>18</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);
+font-size: 16pt;
+font-family: &quot;Segoe UI Light&quot;;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Hinzufügen eines neuen Werkzeugs</string>
+         </property>
+         <property name="indent">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);
+font-size: 12pt;
+font-family: &quot;Segoe UI Light&quot;;
+margin-bottom: 10px;</string>
+         </property>
+         <property name="text">
+          <string>Falls ein Parameter fehlt, Feld frei lassen</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+         <property name="indent">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="styleSheet">
+          <string notr="true">QScrollArea {
+background-color: rgba(0, 0, 0, 0);
+}
+
+QLineEdit {
+height: 20px;
+font-size: 12pt;
+font-family: &quot;Segoe UI Light&quot;;
+padding-left: 10px;
+padding-bottom: 5px;
+border-bottom: 2px solid rgb(255, 255, 255);
+border-radius: 0px;
+background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+}
+
+QLineEdit:hover {
+border-bottom: 2px solid rgb(0, 255, 213);
+border-radius: 0px;
+}
+
+QLineEdit:focus {
+border-bottom: 2px solid rgb(0, 255, 213);
+border-radius: 0px;
+}
+
+QLabel {
+background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);
+font-size: 8pt;
+font-family: &quot;Segoe UI Light&quot;;
+font-weight: bold;
+}
+
+QScrollBar:vertical {
+background-color: rgba(0, 0, 0, 0);
+width: 15px;
+margin: 15px 3px 15px 3px;
+border: 1px transparent #2A2929;
+border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+background-color: #fff;
+min-height: 5px;
+border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover {
+background-color: rgb(0, 255, 213);
+}
+
+QScrollBar::sub-line:vertical {
+margin: 3px 0px 3px 0px;
+border-image: url(:/);
+height: 10px;
+width: 10px;
+subcontrol-position: top;
+subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical {
+margin: 3px 0px 3px 0px;
+border-image: url(:/);
+height: 10px;
+width: 10px;
+subcontrol-position: bottom;
+subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on {
+border-image: url(:/);
+height: 10px;
+width: 10px;
+subcontrol-position: top;
+subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on {
+border-image: url(:/);
+height: 10px;
+width: 10px;
+subcontrol-position: bottom;
+subcontrol-origin: margin;
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+background: none;
+}</string>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>429</width>
+            <height>740</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <property name="leftMargin">
+            <number>9</number>
+           </property>
+           <property name="rightMargin">
+            <number>9</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>ID-Nummer</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_tool_id">
+             <property name="placeholderText">
+              <string>ID-Nummer</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Klassifizierungsnummer</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_classification_number">
+             <property name="placeholderText">
+              <string>Klassifizierungsnummer</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_16">
+             <property name="text">
+              <string>SGE</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_strategic_business_number">
+             <property name="placeholderText">
+              <string>SGE</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>Werkzeugdurchmesser [mm]</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_tool_diameter">
+             <property name="placeholderText">
+              <string>Werkzeugdurchmesser [mm] </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>Wellendurchmesser [mm]</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_bore_diameter">
+             <property name="placeholderText">
+              <string>Wellendurchmesser [mm]</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>Schneidenbreite [mm]</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_tool_cutting_width">
+             <property name="placeholderText">
+              <string>Schneidenbreite [mm]</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Schneidenzahl</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_no_of_wings">
+             <property name="placeholderText">
+              <string>Schneidenzahl</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>Gesamtschneidenanzahl</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_total_no_of_wings">
+             <property name="placeholderText">
+              <string>Gesamtschneidenanzahl</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>Schneidenwerkstoff</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_cutting_material">
+             <property name="placeholderText">
+              <string>Schneidenwerkstoff</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>PCD Qualität</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_cutting_material_quality">
+             <property name="placeholderText">
+              <string>PCD Qualität</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_15">
+             <property name="text">
+              <string>Grundkörpermaterial</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_body_material">
+             <property name="placeholderText">
+              <string>Grundkörpermaterial</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Maximale Drehzahl [U/min]</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_n_max">
+             <property name="placeholderText">
+              <string>Maximale Drehzahl [U/min]</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Optimale Drehzahl [U/min]</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_n_opt">
+             <property name="placeholderText">
+              <string>Optimale Drehzahl [U/min]</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>Spanwinkel [°]</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_rake_angle">
+             <property name="placeholderText">
+              <string>Spanwinkel [°]</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(0, 0, 0, 0);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+color: #ffffff;
+background-color: rgb(255, 170, 0);
+height: 30px;
+padding-bottom: 5px;
+border-radius: 17px;
+font-size: 12pt;
+font-family: &quot;Segoe UI Light&quot;;
+}
+
+QPushButton:hover {
+border: 2px solid rgb(255, 255, 255)
+}
+
+QPushButton:pressed {
+color: rgba(255, 255, 255, 0.5);
+background-color: rgba(255, 170, 0, 0.5);
+}</string>
+            </property>
+            <property name="text">
+             <string>Schließen</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+color: #ffffff;
+background-color:  rgb(0, 221, 51);
+height: 30px;
+padding-bottom: 5px;
+border-radius: 17px;
+font-size: 12pt;
+font-family: &quot;Segoe UI Light&quot;;
+}
+
+QPushButton:hover {
+border: 2px solid rgb(255, 255, 255)
+}
+
+QPushButton:pressed {
+color: rgba(255, 255, 255, 0.5);
+background-color: rgba(0, 221, 51, 0.5);
+}</string>
+            </property>
+            <property name="text">
+             <string>Bestätigen</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
