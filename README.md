@@ -3,15 +3,8 @@ Toolkit for power consumption analysis for the manufacturer of woodworking tools
 
 ## Installation
 1) navigate to the folder
-2) execute the following commands:
-```
-pip install -m pynsist 
-```
-```
-pynsist install.cfg
-```
-3) run the installer and follow the instructions
-4) double-click the file _Power_Analytics.launch.pyw_
+2) run the installer _Power Analytics.exe_ and follow the instructions
+3) go to the _bin_ folder and double-click the _Power Analytics.exe_ to start the application
 
 ## Software functionalities
 Accordingly to the customer's requirements, the software has the following features:
