@@ -5,7 +5,7 @@ markupsafe==1.1.1
 matplotlib==3.3.4
 numpy==1.20.1
 nptdms==1.2.0
-pandas==1.2.3
+pandas
 pdfkit==0.6.1
 pillow==8.1.2
 pyparsing==2.4.7
