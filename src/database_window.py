@@ -6,6 +6,7 @@ from PySide2.QtWidgets import *
 from ui.ui_database import Ui_Database
 
 from database.read import Read
+from database_edit_window import DatabaseEditWindow
 from settings import *
 import ctypes
 import os
@@ -54,15 +55,17 @@ class DatabaseWindow(QMainWindow):
     def define_callbacks(self):
         self.ui.pushButton.clicked.connect(lambda: self.close())
         self.ui.pushButton_2.clicked.connect(lambda: self.save())
+        self.ui.pushButton_3.clicked.connect(lambda: DatabaseEditWindow().show())
 
     def setup_headers(self):
         # Get headers from the database 'metadata'
-        self.connection = sqlite3.connect("database/{}.db".format(self.db_name))
-        cursor = self.connection.execute("SELECT * FROM metadata")
+        connection = sqlite3.connect("database/{}.db".format(self.db_name))
+
+        cursor = connection.execute("SELECT * FROM metadata")
         headers_1 = [description[0] for description in cursor.description]
 
         # Get headers from the database 'stats'
-        cursor = self.connection.execute("SELECT * FROM stats")
+        cursor = connection.execute("SELECT * FROM stats")
         headers_2 = [
             description[0]
             for description in cursor.description
@@ -81,6 +84,8 @@ class DatabaseWindow(QMainWindow):
                     "MainWindow", "{}".format(header), None
                 )
             )
+
+        connection.close()
 
     def setup_rows(self):
         read = Read("database/{}".format(self.db_name))
@@ -133,7 +138,10 @@ class DatabaseWindow(QMainWindow):
             ",".join(headers)
         )
 
-        db_df = pd.read_sql_query(query, self.connection)
+        # Connect to the database and close it immediately to avoid errors
+        connection = sqlite3.connect("database/{}.db".format(self.db_name))
+        db_df = pd.read_sql_query(query, connection)
+        connection.close()
 
         if path != DB_CSV_NAME:
             db_df.to_csv(path, index=False)

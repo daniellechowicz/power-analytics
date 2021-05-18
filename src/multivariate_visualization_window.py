@@ -145,7 +145,7 @@ class MultivariateVisualizationWindow(QMainWindow):
             with open("metadata.json") as json_file:
                 self.metadata_raw = json.load(json_file)
         except:
-            self.metadata_raw = None 
+            self.metadata_raw = None
 
     def get_query(self):
         # Set parameters that need to be calculated separately
@@ -240,7 +240,7 @@ class MultivariateVisualizationWindow(QMainWindow):
                     labels.append(c_var)
                     label = f"{c_var}"
                 else:
-                    label = None 
+                    label = None
 
                 win.plot(
                     x=[self.metadata[numerical_var]] * len(y),
@@ -254,7 +254,9 @@ class MultivariateVisualizationWindow(QMainWindow):
 
                 # Draw just once
                 # Get the last record and plot it differently if it is equal to "y"
-                last_record = self.db.cursor.execute("SELECT * FROM stats ORDER BY measurement_id DESC LIMIT 1;").fetchall()[0][0]
+                last_record = self.db.cursor.execute(
+                    "SELECT * FROM stats ORDER BY measurement_id DESC LIMIT 1;"
+                ).fetchall()[0][0]
 
                 # Because of all the updates that are made,
                 # the following is necessary
@@ -282,4 +284,4 @@ class MultivariateVisualizationWindow(QMainWindow):
                             symbolSize=SYMBOL_SIZE,
                             name=None,
                         )
-                    CURRENT_DRAWN = True        
+                    CURRENT_DRAWN = True

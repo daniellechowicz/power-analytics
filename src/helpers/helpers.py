@@ -76,3 +76,9 @@ def moving_median(data, window_size):
     x_vector = np.linspace(0, len(y_vector) / SAMPLING_RATE, len(y_vector))
 
     return x_vector, y_vector
+
+def convert_type(key, value):
+    if key in ['author', 'date', 'material', 'cutting_direction', 'tool_id', 'comments']:
+        return f"'{value}'"
+    else:
+        return value

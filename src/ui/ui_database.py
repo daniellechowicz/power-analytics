@@ -143,7 +143,33 @@ class Ui_Database(object):
         self.pushButton.setStyleSheet(
             u"QPushButton {\n"
             "color: #ffffff;\n"
-            "background-color:  rgb(255, 170, 0);\n"
+            "background-color:  rgb(255, 0, 0);\n"
+            "height: 30px;\n"
+            "padding-left: 10px;\n"
+            "padding-bottom: 5px;\n"
+            "border-radius: 17.0px;\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "border: 2px solid rgb(255, 255, 255);\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "color: rgba(255, 255, 255, 0.5);\n"
+            "background-color: rgba(255, 0, 0, 0.5);\n"
+            "}"
+        )
+
+        self.horizontalLayout.addWidget(self.pushButton)
+
+        self.pushButton_3 = QPushButton(self.frame)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setStyleSheet(
+            u"QPushButton {\n"
+            "color: #ffffff;\n"
+            "background-color: rgb(255, 170, 0);\n"
             "height: 30px;\n"
             "padding-left: 10px;\n"
             "padding-bottom: 5px;\n"
@@ -162,7 +188,7 @@ class Ui_Database(object):
             "}"
         )
 
-        self.horizontalLayout.addWidget(self.pushButton)
+        self.horizontalLayout.addWidget(self.pushButton_3)
 
         self.pushButton_2 = QPushButton(self.frame)
         self.pushButton_2.setObjectName(u"pushButton_2")
@@ -216,6 +242,9 @@ class Ui_Database(object):
         )
         self.pushButton.setText(
             QCoreApplication.translate("MainWindow", u"Schlie\u00dfen", None)
+        )
+        self.pushButton_3.setText(
+            QCoreApplication.translate("MainWindow", u"Bearbeiten", None)
         )
         self.pushButton_2.setText(
             QCoreApplication.translate("MainWindow", u"Speichern als CSV", None)

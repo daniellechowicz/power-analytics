@@ -6,33 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>960</width>
-    <height>720</height>
+    <width>679</width>
+    <height>342</height>
    </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>960</width>
-    <height>720</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="styleSheet">
-    <string notr="true"/>
-   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="leftMargin">
-     <number>9</number>
-    </property>
-    <property name="topMargin">
-     <number>9</number>
-    </property>
-    <property name="rightMargin">
-     <number>9</number>
-    </property>
     <item>
      <widget class="QFrame" name="shadow_frame">
       <property name="styleSheet">
@@ -50,29 +32,21 @@ border-radius: 10px;
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <property name="leftMargin">
-        <number>27</number>
+        <number>18</number>
        </property>
        <property name="topMargin">
         <number>18</number>
        </property>
        <property name="rightMargin">
-        <number>27</number>
+        <number>18</number>
        </property>
        <property name="bottomMargin">
         <number>18</number>
        </property>
        <item>
         <widget class="QLabel" name="label">
-         <property name="font">
-          <font>
-           <family>Segoe UI Light</family>
-           <pointsize>16</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgba(0, 0, 0, 0);
 color: rgb(255, 255, 255);
@@ -81,10 +55,7 @@ font-family: &quot;Segoe UI Light&quot;;
 font-weight: bold;</string>
          </property>
          <property name="text">
-          <string>Datenbank</string>
-         </property>
-         <property name="indent">
-          <number>0</number>
+          <string>Datenbank bearbeiten</string>
          </property>
         </widget>
        </item>
@@ -98,23 +69,62 @@ font-family: &quot;Segoe UI Light&quot;;
 margin-bottom: 10px;</string>
          </property>
          <property name="text">
-          <string>Erkunden der in der Datenbank verfügbaren Daten</string>
-         </property>
-         <property name="indent">
-          <number>0</number>
+          <string>Bearbeiten oder Löschen von Datenbankeinträgen</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="frame_4">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>100</height>
-          </size>
-         </property>
+        <widget class="QLabel" name="label_3">
          <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+          <string notr="true">QLabel {
+background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);
+font-size: 8pt;
+font-family: &quot;Segoe UI Light&quot;;
+font-weight: bold;
+}</string>
+         </property>
+         <property name="text">
+          <string>Measurement ID</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+height: 20px;
+font-size: 12pt;
+font-family: &quot;Segoe UI Light&quot;;
+padding-left: 10px;
+padding-bottom: 5px;
+border-bottom: 2px solid rgb(255, 255, 255);
+border-radius: 0px;
+background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+}
+
+QLineEdit:hover {
+border-bottom: 2px solid rgb(0, 255, 213);
+border-radius: 0px;
+}
+
+QLineEdit:focus {
+border-bottom: 2px solid rgb(0, 255, 213);
+border-radius: 0px;
+}</string>
+         </property>
+         <property name="placeholderText">
+          <string>Measurement ID</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_2">
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+background-color: rgba(0, 0, 0, 0);
+}</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -122,24 +132,23 @@ margin-bottom: 10px;</string>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <property name="leftMargin">
-           <number>0</number>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>18</number>
           </property>
-          <property name="topMargin">
+          <property name="leftMargin">
            <number>0</number>
           </property>
           <property name="rightMargin">
            <number>0</number>
           </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
           <item>
-           <widget class="QFrame" name="frame_2">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);
-border-radius: 17.0px;</string>
+           <widget class="QFrame" name="frame_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -147,32 +156,136 @@ border-radius: 17.0px;</string>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_2">
+            <layout class="QVBoxLayout" name="verticalLayout_3">
              <property name="leftMargin">
-              <number>18</number>
-             </property>
-             <property name="topMargin">
-              <number>18</number>
+              <number>0</number>
              </property>
              <property name="rightMargin">
-              <number>18</number>
+              <number>0</number>
              </property>
-             <property name="bottomMargin">
-              <number>18</number>
-             </property>
-             <item>
-              <widget class="QTableWidget" name="tableWidget">
+             <item alignment="Qt::AlignVCenter">
+              <widget class="QLabel" name="label_4">
                <property name="styleSheet">
-                <string notr="true">background-color: rgba(255, 255, 255, 0);
-font-size: 10pt;
+                <string notr="true">QLabel {
+background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);
+font-size: 8pt;
 font-family: &quot;Segoe UI Light&quot;;
-color: rgb(0, 0, 0);</string>
+font-weight: bold;
+}</string>
                </property>
-               <property name="sizeAdjustPolicy">
-                <enum>QAbstractScrollArea::AdjustIgnored</enum>
+               <property name="text">
+                <string>Wählen Sie einen Parameter zum Aktualisieren</string>
                </property>
-               <property name="gridStyle">
-                <enum>Qt::DotLine</enum>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox">
+               <property name="styleSheet">
+                <string notr="true">QComboBox {
+height: 20px;
+font-size: 12pt;
+font-family: &quot;Segoe UI Light&quot;;
+padding-left: 10px;
+padding-bottom: 5px;
+border-bottom: 2px solid rgb(255, 255, 255);
+border-radius: 0px;
+background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+}
+
+QComboBox::drop-down {
+background-color: rgba(0, 0, 0, 0);
+}
+
+QComboBox::down-arrow {
+background-color: rgba(0, 0, 0, 0);
+}
+
+QComboBox:hover {
+border-bottom: 2px solid rgb(0, 255, 213);
+border-radius: 0px;
+}
+
+QListView { 
+border: 0px; 
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+color: rgb(62, 101, 190);
+background-color: rgb(255, 255, 255);
+font-weight: normal;
+selection-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(80, 50, 156, 255));
+show-decoration-selected: 1;
+padding: 8px;
+}</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <item alignment="Qt::AlignVCenter">
+              <widget class="QLabel" name="label_5">
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);
+font-size: 8pt;
+font-family: &quot;Segoe UI Light&quot;;
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Zu aktualisierender Wert des Parameters</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_2">
+               <property name="styleSheet">
+                <string notr="true">QLineEdit {
+height: 20px;
+font-size: 12pt;
+font-family: &quot;Segoe UI Light&quot;;
+padding-left: 10px;
+padding-bottom: 5px;
+border-bottom: 2px solid rgb(255, 255, 255);
+border-radius: 0px;
+background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+}
+
+QLineEdit:hover {
+border-bottom: 2px solid rgb(0, 255, 213);
+border-radius: 0px;
+}
+</string>
+               </property>
+               <property name="placeholderText">
+                <string>Optional</string>
                </property>
               </widget>
              </item>
@@ -184,18 +297,6 @@ color: rgb(0, 0, 0);</string>
        </item>
        <item>
         <widget class="QFrame" name="frame">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
          </property>
@@ -244,11 +345,11 @@ background-color: rgba(255, 0, 0, 0.5);
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_3">
+           <widget class="QPushButton" name="pushButton_2">
             <property name="styleSheet">
              <string notr="true">QPushButton {
 color: #ffffff;
-background-color:  rgb(255, 170, 0);
+background-color: rgb(255, 170, 0);
 height: 30px;
 padding-left: 10px;
 padding-bottom: 5px;
@@ -272,7 +373,7 @@ background-color: rgba(255, 170, 0, 0.5);
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="pushButton_3">
             <property name="styleSheet">
              <string notr="true">QPushButton {
 color: #ffffff;
@@ -295,7 +396,7 @@ background-color: rgba(0, 221, 51, 0.5);
 }</string>
             </property>
             <property name="text">
-             <string>Speichern als CSV</string>
+             <string>Bearbeiten</string>
             </property>
            </widget>
           </item>
