@@ -52,13 +52,21 @@
 ;--------------------------------
 ;Installer Sections
 
+;Embedding Python installer
+Section "Python 3.9.0" SEC01
+	
+	File "installer\python-3.9.0-amd64.exe"
+	ExecWait "$INSTDIR\python-3.9.0-amd64.exe"
+	
+SectionEnd
+
+;Embedding the application
 Section "Power Analytics 1.0" SecDummy
 
 	SetOutPath "$INSTDIR"
 	
 	;Files/folders to be added go here...
 	File /r "bin"
-	File /r "env"
 	File /r "src"
 	File /r "autorun.bat"
 	File /r "test.bat"
@@ -71,6 +79,9 @@ Section "Power Analytics 1.0" SecDummy
 	;Create uninstaller
 	WriteUninstaller "$INSTDIR\Uninstall.exe"
 
+	;When done, execute setup commands
+	File "setup.bat"
+	ExecWait "$INSTDIR\setup.bat"
 SectionEnd
 
 ;--------------------------------
@@ -83,17 +94,6 @@ SectionEnd
 	!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 	!insertmacro MUI_DESCRIPTION_TEXT ${SecDummy} $(DESC_SecDummy)
 	!insertmacro MUI_FUNCTION_DESCRIPTION_END
-
-;--------------------------------
-;Additional Installers Section
-
-;Embedding Python installer
-Section "Python 3.9.0" SEC01
-	
-	File "installer\python-3.9.0-amd64.exe"
-	ExecWait "$INSTDIR\python-3.9.0-amd64.exe"
-
-SectionEnd
 
 ;--------------------------------
 ;Uninstaller Section
