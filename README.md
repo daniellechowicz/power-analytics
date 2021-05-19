@@ -15,12 +15,13 @@ Accordingly to the customer's requirements, the software has the following featu
 5) spectral representation of analysed signal
 6) integration of SQLite database
 7) visualization of data available in the database
-8) possibility to export the database in CSV format
-9) generation of measurement reports in PDF format
-10) possitibility to change default settings
-11) possibility to edit parameters of available tools
-12) possibility to add new tools
-13) possibility to replace CSV file containing tools' parameters without losing the information collected over time
+8) possibility to the database
+9) possibility to export the database in CSV format
+10) generation of measurement reports in PDF format
+11) possitibility to change default settings
+12) possibility to edit parameters of available tools
+13) possibility to add new tools
+14) possibility to replace CSV file containing tools' parameters without losing the information collected over time
 
 ## Manual
 

@@ -21,7 +21,7 @@
 	InstallDirRegKey HKCU "Software\Power Analytics" ""
 
 	;Request application privileges for Windows Vista
-	RequestExecutionLevel user
+	RequestExecutionLevel admin
 
 ;--------------------------------
 ;Interface Settings
@@ -55,6 +55,8 @@
 ;Embedding Python installer
 Section "Python 3.9.0" SEC01
 	
+	SetOutPath "$INSTDIR"
+
 	File "installer\python-3.9.0-amd64.exe"
 	ExecWait "$INSTDIR\python-3.9.0-amd64.exe"
 	
