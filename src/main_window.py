@@ -560,7 +560,7 @@ class MainWindow(QMainWindow):
                 0,
             )
         else:
-            shutil.copy(path, "database/tools.csv")
+            shutil.copy(path, f"database/{LEITZ_TOOLS}")
             r = Replace()
             r.update_replaced_CSV()
             r.copy_new_tools_to_main()
