@@ -1,9 +1,13 @@
-# Power Analytics
-Toolkit for power consumption analysis for the manufacturer of woodworking tools
-
+<br/>
+<br/>
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/logo.png">
 </p>
+<br/>
+<br/>
+
+# Power Analytics
+Toolkit for power consumption analysis for the manufacturer of woodworking tools
 
 ## Installation
 1) navigate to the folder
