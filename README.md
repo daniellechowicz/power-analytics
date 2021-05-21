@@ -4,6 +4,9 @@ Toolkit for power consumption analysis for the manufacturer of woodworking tools
 ## Installation
 1) navigate to the folder
 2) run the installer _Power Analytics.exe_ and follow the instructions
+3) allow the interpreter _Python 3.9.0_ to be installed
+4) allow the external module _wkhtmltopdf_ for HTML to PDF conversion to be installed
+5) allow the application _Power Analytics 1.0_ to be installed 
 3) go to the _bin_ folder and double-click the _Power Analytics.exe_ to start the application
 
 ## Software functionalities
@@ -23,7 +26,7 @@ Accordingly to the customer's requirements, the software has the following featu
 13) possibility to add new tools
 14) possibility to replace CSV file containing tools' parameters without losing the information collected over time
 
-## Manual
+## Overview
 
 ### Main view
 After launching the application, you will see the main view of the application from where you can navigate to the various functionalities of the application. On the left you can see tabs leading to data import, analysis, database, reporting and settings, respectively.
@@ -91,14 +94,14 @@ When you navigate to the last tab, you can change the software settings and add 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/add.png" width="30%">
 </p>
 
-## Report
+### Report
 The software has the functionality of generating reports. To generate a report with a summary of the parameters used in the measurement, as well as basic statistics, press the fourth button from the main menu. The report can only be generated if measurement data has been imported, parameters entered, and idle and cutting process ranges defined. A sample auto-generated report is shown below.
 <p align="center">
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/report_1.png">
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/report_2.png">
 </p>
 
-## Settings
+### Settings
 The user has access to some software settings. The settings can be accessed from the _Settings_ tab. The settings that can be changed are as follows:
 1) group name - the name that is given to the measurement file group name when it is saved (avoid special characters)
 2) channel name - the name that is given to the measurement file channel name when it is saved (avoid special characters)
