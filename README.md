@@ -98,7 +98,7 @@ The software has the functionality of generating reports. To generate a report w
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/report_2.png">
 </p>
 
-### Settings
+## Settings
 The user has access to some software settings. The settings can be accessed from the "Settings" tab. The settings that can be changed are as follows:
 1) group name - the name that is given to the measurement file group name when it is saved (avoid special characters while saving)
 2) channel name - the name that is given to the measurement file channel name when it is saved (avoid special characters while saving)
