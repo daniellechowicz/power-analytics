@@ -94,6 +94,11 @@ Section "Power Analytics 1.0" SEC03
 	;When done, execute setup commands
 	File "setup.bat"
 	ExecWait "$INSTDIR\setup.bat"
+	
+	;Reboot
+	MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to reboot the system? It is required for proper operation." IDNO +2
+		Reboot
+		
 SectionEnd
 
 ;--------------------------------
