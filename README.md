@@ -97,3 +97,15 @@ The software has the functionality of generating reports. To generate a report w
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/report_1.png">
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/report_2.png">
 </p>
+
+### Settings
+The user has access to some software settings. The settings can be accessed from the "Settings" tab. The settings that can be changed are as follows:
+1) group name - the name that is given to the measurement file group name when it is saved (avoid special characters while saving)
+2) channel name - the name that is given to the measurement file channel name when it is saved (avoid special characters while saving)
+3) sampling frequency - the sampling frequency used during the measurement specified in Hz
+4) resampling factor - the factor by which the number of samples will be reduced (e.g. for a resampling factor of 10, the original number of samples of 1 MS will be 1 kS)
+5) window size - the number of samples from which the moving average is calculated (the larger the window size, the less sensitive to noise and the more generalized the result)
+6) idle start index - the default setting for the first measured value of the idle
+7) idle stop index - the default setting for the last measured value of the idle
+8) cutting start index - the default setting for the first measured value of the cutting
+9) cutting stop index - the default setting for the last measured value of the cutting
