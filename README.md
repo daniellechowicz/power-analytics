@@ -1,9 +1,7 @@
 <br/>
-<br/>
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/header.png">
 </p>
-<br/>
 <br/>
 
 # Power Analytics
