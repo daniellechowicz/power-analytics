@@ -17,6 +17,7 @@ class SettingsWindow(QMainWindow):
         self.ui.setupUi(self)
         self.setup_ui()
         self.setup_initial_view()
+        self.setup_type_validators()
         self.define_callbacks()
         self.set_from_json()
 
@@ -42,6 +43,17 @@ class SettingsWindow(QMainWindow):
         # Remove title bar
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+    def setup_type_validators(self):
+        self.only_int = QtGui.QIntValidator()
+
+        self.ui.le_sampling_rate.setValidator(self.only_int)
+        self.ui.le_resample_factor.setValidator(self.only_int)
+        self.ui.le_window_size.setValidator(self.only_int)
+        self.ui.le_idle_0.setValidator(self.only_int)
+        self.ui.le_idle_1.setValidator(self.only_int)
+        self.ui.le_cutting_0.setValidator(self.only_int)
+        self.ui.le_cutting_1.setValidator(self.only_int)
 
     def define_callbacks(self):
         self.ui.btnClose.clicked.connect(lambda: self.close())

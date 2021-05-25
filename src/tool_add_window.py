@@ -17,6 +17,7 @@ class ToolAddWindow(QMainWindow):
         self.ui.setupUi(self)
         self.setup_ui()
         self.setup_initial_view()
+        self.setup_type_validators()
         self.setup_callbacks()
 
         # Drop shadow effect
@@ -41,6 +42,19 @@ class ToolAddWindow(QMainWindow):
         # Remove title bar
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+    def setup_type_validators(self):
+        self.only_int = QtGui.QIntValidator()
+        self.only_float = QtGui.QDoubleValidator()
+
+        self.ui.le_tool_diameter.setValidator(self.only_float)
+        self.ui.le_bore_diameter.setValidator(self.only_float)
+        self.ui.le_tool_cutting_width.setValidator(self.only_float)
+        self.ui.le_no_of_wings.setValidator(self.only_int)
+        self.ui.le_total_no_of_wings.setValidator(self.only_int)
+        self.ui.le_n_max.setValidator(self.only_int)
+        self.ui.le_n_opt.setValidator(self.only_int)
+        self.ui.le_rake_angle.setValidator(self.only_float)
 
     def setup_callbacks(self):
         self.ui.pushButton.clicked.connect(lambda: self.close())
