@@ -65,13 +65,13 @@ After launching the application, you will see the main view of the application f
 </p>
 
 ### Import view
-After pressing the first button, the data import view is visible. Select the measurement file in TDMS format and then specify the parameters that were used during the measurement by clicking the second icon. After indicating the path to the measurement file and filling in the used parameters, confirm your choices by pressing the third icon.
+After pressing the _Data import_ button, the import view is visible. Select the measurement file in the TDMS format and then specify the parameters that were used during the measurement by clicking the second icon. After indicating the path to the measurement file and filling in the parameters, confirm your choices by pressing the _Confirm_ icon.
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/import.png">
 </p>
 
 ### Parameters view
-Moving to the parameters view, complete all fields as instructed. The parameter view is shown in the following image.
+Moving to the parameters view, complete all fields as instructed. User has the possibility to clean the fields at once by pressing the _Remove_ button. The process will only complete successfully if all fields are completed. If the tool ID number provided does not match any of the ID numbers present in the CSV file containing all tools, the user will be asked to enter the tool into the database. Once the tool has been entered into the database, fill in the parameters' fields again. The parameter view is shown in the following image.
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/parameters.png">
 </p>
