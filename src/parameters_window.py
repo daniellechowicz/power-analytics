@@ -177,10 +177,21 @@ class ParametersWindow(QMainWindow):
             "comments": self.ui.le_comments.text(),
         }
 
-        # Change to 'NaN' if empty (compatible with Leitz's database)
         for key, value in self.metadata.items():
             if value == "":
+                # Change to 'NaN' if empty (compatible with Leitz's database)
                 self.metadata[key] = "NaN"
+                
+                # To prompt the user to enter all parameters, follow these steps 
+                ctypes.windll.user32.MessageBoxW(
+                    0,
+                    "Es fehlen noch einige Werte - füllen Sie das Formular aus und versuchen Sie es erneut",
+                    "Power Analytics | Parameter",
+                    0,
+                )
+                
+                # Exit the function without further execution
+                return
 
         with open("metadata.json", "w") as outfile:
             if self.metadata["tool_id"] != "NaN":
@@ -189,13 +200,9 @@ class ParametersWindow(QMainWindow):
 
                 if ext_params is not None:
                     self.append_parameters_to_metadata(ext_params)
-
-                    # Parameters that have to be calculated
                     self.get_remaining_parameters()
-
-            json.dump(self.metadata, outfile)
-
-        self.close()
+                    json.dump(self.metadata, outfile)
+                    self.close()
 
     def center(self):
         qr = self.frameGeometry()
