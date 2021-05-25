@@ -65,7 +65,7 @@ After launching the application, you will see the main view of the application f
 </p>
 
 ### Import view
-After pressing the _Data import_ button, the import view is visible. Select the measurement file in the TDMS format and then specify the parameters that were used during the measurement by clicking the second icon. After indicating the path to the measurement file and filling in the parameters, confirm your choices by pressing the _Confirm_ icon.
+After pressing the _Data import_ button, the import view is visible. Select the measurement file in the TDMS format and then specify the parameters that were used during the measurement by clicking the _Parameters_ icon. After indicating the path to the measurement file and filling in the parameters, confirm your choices by pressing the _Confirm_ icon.
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/import.png">
 </p>
@@ -98,7 +98,7 @@ Digital signal processing functionality has also been made available to the user
 </p>
 
 ### Database view
-Moving to the third tab, database-related functionalities will appear. The functionalities are as follows: viewing the database and the measurements taken, multi-parameter data visualization using a graphical interface, and exporting the database in CSV format. You can edit the data in the database. Two options are available: editing individual values or completely deleting a record from the database.
+Moving to the third tab, database-related functionalities will appear. The functionalities are as follows: viewing the database and the measurements taken, multi-parameter data visualization using a graphical interface (relative comparison to the last measurement), and exporting the database in CSV format. You can edit the data in the database. Two options are available: editing individual values or completely deleting a record from the database.
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/main_database.png">
 </p>
