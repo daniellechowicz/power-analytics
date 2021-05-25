@@ -38,6 +38,8 @@ When the window opens, select the _New_ button and then add the following path: 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/path_4.png">
 </p>
 
+Confirm the changes. To be sure, it is advisable to restart the computer.
+
 ## Software functionalities
 Accordingly to the customer's requirements, the software has the following features:
 1) working with the National Instruments TDMS format
