@@ -24,6 +24,7 @@ from tools_edit_window import ToolsEditWindow
 # Backend modules
 from measurement import Measurement
 from database.database import Database
+from database.manage_tools import Tools
 from database.models import Metadata
 from helpers.replace import Replace
 from report.report import Report
@@ -194,12 +195,34 @@ class MainWindow(QMainWindow):
         else:
             self.path_imported = True
 
+    def tool_exists(self):
+        metadata = self.get_metadata()
+        tool_id = metadata["tool_id"]
+        d = np.loadtxt(
+            f"database/{LEITZ_TOOLS}", delimiter=";", dtype=str, skiprows=1, usecols=0
+        )
+        if tool_id in d:
+            return True
+        else:
+            return False
+
     def get_data(self):
         if self.path_imported is False:
             ctypes.windll.user32.MessageBoxW(
                 0,
                 "Es wurde kein Messfile importiert – bitte zuerst Messdaten importieren",
                 "Power Analytics | Datenimport",
+                0,
+            )
+            return
+
+        # Check whether the tool (with specified tool ID) is present in the database
+        # If it is not present in the database, stop execution of the function
+        if not self.tool_exists():
+            ctypes.windll.user32.MessageBoxW(
+                0,
+                "Die angegebene Werkzeug-ID-Nummer existiert nicht - tragen Sie das Werkzeug in die Datenbank ein",
+                "Power Analytics | Parameter",
                 0,
             )
             return

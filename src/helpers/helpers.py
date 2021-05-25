@@ -77,8 +77,16 @@ def moving_median(data, window_size):
 
     return x_vector, y_vector
 
+
 def convert_type(key, value):
-    if key in ['author', 'date', 'material', 'cutting_direction', 'tool_id', 'comments']:
+    if key in [
+        "author",
+        "date",
+        "material",
+        "cutting_direction",
+        "tool_id",
+        "comments",
+    ]:
         return f"'{value}'"
     else:
         return value

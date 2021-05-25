@@ -91,7 +91,7 @@ class Report:
         )
 
         # Setup config
-        path_wkhtmltopdf = r'C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe'
+        path_wkhtmltopdf = r"C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe"
         config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
 
         # Generate pdf

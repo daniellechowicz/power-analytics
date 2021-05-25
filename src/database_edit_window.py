@@ -131,7 +131,7 @@ class DatabaseEditWindow(QMainWindow):
                 0,
             )
             return
-        
+
         # Remember to check if the functionality with database tools works
         if measurement_id and new_value:
             # Connect to the database
@@ -151,7 +151,7 @@ class DatabaseEditWindow(QMainWindow):
             connection.commit()
             connection.close()
             self.close()
-    	
+
     def center(self):
         qr = self.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()

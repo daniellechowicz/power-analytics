@@ -14,8 +14,10 @@ from helpers.calculate_parameters import (
 )
 from helpers.helpers import translate
 from settings import *
+import ctypes
 import datetime
 import json
+import numpy as np
 import os
 
 
@@ -26,6 +28,7 @@ class ParametersWindow(QMainWindow):
         self.ui.setupUi(self)
         self.setup_ui()
         self.setup_initial_view()
+        self.setup_type_validators()
         self.define_callbacks()
         self.set_last_used()
         self.oldPos = self.pos()
@@ -52,6 +55,17 @@ class ParametersWindow(QMainWindow):
         # Remove title bar
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+    def setup_type_validators(self):
+        self.only_int = QtGui.QIntValidator()
+        self.only_float = QtGui.QDoubleValidator()
+
+        self.ui.le_moisture_content.setValidator(self.only_int)
+        self.ui.le_rotational_speed.setValidator(self.only_float)
+        self.ui.le_feed_speed.setValidator(self.only_float)
+        self.ui.le_cutting_width.setValidator(self.only_float)
+        self.ui.le_cutting_depth.setValidator(self.only_float)
+        self.ui.le_cutting_angle.setValidator(self.only_float)
 
     def define_callbacks(self):
         self.ui.pushButton.clicked.connect(lambda: self.close())
@@ -114,10 +128,29 @@ class ParametersWindow(QMainWindow):
         self.metadata["mean_chip_thickness"] = str(self.metadata["mean_chip_thickness"])
         self.metadata["mean_chip_length"] = str(self.metadata["mean_chip_length"])
 
+    def tool_exists(self):
+        tool_id = self.ui.le_tool_id.text()
+        d = np.loadtxt(
+            f"database/{LEITZ_TOOLS}", delimiter=";", dtype=str, skiprows=1, usecols=0
+        )
+        if tool_id in d:
+            return True
+        else:
+            return False
+
     # External CSV file containing tools' parameters
     def get_corresponding_parameters(self):
-        result = Tools(f"database/{LEITZ_TOOLS}", self.metadata["tool_id"]).export()
-        return result
+        if self.tool_exists():
+            result = Tools(f"database/{LEITZ_TOOLS}", self.metadata["tool_id"]).export()
+            return result
+        else:
+            ctypes.windll.user32.MessageBoxW(
+                0,
+                "Die angegebene Werkzeug-ID-Nummer existiert nicht - tragen Sie das Werkzeug in die Datenbank ein",
+                "Power Analytics | Parameter",
+                0,
+            )
+            return None
 
     def append_parameters_to_metadata(self, parameters):
         for key, value in parameters.items():
@@ -153,10 +186,12 @@ class ParametersWindow(QMainWindow):
             if self.metadata["tool_id"] != "NaN":
                 # Parameters from the file "tools.cs"
                 ext_params = self.get_corresponding_parameters()
-                self.append_parameters_to_metadata(ext_params)
 
-                # Parameters that have to be calculated
-                self.get_remaining_parameters()
+                if ext_params is not None:
+                    self.append_parameters_to_metadata(ext_params)
+
+                    # Parameters that have to be calculated
+                    self.get_remaining_parameters()
 
             json.dump(self.metadata, outfile)
 
