@@ -42,13 +42,13 @@ Confirm the changes. To be sure, it is advisable to restart the computer.
 ## Software functionalities
 Accordingly to the customer's requirements, the software has the following features:
 1) working with the National Instruments TDMS format
-2) integration of applied parameters with existing database by tool ID number
-3) manual selection of idle mode and cutting regions
-4) noise compensation with moving average
-5) spectral representation of analysed signal
-6) integration of SQLite database
-7) visualization of data available in the database
-8) possibility to the database
+2) integration with the database that stores all measurements taken
+3) integration of applied parameters into the database via tool ID number
+4) manual selection of idle and cutting regions
+5) noise compensation with moving average filter
+6) spectral representation of analysed signal
+7) interactive visualization of data available in the database
+8) possibility of editing the data present in the database, as well as deleting individual records
 9) possibility to export the database in CSV format
 10) generation of measurement reports in PDF format
 11) possitibility to change default settings
