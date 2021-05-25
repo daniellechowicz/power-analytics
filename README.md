@@ -8,16 +8,39 @@
 Toolkit for power consumption analysis for the manufacturer of woodworking tools
 
 ## Installation
-1) navigate to the folder
-2) run the installer _Power Analytics.exe_ and follow the instructions
-3) allow the interpreter _Python 3.9.0_ to be installed
-4) allow the external module _wkhtmltopdf_ for HTML to PDF conversion to be installed
-5) allow the application _Power Analytics 1.0_ to be installed 
-3) go to the _bin_ folder and double-click the _Power Analytics.exe_ to start the application
+1) download the content of the repository
+2) navigate to the downloaded folder
+3) run the installer _Power Analytics.exe_ and follow the instructions
+4) allow the interpreter _Python 3.9.0_ to be installed
+5) allow the external module _wkhtmltopdf_ for HTML to PDF conversion to be installed (*do not change the default path*)
+6) allow the application _Power Analytics 1.0_ to be installed 
+7) add _wkhtmltopdf_'s path to the environment variables (see _Adding wkhtmltopdf's path to PATH_)
+8) go to the _bin_ folder and double-click the _Power Analytics.exe_ to start the application
+
+## Adding wkhtmltopdf's path to PATH
+Type _System_ in the taskbar search engine. When the window opens, go to _Advanced system settings_.
+<p align="center"> 
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/path_1.png">
+</p>
+
+When the next window appears, press the _Environment variables_ button.
+<p align="center"> 
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/path_2.png">
+</p>
+
+In the next window you will see two groups: user variables and system variables. In the system variables, find the _Path_ variable and then select it by double-clicking.
+<p align="center"> 
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/path_3.png">
+</p>
+
+When the window opens, select the _New_ button and then add the following path: _C:\Program Files\wkhtmltopdf\bin\\_. 
+<p align="center"> 
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/path_4.png">
+</p>
 
 ## Software functionalities
 Accordingly to the customer's requirements, the software has the following features:
-1) working with National Instruments TDMS format
+1) working with the National Instruments TDMS format
 2) integration of applied parameters with existing database by tool ID number
 3) manual selection of idle mode and cutting regions
 4) noise compensation with moving average
