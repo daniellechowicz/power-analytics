@@ -1,6 +1,6 @@
 <br/>
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/header.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/header.png">
 </p>
 <br/>
 
@@ -37,37 +37,37 @@ Accordingly to the customer's requirements, the software has the following featu
 ### Main view
 After launching the application, you will see the main view of the application from where you can navigate to the various functionalities of the application. On the left you can see tabs leading to data import, analysis, database, reporting and settings, respectively.
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/main.png">
 </p>
 
 ### Import view
 After pressing the first button, the data import view is visible. Select the measurement file in TDMS format and then specify the parameters that were used during the measurement by clicking the second icon. After indicating the path to the measurement file and filling in the used parameters, confirm your choices by pressing the third icon.
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/import.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/import.png">
 </p>
 
 ### Parameters view
 Moving to the parameters view, complete all fields as instructed. The parameter view is shown in the following image.
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/parameters.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/parameters.png">
 </p>
 
 ### Analysis view
 Once you confirm your selections, you are automatically taken to the data analysis tab. You will see three graphs - the first corresponds to the entire file, the second to the range corresponding to idling, and the third to the cutting process. Select the appropriate ranges by manually moving the green and red rectangles, and adjust their borders. Before validating your selections, indicate whether you want the data to be added to the database. If ready, press the blue button below the charts.
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/range_selection.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/range_selection.png">
 </p>
 
 ### Filters view
 Digital signal processing functionality has also been made available to the user. A moving average filter can be used, as well as a frequency spectrum. The cards are visible at the top of the window. The visible ranges are automatically truncated for the cutting process only (green rectangle).
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/moving_average.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/moving_average.png">
   <p align="center">
     Filters view | Moving average
   </p>
 </p>
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/psd.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/psd.png">
   <p align="center">
     Filters view | Power Spectral Density (PSD)
   </p>
@@ -76,17 +76,17 @@ Digital signal processing functionality has also been made available to the user
 ### Database view
 Moving to the third tab, database-related functionalities will appear. The functionalities are as follows: viewing the database and the measurements taken, multi-parameter data visualization using a graphical interface, and exporting the database in CSV format.
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/main_database.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/main_database.png">
 </p>
 
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/database.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/database.png">
   <p align="center">
     Database view | Visualization of measurements taken with corresponding metadata and statistics
   </p>
 </p>
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/visualization.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/visualization.png">
   <p align="center">
     Database view | Multiparameter data visualization using a graphical interface
   </p>
@@ -95,16 +95,16 @@ Moving to the third tab, database-related functionalities will appear. The funct
 ### Settings view
 When you navigate to the last tab, you can change the software settings and add or edit tools and their parameters. It is also possible to replace a file in CSV format without losing the changes made. The individual functionalities are self-explanatory - follow the instructions. The following are the default software settings window, the edit window, and the add new tool window, respectively.
 <p align="center">
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/settings.png" width="30%">
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/edit.png" width="30%">
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/add.png" width="30%">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/settings.png" width="30%">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/edit.png" width="30%">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/add.png" width="30%">
 </p>
 
 ### Report
 The software has the functionality of generating reports. To generate a report with a summary of the parameters used in the measurement, as well as basic statistics, press the fourth button from the main menu. The report can only be generated if measurement data has been imported, parameters entered, and idle and cutting process ranges defined. A sample auto-generated report is shown below.
 <p align="center">
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/report_1.png">
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/img/report_2.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/report_1.png">
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/report_2.png">
 </p>
 
 ### Settings
