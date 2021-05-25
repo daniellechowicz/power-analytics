@@ -77,7 +77,7 @@ Moving to the parameters view, complete all fields as instructed. User has the p
 </p>
 
 ### Analysis view
-Once you confirm your selections, you are automatically taken to the data analysis tab. You will see three graphs - the first corresponds to the entire file, the second to the range corresponding to idling, and the third to the cutting process. Select the appropriate ranges by manually moving the green and red rectangles, and adjust their borders. Before validating your selections, indicate whether you want the data to be added to the database. If ready, press the blue button below the charts.
+Once data import carried out properly, you are automatically taken to the data analysis tab. You will see three graphs - the first corresponds to the entire file, the second to the range corresponding to idling, and the third to the cutting process. Select the appropriate ranges by manually moving the green (cutting) and red (idle) rectangles, and adjust their borders. Before validating your selections, indicate whether you want the data to be added to the database. If ready, press the blue button below the charts.
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/range_selection.png">
 </p>
@@ -98,7 +98,7 @@ Digital signal processing functionality has also been made available to the user
 </p>
 
 ### Database view
-Moving to the third tab, database-related functionalities will appear. The functionalities are as follows: viewing the database and the measurements taken, multi-parameter data visualization using a graphical interface, and exporting the database in CSV format.
+Moving to the third tab, database-related functionalities will appear. The functionalities are as follows: viewing the database and the measurements taken, multi-parameter data visualization using a graphical interface, and exporting the database in CSV format. You can edit the data in the database. Two options are available: editing individual values or completely deleting a record from the database.
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/main_database.png">
 </p>
@@ -107,6 +107,12 @@ Moving to the third tab, database-related functionalities will appear. The funct
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/database.png">
   <p align="center">
     Database view | Visualization of measurements taken with corresponding metadata and statistics
+  </p>
+</p>
+<p align="center"> 
+  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/database_edit.png">
+  <p align="center">
+    Database view | Edition of values present in the database
   </p>
 </p>
 <p align="center"> 
