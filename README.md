@@ -163,3 +163,6 @@ The user has access to some software settings. The settings can be accessed from
 8) cutting start index - the default setting for the first measured value of the cutting
 9) cutting stop index - the default setting for the last measured value of the cutting
 10) CSV tools filename - the name of the CSV file that will contain the description of the tool parameters
+
+### Acknowledgements
+The icons used in the software are property of www.flaticon.com.
