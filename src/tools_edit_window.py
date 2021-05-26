@@ -165,7 +165,7 @@ class ToolsEditWindow(QMainWindow):
                 0,
                 f"Es wurde keine Werkzeug-ID eingegeben",
                 "Power Analytics | Werkzeugparameter bearbeiten",
-                0,
+                0 | 0x40,
             )
         else:
             self.find_by_ID(LEITZ_TOOLS, tool_id)
@@ -190,14 +190,14 @@ class ToolsEditWindow(QMainWindow):
                 0,
                 f"Die Datei {LEITZ_TOOLS} wurde erfolgreich aktualisiert",
                 "Power Analytics | Werkzeugparameter bearbeiten",
-                0,
+                0 | 0x40,
             )
         except Exception as e:
             ctypes.windll.user32.MessageBoxW(
                 0,
                 f"Fehler beim Speichern aufgetreten ({e})",
                 "Power Analytics | Werkzeugparameter bearbeiten",
-                0,
+                0 | 0x40,
             )
 
     def get_updates(self, tool_id):

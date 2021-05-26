@@ -127,7 +127,7 @@ class MultivariateVisualizationWindow(QMainWindow):
                 0,
                 f"Datenvisualisierung konnte nicht gestartet werden ({e})",
                 "Power Analytics | Datenvisualisierung",
-                0,
+                0 | 0x40,
             )
 
     def update_metadata(self, key, value):

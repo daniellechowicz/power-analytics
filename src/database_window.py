@@ -149,7 +149,7 @@ class DatabaseWindow(QMainWindow):
                 0,
                 f"Die Datenbank wurde erfolgreich exportiert",
                 "Power Analytics | Datenbank",
-                0,
+                0 | 0x40,
             )
 
     def center(self):

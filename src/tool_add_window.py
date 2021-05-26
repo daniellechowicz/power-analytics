@@ -85,7 +85,7 @@ class ToolAddWindow(QMainWindow):
             0,
             "Das Werkzeug wurde erfolgreich in die bestehende Datenbank aufgenommen",
             "Power Analytics | Neues Werkzeug",
-            0,
+            0 | 0x40,
         )
 
         return data

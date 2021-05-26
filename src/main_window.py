@@ -46,7 +46,7 @@ class MainWindow(QMainWindow):
 
         # Drag functionality enabled
         self.oldPos = self.pos()
-        self.show()
+        self.showMaximized()
 
     def setup_ui(self):
         self.setWindowIcon(QtGui.QIcon("ui/icons/lighting.svg"))
@@ -69,7 +69,7 @@ class MainWindow(QMainWindow):
         self.path_imported = False
         self.x_init = 0
         self.y_init = 0
-        self.full_screen = False
+        self.full_screen = True
         self.idle_region = 0
         self.cutting_region = 0
 
@@ -190,7 +190,7 @@ class MainWindow(QMainWindow):
                 0,
                 "Falscher Pfad angegeben – bitte noch einmal versuchen",
                 "Power Analytics | Datenimport",
-                0,
+                0 | 0x40,
             )
         else:
             self.path_imported = True
@@ -212,7 +212,7 @@ class MainWindow(QMainWindow):
                 0,
                 "Es wurde kein Messfile importiert – bitte zuerst Messdaten importieren",
                 "Power Analytics | Datenimport",
-                0,
+                0 | 0x40,
             )
             return
 
@@ -223,7 +223,7 @@ class MainWindow(QMainWindow):
                 0,
                 "Die angegebene Werkzeug-ID-Nummer existiert nicht - tragen Sie das Werkzeug in die Datenbank ein",
                 "Power Analytics | Parameter",
-                0,
+                0 | 0x40,
             )
             return
 
@@ -564,7 +564,7 @@ class MainWindow(QMainWindow):
                 0,
                 f"Datei {DB_NAME} konnte nicht geöffnet werden ({e})",
                 "Power Analytics | Datenbank",
-                0,
+                0 | 0x40,
             )
 
     def replace_tools_CSV(self):
@@ -580,7 +580,7 @@ class MainWindow(QMainWindow):
                 0,
                 "Falscher Pfad angegeben – bitte noch einmal versuchen",
                 "Power Analytics | Ersetzen",
-                0,
+                0 | 0x40,
             )
         else:
             shutil.copy(path, f"database/{LEITZ_TOOLS}")
@@ -591,7 +591,7 @@ class MainWindow(QMainWindow):
                 0,
                 "Datei wurde erfolgreich ersetzt",
                 "Power Analytics | Ersetzen",
-                0,
+                0 | 0x40,
             )
 
     def get_permission_dialog(self, text, title, utype):
@@ -627,7 +627,7 @@ class MainWindow(QMainWindow):
                     0,
                     f"Protokoll konnte nicht generiert werden ({e})",
                     "Power Analytics | Protokoll",
-                    0,
+                    0 | 0x40,
                 )
 
     def center(self):

@@ -148,7 +148,7 @@ class ParametersWindow(QMainWindow):
                 0,
                 "Die angegebene Werkzeug-ID-Nummer existiert nicht - tragen Sie das Werkzeug in die Datenbank ein",
                 "Power Analytics | Parameter",
-                0,
+                0 | 0x40,
             )
             return None
 
@@ -187,7 +187,7 @@ class ParametersWindow(QMainWindow):
                     0,
                     "Es fehlen noch einige Werte - füllen Sie das Formular aus und versuchen Sie es erneut",
                     "Power Analytics | Parameter",
-                    0,
+                    0 | 0x40,
                 )
                 
                 # Exit the function without further execution

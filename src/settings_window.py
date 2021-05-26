@@ -129,7 +129,7 @@ class SettingsWindow(QMainWindow):
                 0,
                 "Die Einstellungen wurden erfolgreich geändert",
                 "Power Analytics | Einstellungen",
-                0,
+                0 | 0x40,
             )
         else:
             pass

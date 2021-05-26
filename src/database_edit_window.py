@@ -80,7 +80,7 @@ class DatabaseEditWindow(QMainWindow):
                 0,
                 f"Geben Sie die ID-Nummer der Messung ein, bevor Sie die Daten in der Datenbank bearbeiten",
                 "Power Analytics | Datenbank bearbeiten",
-                0,
+                0 | 0x40,
             )
             return
 
@@ -116,7 +116,7 @@ class DatabaseEditWindow(QMainWindow):
                 0,
                 f"Geben Sie die ID-Nummer der Messung ein, bevor Sie die Daten in der Datenbank bearbeiten",
                 "Power Analytics | Datenbank bearbeiten",
-                0,
+                0 | 0x40,
             )
             return
 
@@ -128,7 +128,7 @@ class DatabaseEditWindow(QMainWindow):
                 0,
                 f"Geben Sie den neuen Wert für den gewählten Parameter ein, bevor Sie die Auswahl bestätigen",
                 "Power Analytics | Datenbank bearbeiten",
-                0,
+                0 | 0x40,
             )
             return
 
