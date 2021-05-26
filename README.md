@@ -26,7 +26,7 @@ Toolkit for power consumption analysis for the manufacturer of woodworking tools
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/wkhtmltopdf.png">
   <p align="center">
-    Ad 4) | Do not change the default path of the _wkhtmltopdf_ module
+    Ad 5) | Do not change the default path of the _wkhtmltopdf_ module
   </p>
 </p>
 
@@ -85,7 +85,7 @@ After pressing the _Data import_ button, the import view is visible. Select the 
 </p>
 
 ### Parameters view
-Moving to the parameters view, complete all fields as instructed. User has the possibility to clean the fields at once by pressing the _Remove_ button. The process will only complete successfully if all fields are completed. If the tool ID number provided does not match any of the ID numbers present in the CSV file containing all tools, the user will be asked to enter the tool into the database. Once the tool has been entered into the database, fill in the parameters' fields again. The parameter view is shown in the following image.
+Moving to the parameters view, complete all fields as instructed. User has the possibility to clean the fields at once by pressing the _Remove_ button. The process will only complete successfully if all fields are completed. If the tool ID number provided does not match any of the ID numbers present in the CSV file containing all tools, the user will be asked to enter the tool into the database. Once the tool has been entered into the database, fill in the parameters' fields again. <b>NOTE: There are only two choices in the correlating field to the cutting direction: GGL (ggl) or GLL (ggl).</b>
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/parameters.png">
 </p>
