@@ -18,14 +18,14 @@ Toolkit for power consumption analysis for the manufacturer of woodworking tools
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/python.png">
   <p align="center">
-    Ad 4) | Make sure Python 3.9 will be added to system's _PATH_ variable
+    Ad 4) | Make sure Python 3.9 will be added to system's <i>PATH</i> variable
   </p>
 </p>
 
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/wkhtmltopdf.png">
   <p align="center">
-    Ad 5) | Do not change the default path of the _wkhtmltopdf_ module
+    Ad 5) | Do not change the default path of the <i>wkhtmltopdf</i> module
   </p>
 </p>
 
