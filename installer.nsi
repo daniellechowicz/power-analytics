@@ -84,7 +84,6 @@ Section "Power Analytics 1.0" SEC03
 	File /r "test.bat"
 	File /r "requirements.txt"
 	File /r "README.md"
-	File /r "Power Analytics.exe"
 
 	;Store installation folder
 	WriteRegStr HKCU "Software\Power Analytics" "" $INSTDIR
