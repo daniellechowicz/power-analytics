@@ -88,9 +88,10 @@ class SplashScreen(QMainWindow):
         # Since there were some conflicts between icons,
         # the three following lines bypass the issue.
         import ctypes
-        my_app_id = 'mycompany.myproduct.subproduct.version' # arbitrary string
+
+        my_app_id = "mycompany.myproduct.subproduct.version"  # arbitrary string
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(my_app_id)
-        
+
         self.setWindowIcon(QIcon("ui/icons/lighting.svg"))
         self.setWindowTitle(
             QtCore.QCoreApplication.translate(

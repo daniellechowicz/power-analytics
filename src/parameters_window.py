@@ -181,15 +181,15 @@ class ParametersWindow(QMainWindow):
             if value == "":
                 # Change to 'NaN' if empty (compatible with Leitz's database)
                 self.metadata[key] = "NaN"
-                
-                # To prompt the user to enter all parameters, follow these steps 
+
+                # To prompt the user to enter all parameters, follow these steps
                 ctypes.windll.user32.MessageBoxW(
                     0,
                     "Es fehlen noch einige Werte - füllen Sie das Formular aus und versuchen Sie es erneut",
                     "Power Analytics | Parameter",
                     0 | 0x40,
                 )
-                
+
                 # Exit the function without further execution
                 return
 

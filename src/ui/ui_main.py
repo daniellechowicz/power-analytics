@@ -39,8 +39,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(
-            u"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(50, 61, 74, 255), stop:1 rgba(71, 74, 120, 255));\n"
-            "border-radius: 10px;"
+            u"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(50, 61, 74, 255), stop:1 rgba(71, 74, 120, 255)); border-radius: 0px;"
         )
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setSpacing(0)
