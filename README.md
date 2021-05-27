@@ -165,7 +165,7 @@ The user has access to some software settings. The settings can be accessed from
 10) CSV tools filename - the name of the CSV file that will contain the description of the tool parameters
 
 ### Troubleshooting
-Error logs are saved in the _logs_ folder with the appropriate date. In case of any errors, please send the file to _/d.lechowicz@wood-kplus.at_.
+Error logs are saved in the _logs_ folder with the appropriate date. In case of any errors, please send the file to _d.lechowicz@wood-kplus.at_.
 
 ### Acknowledgements
 The icons used in the software are property of www.flaticon.com.
