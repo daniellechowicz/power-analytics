@@ -168,4 +168,4 @@ The user has access to some software settings. The settings can be accessed from
 Error logs are saved in the _logs_ folder with the appropriate date. In case of any errors, please send the file to _d.lechowicz@wood-kplus.at_.
 
 ### Acknowledgements
-The icons used in the software are property of www.flaticon.com.
+The icons used in the software are property of _www.flaticon.com_.
