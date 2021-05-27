@@ -6,15 +6,14 @@
 # Power Analytics
 Toolkit for power consumption analysis for the manufacturer of woodworking tools
 
-## Installation
-1) download the content of the repository
-2) navigate to the downloaded folder
-3) run the installer _Power Analytics.exe_ and follow the instructions
-4) allow the interpreter _Python 3.9.0_ to be installed (see the figure below)
-5) allow the external module _wkhtmltopdf_ for HTML to PDF conversion to be installed (see the figure below)
-6) allow the application _Power Analytics 1.0_ to be installed
-7) add _wkhtmltopdf_'s path to the environment variables (see _Adding wkhtmltopdf's path to PATH_)
-8) go to the _bin_ folder and double-click the _Power Analytics.exe_ to start the application
+## Installation (tested on 64-bit version of Windows 10)
+1) download the _Power Analytics.exe_ installer (_https://github.com/daniellechowicz/power-analytics/blob/main/Power%20Analytics.exe_)
+2) run the _Power Analytics.exe_ installer and follow the instructions
+3) allow the interpreter _Python 3.9.0_ to be installed (see the figure below)
+4) allow the external module _wkhtmltopdf_ for HTML to PDF conversion to be installed (see the figure below)
+5) allow the application _Power Analytics 1.0_ to be installed
+6) add _wkhtmltopdf_'s path to the environment variables (see _Adding wkhtmltopdf's path to PATH_)
+7) go to the _bin_ folder and double-click the _Power Analytics.exe_ to start the application
 
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/python.png">
