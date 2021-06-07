@@ -21,7 +21,7 @@
 	InstallDirRegKey HKCU "Software\Power Analytics" ""
 
 	;Request application privileges for Windows Vista
-	RequestExecutionLevel admin
+	RequestExecutionLevel user
 
 ;--------------------------------
 ;Interface Settings
