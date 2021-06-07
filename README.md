@@ -10,47 +10,15 @@ Toolkit for power consumption analysis for the manufacturer of woodworking tools
 1) download the _Power Analytics.exe_ installer (_https://github.com/daniellechowicz/power-analytics/raw/main/Power%20Analytics.exe_)
 2) run the _Power Analytics.exe_ installer and follow the instructions
 3) allow the interpreter _Python 3.9.0_ to be installed (see the figure below)
-4) allow the external module _wkhtmltopdf_ for HTML to PDF conversion to be installed (see the figure below)
-5) allow the application _Power Analytics 1.0_ to be installed
-6) add _wkhtmltopdf_'s path to the environment variables (see _Adding wkhtmltopdf's path to PATH_)
-7) go to the _bin_ folder and double-click the _Power Analytics.exe_ to start the application
+4) allow the application _Power Analytics 1.0_ to be installed
+5) go to the _bin_ folder and double-click the _Power Analytics.exe_ to start the application
 
 <p align="center"> 
   <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/python.png">
   <p align="center">
-    Ad 4) | Make sure Python 3.9 will be added to system's <i>PATH</i> variable
+    Ad 3) | Make sure Python 3.9.0 will be added to system's <i>PATH</i> variable; if admin rights are inavailable, then <i>Install launcher for all users (recommended)</i> must be unchecked
   </p>
 </p>
-
-<p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/wkhtmltopdf.png">
-  <p align="center">
-    Ad 5) | Do not change the default path of the <i>wkhtmltopdf</i> module
-  </p>
-</p>
-
-## Adding wkhtmltopdf's path to PATH
-Type _System_ in the taskbar search engine. When the window opens, go to _Advanced system settings_.
-<p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/path_1.png">
-</p>
-
-When the next window appears, press the _Environment variables_ button.
-<p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/path_2.png">
-</p>
-
-In the next window you will see two groups: user variables and system variables. In the system variables, find the _Path_ variable and then select it by double-clicking.
-<p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/path_3.png">
-</p>
-
-When the window opens, select the _New_ button and then add the following path: _C:\Program Files\wkhtmltopdf\bin\\_. 
-<p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/path_4.png">
-</p>
-
-Confirm the changes. To be sure, it is advisable to restart the computer.
 
 ## Software functionalities
 Accordingly to the customer's requirements, the software has the following features:
