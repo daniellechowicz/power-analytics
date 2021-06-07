@@ -91,11 +91,11 @@ class Report:
         )
 
         # Setup config
-        path_wkhtmltopdf = r"C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe"
+        path_wkhtmltopdf = r"report/bin/wkhtmltopdf.exe"
         config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
 
         # Generate pdf
-        pdfkit.from_string(html_string, "report/reports/{}".format(self.filename))
+        pdfkit.from_string(html_string, "report/reports/{}".format(self.filename), configuration=config)
 
         # Show pdf
         os.chdir("report/reports")  # os.startfile("reports/Report.pdf") did not work

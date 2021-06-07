@@ -62,18 +62,8 @@ Section "Python 3.9.0" SEC01
 	
 SectionEnd
 
-;Embedding PDFKIT (wkhtmltopdf) installer
-Section "wkhtmltopdf" SEC02
-	
-	SetOutPath "$INSTDIR"
-
-	File "installer\wkhtmltox-0.12.6-1.msvc2015-win64.exe"
-	ExecWait "$INSTDIR\wkhtmltox-0.12.6-1.msvc2015-win64.exe"
-	
-SectionEnd
-
 ;Embedding the application
-Section "Power Analytics 1.0" SEC03
+Section "Power Analytics 1.0" SEC02
 
 	SetOutPath "$INSTDIR"
 	
@@ -107,14 +97,12 @@ SectionEnd
 
 	;Language strings
 	LangString DESC_SEC01 ${LANG_ENGLISH} "Python interpreter - version 3.9.0."
-	LangString DESC_SEC02 ${LANG_ENGLISH} "HTML into PDF and various image formats rendering tools."
-	LangString DESC_SEC03 ${LANG_ENGLISH} "Software to analyze the power consumption of woodworking machines using different tools."
+	LangString DESC_SEC02 ${LANG_ENGLISH} "Software to analyze the power consumption of woodworking machines using different tools."
 
 	;Assign language strings to sections
 	!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 	!insertmacro MUI_DESCRIPTION_TEXT ${SEC01} $(DESC_SEC01)
 	!insertmacro MUI_DESCRIPTION_TEXT ${SEC02} $(DESC_SEC02)
-	!insertmacro MUI_DESCRIPTION_TEXT ${SEC03} $(DESC_SEC03)
 	!insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 ;--------------------------------
