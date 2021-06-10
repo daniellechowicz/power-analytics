@@ -112,7 +112,7 @@ class ToolsEditWindow(QMainWindow):
         return corresponding_params
 
     # line - this is a row from "tools.csv"
-    def track_changes(self, tool_id, column_name, value, line):
+    def track_changes(self, tool_id, column_name, value, new_line):
         # Update "tools_updates.csv" now (to keep track of changes done over time)
         df = pd.read_csv(
             os.path.join("database", LEITZ_TOOLS_UPDATES),
@@ -131,8 +131,26 @@ class ToolsEditWindow(QMainWindow):
             )
         # If there is no record for the ID of interest, then append it to the file
         else:
+            # Why am I doing it this way?
+            # There was a particular problem: in "tools_updates.csv" file,
+            # all the updates were saved multiple times. As it sounds like a good idea,
+            # because one can introduced changes easily, it was causing problems when
+            # the second file had to be replaced as it was copying all the lines instead of one.
+            # Open the file and get all the lines.
+            with open(os.path.join("database", LEITZ_TOOLS_UPDATES), "r") as f:
+                lines = f.readlines()
+
+            # Delete (or just skip) the line which starts with the same tool ID.
+            with open(os.path.join("database", LEITZ_TOOLS_UPDATES), "w") as f:
+                for line in lines:
+                    if line.startswith(tool_id):
+                        pass
+                    else:
+                        f.write(line)
+
+            # Eventually, once the line was deleted, append a new line to the existing file.
             f = open(os.path.join("database", LEITZ_TOOLS_UPDATES), "a")
-            f.write(line)
+            f.write(new_line)
             f.close()
 
     def edit_by_ID(self, tool_id, column_name, value, track_changes=False):

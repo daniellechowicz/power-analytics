@@ -163,7 +163,7 @@ class ParametersWindow(QMainWindow):
     # Upper case to avoid conflicts
     def accept(self):
         self.metadata = {
-            "author": self.ui.le_author.text().upper(),
+            "author": self.ui.le_author.text().upper() if self.ui.le_author.text() != "" else 'Nicht definiert',
             "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M"),
             "material": self.ui.le_material.text().upper(),
             "moisture_content": self.ui.le_moisture_content.text(),
@@ -174,8 +174,20 @@ class ParametersWindow(QMainWindow):
             "cutting_depth": self.ui.le_cutting_depth.text().replace(",", "."),
             "cutting_angle": self.ui.le_cutting_angle.text().replace(",", "."),
             "tool_id": self.ui.le_tool_id.text(),
-            "comments": self.ui.le_comments.text(),
+            "comments": self.ui.le_comments.text() if self.ui.le_comments.text() != "" else 'Keine Kommentare'
         }
+
+        if self.metadata["cutting_direction"].lower() not in ["ggl", "gll"]:
+            # To prompt the user to enter all parameters, follow these steps
+            ctypes.windll.user32.MessageBoxW(
+                0,
+                f"Es können nur zwei Schnittrichtungen gewählt werden: GGL oder GLL. Stattdessen wurde \"{self.metadata['cutting_direction']}\" eingegeben.",
+                "Power Analytics | Parameter",
+                0 | 0x40,
+            )
+
+            # Exit the function without further execution
+            return
 
         for key, value in self.metadata.items():
             if value == "":

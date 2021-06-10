@@ -70,8 +70,6 @@ Section "Power Analytics 1.0" SEC02
 	;Files/folders to be added go here...
 	File /r "bin"
 	File /r "src"
-	File /r "autorun.bat"
-	File /r "test.bat"
 	File /r "requirements.txt"
 	File /r "README.md"
 
@@ -85,11 +83,6 @@ Section "Power Analytics 1.0" SEC02
 	File "setup.bat"
 	ExecWait "$INSTDIR\setup.bat"
 	
-	;Uncomment to execute
-	;Reboot
-	;MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to reboot the system? It is ;required for proper operation." IDNO +2
-	;	Reboot
-		
 SectionEnd
 
 ;--------------------------------

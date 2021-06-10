@@ -493,32 +493,32 @@ class Ui_Parameters(object):
             QCoreApplication.translate("MainWindow", u"Autor", None)
         )
         self.label_4.setText(
-            QCoreApplication.translate("MainWindow", u"Werkstoff", None)
+            QCoreApplication.translate("MainWindow", u"* Werkstoff", None)
         )
         self.le_material.setPlaceholderText(
             QCoreApplication.translate("MainWindow", u"Werkstoff", None)
         )
         self.label_5.setText(
-            QCoreApplication.translate("MainWindow", u"Feuchtigkeit [%]", None)
+            QCoreApplication.translate("MainWindow", u"* Feuchtigkeit [%]", None)
         )
         self.le_moisture_content.setPlaceholderText(
             QCoreApplication.translate("MainWindow", u"Feuchtigkeit [%]", None)
         )
         self.label_6.setText(
-            QCoreApplication.translate("MainWindow", u"Schnittrichtung", None)
+            QCoreApplication.translate("MainWindow", u"* Schnittrichtung", None)
         )
         self.le_cutting_direction.setPlaceholderText(
             QCoreApplication.translate("MainWindow", u"Schnittrichtung", None)
         )
         self.label_13.setText(
-            QCoreApplication.translate("MainWindow", u"Drehzahl [U/min]", None)
+            QCoreApplication.translate("MainWindow", u"* Drehzahl [U/min]", None)
         )
         self.le_rotational_speed.setPlaceholderText(
             QCoreApplication.translate("MainWindow", u"Drehzahl [U/min]", None)
         )
         self.label_7.setText(
             QCoreApplication.translate(
-                "MainWindow", u"Vorschubgeschwindigkeit [m/min]", None
+                "MainWindow", u"* Vorschubgeschwindigkeit [m/min]", None
             )
         )
         self.le_feed_speed.setPlaceholderText(
@@ -527,25 +527,25 @@ class Ui_Parameters(object):
             )
         )
         self.label_8.setText(
-            QCoreApplication.translate("MainWindow", u"Schnittbreite [mm]", None)
+            QCoreApplication.translate("MainWindow", u"* Schnittbreite [mm]", None)
         )
         self.le_cutting_width.setPlaceholderText(
             QCoreApplication.translate("MainWindow", u"Schnittbreite [mm]", None)
         )
         self.label_9.setText(
-            QCoreApplication.translate("MainWindow", u"Schnitttiefe [mm]", None)
+            QCoreApplication.translate("MainWindow", u"* Schnitttiefe [mm]", None)
         )
         self.le_cutting_depth.setPlaceholderText(
             QCoreApplication.translate("MainWindow", u"Schnitttiefe [mm]", None)
         )
         self.label_10.setText(
-            QCoreApplication.translate("MainWindow", u"Schnittwinkel [\u00b0]", None)
+            QCoreApplication.translate("MainWindow", u"* Schnittwinkel [\u00b0]", None)
         )
         self.le_cutting_angle.setPlaceholderText(
             QCoreApplication.translate("MainWindow", u"Schnittwinkel [\u00b0]", None)
         )
         self.label_11.setText(
-            QCoreApplication.translate("MainWindow", u"ID-Nummer", None)
+            QCoreApplication.translate("MainWindow", u"* ID-Nummer", None)
         )
         self.le_tool_id.setPlaceholderText(
             QCoreApplication.translate("MainWindow", u"ID-Nummer", None)

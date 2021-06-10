@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# WARNING! l_tool_material => l_body_material
 
 from PySide2.QtCore import (
     QCoreApplication,
@@ -249,11 +250,11 @@ class Ui_ToolsEdit(object):
 
         self.gridLayout.addWidget(self.label_15, 6, 1, 1, 1)
 
-        self.l_tool_material = QLabel(self.groupBox)
-        self.l_tool_material.setObjectName(u"l_tool_material")
-        self.l_tool_material.setAlignment(Qt.AlignCenter)
+        self.l_body_material = QLabel(self.groupBox)
+        self.l_body_material.setObjectName(u"l_body_material")
+        self.l_body_material.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addWidget(self.l_tool_material, 9, 1, 1, 1)
+        self.gridLayout.addWidget(self.l_body_material, 9, 1, 1, 1)
 
         self.label_19 = QLabel(self.groupBox)
         self.label_19.setObjectName(u"label_19")
@@ -634,7 +635,7 @@ class Ui_ToolsEdit(object):
         self.label_15.setText(
             QCoreApplication.translate("MainWindow", u"Wellendurchmesser [mm]", None)
         )
-        self.l_tool_material.setText("")
+        self.l_body_material.setText("")
         self.label_19.setText(
             QCoreApplication.translate("MainWindow", u"Grundk\u00f6rpermaterial", None)
         )
