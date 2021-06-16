@@ -12,6 +12,7 @@ import os
 import pyqtgraph as pg
 import shutil
 import sys
+import yaml
 
 # Views
 from ui.ui_main import Ui_MainWindow
@@ -177,9 +178,22 @@ class MainWindow(QMainWindow):
 
         return metadata
 
-    def get_path(self, dir=None):
-        if dir is None:
-            dir = "./"
+    def save_default_path(self, path=None):
+        with open("defaults.yaml", "w") as file:
+            if path == None:
+                doc = yaml.dump({"root_measurement_files": os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')}, file)
+            else:
+                doc = yaml.dump({"root_measurement_files": path}, file)
+
+    def get_path(self):
+        try:
+            self.save_default_path(self.path)
+        except:
+            self.save_default_path()
+        
+        with open('defaults.yaml') as file:
+            doc = yaml.full_load(file)
+            dir = doc["root_measurement_files"]
 
         self.path, _ = QtWidgets.QFileDialog.getOpenFileName(
             self, "Pfad des Importfiles", str(dir)
