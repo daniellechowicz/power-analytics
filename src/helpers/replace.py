@@ -121,7 +121,7 @@ class Replace:
                 found = False
                 while not found:
                     line = file_updates.readline()
-                    if id in line:
+                    if str(id) in str(line):
                         found = True
                         file = open(os.path.join("database", LEITZ_TOOLS), "a")
                         file.write(line)

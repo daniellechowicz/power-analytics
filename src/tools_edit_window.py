@@ -54,7 +54,6 @@ class ToolsEditWindow(QMainWindow):
 
     def setup_combobox(self):
         self.choices = {
-            "Indentnummer": "ID-Nummer",
             "Klassifizierungsnummer": "Klassifizierungsnummer",
             "SGE": "SGE",
             "D": "Werkzeugdurchmesser",
@@ -91,10 +90,18 @@ class ToolsEditWindow(QMainWindow):
             delimiter=";",
             keep_default_na=False,
         )
-        row = df.loc[df["Identnummer"] == tool_id]
-        i = row.index[0]
+        # There was a problem:
+        # IndexError: index 0 is out of bounds for axis 0 with size 0
+        # Sometimes I have strings (e.g. L 1234 WA), sometimes I have integers (e.g. 12345)...
+        # Therefore, simple try-except can be used.
+        try:
+            row = df.loc[df["Identnummer"] == str(tool_id)]
+            i = row.index[0]
+        except:
+            row = df.loc[df["Identnummer"] == int(tool_id)]
+            i = row.index[0]
         corresponding_params = {
-            "tool_id": row["Identnummer"][i],
+            "tool_id": str(row["Identnummer"][i]),
             "classification_number": row["Klassifizierungsnummer"][i],
             "strategic_business_number": row["SGE"][i],
             "tool_diameter": row["D"][i],
@@ -119,7 +126,19 @@ class ToolsEditWindow(QMainWindow):
             delimiter=";",
             keep_default_na=False,
         )
-        row = df.loc[df["Identnummer"] == tool_id]
+        # There was a problem:
+        # IndexError: index 0 is out of bounds for axis 0 with size 0
+        # Sometimes I have strings (e.g. L 1234 WA), sometimes I have integers (e.g. 12345)...
+        # Therefore, simple try-except can be used.
+        try:
+            row = df.loc[df["Identnummer"] == str(tool_id)]
+            if len(row) != 0:
+                i = row.index[0]
+        except:
+            row = df.loc[df["Identnummer"] == int(tool_id)]
+            if len(row) != 0:
+                i = row.index[0]
+
         # If there is the record for the ID of interest, then execute the following
         if len(row) != 0:
             i = row.index[0]
@@ -160,8 +179,16 @@ class ToolsEditWindow(QMainWindow):
             delimiter=";",
             keep_default_na=False,
         )
-        row = df.loc[df["Identnummer"] == tool_id]
-        i = row.index[0]
+        # There was a problem:
+        # IndexError: index 0 is out of bounds for axis 0 with size 0
+        # Sometimes I have strings (e.g. L 1234 WA), sometimes I have integers (e.g. 12345)...
+        # Therefore, simple try-except can be used.
+        try:
+            row = df.loc[df["Identnummer"] == str(tool_id)]
+            i = row.index[0]
+        except:
+            row = df.loc[df["Identnummer"] == int(tool_id)]
+            i = row.index[0]
         df.at[i, column_name] = value
         df.to_csv(os.path.join("database", LEITZ_TOOLS), sep=";", index=False)
 

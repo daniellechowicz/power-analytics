@@ -629,7 +629,7 @@ class Ui_ToolsEdit(object):
         self.l_bore_diameter.setText("")
         self.label_20.setText(
             QCoreApplication.translate(
-                "MainWindow", u"Werkzeugk\u00f6rper-Qualit\u00e4t", None
+                "MainWindow", u"PCD Qualit\u00e4t", None
             )
         )
         self.label_15.setText(
@@ -649,7 +649,7 @@ class Ui_ToolsEdit(object):
         )
         self.l_tool_diameter.setText("")
         self.label_8.setText(
-            QCoreApplication.translate("MainWindow", u"Schneidenbreite [mm]", None)
+            QCoreApplication.translate("MainWindow", u"Schnittbreite [mm]", None)
         )
         self.l_cutting_width.setText("")
         self.label_3.setText(
@@ -674,7 +674,7 @@ class Ui_ToolsEdit(object):
             QCoreApplication.translate("MainWindow", u"Spanwinkel [\u00b0]", None)
         )
         self.l_rake_angle.setText("")
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Z", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Schneidenzahl", None))
         self.l_no_of_wings.setText("")
         self.groupBox_2.setTitle(
             QCoreApplication.translate("MainWindow", u"Bearbeiten", None)
