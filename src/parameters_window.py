@@ -141,7 +141,13 @@ class ParametersWindow(QMainWindow):
     # External CSV file containing tools' parameters
     def get_corresponding_parameters(self):
         if self.tool_exists():
-            result = Tools(f"database/{LEITZ_TOOLS}", self.metadata["tool_id"]).export()
+            # I have various data types. How to deal with it?
+            # Just check whether a string contains only numbers.
+            if self.metadata["tool_id"].isdigit():
+                result = Tools(f"database/{LEITZ_TOOLS}", int(self.metadata["tool_id"])).export()
+            else:
+                result = Tools(f"database/{LEITZ_TOOLS}", str(self.metadata["tool_id"])).export()
+            
             return result
         else:
             ctypes.windll.user32.MessageBoxW(
@@ -209,7 +215,7 @@ class ParametersWindow(QMainWindow):
             if self.metadata["tool_id"] != "NaN":
                 # Parameters from the file "tools.cs"
                 ext_params = self.get_corresponding_parameters()
-
+                print(ext_params)
                 if ext_params is not None:
                     self.append_parameters_to_metadata(ext_params)
                     self.get_remaining_parameters()
