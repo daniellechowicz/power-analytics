@@ -633,7 +633,7 @@ class Ui_ToolsEdit(object):
             )
         )
         self.label_15.setText(
-            QCoreApplication.translate("MainWindow", u"Wellendurchmesser [mm]", None)
+            QCoreApplication.translate("MainWindow", u"Schaftdurchmesser [mm]", None)
         )
         self.l_body_material.setText("")
         self.label_19.setText(
@@ -671,7 +671,7 @@ class Ui_ToolsEdit(object):
         self.l_n_max.setText("")
         self.l_n_opt.setText("")
         self.label_27.setText(
-            QCoreApplication.translate("MainWindow", u"Spanwinkel [\u00b0]", None)
+            QCoreApplication.translate("MainWindow", u"Spanwinkel γ [\u00b0]", None)
         )
         self.l_rake_angle.setText("")
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Schneidenzahl", None))

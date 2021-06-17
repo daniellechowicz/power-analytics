@@ -92,7 +92,26 @@
         <!-- Title -->
         <h1 style="text-align: center;">Messprotokoll</h1>
 
-        <br>
+        <!-- Measurement file -->
+        <h3>Messdatei</h3>
+        <ul>
+            <li class="line-item">
+                <span class="col1">
+                    Dateiname:
+                </span>
+                <span class="col2">
+                    <b>{{ measurement_file.filename }}</b>
+                </span>
+            </li>
+            <li class="line-item">
+                <span class="col1">
+                    Vollständiger Pfad:
+                </span>
+                <span class="col2">
+                    <b>{{ measurement_file.path }}</b>
+                </span>
+            </li>
+        </ul>
 
         <!-- Parameters used -->
         <h3>Angewandte Parameter</h3>
@@ -302,6 +321,11 @@
         <h3>Darstellung</h3>
         
         {% for figure in figures %}
+        {% if loop.index0 == 1 %}
+            <!-- It has to be like that; otherwise, the second figure is not clear -->
+            <!-- The symbol below is just an empty space -->
+            <p> </p>
+        {% endif %}
         <img id="fig" src="data:image/png;base64,{{ figure }}">
         <div style="text-align: center; align-items: center;">
         {% if loop.index0 == 0 %}
@@ -317,7 +341,7 @@
 
         <!-- STATISTICS -->
         <h3>Statistik</h3>
-        <table class="metadata">
+        <table class="metadata" style="font-size: 12px">
             <tr>
                 <th rowspan="2"></th>
                 <th>Minimum</th>

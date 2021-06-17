@@ -127,7 +127,7 @@ class SettingsWindow(QMainWindow):
                     edit_settings(key, value)
             ctypes.windll.user32.MessageBoxW(
                 0,
-                "Die Einstellungen wurden erfolgreich geändert",
+                "Die Einstellungen wurden erfolgreich geändert. Um die Änderungen zu bestätigen, starten Sie die Software neu.",
                 "Power Analytics | Einstellungen",
                 0 | 0x40,
             )

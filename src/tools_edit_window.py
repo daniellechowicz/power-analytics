@@ -58,14 +58,14 @@ class ToolsEditWindow(QMainWindow):
             "SGE": "SGE",
             "D": "Werkzeugdurchmesser",
             "SB": "Schnittbreite",
-            "BO": "Wellendurchmesser",
+            "BO": "Schaftdurchmesser",
             "Z": "Schneidenzahl",
             "QUALITAT": "Schneidenwerkstoff",
             "COD": "PCD Qualität",
             "TKQ": "Grundkörpermaterial",
             "NMAX": "Maximale Drehzahl",
             "NOPT": "Optimale Drehzahl",
-            "SW": "Spanwinkel",
+            "SW": "Spanwinkel γ",
         }
         for key, value in self.choices.items():
             self.ui.comboBox.addItem(value)

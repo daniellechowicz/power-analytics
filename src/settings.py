@@ -3,10 +3,11 @@ import json
 import os
 
 
-with open("settings.json") as json_file:
+with open("settings.json", encoding="utf8") as json_file:
     settings = json.load(json_file)
 
-GROUP_NAME = "Leistungsmessung\nVerstärkungsfaktor Spindelleistung 20,426"
+
+GROUP_NAME = settings["group_name"] # "Leistungsmessung\nVerstärkungsfaktor Spindelleistung 20,426"
 CHANNEL_NAME = settings["channel_name"]
 FONTSIZE = settings["fontsize"]
 FONTSIZE_REPORT = settings["fontsize_report"]

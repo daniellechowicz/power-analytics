@@ -1,5 +1,5 @@
 {
-    "group_name": "Leistungsmessung\nVerst\u00c3\u00a4rkungsfaktor Spindelleistung 20,426",
+    "group_name": "Leistungsmessung\nVerst\u00e4rkungsfaktor Spindelleistung 20,426",
     "channel_name": "Spannung_3",
     "fontsize": 14,
     "fontsize_report": 10,
@@ -31,10 +31,10 @@
     "colours": [
         "r",
         "g",
-        "b", 
-        "m", 
-        "y", 
-        "k", 
+        "b",
+        "m",
+        "y",
+        "k",
         "w"
     ],
     "symbol_size": 20

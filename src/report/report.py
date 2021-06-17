@@ -11,13 +11,14 @@ import pdfkit
 
 
 class Report:
-    def __init__(self, x, y, idle, cutting, metadata, stats):
+    def __init__(self, x, y, idle, cutting, metadata, stats, measurement_file):
         self.x = x
         self.y = y
         self.idle = idle  # This is a list
         self.cutting = cutting  # This is a list
         self.metadata = metadata  # This is a dictionary
         self.stats = stats  # This is a dictionary
+        self.measurement_file = measurement_file
 
         # Generate new filename
         self.now = datetime.datetime.now().strftime("%d-%m-%Y")
@@ -57,7 +58,7 @@ class Report:
             "stop": round(self.cutting[1] / SAMPLING_RATE, 2),
         }
 
-        plot = Plot(idle, cutting, self.x, self.y, (12, 6))
+        plot = Plot(idle, cutting, self.x, self.y, (8, 4))
         plot.plot_raw(True, "report/figures/{}".format(self.filename[:-4] + ".png"))
         plot.plot_cutting(True, "report/figures/{}".format(self.filename[:-4] + ".png"))
 
@@ -77,6 +78,10 @@ class Report:
             {
                 "logo": self.image_to_base64_string("report/figures/logo.png"),
                 "filename": self.filename,
+                "measurement_file": {
+                    "path": self.measurement_file, 
+                    "filename": os.path.basename(self.measurement_file)
+                },
                 "figures": [
                     self.image_to_base64_string(
                         "report/figures/{}_full.png".format(self.filename[:-4])

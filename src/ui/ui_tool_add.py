@@ -443,10 +443,10 @@ class Ui_ToolAdd(object):
             QCoreApplication.translate("MainWindow", u"Werkzeugdurchmesser [mm] ", None)
         )
         self.label_11.setText(
-            QCoreApplication.translate("MainWindow", u"Wellendurchmesser [mm]", None)
+            QCoreApplication.translate("MainWindow", u"Schaftdurchmesser [mm]", None)
         )
         self.le_bore_diameter.setPlaceholderText(
-            QCoreApplication.translate("MainWindow", u"Wellendurchmesser [mm]", None)
+            QCoreApplication.translate("MainWindow", u"Schaftdurchmesser [mm]", None)
         )
         self.label_12.setText(
             QCoreApplication.translate("MainWindow", u"Schneidenbreite [mm]", None)
@@ -497,10 +497,10 @@ class Ui_ToolAdd(object):
             QCoreApplication.translate("MainWindow", u"Optimale Drehzahl [U/min]", None)
         )
         self.label_7.setText(
-            QCoreApplication.translate("MainWindow", u"Spanwinkel [\u00b0]", None)
+            QCoreApplication.translate("MainWindow", u"Spanwinkel γ [\u00b0]", None)
         )
         self.le_rake_angle.setPlaceholderText(
-            QCoreApplication.translate("MainWindow", u"Spanwinkel [\u00b0]", None)
+            QCoreApplication.translate("MainWindow", u"Spanwinkel γ [\u00b0]", None)
         )
         self.pushButton.setText(
             QCoreApplication.translate("MainWindow", u"Schlie\u00dfen", None)

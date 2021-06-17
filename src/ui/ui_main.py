@@ -1257,7 +1257,7 @@ class Ui_MainWindow(object):
             'font-family: "Segoe UI Light";'
         )
         self.label_10.setAlignment(Qt.AlignCenter)
-        self.label_10.setWordWrap(True)
+        self.label_10.setWordWrap(False)
 
         self.verticalLayout_5.addWidget(self.label_10, 0, Qt.AlignHCenter)
 
@@ -1328,7 +1328,7 @@ class Ui_MainWindow(object):
             'font-family: "Segoe UI Light";'
         )
         self.label_11.setAlignment(Qt.AlignCenter)
-        self.label_11.setWordWrap(True)
+        self.label_11.setWordWrap(False)
 
         self.verticalLayout_9.addWidget(self.label_11, 0, Qt.AlignHCenter)
 
@@ -1400,7 +1400,7 @@ class Ui_MainWindow(object):
             'font-family: "Segoe UI Light";'
         )
         self.label_26.setAlignment(Qt.AlignCenter)
-        self.label_26.setWordWrap(True)
+        self.label_26.setWordWrap(False)
 
         self.verticalLayout_19.addWidget(self.label_26, 0, Qt.AlignHCenter)
 
@@ -1589,7 +1589,7 @@ class Ui_MainWindow(object):
         self.label_11.setText(
             QCoreApplication.translate(
                 "MainWindow",
-                u"Hinzuf\u00fcgen, \u00e4ndern oder erg\u00e4nzen eines Werkzeuges",
+                u"Werkzeuge Hinzufügen, ändern oder ergänzen",
                 None,
             )
         )
@@ -1600,7 +1600,7 @@ class Ui_MainWindow(object):
         self.label_26.setText(
             QCoreApplication.translate(
                 "MainWindow",
-                u"Einspielen einer aktuelleren\u00a0 Werkzeugdatenbank",
+                u"Einspielen einer aktuelleren Werkzeugdatenbank",
                 None,
             )
         )

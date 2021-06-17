@@ -539,10 +539,10 @@ class Ui_Parameters(object):
             QCoreApplication.translate("MainWindow", u"Schnitttiefe [mm]", None)
         )
         self.label_10.setText(
-            QCoreApplication.translate("MainWindow", u"* Schnittwinkel [\u00b0]", None)
+            QCoreApplication.translate("MainWindow", u"* Achswinkel λ [\u00b0]", None)
         )
         self.le_cutting_angle.setPlaceholderText(
-            QCoreApplication.translate("MainWindow", u"Schnittwinkel [\u00b0]", None)
+            QCoreApplication.translate("MainWindow", u"Achswinkel λ [\u00b0]", None)
         )
         self.label_11.setText(
             QCoreApplication.translate("MainWindow", u"* ID-Nummer", None)

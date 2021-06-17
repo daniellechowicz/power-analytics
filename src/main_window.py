@@ -635,6 +635,7 @@ class MainWindow(QMainWindow):
                     self.cutting_region,
                     self.get_metadata(),
                     self.get_stats(self.y_init),
+                    self.path
                 )
             except Exception as e:
                 ctypes.windll.user32.MessageBoxW(
