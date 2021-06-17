@@ -601,6 +601,7 @@ class MainWindow(QMainWindow):
             r = Replace()
             r.update_replaced_CSV()
             r.copy_new_tools_to_main()
+            r.replace_unwanted_chars()
             ctypes.windll.user32.MessageBoxW(
                 0,
                 "Datei wurde erfolgreich ersetzt",

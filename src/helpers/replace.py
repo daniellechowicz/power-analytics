@@ -1,6 +1,7 @@
 from settings import *
 import os
 import pandas as pd
+import shutil
 
 
 class Replace:
@@ -126,3 +127,21 @@ class Replace:
                         file = open(os.path.join("database", LEITZ_TOOLS), "a")
                         file.write(line)
                         file.close()
+
+    def replace_unwanted_chars(self):
+        """
+        Why? Sometimes "," instead of ".".
+        """
+        shutil.copy(os.path.join("database", LEITZ_TOOLS), os.path.join("database", "temp.csv"))
+        # Input file.
+        fin = open(os.path.join("database", LEITZ_TOOLS), "rt")
+        # Output file to write the result to.
+        fout = open(os.path.join("database", "temp.csv"), "wt")
+        for line in fin:
+            fout.write(line.replace(',', '.'))
+        # Close input and output files.
+        fin.close()
+        fout.close()
+
+        os.remove(os.path.join("database", LEITZ_TOOLS))
+        os.rename(os.path.join("database", "temp.csv"), os.path.join("database", LEITZ_TOOLS))
