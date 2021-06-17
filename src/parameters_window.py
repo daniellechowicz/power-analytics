@@ -172,7 +172,7 @@ class ParametersWindow(QMainWindow):
             "author": self.ui.le_author.text().upper() if self.ui.le_author.text() != "" else 'Nicht definiert',
             "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M"),
             "material": self.ui.le_material.text().upper(),
-            "moisture_content": self.ui.le_moisture_content.text(),
+            "moisture_content": self.ui.le_moisture_content.text().upper() if self.ui.le_moisture_content.text() != "" else '0',
             "cutting_direction": self.ui.le_cutting_direction.text().upper(),
             "rotational_speed": self.ui.le_rotational_speed.text().replace(",", "."),
             "feed_speed": self.ui.le_feed_speed.text().replace(",", "."),

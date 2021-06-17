@@ -499,7 +499,7 @@ class Ui_Parameters(object):
             QCoreApplication.translate("MainWindow", u"Werkstoff", None)
         )
         self.label_5.setText(
-            QCoreApplication.translate("MainWindow", u"* Feuchtigkeit [%]", None)
+            QCoreApplication.translate("MainWindow", u"Feuchtigkeit [%]", None)
         )
         self.le_moisture_content.setPlaceholderText(
             QCoreApplication.translate("MainWindow", u"Feuchtigkeit [%]", None)
