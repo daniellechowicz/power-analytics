@@ -181,7 +181,14 @@ class MainWindow(QMainWindow):
     def save_default_path(self, path=None):
         with open("defaults.yaml", "w") as file:
             if path == None:
-                doc = yaml.dump({"root_measurement_files": os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')}, file)
+                doc = yaml.dump(
+                    {
+                        "root_measurement_files": os.path.join(
+                            os.path.join(os.environ["USERPROFILE"]), "Desktop"
+                        )
+                    },
+                    file,
+                )
             else:
                 doc = yaml.dump({"root_measurement_files": path}, file)
 
@@ -190,8 +197,8 @@ class MainWindow(QMainWindow):
             self.save_default_path(self.path)
         except:
             self.save_default_path()
-        
-        with open('defaults.yaml') as file:
+
+        with open("defaults.yaml") as file:
             doc = yaml.full_load(file)
             dir = doc["root_measurement_files"]
 
@@ -593,7 +600,7 @@ class MainWindow(QMainWindow):
             ctypes.windll.user32.MessageBoxW(
                 0,
                 "Falscher Pfad angegeben – bitte noch einmal versuchen",
-                "Power Analytics | Ersetzen",
+                "Power Analytics | Update",
                 0 | 0x40,
             )
         else:
@@ -605,7 +612,7 @@ class MainWindow(QMainWindow):
             ctypes.windll.user32.MessageBoxW(
                 0,
                 "Datei wurde erfolgreich ersetzt",
-                "Power Analytics | Ersetzen",
+                "Power Analytics | Update",
                 0 | 0x40,
             )
 
@@ -636,7 +643,7 @@ class MainWindow(QMainWindow):
                     self.cutting_region,
                     self.get_metadata(),
                     self.get_stats(self.y_init),
-                    self.path
+                    self.path,
                 )
             except Exception as e:
                 ctypes.windll.user32.MessageBoxW(

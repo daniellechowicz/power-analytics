@@ -132,16 +132,20 @@ class Replace:
         """
         Why? Sometimes "," instead of ".".
         """
-        shutil.copy(os.path.join("database", LEITZ_TOOLS), os.path.join("database", "temp.csv"))
+        shutil.copy(
+            os.path.join("database", LEITZ_TOOLS), os.path.join("database", "temp.csv")
+        )
         # Input file.
         fin = open(os.path.join("database", LEITZ_TOOLS), "rt")
         # Output file to write the result to.
         fout = open(os.path.join("database", "temp.csv"), "wt")
         for line in fin:
-            fout.write(line.replace(',', '.'))
+            fout.write(line.replace(",", "."))
         # Close input and output files.
         fin.close()
         fout.close()
 
         os.remove(os.path.join("database", LEITZ_TOOLS))
-        os.rename(os.path.join("database", "temp.csv"), os.path.join("database", LEITZ_TOOLS))
+        os.rename(
+            os.path.join("database", "temp.csv"), os.path.join("database", LEITZ_TOOLS)
+        )

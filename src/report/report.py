@@ -1,4 +1,5 @@
 from jinja2 import Environment, FileSystemLoader
+from PySide2 import QtWidgets
 from report.plot import Plot
 from settings import *
 import base64
@@ -8,6 +9,7 @@ import numpy as np
 import os
 import pandas as pd
 import pdfkit
+import yaml
 
 
 class Report:
@@ -79,8 +81,8 @@ class Report:
                 "logo": self.image_to_base64_string("report/figures/logo.png"),
                 "filename": self.filename,
                 "measurement_file": {
-                    "path": self.measurement_file, 
-                    "filename": os.path.basename(self.measurement_file)
+                    "path": self.measurement_file,
+                    "filename": os.path.basename(self.measurement_file),
                 },
                 "figures": [
                     self.image_to_base64_string(
@@ -100,12 +102,24 @@ class Report:
         config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
 
         # Generate pdf
-        pdfkit.from_string(html_string, "report/reports/{}".format(self.filename), configuration=config)
+        # 1. Default (just in case)
+        pdfkit.from_string(
+            html_string, "report/reports/{}".format(self.filename), configuration=config
+        )
+        # 2. User-defined (primary choice)
+        with open("defaults.yaml") as file:
+            doc = yaml.full_load(file)
+            dir = doc["root_measurement_files"]
+        directory_path = QtWidgets.QFileDialog.getExistingDirectory(None, 'Wählen Sie einen Ordner für das Messprotokoll', str(dir))
+        pdfkit.from_string(
+            html_string, os.path.join(directory_path, self.filename), configuration=config
+        )
 
         # Show pdf
-        os.chdir("report/reports")  # os.startfile("reports/Report.pdf") did not work
+        current_dir = os.getcwd()
+        os.chdir(directory_path) # os.startfile("reports/Report.pdf") did not work
         os.startfile(self.filename)
-        os.chdir("../..")
+        os.chdir(current_dir)
 
 
 if __name__ == "__main__":

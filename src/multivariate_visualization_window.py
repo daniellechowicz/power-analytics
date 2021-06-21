@@ -209,7 +209,7 @@ class MultivariateVisualizationWindow(QMainWindow):
         # Setup X- and Y-axis labels
         win.setLabel(
             "left",
-            '<span style="color: black; font-size: {}px">Power consumption [W]</span>'.format(
+            '<span style="color: black; font-size: {}px">Power consumption [kW]</span>'.format(
                 FONTSIZE
             ),
         )

@@ -57,6 +57,42 @@ class DatabaseWindow(QMainWindow):
         self.ui.pushButton_2.clicked.connect(lambda: self.save())
         self.ui.pushButton_3.clicked.connect(lambda: DatabaseEditWindow().show())
 
+    def get_full_name(self, column):
+        translations = {
+            "measurement_id": "Mess-ID",
+            "author": "Autor",
+            "measurement_date": "Messzeitpunkt",
+            "material": "Werkstoff",
+            "moisture_content": "Feuchtegehalt [%]",
+            "cutting_direction": "Schnittrichtung",
+            "rotational_speed": "Drehzahl [U/min]",
+            "feed_speed": "Vorschubgeschwindigkeit [m/min]",
+            "feed_per_tooth": "Zahnvorschub [mm]",
+            "cutting_speed": "Schnittgeschwindigkeit [m/s]",
+            "cutting_width": "Schnittbreite [mm]",
+            "cutting_depth": "Schnitttiefe [mm]",
+            "cutting_angle": "Achswinkel λ [°]",
+            "mean_chip_thickness": "Mittlere Spandicke [mm]",
+            "mean_chip_length": "Mittlere Spanlänge [mm]",
+            "tool_id": "Werkzeug-ID",
+            "classification_number": "Klassifizierungsnummer",
+            "strategic_business_unit": "Strategische Geschäftszahl",
+            "tool_diameter": "Werkzeugdurchmesser [mm]",
+            "tool_cutting_width": "Schnittbreite [mm]",
+            "BO": "Schaftdurchmesser [mm]",
+            "no_of_wings": "Schneidenzahl",
+            "total_no_of_wings": "Gesamtschneidenzahl",
+            "cutting_material": "Schneidenwerkstoff",
+            "cutting_material_quality": "PCD Qualität",
+            "body_material": "Grundkörpermaterial",
+            "n_max": "Max. Drehzahl [U/min]",
+            "n_opt": "Optimale Drehzahl [U/min]",
+            "rake_angle": "Spanwinkel γ [°]",
+            "comments": "Kommentare",
+            "mean": "Mittlere Leistungsaufnahme [kW]"
+        }
+        return translations[column]
+
     def setup_headers(self):
         # Get headers from the database 'metadata'
         connection = sqlite3.connect("database/{}.db".format(self.db_name))
@@ -81,7 +117,7 @@ class DatabaseWindow(QMainWindow):
             self.ui.tableWidget.setHorizontalHeaderItem(count, QTableWidgetItem())
             self.ui.tableWidget.horizontalHeaderItem(count).setText(
                 QtCore.QCoreApplication.translate(
-                    "MainWindow", "{}".format(header), None
+                    "MainWindow", "{}".format(self.get_full_name(header)), None
                 )
             )
 

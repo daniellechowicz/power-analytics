@@ -218,6 +218,43 @@ class Ui_ToolsEdit(object):
 
         self.horizontalLayout.addWidget(self.btn_add)
 
+        self.btn_show_all = QPushButton(self.frame)
+        self.btn_show_all.setObjectName(u"btn_show_all")
+        self.btn_show_all.setMinimumSize(QSize(107, 0))
+        self.btn_show_all.setMaximumSize(QSize(107, 16777215))
+        self.btn_show_all.setStyleSheet(
+            u"QPushButton {\n"
+            "height: 20px;\n"
+            "font-size: 9pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "padding-bottom: 2.5px;\n"
+            "border: 2px solid rgb(255, 255, 255);\n"
+            "border-radius: 12.5px;\n"
+            "background-color: rgba(255, 255, 255, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "}\n"
+            "\n"
+            "QPushButton:disabled {\n"
+            "color: rgb(220, 220, 220);\n"
+            "border: 2px solid rgb(220, 220, 220);\n"
+            "background-color: rgba(220, 220, 220, 0.5);\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "color: rgb(0, 255, 213);\n"
+            "border: 2px solid rgb(0, 255, 213);\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "color: rgb(0, 255, 213);\n"
+            "border: 2px solid rgb(0, 255, 213);\n"
+            "background-color: rgba(0, 255, 213, 0.5);\n"
+            "}\n"
+            ""
+        )
+
+        self.horizontalLayout.addWidget(self.btn_show_all)
+
         self.verticalLayout_2.addWidget(self.frame)
 
         self.groupBox = QGroupBox(self.frame_shadow)
@@ -623,14 +660,15 @@ class Ui_ToolsEdit(object):
         self.btn_add.setText(
             QCoreApplication.translate("MainWindow", u"Hinzuf\u00fcgen", None)
         )
+        self.btn_show_all.setText(
+            QCoreApplication.translate("MainWindow", u"Alle anzeigen", None)
+        )
         self.groupBox.setTitle(
             QCoreApplication.translate("MainWindow", u"Verf\u00fcgbare Parameter", None)
         )
         self.l_bore_diameter.setText("")
         self.label_20.setText(
-            QCoreApplication.translate(
-                "MainWindow", u"PCD Qualit\u00e4t", None
-            )
+            QCoreApplication.translate("MainWindow", u"PCD Qualit\u00e4t", None)
         )
         self.label_15.setText(
             QCoreApplication.translate("MainWindow", u"Schaftdurchmesser [mm]", None)
@@ -674,7 +712,9 @@ class Ui_ToolsEdit(object):
             QCoreApplication.translate("MainWindow", u"Spanwinkel γ [\u00b0]", None)
         )
         self.l_rake_angle.setText("")
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Schneidenzahl", None))
+        self.label_11.setText(
+            QCoreApplication.translate("MainWindow", u"Schneidenzahl", None)
+        )
         self.l_no_of_wings.setText("")
         self.groupBox_2.setTitle(
             QCoreApplication.translate("MainWindow", u"Bearbeiten", None)

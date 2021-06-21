@@ -144,10 +144,14 @@ class ParametersWindow(QMainWindow):
             # I have various data types. How to deal with it?
             # Just check whether a string contains only numbers.
             if self.metadata["tool_id"].isdigit():
-                result = Tools(f"database/{LEITZ_TOOLS}", int(self.metadata["tool_id"])).export()
+                result = Tools(
+                    f"database/{LEITZ_TOOLS}", int(self.metadata["tool_id"])
+                ).export()
             else:
-                result = Tools(f"database/{LEITZ_TOOLS}", str(self.metadata["tool_id"])).export()
-            
+                result = Tools(
+                    f"database/{LEITZ_TOOLS}", str(self.metadata["tool_id"])
+                ).export()
+
             return result
         else:
             ctypes.windll.user32.MessageBoxW(
@@ -169,10 +173,14 @@ class ParametersWindow(QMainWindow):
     # Upper case to avoid conflicts
     def accept(self):
         self.metadata = {
-            "author": self.ui.le_author.text().upper() if self.ui.le_author.text() != "" else 'Nicht definiert',
+            "author": self.ui.le_author.text().upper()
+            if self.ui.le_author.text() != ""
+            else "Nicht definiert",
             "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M"),
             "material": self.ui.le_material.text().upper(),
-            "moisture_content": self.ui.le_moisture_content.text().upper() if self.ui.le_moisture_content.text() != "" else '0',
+            "moisture_content": self.ui.le_moisture_content.text().upper()
+            if self.ui.le_moisture_content.text() != ""
+            else "0",
             "cutting_direction": self.ui.le_cutting_direction.text().upper(),
             "rotational_speed": self.ui.le_rotational_speed.text().replace(",", "."),
             "feed_speed": self.ui.le_feed_speed.text().replace(",", "."),
@@ -180,7 +188,9 @@ class ParametersWindow(QMainWindow):
             "cutting_depth": self.ui.le_cutting_depth.text().replace(",", "."),
             "cutting_angle": self.ui.le_cutting_angle.text().replace(",", "."),
             "tool_id": self.ui.le_tool_id.text(),
-            "comments": self.ui.le_comments.text() if self.ui.le_comments.text() != "" else 'Keine Kommentare'
+            "comments": self.ui.le_comments.text()
+            if self.ui.le_comments.text() != ""
+            else "Keine Kommentare",
         }
 
         if self.metadata["cutting_direction"].lower() not in ["ggl", "gll"]:

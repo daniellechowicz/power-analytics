@@ -5,6 +5,7 @@ from PySide2.QtCore import QPoint
 from PySide2.QtWidgets import *
 from ui.ui_tools_edit import Ui_ToolsEdit
 from tool_add_window import ToolAddWindow
+from tools_window import ToolsWindow
 
 from settings import *
 import ctypes
@@ -49,6 +50,7 @@ class ToolsEditWindow(QMainWindow):
     def setup_callbacks(self):
         self.ui.btn_search.clicked.connect(lambda: self.search_and_update_labels())
         self.ui.btn_add.clicked.connect(lambda: ToolAddWindow().show())
+        self.ui.btn_show_all.clicked.connect(lambda: ToolsWindow().show())
         self.ui.btn_update.clicked.connect(lambda: self.update_file())
         self.ui.btn_close.clicked.connect(lambda: self.close())
 
