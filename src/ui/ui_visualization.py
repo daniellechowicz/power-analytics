@@ -1425,7 +1425,7 @@ class Ui_Visualization(object):
         )
         self.cutting_speed_l.setText("")
         self.label_32.setText(
-            QCoreApplication.translate("MainWindow", u"Schnittbreite [mm]", None)
+            QCoreApplication.translate("MainWindow", u"SB - Werkstück [mm]", None)
         )
         self.cutting_width_l.setText("")
         self.label_36.setText(
@@ -1578,7 +1578,7 @@ class Ui_Visualization(object):
             QCoreApplication.translate("MainWindow", u"3_3", None)
         )
         self.cutting_width_l2.setText(
-            QCoreApplication.translate("MainWindow", u"Schnittbreite", None)
+            QCoreApplication.translate("MainWindow", u"SB - Werkstück", None)
         )
         self.pushButton_17.setText(
             QCoreApplication.translate("MainWindow", u"0_4", None)

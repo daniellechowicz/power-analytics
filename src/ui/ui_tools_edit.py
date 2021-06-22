@@ -671,7 +671,7 @@ class Ui_ToolsEdit(object):
             QCoreApplication.translate("MainWindow", u"PCD Qualit\u00e4t", None)
         )
         self.label_15.setText(
-            QCoreApplication.translate("MainWindow", u"Schaftdurchmesser [mm]", None)
+            QCoreApplication.translate("MainWindow", u"Bohrungsdurchmesser [mm]", None)
         )
         self.l_body_material.setText("")
         self.label_19.setText(
@@ -687,7 +687,7 @@ class Ui_ToolsEdit(object):
         )
         self.l_tool_diameter.setText("")
         self.label_8.setText(
-            QCoreApplication.translate("MainWindow", u"Schnittbreite [mm]", None)
+            QCoreApplication.translate("MainWindow", u"Schneidenbreite [mm]", None)
         )
         self.l_cutting_width.setText("")
         self.label_3.setText(

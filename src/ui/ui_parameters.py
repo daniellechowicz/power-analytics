@@ -527,10 +527,10 @@ class Ui_Parameters(object):
             )
         )
         self.label_8.setText(
-            QCoreApplication.translate("MainWindow", u"* Schnittbreite [mm]", None)
+            QCoreApplication.translate("MainWindow", u"* SB - Werkstück [mm]", None)
         )
         self.le_cutting_width.setPlaceholderText(
-            QCoreApplication.translate("MainWindow", u"Schnittbreite [mm]", None)
+            QCoreApplication.translate("MainWindow", u"SB - Werkstück [mm]", None)
         )
         self.label_9.setText(
             QCoreApplication.translate("MainWindow", u"* Schnitttiefe [mm]", None)

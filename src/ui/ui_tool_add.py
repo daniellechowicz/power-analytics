@@ -443,10 +443,10 @@ class Ui_ToolAdd(object):
             QCoreApplication.translate("MainWindow", u"Werkzeugdurchmesser [mm] ", None)
         )
         self.label_11.setText(
-            QCoreApplication.translate("MainWindow", u"Schaftdurchmesser [mm]", None)
+            QCoreApplication.translate("MainWindow", u"Bohrungsdurchmesser [mm]", None)
         )
         self.le_bore_diameter.setPlaceholderText(
-            QCoreApplication.translate("MainWindow", u"Schaftdurchmesser [mm]", None)
+            QCoreApplication.translate("MainWindow", u"Bohrungsdurchmesser [mm]", None)
         )
         self.label_12.setText(
             QCoreApplication.translate("MainWindow", u"Schneidenbreite [mm]", None)

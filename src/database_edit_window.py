@@ -61,7 +61,7 @@ class DatabaseEditWindow(QMainWindow):
             "Schnittrichtung": "cutting_direction",
             "Drehzahl": "rotational_speed",
             "Schneidenzahl": "feed_speed",
-            "Schnittbreite": "cutting_width",
+            "SB - Werkstück": "cutting_width",
             "Schnitttiefe": "cutting_depth",
             "Schnittwinkel": "cutting_angle",
             "ID-Nummer": "tool_id",
