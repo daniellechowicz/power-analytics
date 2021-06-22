@@ -86,12 +86,33 @@ class ToolsEditWindow(QMainWindow):
 
         return tool_id, column_name, value
 
+    def tool_already_exists(self, tool_id):
+        df = pd.read_csv(os.path.join("database", LEITZ_TOOLS), delimiter=";")
+        # 0 - not found
+        # 1 - found
+        result = len(df.loc[df["Identnummer"] == str(tool_id)].index)
+        if result == 0:
+            return False
+        else:
+            return True
+
     def find_by_ID(self, file, tool_id):
         df = pd.read_csv(
             os.path.join("database", file),
             delimiter=";",
             keep_default_na=False,
         )
+
+        if not self.tool_already_exists(tool_id):
+            self.clean_labels()
+            ctypes.windll.user32.MessageBoxW(
+                0,
+                "Das Werkzeug mit der angegebenen ID-Nummer ist nicht in der Datenbank",
+                "Power Analytics | Neues Werkzeug",
+                0 | 0x40,
+            )
+            return
+
         # There was a problem:
         # IndexError: index 0 is out of bounds for axis 0 with size 0
         # Sometimes I have strings (e.g. L 1234 WA), sometimes I have integers (e.g. 12345)...
@@ -216,6 +237,12 @@ class ToolsEditWindow(QMainWindow):
             )
         else:
             self.find_by_ID(LEITZ_TOOLS, tool_id)
+
+    def clean_labels(self):
+        for widget in self.ui.groupBox.children():
+            if isinstance(widget, QLabel):
+                if widget.objectName().startswith("l_"):
+                    widget.setText("")
 
     def update_labels(self, params):
         for key, value in params.items():

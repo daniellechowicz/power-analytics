@@ -1433,7 +1433,7 @@ class Ui_Visualization(object):
         )
         self.cutting_depth_l.setText("")
         self.label_34.setText(
-            QCoreApplication.translate("MainWindow", u"Eingriffswinkel [\u00b0]", None)
+            QCoreApplication.translate("MainWindow", u"Achswinkel λ [\u00b0]", None)
         )
         self.cutting_angle_l.setText("")
         self.label_38.setText(
@@ -1608,7 +1608,7 @@ class Ui_Visualization(object):
             QCoreApplication.translate("MainWindow", u"3_5", None)
         )
         self.cutting_angle_l2.setText(
-            QCoreApplication.translate("MainWindow", u"Eingriffswinkel", None)
+            QCoreApplication.translate("MainWindow", u"Achswinkel λ", None)
         )
         self.pushButton_25.setText(
             QCoreApplication.translate("MainWindow", u"0_6", None)

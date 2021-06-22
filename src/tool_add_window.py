@@ -8,6 +8,7 @@ from ui.ui_tool_add import Ui_ToolAdd
 from settings import *
 import ctypes
 import os
+import pandas as pd
 
 
 class ToolAddWindow(QMainWindow):
@@ -81,14 +82,17 @@ class ToolAddWindow(QMainWindow):
                 ]  # e.g. "le_tool_diameter"[3:] -> "tool_diameter"
                 value = widget.text()
                 data[key] = value
-        ctypes.windll.user32.MessageBoxW(
-            0,
-            "Das Werkzeug wurde erfolgreich in die bestehende Datenbank aufgenommen",
-            "Power Analytics | Neues Werkzeug",
-            0 | 0x40,
-        )
-
         return data
+
+    def tool_already_exists(self, tool_id):
+        df = pd.read_csv(os.path.join("database", LEITZ_TOOLS), delimiter=";")
+        # 0 - not found
+        # 1 - found
+        result = len(df.loc[df["Identnummer"] == str(tool_id)].index)
+        if result == 0:
+            return False
+        else:
+            return True
 
     def save(self):
         OK_CANCEL = 1
@@ -124,6 +128,16 @@ class ToolAddWindow(QMainWindow):
             ]
 
             for i, key in enumerate(seq):
+                if key == "tool_id":
+                    if self.tool_already_exists(data[key]):
+                        ctypes.windll.user32.MessageBoxW(
+                            0,
+                            "Das Werkzeug mit der angegebenen ID-Nummer befindet sich in der Datenbank",
+                            "Power Analytics | Neues Werkzeug",
+                            0 | 0x40,
+                        )
+                        return
+
                 if i != len(seq) - 1:
                     file.write(data[key] + ";")
                     file_updates.write(data[key] + ";")
@@ -131,8 +145,15 @@ class ToolAddWindow(QMainWindow):
                     file.write(data[key] + "\n")
                     file_updates.write(data[key] + "\n")
 
+            ctypes.windll.user32.MessageBoxW(
+                0,
+                "Das Werkzeug wurde erfolgreich in die bestehende Datenbank aufgenommen",
+                "Power Analytics | Neues Werkzeug",
+                0 | 0x40,
+            )
             file.close()
             file_updates.close()
+            self.close()
 
     def center(self):
         qr = self.frameGeometry()
