@@ -71,7 +71,6 @@ class DatabaseWindow(QMainWindow):
             "cutting_speed": "Schnittgeschwindigkeit [m/s]",
             "cutting_width": "SB - Werkstück [mm]",
             "cutting_depth": "Schnitttiefe [mm]",
-            "cutting_angle": "Achswinkel λ [°]",
             "mean_chip_thickness": "Mittlere Spandicke [mm]",
             "mean_chip_length": "Mittlere Spanlänge [mm]",
             "tool_id": "Werkzeug-ID",
@@ -79,7 +78,7 @@ class DatabaseWindow(QMainWindow):
             "strategic_business_unit": "Strategische Geschäftszahl",
             "tool_diameter": "Werkzeugdurchmesser [mm]",
             "tool_cutting_width": "Schneidenbreite [mm]",
-            "BO": "Bohrungsdurchmesser [mm]",
+            "bore_diameter": "Bohrungsdurchmesser [mm]",
             "no_of_wings": "Schneidenzahl",
             "total_no_of_wings": "Gesamtschneidenzahl",
             "cutting_material": "Schneidenwerkstoff",
@@ -88,6 +87,7 @@ class DatabaseWindow(QMainWindow):
             "n_max": "Max. Drehzahl [U/min]",
             "n_opt": "Optimale Drehzahl [U/min]",
             "rake_angle": "Spanwinkel γ [°]",
+            "cutting_angle": "Achswinkel λ [°]",
             "comments": "Kommentare",
             "mean": "Mittlere Leistungsaufnahme [kW]"
         }

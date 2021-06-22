@@ -39,6 +39,7 @@ class Tools:
             "strategic_business_unit": found["SGE"],
             "tool_diameter": found["D"],
             "tool_cutting_width": found["SB"],
+            "bore_diameter": found["BO"],
             "no_of_wings": found["Z"],
             "total_no_of_wings": found["ZGE"],
             "cutting_material": found["QUALITAT"],

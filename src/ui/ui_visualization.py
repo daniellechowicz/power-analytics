@@ -1457,7 +1457,7 @@ class Ui_Visualization(object):
             QCoreApplication.translate("MainWindow", u"Klassifizierungsnummer", None)
         )
         self.classification_no_l.setText("")
-        self.label_46.setText(QCoreApplication.translate("MainWindow", u"SGE", None))
+        self.label_46.setText(QCoreApplication.translate("MainWindow", u"Strategische Geschäftszahl", None))
         self.strategic_business_unit_l.setText("")
         self.label_48.setText(
             QCoreApplication.translate("MainWindow", u"Werkzeugdurchmesser [mm]", None)

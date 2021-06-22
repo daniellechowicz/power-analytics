@@ -57,14 +57,14 @@ class DatabaseEditWindow(QMainWindow):
         self.choices = {
             "Autor": "author",
             "Werkstoff": "material",
-            "Feuchtigkeit": "moisture_content",
+            "Feuchtegehalt": "moisture_content",
             "Schnittrichtung": "cutting_direction",
             "Drehzahl": "rotational_speed",
-            "Schneidenzahl": "feed_speed",
+            "Vorschubgeschwindigkeit": "feed_speed",
             "SB - Werkstück": "cutting_width",
             "Schnitttiefe": "cutting_depth",
-            "Schnittwinkel": "cutting_angle",
-            "ID-Nummer": "tool_id",
+            "Achswinkel λ": "cutting_angle",
+            "Werkzeug-ID": "tool_id",
             "Kommentare": "comments",
         }
 

@@ -19,8 +19,10 @@ class ToolsEditWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_ToolsEdit()
         self.ui.setupUi(self)
+        self.change_default_data_types()
         self.setup_ui()
         self.setup_initial_view()
+        self.update_type_validator()
         self.setup_callbacks()
         self.setup_combobox()
 
@@ -53,11 +55,12 @@ class ToolsEditWindow(QMainWindow):
         self.ui.btn_show_all.clicked.connect(lambda: ToolsWindow().show())
         self.ui.btn_update.clicked.connect(lambda: self.update_file())
         self.ui.btn_close.clicked.connect(lambda: self.close())
-
+        self.ui.comboBox.currentIndexChanged.connect(lambda: self.update_type_validator())
+    
     def setup_combobox(self):
         self.choices = {
             "Klassifizierungsnummer": "Klassifizierungsnummer",
-            "SGE": "SGE",
+            "SGE": "Strategische Geschäftszahl",
             "D": "Werkzeugdurchmesser",
             "SB": "Schneidenbreite",
             "BO": "Bohrungsdurchmesser",
@@ -71,6 +74,51 @@ class ToolsEditWindow(QMainWindow):
         }
         for key, value in self.choices.items():
             self.ui.comboBox.addItem(value)
+
+    def update_type_validator(self):
+        self.only_int = QtGui.QIntValidator()
+        self.only_float = QtGui.QDoubleValidator()
+
+        integers = [
+            'Schneidenzahl'
+        ]
+        floats = [
+            'Werkzeugdurchmesser',
+            'Schneidenbreite',
+            'Bohrungsdurchmesser',
+            'Maximale Drehzahl',
+            'Optimale Drehzahl',
+            'Spanwinkel γ'
+        ]
+        
+        if self.ui.comboBox.currentText() in integers:
+            self.ui.lineEdit_2.setValidator(self.only_int)
+        elif self.ui.comboBox.currentText() in floats:
+            self.ui.lineEdit_2.setValidator(self.only_float)
+        else:
+            self.ui.lineEdit_2.setValidator(None)
+
+    def change_default_data_types(self):
+        df = pd.read_csv(
+            os.path.join("database", LEITZ_TOOLS),
+            delimiter=";",
+            keep_default_na=False,
+        )
+        df["Identnummer"] = df["Identnummer"].astype(str)
+        df["Klassifizierungsnummer"] = df["Klassifizierungsnummer"].astype(str)
+        df["SGE"] = df["SGE"].astype(str)        
+        df["QUALITAT"] = df["QUALITAT"].astype(str)        
+        df["COD"] = df["COD"].astype(str)        
+        df["TKQ"] = df["TKQ"].astype(str)        
+        df["Z"] = pd.to_numeric(df["Z"], downcast="integer")
+        df["ZGE"] = pd.to_numeric(df["ZGE"], downcast="integer")
+        df["D"] = pd.to_numeric(df["D"], downcast="float")
+        df["SB"] = pd.to_numeric(df["SB"], downcast="float")
+        df["BO"] = pd.to_numeric(df["BO"], downcast="float")
+        df["NMAX"] = pd.to_numeric(df["NMAX"], downcast="float")
+        df["NOPT"] = pd.to_numeric(df["NOPT"], downcast="float")
+        df["SW"] = pd.to_numeric(df["SW"], downcast="float")
+        df.to_csv(os.path.join("database", LEITZ_TOOLS), sep=";", index=False)
 
     def get_data_to_update(self):
         def get_key(d, val):
@@ -123,6 +171,7 @@ class ToolsEditWindow(QMainWindow):
         except:
             row = df.loc[df["Identnummer"] == int(tool_id)]
             i = row.index[0]
+
         corresponding_params = {
             "tool_id": str(row["Identnummer"][i]),
             "classification_number": row["Klassifizierungsnummer"][i],
@@ -196,6 +245,9 @@ class ToolsEditWindow(QMainWindow):
             f.close()
 
     def edit_by_ID(self, tool_id, column_name, value, track_changes=False):
+        # Since it contains "," by default (type validators are responsible for that).
+        value = value.replace(",", ".")
+
         # Update "tools.csv" itself
         df = pd.read_csv(
             os.path.join("database", LEITZ_TOOLS),
@@ -212,8 +264,12 @@ class ToolsEditWindow(QMainWindow):
         except:
             row = df.loc[df["Identnummer"] == int(tool_id)]
             i = row.index[0]
+
         df.at[i, column_name] = value
         df.to_csv(os.path.join("database", LEITZ_TOOLS), sep=";", index=False)
+        
+        # Whenever saved, it is necessary to change default data types.
+        self.change_default_data_types()
 
         if track_changes:
             # Update a row (but for these lines, no new value would have been added)

@@ -22,6 +22,7 @@ def get_labels():
         "tool_id": "Tool ID",
         "tool_diameter": "Tool diameter [mm]",
         "tool_cutting_width": "Tool cutting width [mm]",
+        "bore_diameter": "Bore diameter [mm]",
         "no_of_wings": "Number of wings",
         "total_no_of_wings": "Total number of wings",
         "cutting_material": "Cutting material",

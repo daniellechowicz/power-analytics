@@ -11,6 +11,11 @@ class Replace:
     as well as refreshing and changing parameters
     that have been updated manually.
     """
+    def __init__(self):
+        self.update_replaced_CSV()
+        self.copy_new_tools_to_main()
+        self.replace_unwanted_chars()
+        self.change_default_data_types()
 
     def find_by_ID(self, file, tool_id):
         df = pd.read_csv(
@@ -31,10 +36,33 @@ class Replace:
             "TKQ": row["TKQ"][i],
             "NMAX": row["NMAX"][i],
             "NOPT": row["NOPT"][i],
-            "SW": row["SW"][i],
+            "SW": row["SW"][i]
         }
 
         return corresponding_params
+
+    def change_default_data_types(self):
+        df = pd.read_csv(
+            os.path.join("database", LEITZ_TOOLS),
+            delimiter=";",
+            keep_default_na=False,
+        )
+        df["Identnummer"] = df["Identnummer"].astype(str)
+        df["Klassifizierungsnummer"] = df["Klassifizierungsnummer"].astype(str)
+        df["SGE"] = df["SGE"].astype(str)        
+        df["QUALITAT"] = df["QUALITAT"].astype(str)        
+        df["COD"] = df["COD"].astype(str)        
+        df["TKQ"] = df["TKQ"].astype(str)        
+        df["Z"] = pd.to_numeric(df["Z"], downcast="integer")
+        df["ZGE"] = pd.to_numeric(df["ZGE"], downcast="integer")
+        df["D"] = pd.to_numeric(df["D"], downcast="float")
+        df["SB"] = pd.to_numeric(df["SB"], downcast="float")
+        df["BO"] = pd.to_numeric(df["BO"], downcast="float")
+        df["NMAX"] = pd.to_numeric(df["NMAX"], downcast="float")
+        df["NOPT"] = pd.to_numeric(df["NOPT"], downcast="float")
+        df["SW"] = pd.to_numeric(df["SW"], downcast="float")
+        df["AW"] = pd.to_numeric(df["AW"], downcast="float")
+        df.to_csv(os.path.join("database", LEITZ_TOOLS), sep=";", index=False)
 
     def edit_by_ID(self, tool_id, column_name, value):
         df = pd.read_csv(
@@ -80,7 +108,6 @@ class Replace:
             if updates != None:
                 for column_name, value in updates.items():
                     self.edit_by_ID(tool_id, column_name, value)
-                    # print(column_name, value)
             else:
                 pass
 

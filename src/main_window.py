@@ -25,7 +25,6 @@ from tools_edit_window import ToolsEditWindow
 # Backend modules
 from measurement import Measurement
 from database.database import Database
-from database.manage_tools import Tools
 from database.models import Metadata
 from helpers.replace import Replace
 from report.report import Report
@@ -452,6 +451,7 @@ class MainWindow(QMainWindow):
                 m["strategic_business_unit"],
                 m["tool_diameter"],
                 m["tool_cutting_width"],
+                m["bore_diameter"],
                 m["no_of_wings"],
                 m["total_no_of_wings"],
                 m["cutting_material"],
@@ -606,9 +606,6 @@ class MainWindow(QMainWindow):
         else:
             shutil.copy(path, f"database/{LEITZ_TOOLS}")
             r = Replace()
-            r.update_replaced_CSV()
-            r.copy_new_tools_to_main()
-            r.replace_unwanted_chars()
             ctypes.windll.user32.MessageBoxW(
                 0,
                 "Datei wurde erfolgreich ersetzt",
