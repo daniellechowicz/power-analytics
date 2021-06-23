@@ -7,6 +7,7 @@ from ui.ui_tools_edit import Ui_ToolsEdit
 from tool_add_window import ToolAddWindow
 from tools_window import ToolsWindow
 
+from database.database import Database
 from settings import *
 import ctypes
 import numpy as np
@@ -25,6 +26,9 @@ class ToolsEditWindow(QMainWindow):
         self.update_type_validator()
         self.setup_callbacks()
         self.setup_combobox()
+
+        # Open the database
+        self.db = Database(DB_NAME)
 
         # Drop shadow effect
         self.shadow = QGraphicsDropShadowEffect(self)
@@ -244,6 +248,23 @@ class ToolsEditWindow(QMainWindow):
             f.write(new_line)
             f.close()
 
+    def get_database_equivalent(self, key):
+        headers = {
+            "Klassifizierungsnummer": "classification_number",
+            "SGE": "strategic_business_unit",
+            "D": "tool_diameter",
+            "SB": "tool_cutting_width",
+            "BO": "bore_diameter",
+            "Z": "no_of_wings",
+            "QUALITAT": "cutting_material",
+            "COD": "cutting_material_quality",
+            "TKQ": "body_material",
+            "NMAX": "n_max",
+            "NOPT": "n_opt",
+            "SW": "rake_angle",
+        }
+        return headers[key]
+
     def edit_by_ID(self, tool_id, column_name, value, track_changes=False):
         # Since it contains "," by default (type validators are responsible for that).
         value = value.replace(",", ".")
@@ -268,7 +289,7 @@ class ToolsEditWindow(QMainWindow):
         df.at[i, column_name] = value
         df.to_csv(os.path.join("database", LEITZ_TOOLS), sep=";", index=False)
         
-        # Whenever saved, it is necessary to change default data types.
+        # Whenever saved, it is necessary to change the default data types.
         self.change_default_data_types()
 
         if track_changes:
@@ -279,8 +300,10 @@ class ToolsEditWindow(QMainWindow):
             row = row.to_csv(header=False, index=False, sep=";").replace("\r", "")
             self.track_changes(tool_id, column_name, value, row)
 
-        # When done, refresh the labels
+        # When done, refresh the labels and update the database
         self.search_and_update_labels()
+        column = self.get_database_equivalent(column_name)
+        self.db.modify_existing_record(tool_id, column, value)
 
     def search_and_update_labels(self):
         tool_id, _, _ = self.get_data_to_update()

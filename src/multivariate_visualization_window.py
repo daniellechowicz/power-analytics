@@ -188,7 +188,6 @@ class MultivariateVisualizationWindow(QMainWindow):
             AND cutting_angle={self.metadata["cutting_angle"]}
             AND mean_chip_thickness={self.metadata["mean_chip_thickness"]}
             AND mean_chip_length={self.metadata["mean_chip_length"]}
-            AND tool_id="{self.metadata["tool_id"]}"
             AND tool_diameter={self.metadata["tool_diameter"]}
             AND tool_cutting_width={self.metadata["tool_cutting_width"]}
             AND no_of_wings={self.metadata["no_of_wings"]}

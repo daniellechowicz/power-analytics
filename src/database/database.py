@@ -181,6 +181,23 @@ class Database:
         )
         self.connection.commit()
 
+    def modify_existing_record(self, tool_id, column, value):
+        if type(value) == str:
+            query = f"""
+            UPDATE metadata
+            SET {column}="{value}"
+            WHERE tool_id="{tool_id}"; 
+            """
+        else:
+            query = f"""
+            UPDATE metadata
+            SET {column}={value}
+            WHERE tool_id="{tool_id}";
+            """
+        self.cursor.execute(query)
+        self.connection.commit()
+        self.connection.close()
+
     def fetch_all(self, table: str):
         results = self.cursor.execute("SELECT * FROM {}".format(table))
         for result in results.fetchall():
