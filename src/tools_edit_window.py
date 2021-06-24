@@ -59,8 +59,10 @@ class ToolsEditWindow(QMainWindow):
         self.ui.btn_show_all.clicked.connect(lambda: ToolsWindow().show())
         self.ui.btn_update.clicked.connect(lambda: self.update_file())
         self.ui.btn_close.clicked.connect(lambda: self.close())
-        self.ui.comboBox.currentIndexChanged.connect(lambda: self.update_type_validator())
-    
+        self.ui.comboBox.currentIndexChanged.connect(
+            lambda: self.update_type_validator()
+        )
+
     def setup_combobox(self):
         self.choices = {
             "Klassifizierungsnummer": "Klassifizierungsnummer",
@@ -69,12 +71,14 @@ class ToolsEditWindow(QMainWindow):
             "SB": "Schneidenbreite",
             "BO": "Bohrungsdurchmesser",
             "Z": "Schneidenzahl",
+            "ZGE": "Gesamtschneidenzahl",
             "QUALITAT": "Schneidenwerkstoff",
             "COD": "PCD Qualität",
             "TKQ": "Grundkörpermaterial",
             "NMAX": "Maximale Drehzahl",
             "NOPT": "Optimale Drehzahl",
             "SW": "Spanwinkel γ",
+            "AW": "Achswinkel λ",
         }
         for key, value in self.choices.items():
             self.ui.comboBox.addItem(value)
@@ -83,18 +87,17 @@ class ToolsEditWindow(QMainWindow):
         self.only_int = QtGui.QIntValidator()
         self.only_float = QtGui.QDoubleValidator()
 
-        integers = [
-            'Schneidenzahl'
-        ]
+        integers = ["Schneidenzahl", "Gesamtschneidenzahl"]
         floats = [
-            'Werkzeugdurchmesser',
-            'Schneidenbreite',
-            'Bohrungsdurchmesser',
-            'Maximale Drehzahl',
-            'Optimale Drehzahl',
-            'Spanwinkel γ'
+            "Werkzeugdurchmesser",
+            "Schneidenbreite",
+            "Bohrungsdurchmesser",
+            "Maximale Drehzahl",
+            "Optimale Drehzahl",
+            "Spanwinkel γ",
+            "Achswinkel λ",
         ]
-        
+
         if self.ui.comboBox.currentText() in integers:
             self.ui.lineEdit_2.setValidator(self.only_int)
         elif self.ui.comboBox.currentText() in floats:
@@ -110,10 +113,10 @@ class ToolsEditWindow(QMainWindow):
         )
         df["Identnummer"] = df["Identnummer"].astype(str)
         df["Klassifizierungsnummer"] = df["Klassifizierungsnummer"].astype(str)
-        df["SGE"] = df["SGE"].astype(str)        
-        df["QUALITAT"] = df["QUALITAT"].astype(str)        
-        df["COD"] = df["COD"].astype(str)        
-        df["TKQ"] = df["TKQ"].astype(str)        
+        df["SGE"] = df["SGE"].astype(str)
+        df["QUALITAT"] = df["QUALITAT"].astype(str)
+        df["COD"] = df["COD"].astype(str)
+        df["TKQ"] = df["TKQ"].astype(str)
         df["Z"] = pd.to_numeric(df["Z"], downcast="integer")
         df["ZGE"] = pd.to_numeric(df["ZGE"], downcast="integer")
         df["D"] = pd.to_numeric(df["D"], downcast="float")
@@ -122,6 +125,7 @@ class ToolsEditWindow(QMainWindow):
         df["NMAX"] = pd.to_numeric(df["NMAX"], downcast="float")
         df["NOPT"] = pd.to_numeric(df["NOPT"], downcast="float")
         df["SW"] = pd.to_numeric(df["SW"], downcast="float")
+        df["AW"] = pd.to_numeric(df["AW"], downcast="float")
         df.to_csv(os.path.join("database", LEITZ_TOOLS), sep=";", index=False)
 
     def get_data_to_update(self):
@@ -184,12 +188,14 @@ class ToolsEditWindow(QMainWindow):
             "cutting_width": row["SB"][i],
             "bore_diameter": row["BO"][i],
             "no_of_wings": row["Z"][i],
+            "total_no_of_wings": row["ZGE"][i],
             "cutting_material": row["QUALITAT"][i],
             "cutting_material_quality": row["COD"][i],
             "body_material": row["TKQ"][i],
             "n_max": row["NMAX"][i],
             "n_opt": row["NOPT"][i],
             "rake_angle": row["SW"][i],
+            "shear_angle": row["AW"][i],
         }
         self.update_labels(corresponding_params)
         return corresponding_params
@@ -256,12 +262,14 @@ class ToolsEditWindow(QMainWindow):
             "SB": "tool_cutting_width",
             "BO": "bore_diameter",
             "Z": "no_of_wings",
+            "ZGE": "total_no_of_wings",
             "QUALITAT": "cutting_material",
             "COD": "cutting_material_quality",
             "TKQ": "body_material",
             "NMAX": "n_max",
             "NOPT": "n_opt",
             "SW": "rake_angle",
+            "AW": "shear_angle",
         }
         return headers[key]
 
@@ -288,7 +296,7 @@ class ToolsEditWindow(QMainWindow):
 
         df.at[i, column_name] = value
         df.to_csv(os.path.join("database", LEITZ_TOOLS), sep=";", index=False)
-        
+
         # Whenever saved, it is necessary to change the default data types.
         self.change_default_data_types()
 
@@ -330,10 +338,18 @@ class ToolsEditWindow(QMainWindow):
             for widget in self.ui.groupBox.children():
                 if isinstance(widget, QLabel):
                     if widget.objectName() == "l_" + key:
-                        if value == "":
-                            widget.setText("Undefined")
+                        # Since number of wings and total number of wings need to be shown within one line,
+                        # the following instruction is needed.
+                        if widget.objectName() == "l_no_of_wings":
+                            widget.setText(
+                                str(value) + " | " + str(params["total_no_of_wings"])
+                            )
                         else:
-                            widget.setText(str(value))
+                            # For the rest of the labels, no complications.
+                            if value == "":
+                                widget.setText("Undefined")
+                            else:
+                                widget.setText(str(value))
 
     def update_file(self):
         tool_id, column_name, value = self.get_data_to_update()

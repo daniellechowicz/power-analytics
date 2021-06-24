@@ -26,8 +26,9 @@ from tools_edit_window import ToolsEditWindow
 from measurement import Measurement
 from database.database import Database
 from database.models import Metadata
+from helpers.helpers import get_group_name, get_channel_name
 from helpers.replace import Replace
-from report.report import Report
+from report.thread import ReportThread
 
 # Settings and constants
 from settings import *
@@ -250,13 +251,10 @@ class MainWindow(QMainWindow):
         # Otherwise, new datasets will be appended to the existing graph
         self.reset_graphs()
 
-        # Analysis can be started
-        self.msr = Measurement(
-            self.path,
-            GROUP_NAME,
-            CHANNEL_NAME,
-            SAMPLING_RATE,
-        )
+        # Get group and channel names autonomously,
+        group_name = get_group_name(self.path)
+        channel_name = get_channel_name(self.path)
+        self.msr = Measurement(self.path, group_name, channel_name, SAMPLING_RATE)
 
         # Upload data and move to another page when finished
         self.x_init, self.y_init = self.msr.moving_average(WINDOW_SIZE)
@@ -443,7 +441,7 @@ class MainWindow(QMainWindow):
                 m["cutting_speed"],
                 m["cutting_width"],
                 m["cutting_depth"],
-                m["cutting_angle"],
+                m["shear_angle"],
                 m["mean_chip_thickness"],
                 m["mean_chip_length"],
                 m["tool_id"],
@@ -463,22 +461,46 @@ class MainWindow(QMainWindow):
                 m["comments"],
             )
 
-            # Get measurement's ID (to relate parameters with the result)
+            # Get measurement's ID (to relate parameters with the result).
             measurement_id = db.execute_command(
                 "SELECT measurement_id FROM metadata ORDER BY measurement_id DESC LIMIT 1"
             )[0]
             measurement_id = measurement_id[0]
 
-            # Get result
+            # Get results.
             _, res = self.msr.moving_average(WINDOW_SIZE)
-            res = res[int(self.cutting_region[0]) : int(self.cutting_region[1])]
-            res = round(np.mean(res), 3)
+            res_idle = res[int(self.idle_region[0]) : int(self.idle_region[1])]
+            res_cutting = res[int(self.cutting_region[0]) : int(self.cutting_region[1])]
+            min_idle = round(np.min(res_idle), 2)
+            max_idle = round(np.max(res_idle), 2)
+            mean_idle = round(np.mean(res_idle), 2)
+            median_idle = round(np.median(res_idle), 2)
+            std_idle = round(np.std(res_idle), 3)
+            min_cutting = round(np.min(res_cutting), 2)
+            max_cutting = round(np.max(res_cutting), 2)
+            mean_cutting = round(np.mean(res_cutting), 2)
+            median_cutting = round(np.median(res_cutting), 2)
+            std_cutting = round(np.std(res_cutting), 3)
+            mean_cutting_no_idle = round(np.mean(res_cutting - np.mean(res_idle)), 2)
 
             # Add the result stats to the database
             db.insert_into_stats(
-                res,
+                min_idle,
+                max_idle,
+                mean_idle,
+                median_idle,
+                std_idle,
+                min_cutting,
+                max_cutting,
+                mean_cutting,
+                median_cutting,
+                std_cutting,
+                mean_cutting_no_idle,
                 measurement_id,
             )
+
+            # Generate report automatically.
+            self.setup_and_start_report_thread()
 
     def plot(self, graphicsView, labels, x, y, raw=False):
         # Truncate the data accordingly to the defined regions
@@ -621,6 +643,22 @@ class MainWindow(QMainWindow):
             raise ctypes.WinError(ctypes.get_last_error())
         return result
 
+    def setup_and_start_report_thread(self, auto_generated=True):
+        metadata = self.get_metadata()
+        stats = self.get_stats(self.y_init)
+        thread = ReportThread(
+            self.x_init,
+            self.y_init,
+            self.idle_region,
+            self.cutting_region,
+            metadata,
+            stats,
+            self.path,
+            auto_generated,
+        )
+        thread.daemon = True
+        thread.start()
+
     def generate_report(self):
         # Ask for permission
         YES_NO = 4
@@ -633,15 +671,7 @@ class MainWindow(QMainWindow):
 
         if result == YES:
             try:
-                Report(
-                    self.x_init,
-                    self.y_init,
-                    self.idle_region,
-                    self.cutting_region,
-                    self.get_metadata(),
-                    self.get_stats(self.y_init),
-                    self.path,
-                )
+                self.setup_and_start_report_thread(auto_generated=False)
             except Exception as e:
                 ctypes.windll.user32.MessageBoxW(
                     0,
@@ -660,6 +690,7 @@ class MainWindow(QMainWindow):
         self.oldPos = event.globalPos()
 
     def mouseMoveEvent(self, event):
-        delta = QPoint(event.globalPos() - self.oldPos)
-        self.move(self.x() + delta.x(), self.y() + delta.y())
-        self.oldPos = event.globalPos()
+        if not self.full_screen:
+            delta = QPoint(event.globalPos() - self.oldPos)
+            self.move(self.x() + delta.x(), self.y() + delta.y())
+            self.oldPos = event.globalPos()

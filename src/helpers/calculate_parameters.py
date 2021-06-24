@@ -79,13 +79,11 @@ def get_engagement_angle(tool_diameter, cutting_depth):
     return round(result, 1)
 
 
-def get_mean_chip_thickness(
-    cutting_angle, tool_diameter, cutting_depth, feed_per_tooth
-):
+def get_mean_chip_thickness(shear_angle, tool_diameter, cutting_depth, feed_per_tooth):
     """
     Parameters
     ----------
-    cutting_angle : float or int
+    shear_angle : float or int
         Cutting angle in [deg].
     tool_diameter : float or int
         Tool diameter in [mm].
@@ -99,7 +97,7 @@ def get_mean_chip_thickness(
     Mean chip thickness in [mm] rounded to 3 decimal places.
 
     """
-    sin_kappa = np.sin(cutting_angle * np.pi * (1 / 180))
+    sin_kappa = np.sin(shear_angle * np.pi * (1 / 180))
     engagement_angle = get_engagement_angle(tool_diameter, cutting_depth)
     numerator = feed_per_tooth * cutting_depth * 360
     denominator = tool_diameter * np.pi * engagement_angle * sin_kappa

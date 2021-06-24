@@ -207,26 +207,6 @@ class Ui_Settings(object):
         )
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label_3 = QLabel(self.scrollAreaWidgetContents)
-        self.label_3.setObjectName(u"label_3")
-        sizePolicy.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
-        self.label_3.setSizePolicy(sizePolicy)
-        self.label_3.setStyleSheet(u"font-weight: bold;")
-
-        self.verticalLayout_2.addWidget(self.label_3)
-
-        self.label_14 = QLabel(self.scrollAreaWidgetContents)
-        self.label_14.setObjectName(u"label_14")
-        self.label_14.setStyleSheet(u"")
-        self.label_14.setWordWrap(True)
-
-        self.verticalLayout_2.addWidget(self.label_14)
-
-        self.le_group_name = QLineEdit(self.scrollAreaWidgetContents)
-        self.le_group_name.setObjectName(u"le_group_name")
-        self.le_group_name.setStyleSheet(u"")
-
-        self.verticalLayout_2.addWidget(self.le_group_name)
 
         self.label_4 = QLabel(self.scrollAreaWidgetContents)
         self.label_4.setObjectName(u"label_4")
@@ -491,20 +471,6 @@ class Ui_Settings(object):
             QCoreApplication.translate(
                 "MainWindow", u"\u00c4ndern der Standardprogrammeinstellungen", None
             )
-        )
-        self.label_3.setText(
-            QCoreApplication.translate("MainWindow", u"Gruppenname", None)
-        )
-        self.label_14.setText(
-            QCoreApplication.translate(
-                "MainWindow",
-                u"Voraussetzung ist das TDMS-Dateiformat. Um den Gruppennamen zu erhalten, \u00f6ffnen Sie die Datei mit dem Excel Importer.",
-                None,
-            )
-        )
-        self.le_group_name.setText("")
-        self.le_group_name.setPlaceholderText(
-            QCoreApplication.translate("MainWindow", u"Gruppenname", None)
         )
         self.label_4.setText(
             QCoreApplication.translate("MainWindow", u"Kanalname", None)

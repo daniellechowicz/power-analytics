@@ -324,20 +324,6 @@ class Ui_Parameters(object):
 
         self.verticalLayout_3.addWidget(self.le_cutting_depth)
 
-        self.label_10 = QLabel(self.scrollAreaWidgetContents)
-        self.label_10.setObjectName(u"label_10")
-        sizePolicy.setHeightForWidth(self.label_10.sizePolicy().hasHeightForWidth())
-        self.label_10.setSizePolicy(sizePolicy)
-        self.label_10.setStyleSheet(u"")
-
-        self.verticalLayout_3.addWidget(self.label_10)
-
-        self.le_cutting_angle = QLineEdit(self.scrollAreaWidgetContents)
-        self.le_cutting_angle.setObjectName(u"le_cutting_angle")
-        self.le_cutting_angle.setStyleSheet(u"")
-
-        self.verticalLayout_3.addWidget(self.le_cutting_angle)
-
         self.label_11 = QLabel(self.scrollAreaWidgetContents)
         self.label_11.setObjectName(u"label_11")
         sizePolicy.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
@@ -537,12 +523,6 @@ class Ui_Parameters(object):
         )
         self.le_cutting_depth.setPlaceholderText(
             QCoreApplication.translate("MainWindow", u"Schnitttiefe [mm]", None)
-        )
-        self.label_10.setText(
-            QCoreApplication.translate("MainWindow", u"* Achswinkel λ [\u00b0]", None)
-        )
-        self.le_cutting_angle.setPlaceholderText(
-            QCoreApplication.translate("MainWindow", u"Achswinkel λ [\u00b0]", None)
         )
         self.label_11.setText(
             QCoreApplication.translate("MainWindow", u"* ID-Nummer", None)

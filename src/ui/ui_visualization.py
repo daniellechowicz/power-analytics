@@ -308,13 +308,13 @@ class Ui_Visualization(object):
 
         self.verticalLayout_16.addWidget(self.label_34)
 
-        self.cutting_angle_l = QLabel(self.frame_20)
-        self.cutting_angle_l.setObjectName(u"cutting_angle_l")
-        self.cutting_angle_l.setFont(font)
-        self.cutting_angle_l.setAlignment(Qt.AlignCenter)
-        self.cutting_angle_l.setWordWrap(True)
+        self.shear_angle_l = QLabel(self.frame_20)
+        self.shear_angle_l.setObjectName(u"shear_angle_l")
+        self.shear_angle_l.setFont(font)
+        self.shear_angle_l.setAlignment(Qt.AlignCenter)
+        self.shear_angle_l.setWordWrap(True)
 
-        self.verticalLayout_16.addWidget(self.cutting_angle_l)
+        self.verticalLayout_16.addWidget(self.shear_angle_l)
 
         self.label_38 = QLabel(self.frame_20)
         self.label_38.setObjectName(u"label_38")
@@ -1028,12 +1028,12 @@ class Ui_Visualization(object):
         self.frame_12.setFrameShadow(QFrame.Raised)
         self.verticalLayout_9 = QVBoxLayout(self.frame_12)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.cutting_angle_l2 = QLabel(self.frame_12)
-        self.cutting_angle_l2.setObjectName(u"cutting_angle_l2")
-        self.cutting_angle_l2.setAlignment(Qt.AlignCenter)
-        self.cutting_angle_l2.setWordWrap(True)
+        self.shear_angle_l2 = QLabel(self.frame_12)
+        self.shear_angle_l2.setObjectName(u"shear_angle_l2")
+        self.shear_angle_l2.setAlignment(Qt.AlignCenter)
+        self.shear_angle_l2.setWordWrap(True)
 
-        self.verticalLayout_9.addWidget(self.cutting_angle_l2)
+        self.verticalLayout_9.addWidget(self.shear_angle_l2)
 
         self.pushButton_25 = QPushButton(self.frame_12)
         self.pushButton_25.setObjectName(u"pushButton_25")
@@ -1435,7 +1435,7 @@ class Ui_Visualization(object):
         self.label_34.setText(
             QCoreApplication.translate("MainWindow", u"Achswinkel λ [\u00b0]", None)
         )
-        self.cutting_angle_l.setText("")
+        self.shear_angle_l.setText("")
         self.label_38.setText(
             QCoreApplication.translate("MainWindow", u"Mittlere Spandicke [mm]", None)
         )
@@ -1457,7 +1457,11 @@ class Ui_Visualization(object):
             QCoreApplication.translate("MainWindow", u"Klassifizierungsnummer", None)
         )
         self.classification_no_l.setText("")
-        self.label_46.setText(QCoreApplication.translate("MainWindow", u"Strategische Geschäftszahl", None))
+        self.label_46.setText(
+            QCoreApplication.translate(
+                "MainWindow", u"Strategische Geschäftszahl", None
+            )
+        )
         self.strategic_business_unit_l.setText("")
         self.label_48.setText(
             QCoreApplication.translate("MainWindow", u"Werkzeugdurchmesser [mm]", None)
@@ -1496,7 +1500,7 @@ class Ui_Visualization(object):
         )
         self.n_opt_l.setText("")
         self.label_66.setText(
-            QCoreApplication.translate("MainWindow", u"Spanwinkel [\u00b0]", None)
+            QCoreApplication.translate("MainWindow", u"Spanwinkel γ [\u00b0]", None)
         )
         self.rake_angle_l.setText("")
         self.label_31.setText("")
@@ -1607,7 +1611,7 @@ class Ui_Visualization(object):
         self.pushButton_24.setText(
             QCoreApplication.translate("MainWindow", u"3_5", None)
         )
-        self.cutting_angle_l2.setText(
+        self.shear_angle_l2.setText(
             QCoreApplication.translate("MainWindow", u"Achswinkel λ", None)
         )
         self.pushButton_25.setText(

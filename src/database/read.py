@@ -98,6 +98,12 @@ class Read:
 
         return unique
 
+    def get_report_name(self, measurement_id):
+        query = f"SELECT report_name FROM metadata WHERE measurement_id={measurement_id};"
+        results = self.cursor.execute(query).fetchall() # returns: [('report_name')]
+        report_name = results[0][0]
+        return report_name
+
     def group_by(self, column, params):
         unique_values = self.get_unique_values(column)
         dataset = {}
@@ -117,7 +123,7 @@ class Read:
             )
 
             params["mean_chip_thickness"] = get_mean_chip_thickness(
-                float(params["cutting_angle"]),
+                float(params["shear_angle"]),
                 float(params["tool_diameter"]),
                 float(params["cutting_depth"]),
                 float(params["feed_per_tooth"]),
@@ -150,7 +156,7 @@ class Read:
                 cutting_speed=float(list(params.values())[6]),
                 cutting_width=float(list(params.values())[7]),
                 cutting_depth=float(list(params.values())[8]),
-                cutting_angle=float(list(params.values())[9]),
+                shear_angle=float(list(params.values())[9]),
                 mean_chip_thickness=float(list(params.values())[10]),
                 mean_chip_length=float(list(params.values())[11]),
                 tool_id=list(params.values())[12],

@@ -713,7 +713,9 @@ class Ui_ToolsEdit(object):
         )
         self.l_rake_angle.setText("")
         self.label_11.setText(
-            QCoreApplication.translate("MainWindow", u"Schneidenzahl", None)
+            QCoreApplication.translate(
+                "MainWindow", u"Schneidenzahl | SZ - Gesamt", None
+            )
         )
         self.l_no_of_wings.setText("")
         self.groupBox_2.setTitle(

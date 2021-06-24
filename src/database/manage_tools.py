@@ -48,6 +48,7 @@ class Tools:
             "n_max": found["NMAX"],
             "n_opt": found["NOPT"],
             "rake_angle": found["SW"],
+            "shear_angle": found["AW"],
         }
         # To get rid of "name" and "dtype",
         # transform it to string and ignore index

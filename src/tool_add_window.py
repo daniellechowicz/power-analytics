@@ -56,6 +56,7 @@ class ToolAddWindow(QMainWindow):
         self.ui.le_n_max.setValidator(self.only_int)
         self.ui.le_n_opt.setValidator(self.only_int)
         self.ui.le_rake_angle.setValidator(self.only_float)
+        self.ui.le_shear_angle.setValidator(self.only_float)
 
     def setup_callbacks(self):
         self.ui.pushButton.clicked.connect(lambda: self.close())
@@ -81,6 +82,7 @@ class ToolAddWindow(QMainWindow):
                     3:
                 ]  # e.g. "le_tool_diameter"[3:] -> "tool_diameter"
                 value = widget.text()
+                value = value.replace(",", ".")
                 data[key] = value
         return data
 
@@ -125,6 +127,7 @@ class ToolAddWindow(QMainWindow):
                 "n_max",
                 "n_opt",
                 "rake_angle",
+                "shear_angle",
             ]
 
             for i, key in enumerate(seq):

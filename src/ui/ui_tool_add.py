@@ -332,6 +332,16 @@ class Ui_ToolAdd(object):
 
         self.verticalLayout_3.addWidget(self.le_rake_angle)
 
+        self.label_17 = QLabel(self.scrollAreaWidgetContents)
+        self.label_17.setObjectName(u"label_17")
+
+        self.verticalLayout_3.addWidget(self.label_17)
+
+        self.le_shear_angle = QLineEdit(self.scrollAreaWidgetContents)
+        self.le_shear_angle.setObjectName(u"le_shear_angle")
+
+        self.verticalLayout_3.addWidget(self.le_shear_angle)
+
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.verticalLayout.addWidget(self.scrollArea)
@@ -499,8 +509,14 @@ class Ui_ToolAdd(object):
         self.label_7.setText(
             QCoreApplication.translate("MainWindow", u"Spanwinkel γ [\u00b0]", None)
         )
+        self.label_17.setText(
+            QCoreApplication.translate("MainWindow", u"Achswinkel λ [°]", None)
+        )
         self.le_rake_angle.setPlaceholderText(
             QCoreApplication.translate("MainWindow", u"Spanwinkel γ [\u00b0]", None)
+        )
+        self.le_shear_angle.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Achswinkel λ [°]", None)
         )
         self.pushButton.setText(
             QCoreApplication.translate("MainWindow", u"Schlie\u00dfen", None)

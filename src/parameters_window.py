@@ -65,7 +65,6 @@ class ParametersWindow(QMainWindow):
         self.ui.le_feed_speed.setValidator(self.only_float)
         self.ui.le_cutting_width.setValidator(self.only_float)
         self.ui.le_cutting_depth.setValidator(self.only_float)
-        self.ui.le_cutting_angle.setValidator(self.only_float)
 
     def define_callbacks(self):
         self.ui.pushButton.clicked.connect(lambda: self.close())
@@ -112,7 +111,7 @@ class ParametersWindow(QMainWindow):
         )
 
         self.metadata["mean_chip_thickness"] = get_mean_chip_thickness(
-            float(self.metadata["cutting_angle"]),
+            float(self.metadata["shear_angle"]),
             float(self.metadata["tool_diameter"]),
             float(self.metadata["cutting_depth"]),
             float(self.metadata["feed_per_tooth"]),
@@ -186,7 +185,6 @@ class ParametersWindow(QMainWindow):
             "feed_speed": self.ui.le_feed_speed.text().replace(",", "."),
             "cutting_width": self.ui.le_cutting_width.text().replace(",", "."),
             "cutting_depth": self.ui.le_cutting_depth.text().replace(",", "."),
-            "cutting_angle": self.ui.le_cutting_angle.text().replace(",", "."),
             "tool_id": self.ui.le_tool_id.text(),
             "comments": self.ui.le_comments.text()
             if self.ui.le_comments.text() != ""
@@ -225,7 +223,6 @@ class ParametersWindow(QMainWindow):
             if self.metadata["tool_id"] != "NaN":
                 # Parameters from the file "tools.cs"
                 ext_params = self.get_corresponding_parameters()
-                print(ext_params)
                 if ext_params is not None:
                     self.append_parameters_to_metadata(ext_params)
                     self.get_remaining_parameters()

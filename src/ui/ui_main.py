@@ -1594,9 +1594,7 @@ class Ui_MainWindow(object):
             )
         )
         self.btn_tools_replace.setText("")
-        self.label_25.setText(
-            QCoreApplication.translate("MainWindow", u"Update", None)
-        )
+        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Update", None))
         self.label_26.setText(
             QCoreApplication.translate(
                 "MainWindow",

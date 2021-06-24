@@ -60,7 +60,7 @@ class MultivariateVisualizationWindow(QMainWindow):
             3: "cutting_speed",
             4: "cutting_width",
             5: "cutting_depth",
-            6: "cutting_angle",
+            6: "shear_angle",
             7: "tool_diameter",
             8: "tool_cutting_width",
             9: "no_of_wings",
@@ -161,7 +161,7 @@ class MultivariateVisualizationWindow(QMainWindow):
         )
 
         self.metadata["mean_chip_thickness"] = get_mean_chip_thickness(
-            float(self.metadata["cutting_angle"]),
+            float(self.metadata["shear_angle"]),
             float(self.metadata["tool_diameter"]),
             float(self.metadata["cutting_depth"]),
             float(self.metadata["feed_per_tooth"]),
@@ -172,7 +172,7 @@ class MultivariateVisualizationWindow(QMainWindow):
         )
 
         self.query = f"""
-        SELECT mean 
+        SELECT mean_cutting_no_idle 
         FROM metadata 
         INNER JOIN stats ON metadata.measurement_id=stats.measurement_id
         WHERE (
@@ -185,7 +185,7 @@ class MultivariateVisualizationWindow(QMainWindow):
             AND cutting_speed={self.metadata["cutting_speed"]}
             AND cutting_width={self.metadata["cutting_width"]}
             AND cutting_depth={self.metadata["cutting_depth"]}
-            AND cutting_angle={self.metadata["cutting_angle"]}
+            AND shear_angle={self.metadata["shear_angle"]}
             AND mean_chip_thickness={self.metadata["mean_chip_thickness"]}
             AND mean_chip_length={self.metadata["mean_chip_length"]}
             AND tool_diameter={self.metadata["tool_diameter"]}
@@ -208,7 +208,7 @@ class MultivariateVisualizationWindow(QMainWindow):
         # Setup X- and Y-axis labels
         win.setLabel(
             "left",
-            '<span style="color: black; font-size: {}px">Power consumption [kW]</span>'.format(
+            '<span style="color: black; font-size: {}px">Leistungsaufnahme [kW]</span>'.format(
                 FONTSIZE
             ),
         )
@@ -254,7 +254,7 @@ class MultivariateVisualizationWindow(QMainWindow):
                 # Draw just once
                 # Get the last record and plot it differently if it is equal to "y"
                 last_record = self.db.cursor.execute(
-                    "SELECT * FROM stats ORDER BY measurement_id DESC LIMIT 1;"
+                    "SELECT mean_cutting_no_idle FROM stats ORDER BY measurement_id DESC LIMIT 1;"
                 ).fetchall()[0][0]
 
                 # Because of all the updates that are made,

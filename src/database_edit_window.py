@@ -63,7 +63,7 @@ class DatabaseEditWindow(QMainWindow):
             "Vorschubgeschwindigkeit": "feed_speed",
             "SB - Werkstück": "cutting_width",
             "Schnitttiefe": "cutting_depth",
-            "Achswinkel λ": "cutting_angle",
+            "Achswinkel λ": "shear_angle",
             "Werkzeug-ID": "tool_id",
             "Kommentare": "comments",
         }

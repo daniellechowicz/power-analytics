@@ -41,7 +41,7 @@ class Database:
             cutting_speed REAL NOT NULL,
             cutting_width REAL NOT NULL,
             cutting_depth REAL NOT NULL,
-            cutting_angle REAL NOT NULL,
+            shear_angle REAL NOT NULL,
             mean_chip_thickness REAL NOT NULL,
             mean_chip_length REAL NOT NULL,
             tool_id REAL NOT NULL,
@@ -58,7 +58,8 @@ class Database:
             n_max REAL,
             n_opt REAL,
             rake_angle REAL,
-            comments TEXT)"""
+            comments TEXT,
+            report_name TEXT)"""
         )
         self.connection.commit()
         print("[INFO] table metadata has been created successfully")
@@ -66,7 +67,17 @@ class Database:
     def create_stats_table(self):
         self.cursor.execute(
             """CREATE TABLE stats(
-            mean REAL NOT NULL,
+            min_idle REAL NOT NULL,
+            max_idle REAL NOT NULL,
+            mean_idle REAL NOT NULL,
+            median_idle REAL NOT NULL,
+            std_idle REAL NOT NULL,
+            min_cutting REAL NOT NULL,
+            max_cutting REAL NOT NULL,
+            mean_cutting REAL NOT NULL,
+            median_cutting REAL NOT NULL,
+            std_cutting REAL NOT NULL,
+            mean_cutting_no_idle REAL NOT NULL,
             measurement_id INTEGER NOT NULL,
             FOREIGN KEY(measurement_id) REFERENCES metadata(measurement_id))"""
         )
@@ -86,7 +97,7 @@ class Database:
         cutting_speed,
         cutting_width,
         cutting_depth,
-        cutting_angle,
+        shear_angle,
         mean_chip_thickness,
         mean_chip_length,
         tool_id,
@@ -103,7 +114,7 @@ class Database:
         n_max,
         n_opt,
         rake_angle,
-        comments,
+        comments
     ):
         params = (
             author,
@@ -117,7 +128,7 @@ class Database:
             cutting_speed,
             cutting_width,
             cutting_depth,
-            cutting_angle,
+            shear_angle,
             mean_chip_thickness,
             mean_chip_length,
             tool_id,
@@ -134,7 +145,7 @@ class Database:
             n_max,
             n_opt,
             rake_angle,
-            comments,
+            comments
         )
         self.cursor.execute(
             """INSERT INTO metadata (
@@ -149,7 +160,7 @@ class Database:
             cutting_speed,
             cutting_width,
             cutting_depth,
-            cutting_angle,
+            shear_angle,
             mean_chip_thickness,
             mean_chip_length,
             tool_id,
@@ -171,12 +182,49 @@ class Database:
         )
         self.connection.commit()
 
-    def insert_into_stats(self, mean, measurement_id):
-        params = (mean, measurement_id)
+    def insert_into_stats(
+        self,
+        min_idle,
+        max_idle,
+        mean_idle,
+        median_idle,
+        std_idle,
+        min_cutting,
+        max_cutting,
+        mean_cutting,
+        median_cutting,
+        std_cutting,
+        mean_cutting_no_idle,
+        measurement_id,
+    ):
+        params = (
+            min_idle,
+            max_idle,
+            mean_idle,
+            median_idle,
+            std_idle,
+            min_cutting,
+            max_cutting,
+            mean_cutting,
+            median_cutting,
+            std_cutting,
+            mean_cutting_no_idle,
+            measurement_id,
+        )
         self.cursor.execute(
             """INSERT INTO stats ( 
-            mean, 
-            measurement_id) VALUES (?, ?)""",
+            min_idle,
+            max_idle,
+            mean_idle,
+            median_idle,
+            std_idle,
+            min_cutting,
+            max_cutting,
+            mean_cutting,
+            median_cutting,
+            std_cutting,
+            mean_cutting_no_idle, 
+            measurement_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             params,
         )
         self.connection.commit()
@@ -196,7 +244,15 @@ class Database:
             """
         self.cursor.execute(query)
         self.connection.commit()
-        self.connection.close()
+
+    def add_report_name(self, measurement_id, report_name):
+        query = f"""
+        UPDATE metadata
+        SET report_name="{report_name}"
+        WHERE measurement_id={measurement_id}; 
+        """
+        self.cursor.execute(query)
+        self.connection.commit()
 
     def fetch_all(self, table: str):
         results = self.cursor.execute("SELECT * FROM {}".format(table))

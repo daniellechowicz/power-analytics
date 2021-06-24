@@ -64,7 +64,6 @@ class SettingsWindow(QMainWindow):
             settings = json.load(json_file)
 
         self.corresponding_keys = {
-            "Group name": "group_name",
             "Channel name": "channel_name",
             "Sampling rate [Hz]": "sampling_rate",
             "Resampling factor": "resample_factor",
@@ -115,7 +114,6 @@ class SettingsWindow(QMainWindow):
                     value = widget.text()
                     # If target value is of string type, just pass since it is string by default
                     if key in [
-                        "group_name",
                         "channel_name",
                         "db_name",
                         "db_csv_name",
@@ -147,12 +145,3 @@ class SettingsWindow(QMainWindow):
         delta = QPoint(event.globalPos() - self.oldPos)
         self.move(self.x() + delta.x(), self.y() + delta.y())
         self.oldPos = event.globalPos()
-
-
-if __name__ == "__main__":
-    from PySide2.QtWidgets import *
-    import sys
-
-    app = QApplication(sys.argv)
-    window = SettingsWindow()
-    sys.exit(app.exec_())

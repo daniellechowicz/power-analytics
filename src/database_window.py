@@ -56,6 +56,7 @@ class DatabaseWindow(QMainWindow):
         self.ui.pushButton.clicked.connect(lambda: self.close())
         self.ui.pushButton_2.clicked.connect(lambda: self.save())
         self.ui.pushButton_3.clicked.connect(lambda: DatabaseEditWindow().show())
+        self.ui.tableWidget.itemSelectionChanged.connect(lambda: self.show_report())
 
     def get_full_name(self, column):
         translations = {
@@ -87,9 +88,20 @@ class DatabaseWindow(QMainWindow):
             "n_max": "Max. Drehzahl [U/min]",
             "n_opt": "Optimale Drehzahl [U/min]",
             "rake_angle": "Spanwinkel γ [°]",
-            "cutting_angle": "Achswinkel λ [°]",
+            "shear_angle": "Achswinkel λ [°]",
             "comments": "Kommentare",
-            "mean": "Mittlere Leistungsaufnahme [kW]"
+            "min_idle": "Leerlauf - Minimale Leistungsaufnahme [kW]",
+            "max_idle": "Leerlauf - Maximale Leistungsaufnahme [kW]",
+            "mean_idle": "Leerlauf - Mittlere Leistungsaufnahme [kW]",
+            "median_idle": "Leerlauf - Median der Leistungsaufnahme [kW]",
+            "std_idle": "Leerlauf - Standardabweichung der Leistungsaufnahme [kW]",
+            "min_cutting": "Bearbeitung inkl. Leerlauf - Minimale Leistungsaufnahme [kW]",
+            "max_cutting": "Bearbeitung inkl. Leerlauf - Maximale Leistungsaufnahme [kW]",
+            "mean_cutting": "Bearbeitung inkl. Leerlauf - Mittlere Leistungsaufnahme [kW]",
+            "median_cutting": "Bearbeitung inkl. Leerlauf - Median der Leistungsaufnahme [kW]",
+            "std_cutting": "Bearbeitung inkl. Leerlauf - Standardabweichung der Leistungsaufnahme [kW]",
+            "mean_cutting_no_idle": "Bearbeitung ohne Leerlauf - Mittlere Leistungsaufnahme [kW]",
+            "report_name": "Protokoll-Name",
         }
         return translations[column]
 
@@ -187,6 +199,16 @@ class DatabaseWindow(QMainWindow):
                 "Power Analytics | Datenbank",
                 0 | 0x40,
             )
+
+    def show_report(self):
+        items = self.ui.tableWidget.selectedItems()
+        measurement_id = int(items[0].text())
+        
+        db_read = Read("database/{}".format(self.db_name))
+        report_name = db_read.get_report_name(measurement_id)
+        
+        # Show an old PDF report.
+        os.startfile(os.path.join("report", "reports", report_name))
 
     def center(self):
         qr = self.frameGeometry()

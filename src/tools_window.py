@@ -63,7 +63,8 @@ class ToolsWindow(QMainWindow):
             "TKQ": "Grundkörpermaterial",
             "NMAX": "Max. Drehzahl [U/min]",
             "NOPT": "Optimale Drehzahl [U/min]",
-            "SW": "Spanwinkel γ [°]"
+            "SW": "Spanwinkel γ [°]",
+            "AW": "Achswinkel λ [°]",
         }
         return translations[column]
 

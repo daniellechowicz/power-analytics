@@ -11,6 +11,7 @@ class Replace:
     as well as refreshing and changing parameters
     that have been updated manually.
     """
+
     def __init__(self):
         self.update_replaced_CSV()
         self.copy_new_tools_to_main()
@@ -36,7 +37,8 @@ class Replace:
             "TKQ": row["TKQ"][i],
             "NMAX": row["NMAX"][i],
             "NOPT": row["NOPT"][i],
-            "SW": row["SW"][i]
+            "SW": row["SW"][i],
+            "AW": row["AW"][i],
         }
 
         return corresponding_params
@@ -49,10 +51,10 @@ class Replace:
         )
         df["Identnummer"] = df["Identnummer"].astype(str)
         df["Klassifizierungsnummer"] = df["Klassifizierungsnummer"].astype(str)
-        df["SGE"] = df["SGE"].astype(str)        
-        df["QUALITAT"] = df["QUALITAT"].astype(str)        
-        df["COD"] = df["COD"].astype(str)        
-        df["TKQ"] = df["TKQ"].astype(str)        
+        df["SGE"] = df["SGE"].astype(str)
+        df["QUALITAT"] = df["QUALITAT"].astype(str)
+        df["COD"] = df["COD"].astype(str)
+        df["TKQ"] = df["TKQ"].astype(str)
         df["Z"] = pd.to_numeric(df["Z"], downcast="integer")
         df["ZGE"] = pd.to_numeric(df["ZGE"], downcast="integer")
         df["D"] = pd.to_numeric(df["D"], downcast="float")
