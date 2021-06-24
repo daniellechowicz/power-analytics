@@ -24,7 +24,7 @@ class Tools:
     def find_by_id(self):
         id_header = "Identnummer"
         if id_header in self.get_headers():
-            res = self.extract({id_header: self.id})
+            res = self.extract({id_header: "{}".format(self.id)})
             return res
         else:
             raise AssertionError(
