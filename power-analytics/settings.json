@@ -1,0 +1,41 @@
+{
+    "channel_name": "Spannung_3",
+    "fontsize": 14,
+    "fontsize_report": 10,
+    "resolution": 200,
+    "sampling_rate": 100000,
+    "resample_factor": 1,
+    "cutoff_frequency": 1000,
+    "order": 3,
+    "window_size": 50,
+    "idle_0": 100000,
+    "idle_1": 200000,
+    "cutting_0": 500000,
+    "cutting_1": 600000,
+    "window_name": "MainWindow",
+    "db_name": "measurements",
+    "db_csv_name": "DB",
+    "leitz_tools": "tools.csv",
+    "leitz_tools_updates": "tools_updates.csv",
+    "symbols": [
+        "o",
+        "t",
+        "t1",
+        "t2",
+        "t3",
+        "s",
+        "p",
+        "h"
+    ],
+    "colours": [
+        "r",
+        "g",
+        "b",
+        "m",
+        "y",
+        "k",
+        "w"
+    ],
+    "symbol_size": 20,
+    "delimiter": ";"
+}

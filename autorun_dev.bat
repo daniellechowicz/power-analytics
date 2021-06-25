@@ -1,3 +1,3 @@
 CALL env\Scripts\activate.bat
-cd src
-python main.py
+cd power-analytics
+python main_dev.py
