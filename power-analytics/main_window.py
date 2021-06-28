@@ -25,7 +25,6 @@ from tools_edit_window import ToolsEditWindow
 # Backend modules
 from measurement import Measurement
 from database.database import Database
-from database.models import Metadata
 from helpers.helpers import get_group_name, get_channel_name
 from helpers.replace import Replace
 from report.thread import ReportThread

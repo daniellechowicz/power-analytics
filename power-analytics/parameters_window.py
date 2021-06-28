@@ -228,7 +228,7 @@ class ParametersWindow(QMainWindow):
                     0 | 0x40,
                 )
                 return False
-        
+
         return True
 
     def confirm(self):

@@ -1,3 +1,5 @@
+from settings import *
+import os
 import sqlite3
 
 
@@ -6,24 +8,21 @@ class Database:
         self.db_name = db_name
         self.connection = self.connect_to_database()
         self.cursor = self.connection.cursor()
-        # Metadata table initialization
+
+        # Metadata table initialization.
         try:
             self.create_metadata_table()
         except:
-            print("[INFO] table metadata already exists")
+            pass
 
-        # Stats table initialization
+        # Stats table initialization.
         try:
             self.create_stats_table()
         except:
-            print("[INFO] table metadata already exists")
+            pass
 
     def connect_to_database(self):
-        connection = sqlite3.connect("database/{}.db".format(self.db_name))
-        print(
-            "[INFO] new connection {} has been opened successfully".format(connection)
-        )
-
+        connection = sqlite3.connect(os.path.join(Strings.DIRECTORY_DATABASE, self.db_name + ".db"))
         return connection
 
     def create_metadata_table(self):
@@ -246,6 +245,13 @@ class Database:
         self.connection.commit()
 
     def add_report_name(self, measurement_id, report_name):
+        """
+        The customer wants to be able to open historical reports.
+        To achieve that, it was necessary to store report's name (since
+        all the reports are stored by default, only the name is required
+        to find and open it).
+        """
+
         query = f"""
         UPDATE metadata
         SET report_name="{report_name}"
@@ -261,36 +267,4 @@ class Database:
 
     def execute_command(self, command):
         result = self.cursor.execute(command).fetchall()
-
         return result
-
-    # A script containing single line
-    def execute_external_script(self, script):
-        # Open and read the file as a single buffer
-        fd = open(script, "r")
-        command = fd.read()
-        fd.close()
-
-        result = self.cursor.execute(command).fetchall()
-
-        return result
-
-    # A script containing multiple lines
-    def execute_external_complex_script(self, script):
-        # Open and read the file as a single buffer
-        fd = open(script, "r")
-        sql_script = fd.read()
-        fd.close()
-
-        # All SQL commands (split on ';')
-        sql_commands = sql_script.split(";")
-
-        # Execute every command from the input file
-        for command in sql_commands:
-            # This will skip and report errors
-            # For example, if the tables do not yet exist, this will skip over
-            # the DROP TABLE commands
-            try:
-                self.cursor.execute(command).fetchall()
-            except Exception as e:
-                print("[INFO] {}".format(e))

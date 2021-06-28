@@ -69,7 +69,7 @@ Section "Power Analytics 1.0" SEC02
 	
 	;Files/folders to be added go here...
 	File /r "bin"
-	File /r "src"
+	File /r "power-analytics"
 	File /r "requirements.txt"
 	File /r "README.md"
 

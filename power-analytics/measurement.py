@@ -1,9 +1,6 @@
-import matplotlib.pyplot as plt
 import numpy as np
-import os
 from analysis import features
 from nptdms import TdmsFile
-from tqdm import tqdm
 
 
 class Measurement(features.Features):
@@ -26,5 +23,4 @@ class Measurement(features.Features):
             channel = group[self.channel_name]
             y_vector = channel[:]
             x_vector = np.linspace(0, len(y_vector) / self.sampling_rate, len(y_vector))
-
             return x_vector, abs(y_vector)

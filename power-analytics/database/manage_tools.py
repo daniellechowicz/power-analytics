@@ -14,8 +14,7 @@ class Tools:
         headers = self.df_params.columns.tolist()
         return headers
 
-    # requirements: dict
-    def extract(self, requirements):
+    def extract(self, requirements: dict):
         res = self.df_params.copy()
         for key, value in requirements.items():
             res = res.loc[res[key] == value]
@@ -50,12 +49,13 @@ class Tools:
             "rake_angle": found["SW"],
             "shear_angle": found["AW"],
         }
+
         # To get rid of "name" and "dtype",
-        # transform it to string and ignore index
+        # transform it to string and ignore index.
         for key, value in params.items():
             try:
                 params[key] = value.to_string(index=False)
-            # e.g. "tool_id" does not use "find_by_id" function
-            except:
+            except: # For example, "tool_id" does not use "find_by_id" function.
                 continue
+                
         return params

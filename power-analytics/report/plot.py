@@ -1,11 +1,8 @@
-from analysis.features import Features
 from settings import *
 import matplotlib.pyplot as plt
-import numpy as np
-import os
 
 
-class Plot(Features):
+class Plot:
     def __init__(self, idle, cutting, x_vector, y_vector, figsize):
         self.idle = idle
         self.cutting = cutting

@@ -1,12 +1,8 @@
-from bisect import bisect_left, insort
-from collections import deque
-from itertools import islice
 from nptdms import TdmsFile
 from settings import *
 import ctypes
 import os
 import json
-import numpy as np
 
 
 def get_group_name(path):
@@ -36,33 +32,6 @@ def get_channel_name(path):
         )
 
     return CHANNEL_NAME
-
-
-def get_labels():
-    labels = {
-        "material": "Werkstoff",
-        "moisture_content": "Feuchtegehalt [%]",
-        "cutting_direction": "Schnittrichtung",
-        "rotational_speed": "Drehzahl [U/min]",
-        "feed_speed": "Vorschubgeschwindigkeit [m/min]",
-        "feed_per_tooth": "Zahnvorschub [mm]",
-        "cutting_speed": "Schnittgeschwindigkeit [m/s]",
-        "cutting_width": "SB - Werkstück [mm]",
-        "cutting_depth": "Schnitttiefe [mm]",
-        "shear_angle": "Achswinkel λ [°]",
-        "mean_chip_thickness": "Mittlere Spandicke [mm]",
-        "mean_chip_length": "Mittlere Spanlänge [mm]",
-        "tool_id": "Werkzeug-ID",
-        "tool_diameter": "Werkzeugdurchmesser [mm]",
-        "tool_cutting_width": "Schneidenbreite [mm]",
-        "bore_diameter": "Bohrungsdurchmesser [mm]",
-        "no_of_wings": "Schneidenzahl",
-        "total_no_of_wings": "Gesamtschneidenzahl",
-        "cutting_material": "Schneidenwerkstoff",
-        "body_material": "Grundkörpermaterial",
-        "rake_angle": "Spanwinkel γ [°]",
-    }
-    return labels
 
 
 def get_full_name(column):
@@ -130,38 +99,14 @@ def translate(text):
     text = "".join(text.rstrip())
     text = text.lower().replace(" ", "_")
 
-    # Just in case if there are dots as well (e.g. "Max. N [1/min]")
+    # Just in case if there are dots as well (e.g. "Max. N [1/min]").
     text = text.replace(".", "")
 
-    # For "number_of_wings" and "total_number_of_wings"
+    # For "number_of_wings" and "total_number_of_wings".
     if "number" in text:
         text = text.replace("number", "no")
 
     return text
-
-
-def moving_median(data, window_size):
-    seq = iter(data)
-    d = deque()
-    s = []
-    y_vector = []
-    for item in islice(seq, window_size):
-        d.append(item)
-        insort(s, item)
-        y_vector.append(s[len(d) // 2])
-
-    m = window_size // 2
-
-    for item in seq:
-        old = d.popleft()
-        d.append(item)
-        del s[bisect_left(s, old)]
-        insort(s, item)
-        y_vector.append(s[m])
-
-    x_vector = np.linspace(0, len(y_vector) / SAMPLING_RATE, len(y_vector))
-
-    return x_vector, y_vector
 
 
 def convert_type(key, value):

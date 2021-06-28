@@ -39,6 +39,7 @@ class Strings:
     DIALOG_DATABASE = "Datenbank"
     DIALOG_PARAMETERS = "Parameter"
     DIALOG_TOOLS = "Werkzeuge"
+    DIALOG_VISUALIZATION = "Datenvisualisierung"
     DIRECTORY_DATABASE = "database"
     DIRECTORY_REPORT_MAIN = "report"
     DIRECTORY_REPORT_PDFS = "reports"

@@ -5,37 +5,35 @@ from report.plot import Plot
 from settings import *
 import base64
 import datetime
-import matplotlib.pyplot as plt
 import numpy as np
 import os
-import pandas as pd
 import pdfkit
 import yaml
 
 
 class Report:
-    def __init__(self, x, y, idle, cutting, metadata, stats, measurement_file):
+    def __init__(self, x, y, idle: list, cutting: list, metadata: dict, stats: dict, measurement_file):
         self.x = x
         self.y = y
-        self.idle = idle  # This is a list
-        self.cutting = cutting  # This is a list
-        self.metadata = metadata  # This is a dictionary
-        self.stats = stats  # This is a dictionary
+        self.idle = idle
+        self.cutting = cutting
+        self.metadata = metadata
+        self.stats = stats
         self.measurement_file = measurement_file
 
-        # Generate new filename
+        # Generate new filename.
         self.now = datetime.datetime.now().strftime("%d-%m-%Y")
         self.filename = "Report " + self.now + ".pdf"
-        self.set_path()
-        if self.checkIfExists(self.filename):
-            self.setAlternativeFilename()
+        self.set_default_path()
+        if self.filename_exists(self.filename):
+            self.set_alternative_filename()
 
         self.generate_image_from_data()
 
-        # Generate document
+        # Generate a report.
         self.generate()
 
-    def set_path(self):
+    def set_default_path(self):
         with open("defaults.yaml") as file:
             doc = yaml.full_load(file)
             dir = doc["root_measurement_files"]
@@ -43,22 +41,22 @@ class Report:
             None, "Wählen Sie einen Ordner für das Messprotokoll", str(dir)
         )
 
-    def checkIfExists(self, filename):
+    def filename_exists(self, filename):
         found = False
         for filename_ in os.listdir(self.directory_path):
             if filename_ == filename:
                 found = True
         return found
 
-    def setAlternativeFilename(self):
+    def set_alternative_filename(self):
         exists = True
         counter = 1
         while exists:
-            alternativeFilename = self.filename[:-4] + " V" + str(counter) + ".pdf"
+            alternative_filename = self.filename[:-4] + " V" + str(counter) + ".pdf"
             counter += 1
-            if not self.checkIfExists(alternativeFilename):
+            if not self.filename_exists(alternative_filename):
                 exists = False
-        self.filename = alternativeFilename
+        self.filename = alternative_filename
 
     def generate_image_from_data(self):
         idle = {
@@ -69,7 +67,6 @@ class Report:
             "start": round(self.cutting[0] / SAMPLING_RATE, 2),
             "stop": round(self.cutting[1] / SAMPLING_RATE, 2),
         }
-
         plot = Plot(idle, cutting, self.x, self.y, (8, 4))
         plot.plot_raw(True, "report/figures/{}".format(self.filename[:-4] + ".png"))
         plot.plot_cutting(True, "report/figures/{}".format(self.filename[:-4] + ".png"))
@@ -85,7 +82,7 @@ class Report:
     def generate(self):
         env = Environment(loader=FileSystemLoader("."))
         template = env.get_template("report/template.html")
-        # Generate html with base64 encoded string containing image
+        # Generate html with base64 encoded string containing image.
         html_string = template.render(
             {
                 "logo": self.image_to_base64_string("report/logo.png"),
@@ -107,19 +104,18 @@ class Report:
             }
         )
 
-        # Setup config
+        # Setup config.
         path_wkhtmltopdf = r"report/bin/wkhtmltopdf.exe"
         config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
 
-        # Generate pdf
-        # 2. User-defined (primary choice)
+        # Generate a report and save it in user-defined directory.
         pdfkit.from_string(
             html_string,
             os.path.join(self.directory_path, self.filename),
             configuration=config,
         )
 
-        # Show pdf
+        # Show the report.
         current_dir = os.getcwd()
         os.chdir(self.directory_path)
         os.startfile(self.filename)
@@ -131,24 +127,24 @@ class AutoReport:
     No path specified by user. Just default directory.
     """
 
-    def __init__(self, x, y, idle, cutting, metadata, stats, measurement_file):
+    def __init__(self, x, y, idle: list, cutting: list, metadata: dict, stats: dict, measurement_file):
         self.x = x
         self.y = y
-        self.idle = idle  # This is a list
-        self.cutting = cutting  # This is a list
-        self.metadata = metadata  # This is a dictionary
-        self.stats = stats  # This is a dictionary
+        self.idle = idle
+        self.cutting = cutting
+        self.metadata = metadata
+        self.stats = stats
         self.measurement_file = measurement_file
 
-        # Generate new filename
+        # Generate new filename.
         self.now = datetime.datetime.now().strftime("%d-%m-%Y")
         self.filename = "Report " + self.now + ".pdf"
-        if self.checkIfExists(self.filename):
-            self.setAlternativeFilename()
+        if self.filename_exists(self.filename):
+            self.set_alternative_filename()
 
         self.generate_image_from_data()
 
-        # Generate document
+        # Generate a report.
         self.generate()
 
         # Add report's name to the database.
@@ -156,22 +152,22 @@ class AutoReport:
         # old reports saved in default directory.
         self.update_database_report_name()
 
-    def checkIfExists(self, filename):
+    def filename_exists(self, filename):
         found = False
         for filename_ in os.listdir("report/reports"):
             if filename_ == filename:
                 found = True
         return found
 
-    def setAlternativeFilename(self):
+    def set_alternative_filename(self):
         exists = True
         counter = 1
         while exists:
-            alternativeFilename = self.filename[:-4] + " V" + str(counter) + ".pdf"
+            alternative_filename = self.filename[:-4] + " V" + str(counter) + ".pdf"
             counter += 1
-            if not self.checkIfExists(alternativeFilename):
+            if not self.filename_exists(alternative_filename):
                 exists = False
-        self.filename = alternativeFilename
+        self.filename = alternative_filename
 
     def generate_image_from_data(self):
         idle = {
@@ -198,7 +194,7 @@ class AutoReport:
     def generate(self):
         env = Environment(loader=FileSystemLoader("."))
         template = env.get_template("report/template.html")
-        # Generate html with base64 encoded string containing image
+        # Generate html with base64 encoded string containing image.
         html_string = template.render(
             {
                 "logo": self.image_to_base64_string("report/logo.png"),
@@ -220,12 +216,11 @@ class AutoReport:
             }
         )
 
-        # Setup config
+        # Setup config.
         path_wkhtmltopdf = r"report/bin/wkhtmltopdf.exe"
         config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
 
-        # Generate pdf
-        # 1. Default (just in case)
+        # Generate a report and save it in the default directory.
         pdfkit.from_string(
             html_string, "report/reports/{}".format(self.filename), configuration=config
         )
