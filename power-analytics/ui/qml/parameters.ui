@@ -237,9 +237,9 @@ background: none;
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-123</y>
-            <width>381</width>
-            <height>628</height>
+            <y>0</y>
+            <width>375</width>
+            <height>572</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -287,24 +287,122 @@ background: none;
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>Werkstoff</string>
+              <string>* Werkstoff</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="le_material">
-             <property name="font">
-              <font>
-               <family>Segoe UI Light</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
+            <widget class="QFrame" name="frame">
              <property name="styleSheet">
-              <string notr="true"/>
+              <string notr="true">background-color: rgba(0, 0, 0, 0);</string>
              </property>
-             <property name="placeholderText">
-              <string>Werkstoff</string>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
              </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QComboBox" name="cb_material">
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+height: 20px;
+font-size: 12pt;
+font-family: &quot;Segoe UI Light&quot;;
+padding-left: 10px;
+padding-bottom: 5px;
+border-bottom: 2px solid rgb(255, 255, 255);
+border-radius: 0px;
+background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+}
+
+QComboBox::drop-down {
+background-color: rgba(0, 0, 0, 0);
+}
+
+QComboBox::down-arrow {
+background-color: rgba(0, 0, 0, 0);
+}
+
+QComboBox:hover {
+border-bottom: 2px solid rgb(0, 255, 213);
+border-radius: 0px;
+}
+
+QListView { 
+border: 0px; 
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+color: rgb(62, 101, 190);
+background-color: rgb(255, 255, 255);
+font-weight: normal;
+selection-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(80, 50, 156, 255));
+show-decoration-selected: 1;
+padding: 8px;
+}</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>107</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>107</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+height: 20px;
+font-size: 9pt;
+font-family: &quot;Segoe UI Light&quot;;
+padding-bottom: 2.5px;
+border: 2px solid rgb(255, 255, 255);
+border-radius: 12.5px;
+background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+}
+
+QPushButton:hover {
+color: rgb(0, 255, 213);
+border: 2px solid rgb(0, 255, 213);
+}
+
+QPushButton:pressed {
+color: rgb(0, 255, 213);
+border: 2px solid rgb(0, 255, 213);
+background-color: rgba(0, 255, 213, 0.5);
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Bearbeiten</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
            <item>
@@ -345,17 +443,51 @@ background: none;
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>Schnittrichtung</string>
+              <string>* Schnittrichtung</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="le_cutting_direction">
+            <widget class="QComboBox" name="cb_cutting_direction">
              <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="placeholderText">
-              <string>Schnittrichtung</string>
+              <string notr="true">QComboBox {
+height: 20px;
+font-size: 12pt;
+font-family: &quot;Segoe UI Light&quot;;
+padding-left: 10px;
+padding-bottom: 5px;
+border-bottom: 2px solid rgb(255, 255, 255);
+border-radius: 0px;
+background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+}
+
+QComboBox::drop-down {
+background-color: rgba(0, 0, 0, 0);
+}
+
+QComboBox::down-arrow {
+background-color: rgba(0, 0, 0, 0);
+}
+
+QComboBox:hover {
+border-bottom: 2px solid rgb(0, 255, 213);
+border-radius: 0px;
+}
+
+QListView { 
+border: 0px; 
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+color: rgb(62, 101, 190);
+background-color: rgb(255, 255, 255);
+font-weight: normal;
+selection-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(80, 50, 156, 255));
+show-decoration-selected: 1;
+padding: 8px;
+}</string>
              </property>
             </widget>
            </item>
@@ -371,7 +503,7 @@ background: none;
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>Drehzahl [U/min]</string>
+              <string>* Drehzahl [U/min]</string>
              </property>
             </widget>
            </item>
@@ -400,7 +532,7 @@ background: none;
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>Vorschubgeschwindigkeit [m/min]</string>
+              <string>* Vorschubgeschwindigkeit [m/min]</string>
              </property>
             </widget>
            </item>
@@ -426,7 +558,7 @@ background: none;
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>Schnittbreite [mm]</string>
+              <string>* SB - Werkstück [mm]</string>
              </property>
             </widget>
            </item>
@@ -452,7 +584,7 @@ background: none;
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>Schnitttiefe [mm]</string>
+              <string>* Schnitttiefe [mm]</string>
              </property>
             </widget>
            </item>
@@ -463,32 +595,6 @@ background: none;
              </property>
              <property name="placeholderText">
               <string>Schnitttiefe [mm]</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_10">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>Schnittwinkel [°]</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="le_cutting_angle">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="placeholderText">
-              <string>Schnittwinkel [°]</string>
              </property>
             </widget>
            </item>
@@ -504,17 +610,51 @@ background: none;
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>ID-Nummer</string>
+              <string>* ID-Nummer</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="le_tool_id">
+            <widget class="QComboBox" name="cb_tool_id">
              <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="placeholderText">
-              <string>ID-Nummer</string>
+              <string notr="true">QComboBox {
+height: 20px;
+font-size: 12pt;
+font-family: &quot;Segoe UI Light&quot;;
+padding-left: 10px;
+padding-bottom: 5px;
+border-bottom: 2px solid rgb(255, 255, 255);
+border-radius: 0px;
+background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+}
+
+QComboBox::drop-down {
+background-color: rgba(0, 0, 0, 0);
+}
+
+QComboBox::down-arrow {
+background-color: rgba(0, 0, 0, 0);
+}
+
+QComboBox:hover {
+border-bottom: 2px solid rgb(0, 255, 213);
+border-radius: 0px;
+}
+
+QListView { 
+border: 0px; 
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+color: rgb(62, 101, 190);
+background-color: rgb(255, 255, 255);
+font-weight: normal;
+selection-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(80, 50, 156, 255));
+show-decoration-selected: 1;
+padding: 8px;
+}</string>
              </property>
             </widget>
            </item>

@@ -33,7 +33,7 @@
 ::978f952a14a936cc963da21a135fa983
 @echo off
 
-cd ..
+::cd ..
 
 if not exist logs (
   mkdir logs 

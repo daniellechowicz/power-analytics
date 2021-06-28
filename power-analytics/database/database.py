@@ -22,7 +22,9 @@ class Database:
             pass
 
     def connect_to_database(self):
-        connection = sqlite3.connect(os.path.join(Strings.DIRECTORY_DATABASE, self.db_name + ".db"))
+        connection = sqlite3.connect(
+            os.path.join(Strings.DIRECTORY_DATABASE, self.db_name + ".db")
+        )
         return connection
 
     def create_metadata_table(self):
@@ -268,3 +270,53 @@ class Database:
     def execute_command(self, command):
         result = self.cursor.execute(command).fetchall()
         return result
+
+
+class Material:
+    def __init__(self):
+        self.connection = self.connect_to_database()
+        self.cursor = self.connection.cursor()
+
+        # Materials table initialization.
+        try:
+            self.create_table()
+        except:
+            pass
+
+    def connect_to_database(self):
+        connection = sqlite3.connect(
+            os.path.join(Strings.DIRECTORY_DATABASE, Strings.DATABASE_MATERIALS)
+        )
+        return connection
+
+    def create_table(self):
+        self.connection.cursor().execute(
+            """CREATE TABLE materials(
+            material_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            material TEXT
+            )"""
+        )
+        self.connection.commit()
+
+    def insert_into_database(self, material):
+        self.cursor.execute(
+            f"""
+        INSERT INTO materials (material) 
+        SELECT UPPER("{material}")
+        WHERE NOT EXISTS(SELECT 1 FROM materials WHERE material=UPPER("{material}"));
+        """
+        )
+        self.connection.commit()
+
+    def delete_from_database(self, material):
+        self.cursor.execute(
+            f"DELETE FROM materials WHERE material=UPPER('{material}');"
+        )
+        self.connection.commit()
+
+    def get_available_materials(self):
+        results = self.cursor.execute("SELECT material FROM materials")
+        materials = []
+        for material in results.fetchall():
+            materials.append(material[0])
+        return materials

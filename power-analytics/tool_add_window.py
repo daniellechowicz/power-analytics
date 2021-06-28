@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtGui
 from PySide2.QtCore import QPoint
 from PySide2.QtWidgets import *
 from ui.ui_tool_add import Ui_ToolAdd
 
+from helpers.helpers import get_permission_dialog
 from settings import *
 import ctypes
 import os
@@ -16,12 +17,24 @@ class ToolAddWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_ToolAdd()
         self.ui.setupUi(self)
-        self.setup_ui()
-        self.setup_initial_view()
+        self.setup_user_interface()
         self.setup_type_validators()
         self.setup_callbacks()
+        self.show()
 
-        # Drop shadow effect
+    def setup_user_interface(self):
+        self.setWindowIcon(QtGui.QIcon(os.path.join("ui", "icons", Strings.ICON)))
+        self.setWindowTitle(
+            QtCore.QCoreApplication.translate(
+                "MainWindow", f"{Strings.APP_NAME} | {Strings.DIALOG_TOOLS_NEW}", None
+            )
+        )
+
+        # Remove title bar.
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+        # Drop shadow effect.
         self.shadow = QGraphicsDropShadowEffect(self)
         self.shadow.setBlurRadius(20)
         self.shadow.setXOffset(0)
@@ -29,25 +42,9 @@ class ToolAddWindow(QMainWindow):
         self.shadow.setColor(QtGui.QColor(0, 0, 0, 60))
         self.ui.shadow_frame.setGraphicsEffect(self.shadow)
 
-        self.show()
-
-    def setup_ui(self):
-        self.setWindowIcon(QtGui.QIcon("ui/icons/lighting.svg"))
-        self.setWindowTitle(
-            QtCore.QCoreApplication.translate(
-                "MainWindow", "Power Analytics | Neues Werkzeug", None
-            )
-        )
-
-    def setup_initial_view(self):
-        # Remove title bar
-        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-
     def setup_type_validators(self):
         self.only_int = QtGui.QIntValidator()
         self.only_float = QtGui.QDoubleValidator()
-
         self.ui.le_tool_diameter.setValidator(self.only_float)
         self.ui.le_bore_diameter.setValidator(self.only_float)
         self.ui.le_tool_cutting_width.setValidator(self.only_float)
@@ -60,34 +57,22 @@ class ToolAddWindow(QMainWindow):
 
     def setup_callbacks(self):
         self.ui.pushButton.clicked.connect(lambda: self.close())
-        self.ui.pushButton_2.clicked.connect(lambda: self.save())
-
-    def get_permission_dialog(self, text, title, utype):
-        user32 = ctypes.WinDLL("user32", use_last_error=True)
-        msg_box = user32.MessageBoxW
-        result = msg_box(None, text, title, utype)
-        if not result:
-            raise ctypes.WinError(ctypes.get_last_error())
-        return result
+        self.ui.pushButton_2.clicked.connect(lambda: self.add_new_tool())
 
     def get_data(self):
-        # Append given parameters to this variable
         data = dict()
-
-        # QWidget -> QLineEdit
-        # "scrollAreaWidgetContents" is the one I have to use
         for widget in self.ui.scrollAreaWidgetContents.children():
             if isinstance(widget, QLineEdit):
                 key = widget.objectName()[
                     3:
-                ]  # e.g. "le_tool_diameter"[3:] -> "tool_diameter"
+                ] # e.g. "le_tool_diameter"[3:] -> "tool_diameter"
                 value = widget.text()
                 value = value.replace(",", ".")
                 data[key] = value
         return data
 
     def tool_already_exists(self, tool_id):
-        df = pd.read_csv(os.path.join("database", LEITZ_TOOLS), delimiter=";")
+        df = pd.read_csv(os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS), delimiter=DELIMITER)
         # 0 - not found
         # 1 - found
         result = len(df.loc[df["Identnummer"] == str(tool_id)].index)
@@ -96,23 +81,23 @@ class ToolAddWindow(QMainWindow):
         else:
             return True
 
-    def save(self):
+    def add_new_tool(self):
         OK_CANCEL = 1
         OK = 1
         CANCEL = 2
 
-        result = self.get_permission_dialog(
+        result = get_permission_dialog(
             "Sind Sie sicher, dass Sie ein neues Werkzeug zur bestehenden Datenbank hinzufügen möchten?",
-            "Power Analytics | Neues Werkzeug",
+            f"{Strings.APP_NAME} | {Strings.DIALOG_TOOLS_NEW}",
             OK_CANCEL,
         )
 
         if result == OK:
             data = self.get_data()
-            file = open(os.path.join("database", LEITZ_TOOLS), "a")
-            file_updates = open(os.path.join("database", LEITZ_TOOLS_UPDATES), "a")
+            file = open(os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS), "a")
+            file_updates = open(os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS_UPDATES), "a")
 
-            seq = [
+            SEQUENCE = [
                 "tool_id",
                 "classification_number",
                 "strategic_business_number",
@@ -130,18 +115,18 @@ class ToolAddWindow(QMainWindow):
                 "shear_angle",
             ]
 
-            for i, key in enumerate(seq):
+            for i, key in enumerate(SEQUENCE):
                 if key == "tool_id":
                     if self.tool_already_exists(data[key]):
                         ctypes.windll.user32.MessageBoxW(
                             0,
-                            "Das Werkzeug mit der angegebenen ID-Nummer befindet sich in der Datenbank",
-                            "Power Analytics | Neues Werkzeug",
+                            "Das Werkzeug mit der angegebenen ID-Nummer befindet sich in der Datenbank.",
+                            f"{Strings.APP_NAME} | {Strings.DIALOG_TOOLS_NEW}",
                             0 | 0x40,
                         )
                         return
 
-                if i != len(seq) - 1:
+                if i != len(SEQUENCE) - 1:
                     file.write(data[key] + ";")
                     file_updates.write(data[key] + ";")
                 else:
@@ -150,8 +135,8 @@ class ToolAddWindow(QMainWindow):
 
             ctypes.windll.user32.MessageBoxW(
                 0,
-                "Das Werkzeug wurde erfolgreich in die bestehende Datenbank aufgenommen",
-                "Power Analytics | Neues Werkzeug",
+                "Das Werkzeug wurde erfolgreich in die bestehende Datenbank aufgenommen.",
+                f"{Strings.APP_NAME} | {Strings.DIALOG_TOOLS_NEW}",
                 0 | 0x40,
             )
             file.close()

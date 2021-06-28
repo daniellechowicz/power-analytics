@@ -1,6 +1,7 @@
 from nptdms import TdmsFile
 from settings import *
 import ctypes
+import numpy as np
 import os
 import json
 
@@ -27,11 +28,51 @@ def get_channel_name(path):
         ctypes.windll.user32.MessageBoxW(
             0,
             f"Die Kanäle {channels} sind verfügbar, es wurde jedoch {CHANNEL_NAME} gewählt. Ändern Sie die Einstellungen entsprechend der gefundenen Kanalnamen.",
-            "Power Analytics | Datenimport",
+            f"{Strings.APP_NAME} | {Strings.DIALOG_DATA_IMPORT}",
             0 | 0x40,
         )
 
     return CHANNEL_NAME
+
+
+def get_key(d, val):
+    """
+    This function comes in handy when working with dictionaries.
+    Having the value only, it allows to get corresponding key.
+    """
+    for key, value in d.items():
+        if val == value:
+            return key
+    return None
+
+
+def get_permission_dialog(text, title, utype):
+    user32 = ctypes.WinDLL("user32", use_last_error=True)
+    msg_box = user32.MessageBoxW
+    result = msg_box(None, text, title, utype)
+    if not result:
+        raise ctypes.WinError(ctypes.get_last_error())
+    return result
+
+
+def get_available_tool_ids():
+    data = np.loadtxt(
+        os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS),
+        delimiter=DELIMITER,
+        dtype=str,
+        skiprows=1,
+    )
+    if len(data) == 0:
+        ctypes.windll.user32.MessageBoxW(
+            0,
+            "Es sieht so aus, als ob die Datei mit den Tools leer ist. Bitte aktualisieren Sie diese zuerst und wiederholen Sie den Vorgang.",
+            f"{Strings.APP_NAME} | {Strings.DIALOG_DATA_IMPORT}",
+            0 | 0x40,
+        )
+        return None
+    else:
+        tool_ids = data[:, 0]
+        return tool_ids
 
 
 def get_full_name(column):

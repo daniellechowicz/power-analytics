@@ -55,7 +55,7 @@ class Tools:
         for key, value in params.items():
             try:
                 params[key] = value.to_string(index=False)
-            except: # For example, "tool_id" does not use "find_by_id" function.
+            except:  # For example, "tool_id" does not use "find_by_id" function.
                 continue
-                
+
         return params

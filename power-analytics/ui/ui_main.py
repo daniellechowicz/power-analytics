@@ -1493,7 +1493,7 @@ class Ui_MainWindow(object):
         self.label_14.setText(
             QCoreApplication.translate(
                 "MainWindow",
-                u"Statistik\u00a0zur Leistungsmessung innerhalb des\u00a0gew\u00e4hlten Bereichs [Watt]",
+                u"Statistik\u00a0zur Leistungsmessung innerhalb des\u00a0gew\u00e4hlten Bereichs [kW]",
                 None,
             )
         )
@@ -1522,7 +1522,7 @@ class Ui_MainWindow(object):
         self.label_53.setText(
             QCoreApplication.translate(
                 "MainWindow",
-                u"Statistik\u00a0zur Leistungsmessung innerhalb des\u00a0gew\u00e4hlten Bereichs [Watt]",
+                u"Statistik\u00a0zur Leistungsmessung innerhalb des\u00a0gew\u00e4hlten Bereichs [kW]",
                 None,
             )
         )

@@ -12,7 +12,16 @@ import yaml
 
 
 class Report:
-    def __init__(self, x, y, idle: list, cutting: list, metadata: dict, stats: dict, measurement_file):
+    def __init__(
+        self,
+        x,
+        y,
+        idle: list,
+        cutting: list,
+        metadata: dict,
+        stats: dict,
+        measurement_file,
+    ):
         self.x = x
         self.y = y
         self.idle = idle
@@ -127,7 +136,16 @@ class AutoReport:
     No path specified by user. Just default directory.
     """
 
-    def __init__(self, x, y, idle: list, cutting: list, metadata: dict, stats: dict, measurement_file):
+    def __init__(
+        self,
+        x,
+        y,
+        idle: list,
+        cutting: list,
+        metadata: dict,
+        stats: dict,
+        measurement_file,
+    ):
         self.x = x
         self.y = y
         self.idle = idle

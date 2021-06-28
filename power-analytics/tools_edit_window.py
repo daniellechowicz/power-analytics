@@ -1,57 +1,72 @@
 # -*- coding: utf-8 -*-
 
-from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtGui
 from PySide2.QtCore import QPoint
 from PySide2.QtWidgets import *
 from ui.ui_tools_edit import Ui_ToolsEdit
 from tool_add_window import ToolAddWindow
 from tools_window import ToolsWindow
 
+from helpers.helpers import get_key
 from database.database import Database
 from settings import *
 import ctypes
-import numpy as np
 import os
 import pandas as pd
 
 
 class ToolsEditWindow(QMainWindow):
+
+    CHOICES = {
+        "Klassifizierungsnummer": "Klassifizierungsnummer",
+        "SGE": "Strategische Geschäftszahl",
+        "D": "Werkzeugdurchmesser",
+        "SB": "Schneidenbreite",
+        "BO": "Bohrungsdurchmesser",
+        "Z": "Schneidenzahl",
+        "ZGE": "Gesamtschneidenzahl",
+        "QUALITAT": "Schneidenwerkstoff",
+        "COD": "PCD Qualität",
+        "TKQ": "Grundkörpermaterial",
+        "NMAX": "Maximale Drehzahl",
+        "NOPT": "Optimale Drehzahl",
+        "SW": "Spanwinkel γ",
+        "AW": "Achswinkel λ",
+    }
+
     def __init__(self):
+        # Open the database.
+        self.db = Database(DB_NAME)
+
         QMainWindow.__init__(self)
         self.ui = Ui_ToolsEdit()
         self.ui.setupUi(self)
-        self.change_default_data_types()
-        self.setup_ui()
-        self.setup_initial_view()
+        self.set_types()
+        self.setup_user_interface()
         self.update_type_validator()
         self.setup_callbacks()
         self.setup_combobox()
+        self.show()
 
-        # Open the database
-        self.db = Database(DB_NAME)
+    def setup_user_interface(self):
+        self.setWindowIcon(QtGui.QIcon(os.path.join("ui", "icons", Strings.ICON)))
+        self.setWindowTitle(
+            QtCore.QCoreApplication.translate(
+                "MainWindow", f"{Strings.APP_NAME} | {Strings.DIALOG_TOOLS_EDIT}", None
+            )
+        )
 
-        # Drop shadow effect
+        # Remove title bar.
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+        # Drop shadow effect.
         self.shadow = QGraphicsDropShadowEffect(self)
         self.shadow.setBlurRadius(20)
         self.shadow.setXOffset(0)
         self.shadow.setYOffset(0)
         self.shadow.setColor(QtGui.QColor(0, 0, 0, 60))
         self.ui.frame_shadow.setGraphicsEffect(self.shadow)
-
-        self.show()
-
-    def setup_ui(self):
-        self.setWindowIcon(QtGui.QIcon("ui/icons/lighting.svg"))
-        self.setWindowTitle(
-            QtCore.QCoreApplication.translate(
-                "MainWindow", "Power Analytics | Werkzeugparameter bearbeiten", None
-            )
-        )
-
-    def setup_initial_view(self):
-        # Remove title bar
-        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
     def setup_callbacks(self):
         self.ui.btn_search.clicked.connect(lambda: self.search_and_update_labels())
@@ -64,23 +79,7 @@ class ToolsEditWindow(QMainWindow):
         )
 
     def setup_combobox(self):
-        self.choices = {
-            "Klassifizierungsnummer": "Klassifizierungsnummer",
-            "SGE": "Strategische Geschäftszahl",
-            "D": "Werkzeugdurchmesser",
-            "SB": "Schneidenbreite",
-            "BO": "Bohrungsdurchmesser",
-            "Z": "Schneidenzahl",
-            "ZGE": "Gesamtschneidenzahl",
-            "QUALITAT": "Schneidenwerkstoff",
-            "COD": "PCD Qualität",
-            "TKQ": "Grundkörpermaterial",
-            "NMAX": "Maximale Drehzahl",
-            "NOPT": "Optimale Drehzahl",
-            "SW": "Spanwinkel γ",
-            "AW": "Achswinkel λ",
-        }
-        for key, value in self.choices.items():
+        for key, value in self.CHOICES.items():
             self.ui.comboBox.addItem(value)
 
     def update_type_validator(self):
@@ -105,10 +104,10 @@ class ToolsEditWindow(QMainWindow):
         else:
             self.ui.lineEdit_2.setValidator(None)
 
-    def change_default_data_types(self):
+    def set_types(self):
         df = pd.read_csv(
-            os.path.join("database", LEITZ_TOOLS),
-            delimiter=";",
+            os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS),
+            delimiter=DELIMITER,
             keep_default_na=False,
         )
         df["Identnummer"] = df["Identnummer"].astype(str)
@@ -126,20 +125,15 @@ class ToolsEditWindow(QMainWindow):
         df["NOPT"] = pd.to_numeric(df["NOPT"], downcast="float")
         df["SW"] = pd.to_numeric(df["SW"], downcast="float")
         df["AW"] = pd.to_numeric(df["AW"], downcast="float")
+
+        # Confirm the types.
         df.to_csv(os.path.join("database", LEITZ_TOOLS), sep=";", index=False)
 
     def get_data_to_update(self):
-        def get_key(d, val):
-            for key, value in d.items():
-                if val == value:
-                    return key
-            return None
-
         choice_text = self.ui.comboBox.currentText()
         tool_id = self.ui.lineEdit.text()
-        column_name = get_key(self.choices, choice_text)
+        column_name = get_key(self.CHOICES, choice_text)
         value = self.ui.lineEdit_2.text()
-
         return tool_id, column_name, value
 
     def tool_already_exists(self, tool_id):
@@ -154,8 +148,8 @@ class ToolsEditWindow(QMainWindow):
 
     def find_by_ID(self, file, tool_id):
         df = pd.read_csv(
-            os.path.join("database", file),
-            delimiter=";",
+            os.path.join(Strings.DIRECTORY_DATABASE, file),
+            delimiter=DELIMITER,
             keep_default_na=False,
         )
 
@@ -163,22 +157,24 @@ class ToolsEditWindow(QMainWindow):
             self.clean_labels()
             ctypes.windll.user32.MessageBoxW(
                 0,
-                "Das Werkzeug mit der angegebenen ID-Nummer ist nicht in der Datenbank",
-                "Power Analytics | Neues Werkzeug",
+                "Das Werkzeug mit der angegebenen ID-Nummer ist nicht in der Datenbank.",
+                f"{Strings.APP_NAME} | {Strings.DIALOG_TOOLS_NEW}",
                 0 | 0x40,
             )
             return
 
         # There was a problem:
         # IndexError: index 0 is out of bounds for axis 0 with size 0
-        # Sometimes I have strings (e.g. L 1234 WA), sometimes I have integers (e.g. 12345)...
+        # Sometimes I have strings (e.g. L 1234 WA), sometimes I have integers (e.g. 12345).
         # Therefore, simple try-except can be used.
         try:
             row = df.loc[df["Identnummer"] == str(tool_id)]
-            i = row.index[0]
+            if len(row) != 0:
+                i = row.index[0]
         except:
             row = df.loc[df["Identnummer"] == int(tool_id)]
-            i = row.index[0]
+            if len(row) != 0:
+                i = row.index[0]
 
         corresponding_params = {
             "tool_id": str(row["Identnummer"][i]),
@@ -198,19 +194,23 @@ class ToolsEditWindow(QMainWindow):
             "shear_angle": row["AW"][i],
         }
         self.update_labels(corresponding_params)
+
         return corresponding_params
 
-    # line - this is a row from "tools.csv"
     def track_changes(self, tool_id, column_name, value, new_line):
-        # Update "tools_updates.csv" now (to keep track of changes done over time)
+        """
+        This function is responsible for keeping the track of all the changes
+        performed (adding and/or deleting of the tools).
+        """
         df = pd.read_csv(
-            os.path.join("database", LEITZ_TOOLS_UPDATES),
-            delimiter=";",
+            os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS_UPDATES),
+            delimiter=DELIMITER,
             keep_default_na=False,
         )
+
         # There was a problem:
         # IndexError: index 0 is out of bounds for axis 0 with size 0
-        # Sometimes I have strings (e.g. L 1234 WA), sometimes I have integers (e.g. 12345)...
+        # Sometimes I have strings (e.g. L 1234 WA), sometimes I have integers (e.g. 12345).
         # Therefore, simple try-except can be used.
         try:
             row = df.loc[df["Identnummer"] == str(tool_id)]
@@ -221,28 +221,32 @@ class ToolsEditWindow(QMainWindow):
             if len(row) != 0:
                 i = row.index[0]
 
-        # If there is the record for the ID of interest, then execute the following
+        # If the ID of interest is present, then execute the following condition (i.e. edit the line corresponding to the tool).
         if len(row) != 0:
             i = row.index[0]
             df.at[i, column_name] = value
             df.to_csv(
-                os.path.join("database", LEITZ_TOOLS_UPDATES),
-                sep=";",
+                os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS_UPDATES),
+                sep=DELIMITER,
                 index=False,
             )
-        # If there is no record for the ID of interest, then append it to the file
+        # If there is no record for the ID of interest, then append it to the file.
         else:
             # Why am I doing it this way?
             # There was a particular problem: in "tools_updates.csv" file,
-            # all the updates were saved multiple times. As it sounds like a good idea,
+            # i.e. all the updates were saved multiple times. As it sounds like a good idea,
             # because one can introduced changes easily, it was causing problems when
             # the second file had to be replaced as it was copying all the lines instead of one.
             # Open the file and get all the lines.
-            with open(os.path.join("database", LEITZ_TOOLS_UPDATES), "r") as f:
+            with open(
+                os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS_UPDATES), "r"
+            ) as f:
                 lines = f.readlines()
 
             # Delete (or just skip) the line which starts with the same tool ID.
-            with open(os.path.join("database", LEITZ_TOOLS_UPDATES), "w") as f:
+            with open(
+                os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS_UPDATES), "w"
+            ) as f:
                 for line in lines:
                     if line.startswith(tool_id):
                         pass
@@ -250,11 +254,15 @@ class ToolsEditWindow(QMainWindow):
                         f.write(line)
 
             # Eventually, once the line was deleted, append a new line to the existing file.
-            f = open(os.path.join("database", LEITZ_TOOLS_UPDATES), "a")
+            f = open(os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS_UPDATES), "a")
             f.write(new_line)
             f.close()
 
     def get_database_equivalent(self, key):
+        """
+        Since database's headers are in English, this function is needed
+        to get headers that correspond with German equivalents.
+        """
         headers = {
             "Klassifizierungsnummer": "classification_number",
             "SGE": "strategic_business_unit",
@@ -277,15 +285,16 @@ class ToolsEditWindow(QMainWindow):
         # Since it contains "," by default (type validators are responsible for that).
         value = value.replace(",", ".")
 
-        # Update "tools.csv" itself
+        # Update "tools.csv" itself.
         df = pd.read_csv(
-            os.path.join("database", LEITZ_TOOLS),
-            delimiter=";",
+            os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS),
+            delimiter=DELIMITER,
             keep_default_na=False,
         )
+
         # There was a problem:
         # IndexError: index 0 is out of bounds for axis 0 with size 0
-        # Sometimes I have strings (e.g. L 1234 WA), sometimes I have integers (e.g. 12345)...
+        # Sometimes I have strings (e.g. L 1234 WA), sometimes I have integers (e.g. 12345).
         # Therefore, simple try-except can be used.
         try:
             row = df.loc[df["Identnummer"] == str(tool_id)]
@@ -295,46 +304,53 @@ class ToolsEditWindow(QMainWindow):
             i = row.index[0]
 
         df.at[i, column_name] = value
-        df.to_csv(os.path.join("database", LEITZ_TOOLS), sep=";", index=False)
+        df.to_csv(
+            os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS),
+            sep=DELIMITER,
+            index=False,
+        )
 
         # Whenever saved, it is necessary to change the default data types.
-        self.change_default_data_types()
+        self.set_types()
 
         if track_changes:
-            # Update a row (but for these lines, no new value would have been added)
             row = df.loc[df["Identnummer"] == tool_id]
-
-            # Preprocess the line
-            row = row.to_csv(header=False, index=False, sep=";").replace("\r", "")
+            row = row.to_csv(header=False, index=False, sep=DELIMITER).replace("\r", "")
             self.track_changes(tool_id, column_name, value, row)
 
-        # When done, refresh the labels and update the database
+        # When done, refresh the labels and update the database.
         self.search_and_update_labels()
-        column = self.get_database_equivalent(column_name)
-        self.db.modify_existing_record(tool_id, column, value)
+        english_header = self.get_database_equivalent(column_name)
+        self.db.modify_existing_record(tool_id, english_header, value)
 
     def search_and_update_labels(self):
         tool_id, _, _ = self.get_data_to_update()
         if tool_id is "":
             ctypes.windll.user32.MessageBoxW(
                 0,
-                f"Es wurde keine Werkzeug-ID eingegeben",
-                "Power Analytics | Werkzeugparameter bearbeiten",
+                f"Es wurde keine Werkzeug-ID eingegeben.",
+                f"{Strings.APP_NAME} | {Strings.DIALOG_TOOLS_EDIT}",
                 0 | 0x40,
             )
         else:
             self.find_by_ID(LEITZ_TOOLS, tool_id)
 
     def clean_labels(self):
+        """
+        This function is responsible for cleaning the labels only.
+        It does not affect neither the database nor CSV files.
+        """
         for widget in self.ui.groupBox.children():
             if isinstance(widget, QLabel):
                 if widget.objectName().startswith("l_"):
                     widget.setText("")
 
     def update_labels(self, params):
+        """
+        This function is responsible for updating the labels only.
+        It does not affect neither the database nor CSV files.
+        """
         for key, value in params.items():
-            # QGroupBox -> QLabel
-            # "groupBox" is the one I have to use
             for widget in self.ui.groupBox.children():
                 if isinstance(widget, QLabel):
                     if widget.objectName() == "l_" + key:
@@ -352,24 +368,34 @@ class ToolsEditWindow(QMainWindow):
                                 widget.setText(str(value))
 
     def update_file(self):
+        """
+        This function is responsible for updating the CSV file.
+        It does affect the files (both "tools.csv" and "tools_updates.csv") permanently.
+        """
         tool_id, column_name, value = self.get_data_to_update()
         try:
             self.edit_by_ID(tool_id, column_name, value, track_changes=True)
             ctypes.windll.user32.MessageBoxW(
                 0,
-                f"Die Datei {LEITZ_TOOLS} wurde erfolgreich aktualisiert",
-                "Power Analytics | Werkzeugparameter bearbeiten",
+                f"Die Datei {LEITZ_TOOLS} wurde erfolgreich aktualisiert.",
+                f"{Strings.APP_NAME} | {Strings.DIALOG_TOOLS_EDIT}",
                 0 | 0x40,
             )
         except Exception as e:
             ctypes.windll.user32.MessageBoxW(
                 0,
-                f"Fehler beim Speichern aufgetreten ({e})",
-                "Power Analytics | Werkzeugparameter bearbeiten",
+                f"Fehler beim Speichern aufgetreten ({e}).",
+                f"{Strings.APP_NAME} | {Strings.DIALOG_TOOLS_EDIT}",
                 0 | 0x40,
             )
+        self.ui.lineEdit_2.clear()
 
     def get_updates(self, tool_id):
+        """
+        Whenever replacing the entire file, this function will compare both of them.
+        In case of any differences found, it will return all the updates that need to be performed.
+        """
+
         # r1 - from file exported from the database
         # r2 - from file containing all the updates done
         r1 = self.find_by_ID(LEITZ_TOOLS, tool_id)

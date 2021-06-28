@@ -5,6 +5,7 @@ from PySide2.QtCore import QPoint
 from PySide2.QtWidgets import *
 from ui.ui_parameters import Ui_Parameters
 
+from database.database import Material
 from database.manage_tools import Tools
 from helpers.calculate_parameters import (
     get_cutting_speed,
@@ -12,6 +13,8 @@ from helpers.calculate_parameters import (
     get_mean_chip_thickness,
     get_mean_chip_length,
 )
+from helpers.helpers import get_available_tool_ids
+from material_add_window import MaterialAddWindow
 from settings import *
 import ctypes
 import datetime
@@ -27,6 +30,9 @@ class ParametersWindow(QMainWindow):
         self.ui.setupUi(self)
         self.setup_user_interface()
         self.setup_type_validators()
+        self.setup_materials_combobox()
+        self.setup_cutting_direction_combobox()
+        self.setup_tool_id_combobox()
         self.define_callbacks()
         self.set_last_used()
 
@@ -63,10 +69,30 @@ class ParametersWindow(QMainWindow):
         self.ui.le_cutting_width.setValidator(self.only_float)
         self.ui.le_cutting_depth.setValidator(self.only_float)
 
+    def setup_materials_combobox(self):
+        material = Material()
+        materials = material.get_available_materials()
+        for value in materials:
+            self.ui.cb_material.addItem(value)
+
+    def setup_cutting_direction_combobox(self):
+        choices = {1: "Gegenlauf", 2: "Gleichlauf"}
+        for key, value in choices.items():
+            self.ui.cb_cutting_direction.addItem(value)
+
+    def setup_tool_id_combobox(self):
+        tool_ids = get_available_tool_ids()
+        try:
+            for value in tool_ids:
+                self.ui.cb_tool_id.addItem(value)
+        except:
+            pass
+
     def define_callbacks(self):
         self.ui.pushButton.clicked.connect(lambda: self.close())
         self.ui.pushButton_2.clicked.connect(lambda: self.clear_metadata())
         self.ui.pushButton_3.clicked.connect(lambda: self.confirm())
+        self.ui.pushButton_4.clicked.connect(lambda: MaterialAddWindow())
 
     def set_last_used(self):
         try:
@@ -81,7 +107,7 @@ class ParametersWindow(QMainWindow):
                 if isinstance(widget, QLineEdit):
                     # What is the idea behind the following lines?
                     # QML components (line edits) were called accordingly to the parameters' names
-                    # they correspond to. For example, tool_id -> le_tool_id.
+                    # they correspond to.
                     key = widget.objectName().replace("le_", "")
                     if metadata[key] != "NaN":
                         widget.setText(metadata[key])
@@ -131,7 +157,7 @@ class ParametersWindow(QMainWindow):
         self.metadata["mean_chip_length"] = str(self.metadata["mean_chip_length"])
 
     def tool_exists(self):
-        tool_id = self.ui.le_tool_id.text()
+        tool_id = self.ui.cb_tool_id.currentText()
         available_records = np.loadtxt(
             os.path.join(Strings.DIRECTORY_DATABASE, LEITZ_TOOLS),
             delimiter=DELIMITER,
@@ -170,16 +196,16 @@ class ParametersWindow(QMainWindow):
     def set_entered_parameters(self):
         self.author = self.ui.le_author.text().upper()
         self.date = datetime.datetime.now().strftime("%d-%m-%Y %H:%M")
-        self.material = self.ui.le_material.text().upper()
+        self.material = self.ui.cb_material.currentText().upper()
         self.moisture_content = self.ui.le_moisture_content.text().replace(",", ".")
         self.cutting_direction = (
-            self.ui.le_cutting_direction.text().upper().replace(",", ".")
+            self.ui.cb_cutting_direction.currentText().upper().replace(",", ".")
         )
         self.rotational_speed = self.ui.le_rotational_speed.text().replace(",", ".")
         self.feed_speed = self.ui.le_feed_speed.text().replace(",", ".")
         self.cutting_width = self.ui.le_cutting_width.text().replace(",", ".")
         self.cutting_depth = self.ui.le_cutting_depth.text().replace(",", ".")
-        self.tool_id = self.ui.le_tool_id.text()
+        self.tool_id = self.ui.cb_tool_id.currentText()
         self.comments = self.ui.le_comments.text()
 
         if self.moisture_content == "":
@@ -207,10 +233,15 @@ class ParametersWindow(QMainWindow):
 
     def parameters_are_valid(self):
         # Checking validity of cutting direction.
-        if self.metadata["cutting_direction"].lower() not in ["ggl", "gll"]:
+        if self.metadata["cutting_direction"].lower() not in [
+            "ggl",
+            "gegenlauf",
+            "gll",
+            "gleichlauf",
+        ]:
             ctypes.windll.user32.MessageBoxW(
                 0,
-                f"Es können nur zwei Schnittrichtungen gewählt werden: GGL oder GLL. Stattdessen wurde \"{self.metadata['cutting_direction']}\" eingegeben.",
+                f"Es können nur zwei Schnittrichtungen gewählt werden: GGL, GEGENLAUF, GLL oder GLEICHLAUF. Stattdessen wurde \"{self.metadata['cutting_direction']}\" eingegeben.",
                 f"{Strings.APP_NAME} | {Strings.DIALOG_PARAMETERS}",
                 0 | 0x40,
             )

@@ -202,7 +202,7 @@ class Ui_Parameters(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -178, 375, 628))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, -42, 375, 572))
         self.scrollAreaWidgetContents.setStyleSheet(
             u"background-color: rgba(0, 0, 0, 0);"
         )
@@ -230,15 +230,92 @@ class Ui_Parameters(object):
 
         self.verticalLayout_3.addWidget(self.label_4)
 
-        self.le_material = QLineEdit(self.scrollAreaWidgetContents)
-        self.le_material.setObjectName(u"le_material")
-        font = QFont()
-        font.setFamily(u"Segoe UI Light")
-        font.setPointSize(12)
-        self.le_material.setFont(font)
-        self.le_material.setStyleSheet(u"")
+        self.frame = QFrame(self.scrollAreaWidgetContents)
+        self.frame.setObjectName(u"frame")
+        self.frame.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout = QHBoxLayout(self.frame)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.cb_material = QComboBox(self.frame)
+        self.cb_material.setObjectName(u"cb_material")
+        self.cb_material.setStyleSheet(
+            u"QComboBox {\n"
+            "height: 20px;\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "padding-left: 10px;\n"
+            "padding-bottom: 5px;\n"
+            "border-bottom: 2px solid rgb(255, 255, 255);\n"
+            "border-radius: 0px;\n"
+            "background-color: rgba(255, 255, 255, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "}\n"
+            "\n"
+            "QComboBox::drop-down {\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QComboBox::down-arrow {\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QComboBox:hover {\n"
+            "border-bottom: 2px solid rgb(0, 255, 213);\n"
+            "border-radius: 0px;\n"
+            "}\n"
+            "\n"
+            "QListView { \n"
+            "border: 0px; \n"
+            "border-top-left-radius: 0px;\n"
+            "border-top-right-radius: 0px;\n"
+            "border-bottom-left-radius: 0px;\n"
+            "border-bottom-right-radius: 0px;\n"
+            "color: rgb(62, 101, 190);\n"
+            "background-color: rgb(255, 255, 255);\n"
+            "font-weight: normal;\n"
+            "selection-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(80, 50, 156, 255));\n"
+            "show-decoration-selected: 1;\n"
+            "padding: "
+            "8px;\n"
+            "}"
+        )
 
-        self.verticalLayout_3.addWidget(self.le_material)
+        self.horizontalLayout.addWidget(self.cb_material)
+
+        self.pushButton_4 = QPushButton(self.frame)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.setMinimumSize(QSize(107, 0))
+        self.pushButton_4.setMaximumSize(QSize(107, 16777215))
+        self.pushButton_4.setStyleSheet(
+            u"QPushButton {\n"
+            "height: 20px;\n"
+            "font-size: 9pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "padding-bottom: 2.5px;\n"
+            "border: 2px solid rgb(255, 255, 255);\n"
+            "border-radius: 12.5px;\n"
+            "background-color: rgba(255, 255, 255, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "color: rgb(0, 255, 213);\n"
+            "border: 2px solid rgb(0, 255, 213);\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "color: rgb(0, 255, 213);\n"
+            "border: 2px solid rgb(0, 255, 213);\n"
+            "background-color: rgba(0, 255, 213, 0.5);\n"
+            "}\n"
+            ""
+        )
+
+        self.horizontalLayout.addWidget(self.pushButton_4)
+
+        self.verticalLayout_3.addWidget(self.frame)
 
         self.label_5 = QLabel(self.scrollAreaWidgetContents)
         self.label_5.setObjectName(u"label_5")
@@ -262,11 +339,51 @@ class Ui_Parameters(object):
 
         self.verticalLayout_3.addWidget(self.label_6)
 
-        self.le_cutting_direction = QLineEdit(self.scrollAreaWidgetContents)
-        self.le_cutting_direction.setObjectName(u"le_cutting_direction")
-        self.le_cutting_direction.setStyleSheet(u"")
+        self.cb_cutting_direction = QComboBox(self.scrollAreaWidgetContents)
+        self.cb_cutting_direction.setObjectName(u"cb_cutting_direction")
+        self.cb_cutting_direction.setStyleSheet(
+            u"QComboBox {\n"
+            "height: 20px;\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "padding-left: 10px;\n"
+            "padding-bottom: 5px;\n"
+            "border-bottom: 2px solid rgb(255, 255, 255);\n"
+            "border-radius: 0px;\n"
+            "background-color: rgba(255, 255, 255, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "}\n"
+            "\n"
+            "QComboBox::drop-down {\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QComboBox::down-arrow {\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QComboBox:hover {\n"
+            "border-bottom: 2px solid rgb(0, 255, 213);\n"
+            "border-radius: 0px;\n"
+            "}\n"
+            "\n"
+            "QListView { \n"
+            "border: 0px; \n"
+            "border-top-left-radius: 0px;\n"
+            "border-top-right-radius: 0px;\n"
+            "border-bottom-left-radius: 0px;\n"
+            "border-bottom-right-radius: 0px;\n"
+            "color: rgb(62, 101, 190);\n"
+            "background-color: rgb(255, 255, 255);\n"
+            "font-weight: normal;\n"
+            "selection-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(80, 50, 156, 255));\n"
+            "show-decoration-selected: 1;\n"
+            "padding: "
+            "8px;\n"
+            "}"
+        )
 
-        self.verticalLayout_3.addWidget(self.le_cutting_direction)
+        self.verticalLayout_3.addWidget(self.cb_cutting_direction)
 
         self.label_13 = QLabel(self.scrollAreaWidgetContents)
         self.label_13.setObjectName(u"label_13")
@@ -279,6 +396,7 @@ class Ui_Parameters(object):
         self.le_rotational_speed = QLineEdit(self.scrollAreaWidgetContents)
         self.le_rotational_speed.setObjectName(u"le_rotational_speed")
         self.le_rotational_speed.setStyleSheet(u"")
+        self.le_rotational_speed.setCursorPosition(0)
 
         self.verticalLayout_3.addWidget(self.le_rotational_speed)
 
@@ -332,11 +450,51 @@ class Ui_Parameters(object):
 
         self.verticalLayout_3.addWidget(self.label_11)
 
-        self.le_tool_id = QLineEdit(self.scrollAreaWidgetContents)
-        self.le_tool_id.setObjectName(u"le_tool_id")
-        self.le_tool_id.setStyleSheet(u"")
+        self.cb_tool_id = QComboBox(self.scrollAreaWidgetContents)
+        self.cb_tool_id.setObjectName(u"cb_tool_id")
+        self.cb_tool_id.setStyleSheet(
+            u"QComboBox {\n"
+            "height: 20px;\n"
+            "font-size: 12pt;\n"
+            'font-family: "Segoe UI Light";\n'
+            "padding-left: 10px;\n"
+            "padding-bottom: 5px;\n"
+            "border-bottom: 2px solid rgb(255, 255, 255);\n"
+            "border-radius: 0px;\n"
+            "background-color: rgba(255, 255, 255, 0);\n"
+            "color: rgb(255, 255, 255);\n"
+            "}\n"
+            "\n"
+            "QComboBox::drop-down {\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QComboBox::down-arrow {\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "}\n"
+            "\n"
+            "QComboBox:hover {\n"
+            "border-bottom: 2px solid rgb(0, 255, 213);\n"
+            "border-radius: 0px;\n"
+            "}\n"
+            "\n"
+            "QListView { \n"
+            "border: 0px; \n"
+            "border-top-left-radius: 0px;\n"
+            "border-top-right-radius: 0px;\n"
+            "border-bottom-left-radius: 0px;\n"
+            "border-bottom-right-radius: 0px;\n"
+            "color: rgb(62, 101, 190);\n"
+            "background-color: rgb(255, 255, 255);\n"
+            "font-weight: normal;\n"
+            "selection-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(62, 101, 190, 255), stop:1 rgba(80, 50, 156, 255));\n"
+            "show-decoration-selected: 1;\n"
+            "padding: "
+            "8px;\n"
+            "}"
+        )
 
-        self.verticalLayout_3.addWidget(self.le_tool_id)
+        self.verticalLayout_3.addWidget(self.cb_tool_id)
 
         self.label_12 = QLabel(self.scrollAreaWidgetContents)
         self.label_12.setObjectName(u"label_12")
@@ -481,8 +639,8 @@ class Ui_Parameters(object):
         self.label_4.setText(
             QCoreApplication.translate("MainWindow", u"* Werkstoff", None)
         )
-        self.le_material.setPlaceholderText(
-            QCoreApplication.translate("MainWindow", u"Werkstoff", None)
+        self.pushButton_4.setText(
+            QCoreApplication.translate("MainWindow", u"Bearbeiten", None)
         )
         self.label_5.setText(
             QCoreApplication.translate("MainWindow", u"Feuchtigkeit [%]", None)
@@ -492,9 +650,6 @@ class Ui_Parameters(object):
         )
         self.label_6.setText(
             QCoreApplication.translate("MainWindow", u"* Schnittrichtung", None)
-        )
-        self.le_cutting_direction.setPlaceholderText(
-            QCoreApplication.translate("MainWindow", u"Schnittrichtung", None)
         )
         self.label_13.setText(
             QCoreApplication.translate("MainWindow", u"* Drehzahl [U/min]", None)
@@ -513,10 +668,12 @@ class Ui_Parameters(object):
             )
         )
         self.label_8.setText(
-            QCoreApplication.translate("MainWindow", u"* SB - Werkstück [mm]", None)
+            QCoreApplication.translate(
+                "MainWindow", u"* SB - Werkst\u00fcck [mm]", None
+            )
         )
         self.le_cutting_width.setPlaceholderText(
-            QCoreApplication.translate("MainWindow", u"SB - Werkstück [mm]", None)
+            QCoreApplication.translate("MainWindow", u"Schnittbreite [mm]", None)
         )
         self.label_9.setText(
             QCoreApplication.translate("MainWindow", u"* Schnitttiefe [mm]", None)
@@ -526,9 +683,6 @@ class Ui_Parameters(object):
         )
         self.label_11.setText(
             QCoreApplication.translate("MainWindow", u"* ID-Nummer", None)
-        )
-        self.le_tool_id.setPlaceholderText(
-            QCoreApplication.translate("MainWindow", u"ID-Nummer", None)
         )
         self.label_12.setText(
             QCoreApplication.translate("MainWindow", u"Kommentare", None)

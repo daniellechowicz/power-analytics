@@ -113,8 +113,6 @@ class Replace:
             else:
                 pass
 
-    import pandas as pd
-
     def get_all_ids_from_main(self):
         """
         This function is responsible for getting all the IDs from the file "tools.csv"
@@ -141,7 +139,7 @@ class Replace:
         1. Get all the IDs from "tools.csv"
         2. Get all the IDs from "tools_updates.csv"
         3. If ID from "tools_updates.csv" was not found in the main CSV file,
-        then write the corresponding line to "tools.csv"
+        then write the corresponding line to "tools.csv".
         """
         ids_main = self.get_all_ids_from_main()
         ids_updates = self.get_all_ids_from_updates()
