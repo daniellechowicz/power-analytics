@@ -21,6 +21,7 @@ Toolkit for power consumption analysis for the manufacturer of woodworking tools
   - [Range selection and signal visualization](#range-selection-and-signal-visualization)
   - [Report](#report)
   - [Database](#database)
+  - [Settings](#settings)
 - [Troubleshooting](#troubleshooting)
 - [Acknowledgements](#acknowledgements)
 
@@ -348,7 +349,53 @@ measurement_id,author,measurement_date,material,moisture_content,cutting_directi
 
 ### Multiparameter visualization
 
-### Settings
+<p align="justify"> 
+Within the visualization, it is possible to extract knowledge quickly and easily from the data collected in the database. At the bottom of the screen are buttons that are designed in the style of a coordinate system. Categorical variables are placed on the Y axis of the imaginary coordinate system and numerical variables are placed on the X axis. The categorical variables include: 
+</p>
+
+- material
+- cutting direction
+- cutting material
+- tool body material
+
+<p align="justify"> 
+The numerical variables, on the other hand, include:
+</p>
+
+- rotational speed
+- feed speed
+- feed per tooth
+- cutting speed
+- cutting width
+- cutting depth
+- shear angle
+- tool diameter
+- tool cutting width
+- number of wings
+- total number of wings
+- rake angle
+- bore diameter
+
+<p align="justify">
+By pressing a given button, the corresponding visualization (according to an imaginary coordinate system) will be displayed.
+</p>
+
+<p align="justify">
+In the upper right corner of the window you can also see the parameters, which are divided into three groups: material, process and tool. These parameters are taken when entering data in the parameters window. If you want to relate the visualization to other parameters, go to the parameters window and enter different data.
+</p>
+
+<p align="justify">
+The graph shows all data that matches the parameters entered, as well as the last measurement (always in cyan). As a result of the presence of the last measurement on the graph, you can quickly see how the tool under test performs in relation to other tools.
+</p>
+
+<p align="center">
+  <img src="images/visualization.png">
+  <p align="center">
+    Fig. 14. Multiparameter visualization
+  </p>
+</p>
+
+## Settings
 
 The user has access to some software settings. The settings can be accessed from the _Settings_ tab. The settings that can be changed are as follows:
 
@@ -362,10 +409,10 @@ The user has access to some software settings. The settings can be accessed from
 8. cutting stop index - the default setting for the last measured value of the cutting
 9. CSV tools filename - the name of the CSV file that will contain the description of the tool parameters
 
-### Troubleshooting
+## Troubleshooting
 
 Error logs are saved in the _logs_ folder with the appropriate date. In case of any errors, please send the file to _d.lechowicz@wood-kplus.at_.
 
-### Acknowledgements
+## Acknowledgements
 
 The icons used in the software are property of _www.flaticon.com_.
