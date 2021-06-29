@@ -1,6 +1,6 @@
 <br/>
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/header.png">
+  <img src="images/header.png">
 </p>
 
 # Power Analytics
@@ -59,7 +59,7 @@ To install the software, follow the bulleted steps:
 - after the installation is complete, go to the _bin_ folder and launch the application by double clicking on the icon
 
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/path/python.png">
+  <img src="images/path/python.png">
   <p align="center">
     Fig. 1. Make sure that Python 3.9.0 will be added to system's <i>PATH</i> variable; if admin rights are unavailable, then <i>Install launcher for all users (recommended)</i> must be unchecked
   </p>
@@ -69,9 +69,26 @@ To install the software, follow the bulleted steps:
 
 This chapter describes an example use of the software and the procedure to analyze the data. A detailed description of the various functionalities is described in the next section.
 
+### Main window
+
+After launching the application, you will see the main window from which you can navigate to the various functionalities of the software. The tabs shown on the left are:
+
+- data import and parameter entry,
+- cutting and idle range selection and signal analysis including spectrum visualization,
+- database and multi-parameter data visualization,
+- reporting,
+- settings.
+
+<p align="center"> 
+  <img src="images/main.png">
+  <p align="center">
+    Fig. 2. Main window of Power Analytics
+  </p>
+</p>
+
 ### Importing data and entering parameters
 
-After launching the application, you will see the main window from which you can navigate to the various functionalities of the software. Head to the first tab and then enter the path to the measurement file. If you do not have any measurement files in TDMS format, go to the _samples_ folder, which contains sample files. Confirm your selection. The next step is to enter the measurement parameters, including:
+Head to the first tab and then enter the path to the measurement file. If you do not have any measurement files in TDMS format, go to the _samples_ folder, which contains sample files. Confirm your selection. The next step is to enter the measurement parameters, including:
 
 - author,
 - material,
@@ -86,9 +103,16 @@ After launching the application, you will see the main window from which you can
 Mandatory fields are marked with an asterisk. Once the parameters have been entered, it is necessary to confirm them and then move on to the next tab by clicking the confirm button located on the right side of the window.
 
 <p align="center"> 
-  <img src="https://github.com/daniellechowicz/Power-Analytics/blob/main/images/main.png">
+  <img src="images/import.png">
   <p align="center">
-    Fig. 1. Make sure that Python 3.9.0 will be added to system's <i>PATH</i> variable; if admin rights are unavailable, then <i>Install launcher for all users (recommended)</i> must be unchecked
+    Fig. 3. Import page of Power Analytics
+  </p>
+</p>
+
+<p align="center"> 
+  <img src="images/parameters.png">
+  <p align="center">
+    Fig. 4. Parameters widget of Power Analytics
   </p>
 </p>
 
