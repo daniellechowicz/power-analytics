@@ -395,9 +395,34 @@ The graph shows all data that matches the parameters entered, as well as the las
   </p>
 </p>
 
+### Tools
+
+<p align="center">
+  <img src="images/edit.png" width="50%">
+  <p align="center">
+    Fig. 15. Editing tools available in the database
+  </p>
+</p>
+
+<p align="center">
+  <img src="images/add.png" width="50%">
+  <p align="center">
+    Fig. 16. Adding a new tool
+  </p>
+</p>
+
+<p align="center">
+  <img src="images/show_all.png">
+  <p align="center">
+    Fig. 17. Overview of the tools available in the database
+  </p>
+</p>
+
 ## Settings
 
+<p align="justify">
 The user has access to some software settings. The settings can be accessed from the _Settings_ tab. The settings that can be changed are as follows:
+</p>
 
 1. channel name - the name that is given to the measurement file channel name when it is saved (avoid special characters)
 2. sampling frequency - the sampling frequency used during the measurement specified in Hz
@@ -408,6 +433,17 @@ The user has access to some software settings. The settings can be accessed from
 7. cutting start index - the default setting for the first measured value of the cutting
 8. cutting stop index - the default setting for the last measured value of the cutting
 9. CSV tools filename - the name of the CSV file that will contain the description of the tool parameters
+
+<p align="justify">
+<b>Note:</b> every time you change the settings, be sure to reset the app. This is the only way to validate your changes.
+</p>
+
+<p align="center">
+  <img src="images/settings.png" width="50%">
+  <p align="center">
+    Fig. 18. Settings
+  </p>
+</p>
 
 ## Troubleshooting
 
