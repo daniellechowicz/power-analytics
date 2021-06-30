@@ -397,6 +397,26 @@ The graph shows all data that matches the parameters entered, as well as the las
 
 ### Tools
 
+<p align="justify">
+Tool-related functionalities allow you to add, edit, and display tools available in the database. The procedures for editing and adding tools are easy to understand, just follow the instructions displayed in the appropriate windows.
+</p>
+
+<p align="justify">
+Tools are stored in a text file in CSV format. The reason for this was that the customer is unable to provide access to the database, and the only format they can export the data in is CSV format. The customer also wanted that if the CSV file was substituted, all changes that would be made over time would be saved. Therefore, when swapping files, it is necessary to do so through the software function <i>Update</i> located under the <i>Einstellungen</i> tab.
+</p>
+
+<p align="justify">
+<b>Note I:</b> the columns of the <i>tools.csv</i> must look as follows:
+</p>
+
+```
+Identnummer;Klassifizierungsnummer;SGE;D;SB;BO;Z;ZGE;QUALITAT;COD;TKQ;NMAX;NOPT;SW;AW
+```
+
+<p align="justify">
+<b>Note II</b>: remember to avoid special characters inside headers.
+</p>
+
 <p align="center">
   <img src="images/edit.png" width="50%">
   <p align="center">
