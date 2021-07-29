@@ -472,3 +472,6 @@ Error logs are saved in the _logs_ folder with the appropriate date. In case of 
 ## Acknowledgements
 
 The icons used in the software are property of _www.flaticon.com_.
+
+## Copyright
+© 2021 Leitz Gmbh & Co. KG All Rights Reserved
